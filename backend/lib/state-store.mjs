@@ -8,9 +8,22 @@ const __dirname = path.dirname(__filename);
 const dataDir = path.resolve(__dirname, '../data');
 const seedStatePath = path.join(dataDir, 'seed-state.json');
 const runtimeStatePath = path.join(dataDir, 'app-state.json');
+let stateMutationQueue = Promise.resolve();
 
 async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, 'utf8'));
+}
+
+async function writeJsonAtomic(filePath, payload) {
+  const tempFilePath = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+  await fs.writeFile(tempFilePath, payload);
+  await fs.rename(tempFilePath, filePath);
+}
+
+function enqueueStateMutation(operation) {
+  const nextOperation = stateMutationQueue.catch(() => undefined).then(operation);
+  stateMutationQueue = nextOperation.then(() => undefined, () => undefined);
+  return nextOperation;
 }
 
 export async function ensureRuntimeState() {
@@ -29,19 +42,28 @@ export async function readState() {
 }
 
 export async function writeState(state) {
-  await ensureRuntimeState();
-  await fs.writeFile(runtimeStatePath, `${JSON.stringify(state, null, 2)}\n`);
+  return enqueueStateMutation(async () => {
+    await ensureRuntimeState();
+    await writeJsonAtomic(runtimeStatePath, `${JSON.stringify(state, null, 2)}\n`);
+    return state;
+  });
 }
 
 export async function updateState(mutator) {
-  const currentState = await readState();
-  const nextState = await mutator(currentState);
-  await writeState(nextState);
-  return nextState;
+  return enqueueStateMutation(async () => {
+    await ensureRuntimeState();
+    const currentState = await readJson(runtimeStatePath);
+    const nextState = await mutator(currentState);
+    await writeJsonAtomic(runtimeStatePath, `${JSON.stringify(nextState, null, 2)}\n`);
+    return nextState;
+  });
 }
 
 export async function resetState() {
-  await fs.mkdir(dataDir, { recursive: true });
-  await fs.copyFile(seedStatePath, runtimeStatePath);
-  return readJson(runtimeStatePath);
+  return enqueueStateMutation(async () => {
+    await fs.mkdir(dataDir, { recursive: true });
+    const seedState = await readJson(seedStatePath);
+    await writeJsonAtomic(runtimeStatePath, `${JSON.stringify(seedState, null, 2)}\n`);
+    return seedState;
+  });
 }
