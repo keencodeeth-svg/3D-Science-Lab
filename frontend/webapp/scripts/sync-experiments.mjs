@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertExperimentCollectionValid } from './experiment-validation.mjs';
-import { createExperimentIndexItem, loadMultiscaleEngine } from '../../../backend/lib/experiment-catalog.mjs';
+import { syncGeneratedMultiscaleEngine } from '../../../backend/scripts/sync-multiscale-engine.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,6 +12,8 @@ const sourceDir = path.resolve(projectRoot, '../../backend/configs/experiments')
 const targetDir = path.resolve(projectRoot, 'public/data/experiments');
 
 async function main() {
+  await syncGeneratedMultiscaleEngine();
+  const { createExperimentIndexItem, loadMultiscaleEngine } = await import('../../../backend/lib/experiment-catalog.mjs');
   const files = (await fs.readdir(sourceDir)).filter((file) => file.endsWith('.json')).sort();
   const index = [];
   const { getExperimentMultiscaleView } = await loadMultiscaleEngine();

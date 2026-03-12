@@ -1,14 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
+import * as multiscaleEngineModule from './generated/multiscale-engine.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const backendRoot = path.resolve(__dirname, '..');
-const projectRoot = path.resolve(backendRoot, '..');
 const experimentsDir = path.resolve(backendRoot, 'configs/experiments');
-const webappRoot = path.resolve(projectRoot, 'frontend/webapp');
 
 let multiscaleEnginePromise;
 
@@ -25,29 +24,11 @@ export async function loadExperimentEntries() {
 export async function loadMultiscaleEngine() {
   if (!multiscaleEnginePromise) {
     multiscaleEnginePromise = (async () => {
-      let typescriptModule;
-      try {
-        typescriptModule = await import(pathToFileURL(path.resolve(webappRoot, 'node_modules/typescript/lib/typescript.js')).href);
-      } catch (error) {
-        throw new Error('Experiment catalog requires frontend/webapp dependencies. Run `cd frontend/webapp && npm install` first.', { cause: error });
+      if (typeof multiscaleEngineModule.getExperimentMultiscaleView !== 'function') {
+        throw new Error('Generated experiment multiscale engine is unavailable. Run `node backend/scripts/sync-multiscale-engine.mjs` first.');
       }
 
-      const ts = typescriptModule.default ?? typescriptModule;
-      const source = await fs.readFile(path.resolve(webappRoot, 'src/lib/multiscaleLab.ts'), 'utf8');
-      const { outputText } = ts.transpileModule(source, {
-        compilerOptions: {
-          module: ts.ModuleKind.ES2020,
-          target: ts.ScriptTarget.ES2020,
-        },
-      });
-
-      const runtimeUrl = `data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`;
-      const module = await import(runtimeUrl);
-      if (typeof module.getExperimentMultiscaleView !== 'function') {
-        throw new Error('Experiment multiscale engine is unavailable');
-      }
-
-      return module;
+      return multiscaleEngineModule;
     })();
   }
 

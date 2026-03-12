@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node --watch ./server.mjs",
     "start": "node ./server.mjs",
-    "reset:data": "node ./scripts/reset-state.mjs"
+    "reset:data": "node ./scripts/reset-state.mjs",
+    "sync:multiscale-engine": "node ./scripts/sync-multiscale-engine.mjs"
   }
 }

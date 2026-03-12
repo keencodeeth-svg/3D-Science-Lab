@@ -7,10 +7,21 @@
 - `npm run dev`
 - `npm run start`
 - `npm run reset:data`
+- `npm run sync:multiscale-engine`
 
 默认监听 `http://127.0.0.1:4318`。
 
-实验目录接口会复用 `frontend/webapp/src/lib/multiscaleLab.ts` 的摘要逻辑，因此首次启动前需要先在 `frontend/webapp/` 执行 `npm install`。
+实验目录接口现在读取仓库内生成好的 `backend/lib/generated/multiscale-engine.mjs`，因此后端运行时不再依赖 `frontend/webapp/node_modules`。
+
+如果你修改了 `frontend/webapp/src/lib/multiscaleLab.ts`，再执行一次：
+
+- `cd frontend/webapp && npm run sync:data`
+
+或者只刷新后端生成产物：
+
+- `cd backend && npm run sync:multiscale-engine`
+
+生成脚本本身会用到 `frontend/webapp/` 里的 `typescript` 依赖，所以刷新生成产物前，仍然需要先在 `frontend/webapp/` 执行 `npm install`。
 
 ## 当前已实现接口
 
