@@ -1,0 +1,172 @@
+{
+  "id": "chem-senior-luminol-glow-001",
+  "title": "鲁米诺化学发光",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "选择性必修",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-darkroom-bench",
+    "cameraPreset": "darkroom-front",
+    "assets": [
+      "flask.glb",
+      "luminol-solution.glb",
+      "oxidant.glb",
+      "darkroom-shroud.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "氧化还原与能量转化",
+    "unit": "鲁米诺化学发光",
+    "knowledgePoints": [
+      "暗室观察",
+      "化学发光",
+      "冷蓝光现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识鲁米诺发光实验的装置和遮光条件",
+    "观察加入氧化体系后出现的冷蓝色发光现象",
+    "理解化学能转化为光能的典型演示价值"
+  ],
+  "equipment": [
+    {
+      "id": "flask",
+      "name": "锥形瓶",
+      "type": "container"
+    },
+    {
+      "id": "luminol-solution",
+      "name": "鲁米诺溶液",
+      "type": "solution"
+    },
+    {
+      "id": "oxidant",
+      "name": "氧化液",
+      "type": "solution"
+    },
+    {
+      "id": "catalyst",
+      "name": "催化液",
+      "type": "solution"
+    },
+    {
+      "id": "darkroom-shroud",
+      "name": "遮光环境",
+      "type": "environment"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-luminol-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别锥形瓶、鲁米诺溶液、氧化液、催化液和遮光环境。",
+      "actionType": "identify-object",
+      "targetObject": "luminol-panel",
+      "successCondition": "luminol-tools-identified",
+      "failureHints": [
+        "请先识别鲁米诺发光实验的器材和环境条件。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-darkroom",
+      "order": 2,
+      "title": "建立暗室体系",
+      "description": "切换到遮光观察环境，为发光现象创造条件。",
+      "actionType": "switch-view",
+      "targetObject": "darkroom-toggle",
+      "successCondition": "darkroom-ready",
+      "failureHints": [
+        "鲁米诺发光需要足够暗的观察环境。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "add-oxidation-system",
+      "order": 3,
+      "title": "加入氧化体系",
+      "description": "向体系中加入氧化液和催化液，触发化学发光。",
+      "actionType": "add-material",
+      "targetObject": "flask",
+      "successCondition": "luminol-oxidation-triggered",
+      "failureHints": [
+        "请在暗室条件下加入完整氧化体系。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "record-cold-blue-glow",
+      "order": 4,
+      "title": "观察冷蓝发光",
+      "description": "记录烧瓶中出现冷蓝色发光的现象和持续时间。",
+      "actionType": "record-observation",
+      "targetObject": "flask",
+      "successCondition": "luminol-glow-recorded",
+      "failureHints": [
+        "请重点观察冷蓝光，而不是只关注气泡或液面变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-luminol",
+      "order": 5,
+      "title": "总结化学发光",
+      "description": "总结鲁米诺发光的条件、现象和能量转化特征。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "luminol-summary-submitted",
+      "failureHints": [
+        "请围绕遮光条件、冷蓝光和能量转化完成总结。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 25,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成鲁米诺化学发光实验的关键操作，并能解释暗室条件下出现冷蓝光的意义。",
+    "commonMistakes": [
+      "忽略遮光条件，导致发光观察不明显",
+      "只记录亮了，不描述冷蓝色和持续特征",
+      "没有总结化学能转化为光能的实验价值"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "view-switch",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "id": "phy-junior-liquid-density-001",
+  "title": "测量液体密度",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-measurement-bench",
+    "cameraPreset": "cylinder-front",
+    "assets": [
+      "balance.glb",
+      "cylinder.glb",
+      "beaker.glb",
+      "dropper.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "质量与密度",
+    "unit": "测量液体密度",
+    "knowledgePoints": [
+      "测量质量",
+      "读取体积",
+      "密度计算"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识天平、量筒、烧杯和滴管等实验器材",
+    "通过测量质量和体积计算液体密度",
+    "掌握液体密度测量的基本流程"
+  ],
+  "equipment": [
+    {
+      "id": "balance",
+      "name": "天平",
+      "type": "meter"
+    },
+    {
+      "id": "cylinder",
+      "name": "量筒",
+      "type": "tool"
+    },
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "liquid",
+      "name": "待测液体",
+      "type": "material"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-liquid-density-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别天平、量筒、烧杯、待测液体和滴管。",
+      "actionType": "identify-object",
+      "targetObject": "liquid-density-panel",
+      "successCondition": "liquid-density-tools-identified",
+      "failureHints": [
+        "请先识别测量液体密度所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "measure-liquid-mass",
+      "order": 2,
+      "title": "测量液体质量",
+      "description": "先测出待测液体的质量。",
+      "actionType": "record-observation",
+      "targetObject": "balance",
+      "successCondition": "liquid-mass-recorded",
+      "failureHints": [
+        "请先完成液体质量测量。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "meter-reading",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "read-liquid-volume",
+      "order": 3,
+      "title": "读取液体体积",
+      "description": "再读取量筒中液体的体积。",
+      "actionType": "record-observation",
+      "targetObject": "cylinder",
+      "successCondition": "liquid-volume-recorded",
+      "failureHints": [
+        "请准确读取量筒中液体体积。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "calculate-liquid-density",
+      "order": 4,
+      "title": "计算液体密度",
+      "description": "根据质量和体积计算密度。",
+      "actionType": "set-variable",
+      "targetObject": "density-panel",
+      "successCondition": "liquid-density-calculated",
+      "failureHints": [
+        "请根据测得的质量和体积完成密度计算。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-liquid-density",
+      "order": 5,
+      "title": "总结测量方法",
+      "description": "总结测量液体密度的基本方法。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "liquid-density-summary-submitted",
+      "failureHints": [
+        "请围绕测质量、读体积和算密度完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成液体密度测量，并能按质量除以体积的方法计算密度。",
+    "commonMistakes": [
+      "没有先准确测量液体质量",
+      "量筒读数不规范，体积读取错误",
+      "没有把质量和体积结合起来进行密度计算"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "meter-reading",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

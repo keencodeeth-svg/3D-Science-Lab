@@ -1,0 +1,504 @@
+{
+  "id": "phy-junior-circuit-001",
+  "title": "串联与并联电路",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "physics-electricity-bench",
+    "cameraPreset": "desk-front-close",
+    "assets": [
+      "bench.glb",
+      "battery-box.glb",
+      "switch.glb",
+      "bulb.glb",
+      "wire.glb"
+    ]
+  },
+  "objectives": [
+    "认识基础电路器材",
+    "完成串联电路搭建",
+    "完成并联电路搭建并比较现象"
+  ],
+  "equipment": [
+    {
+      "id": "battery-box",
+      "name": "电池盒",
+      "type": "power"
+    },
+    {
+      "id": "switch",
+      "name": "开关",
+      "type": "control"
+    },
+    {
+      "id": "bulb-a",
+      "name": "小灯泡 A",
+      "type": "load"
+    },
+    {
+      "id": "bulb-b",
+      "name": "小灯泡 B",
+      "type": "load"
+    },
+    {
+      "id": "wire-set",
+      "name": "导线组",
+      "type": "connector"
+    }
+  ],
+  "multiscale": {
+    "defaultLens": "meso",
+    "equipmentProfiles": [
+      {
+        "equipmentId": "battery-box",
+        "physicalGroup": "power",
+        "constraints": [
+          "闭合回路前只显示储能状态，不提前出现电流效果",
+          "电势差与内部离子迁移共同决定输出"
+        ],
+        "components": [
+          {
+            "id": "battery-case",
+            "name": "绝缘外壳",
+            "role": "固定电池单元",
+            "materialRef": "plastic"
+          },
+          {
+            "id": "battery-electrode",
+            "name": "电极片",
+            "role": "输出电子",
+            "materialRef": "zinc"
+          },
+          {
+            "id": "battery-electrolyte",
+            "name": "电解质层",
+            "role": "维持离子迁移",
+            "materialRef": "electrolyte"
+          }
+        ]
+      },
+      {
+        "equipmentId": "switch",
+        "physicalGroup": "control",
+        "constraints": [
+          "合闸前禁止电子定向漂移",
+          "优先表现触点闭合状态而不是复杂机械动画"
+        ],
+        "components": [
+          {
+            "id": "switch-lever",
+            "name": "拨杆",
+            "role": "控制通断",
+            "materialRef": "plastic"
+          },
+          {
+            "id": "switch-contact",
+            "name": "金属触点",
+            "role": "闭合回路",
+            "materialRef": "copper"
+          }
+        ]
+      },
+      {
+        "equipmentId": "bulb-a",
+        "physicalGroup": "load",
+        "constraints": [
+          "回路未闭合前不显示发光",
+          "发光程度由灯丝发热决定"
+        ],
+        "components": [
+          {
+            "id": "bulb-a-shell",
+            "name": "玻璃泡壳",
+            "role": "隔绝空气",
+            "materialRef": "glass"
+          },
+          {
+            "id": "bulb-a-filament",
+            "name": "钨丝",
+            "role": "电热发光",
+            "materialRef": "tungsten"
+          },
+          {
+            "id": "bulb-a-lead",
+            "name": "引线",
+            "role": "导入电流",
+            "materialRef": "copper"
+          }
+        ]
+      },
+      {
+        "equipmentId": "bulb-b",
+        "physicalGroup": "load",
+        "constraints": [
+          "并联时应保持独立支路逻辑",
+          "发光反馈与支路状态联动"
+        ],
+        "components": [
+          {
+            "id": "bulb-b-shell",
+            "name": "玻璃泡壳",
+            "role": "隔绝空气",
+            "materialRef": "glass"
+          },
+          {
+            "id": "bulb-b-filament",
+            "name": "钨丝",
+            "role": "电热发光",
+            "materialRef": "tungsten"
+          },
+          {
+            "id": "bulb-b-lead",
+            "name": "引线",
+            "role": "导入电流",
+            "materialRef": "copper"
+          }
+        ]
+      },
+      {
+        "equipmentId": "wire-set",
+        "physicalGroup": "connector",
+        "constraints": [
+          "导线优先承担连接关系与闭合判定",
+          "绝缘层阻止意外短路"
+        ],
+        "components": [
+          {
+            "id": "wire-core",
+            "name": "铜芯",
+            "role": "传导电子",
+            "materialRef": "copper"
+          },
+          {
+            "id": "wire-insulation",
+            "name": "绝缘层",
+            "role": "隔离相邻导体",
+            "materialRef": "plastic"
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "id": "copper",
+        "name": "铜",
+        "category": "metal",
+        "formula": "Cu",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "conductivity",
+            "label": "导电性",
+            "value": 96,
+            "unit": "%"
+          },
+          {
+            "key": "ductility",
+            "label": "延展性",
+            "value": 88,
+            "unit": "%"
+          }
+        ],
+        "microModel": {
+          "narrative": "铜原子形成金属晶格，自由电子在闭合回路中可出现定向漂移。",
+          "species": [
+            {
+              "id": "cu-atom",
+              "name": "铜原子",
+              "formula": "Cu",
+              "color": "#f5a268",
+              "particleCountHint": 64,
+              "arrangement": "lattice"
+            }
+          ],
+          "interactions": [
+            "闭合回路后电子定向移动",
+            "晶格振动会影响电阻"
+          ]
+        }
+      },
+      {
+        "id": "tungsten",
+        "name": "钨",
+        "category": "metal",
+        "formula": "W",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "meltingPoint",
+            "label": "耐高温",
+            "value": 95,
+            "unit": "%"
+          },
+          {
+            "key": "resistance",
+            "label": "电阻特征",
+            "value": 72,
+            "unit": "%"
+          }
+        ],
+        "microModel": {
+          "narrative": "钨丝中电子与晶格碰撞后发热，温度升高时以可见光形式辐射能量。",
+          "species": [
+            {
+              "id": "w-atom",
+              "name": "钨原子",
+              "formula": "W",
+              "color": "#cfd6df",
+              "particleCountHint": 48,
+              "arrangement": "lattice"
+            }
+          ],
+          "interactions": [
+            "电子碰撞使灯丝升温",
+            "高温下产生稳定发光"
+          ]
+        }
+      },
+      {
+        "id": "glass",
+        "name": "玻璃",
+        "category": "silicate",
+        "formula": "SiO2",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "transparency",
+            "label": "透明度",
+            "value": 92,
+            "unit": "%"
+          },
+          {
+            "key": "insulation",
+            "label": "绝缘性",
+            "value": 90,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "id": "plastic",
+        "name": "塑料",
+        "category": "polymer",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "insulation",
+            "label": "绝缘性",
+            "value": 88,
+            "unit": "%"
+          },
+          {
+            "key": "moldability",
+            "label": "可塑性",
+            "value": 82,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "id": "zinc",
+        "name": "锌",
+        "category": "metal",
+        "formula": "Zn",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "reactivity",
+            "label": "反应活性",
+            "value": 74,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "id": "electrolyte",
+        "name": "电解质",
+        "category": "electrolyte",
+        "state": "mixed",
+        "properties": [
+          {
+            "key": "ionTransport",
+            "label": "离子迁移能力",
+            "value": 78,
+            "unit": "%"
+          }
+        ],
+        "microModel": {
+          "narrative": "电解质内部离子迁移维持两极电荷平衡，是电池持续输出的内部条件。",
+          "species": [
+            {
+              "id": "cation",
+              "name": "阳离子",
+              "color": "#ffb15c",
+              "particleCountHint": 20,
+              "arrangement": "solution"
+            },
+            {
+              "id": "anion",
+              "name": "阴离子",
+              "color": "#6ec8ff",
+              "particleCountHint": 20,
+              "arrangement": "solution"
+            }
+          ],
+          "interactions": [
+            "离子迁移维持电荷平衡",
+            "支持外电路持续电子流动"
+          ]
+        }
+      }
+    ],
+    "reactionRules": [
+      {
+        "id": "circuit-closure-electron-drift",
+        "when": "开关闭合且导线连接正确时",
+        "observe": "电流形成，灯泡亮起",
+        "microNarrative": "铜导线中的自由电子出现定向漂移，能量在钨丝处转化为热和光。",
+        "materialRefs": [
+          "copper",
+          "tungsten"
+        ]
+      },
+      {
+        "id": "battery-ion-balance",
+        "when": "电池盒持续向外供电时",
+        "observe": "回路保持稳定输出",
+        "microNarrative": "电池内部电解质中的离子迁移维持两极电荷平衡，支撑外电路电子持续移动。",
+        "materialRefs": [
+          "zinc",
+          "electrolyte"
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "identify-components",
+      "order": 1,
+      "title": "识别器材",
+      "description": "点击高亮电池盒、开关和灯泡。",
+      "actionType": "identify-object",
+      "targetObject": "equipment-panel",
+      "successCondition": "all-required-components-identified",
+      "failureHints": [
+        "请先识别所有基础器材后再开始连接。"
+      ],
+      "scoringWeight": 10,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "build-series-circuit",
+      "order": 2,
+      "title": "连接串联电路",
+      "description": "把导线依次连接为单回路。",
+      "actionType": "connect-wire",
+      "targetObject": "series-terminal-group",
+      "successCondition": "series-circuit-closed",
+      "failureHints": [
+        "导线没有接到正确接线柱。",
+        "回路未闭合。"
+      ],
+      "scoringWeight": 30,
+      "requiredCapabilities": [
+        "wire-connect",
+        "circuit-closure-check"
+      ]
+    },
+    {
+      "id": "observe-series-result",
+      "order": 3,
+      "title": "观察串联现象",
+      "description": "闭合开关，观察灯泡状态。",
+      "actionType": "record-observation",
+      "targetObject": "series-circuit",
+      "successCondition": "series-observation-recorded",
+      "failureHints": [
+        "请先闭合开关并记录观察结果。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "build-parallel-circuit",
+      "order": 4,
+      "title": "连接并联电路",
+      "description": "重新搭建双支路回路。",
+      "actionType": "connect-wire",
+      "targetObject": "parallel-terminal-group",
+      "successCondition": "parallel-circuit-closed",
+      "failureHints": [
+        "并联时支路连接错误。",
+        "两个灯泡被误接成串联。"
+      ],
+      "scoringWeight": 30,
+      "requiredCapabilities": [
+        "wire-connect",
+        "circuit-closure-check"
+      ]
+    },
+    {
+      "id": "summarize-difference",
+      "order": 5,
+      "title": "总结差异",
+      "description": "比较串联与并联连接方式和现象差异。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "difference-summary-submitted",
+      "failureHints": [
+        "请完成对两种电路的现象比较。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 30,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已完成串联与并联电路搭建，并能比较两者差异。",
+    "commonMistakes": [
+      "导线接错端子",
+      "并联误接为串联",
+      "回路未闭合"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "wire-connect",
+    "circuit-closure-check",
+    "observation-panel",
+    "summary-panel"
+  ],
+  "curriculum": {
+    "theme": "电与电路",
+    "unit": "电路连接与现象",
+    "knowledgePoints": [
+      "串联电路",
+      "并联电路",
+      "闭合回路判定"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  }
+}

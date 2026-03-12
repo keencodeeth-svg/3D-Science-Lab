@@ -1,0 +1,172 @@
+{
+  "id": "sci-primary-static-electricity-001",
+  "title": "摩擦起电",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 9,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-electrostatics-bench",
+    "cameraPreset": "rod-front",
+    "assets": [
+      "plastic-rod.glb",
+      "wool-cloth.glb",
+      "paper-bits.glb",
+      "comb.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "电与磁",
+    "unit": "摩擦起电",
+    "knowledgePoints": [
+      "摩擦带电",
+      "吸引轻小物体",
+      "静电现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识塑料棒、毛呢布、纸屑和支架等实验材料",
+    "通过摩擦让塑料棒带电并观察纸屑被吸引的现象",
+    "理解摩擦起电和带电体吸引轻小物体的规律"
+  ],
+  "equipment": [
+    {
+      "id": "plastic-rod",
+      "name": "塑料棒",
+      "type": "tool"
+    },
+    {
+      "id": "wool-cloth",
+      "name": "毛呢布",
+      "type": "material"
+    },
+    {
+      "id": "paper-bits",
+      "name": "纸屑",
+      "type": "sample"
+    },
+    {
+      "id": "stand",
+      "name": "支架",
+      "type": "tool"
+    },
+    {
+      "id": "comb",
+      "name": "塑料梳",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-static-electricity-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别塑料棒、毛呢布、纸屑、支架和塑料梳。",
+      "actionType": "identify-object",
+      "targetObject": "static-electricity-panel",
+      "successCondition": "static-electricity-tools-identified",
+      "failureHints": [
+        "请先识别摩擦起电实验的器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "rub-plastic-rod",
+      "order": 2,
+      "title": "摩擦塑料棒",
+      "description": "用毛呢布来回摩擦塑料棒，使其带电。",
+      "actionType": "set-variable",
+      "targetObject": "plastic-rod",
+      "successCondition": "plastic-rod-charged",
+      "failureHints": [
+        "请先完成足够次数的摩擦，让塑料棒带电。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "approach-paper-bits",
+      "order": 3,
+      "title": "靠近纸屑",
+      "description": "把带电塑料棒慢慢靠近纸屑。",
+      "actionType": "place-object",
+      "targetObject": "paper-bits",
+      "successCondition": "paper-bits-approached",
+      "failureHints": [
+        "请先让塑料棒带电，再慢慢靠近纸屑。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-attraction",
+      "order": 4,
+      "title": "观察吸引现象",
+      "description": "观察纸屑是否被吸引、跳起并粘向塑料棒。",
+      "actionType": "record-observation",
+      "targetObject": "paper-bits",
+      "successCondition": "static-electricity-observation-recorded",
+      "failureHints": [
+        "请记录纸屑被吸引和跳起的现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-static-electricity",
+      "order": 5,
+      "title": "总结摩擦起电",
+      "description": "总结摩擦起电和带电体吸引轻小物体的现象。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "static-electricity-summary-submitted",
+      "failureHints": [
+        "请围绕摩擦带电和吸引纸屑完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成摩擦起电实验，并能说明带电塑料棒为什么会吸引纸屑。",
+    "commonMistakes": [
+      "摩擦次数不足，塑料棒没有明显带电",
+      "还未带电就开始靠近纸屑",
+      "只描述纸屑跳起，没有总结摩擦起电规律"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "variable-control",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>串联与并联电路 - 可操作实验 Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="container">
+        <header class="card toolbar" style="margin-top:24px;">
+          <div>
+            <strong>串联与并联电路</strong>
+            <p class="small-note">可操作实验 Demo · 初中物理 · 当前状态 <span id="current-step-label">步骤 1/5</span></p>
+          </div>
+          <div class="actions">
+            <a class="button button-ghost" href="./student-hall.html">返回大厅</a>
+            <a class="button button-ghost" href="./result.html">看静态结果页</a>
+          </div>
+        </header>
+
+        <section class="workspace lab-stage">
+          <aside class="card">
+            <span class="eyebrow">Steps</span>
+            <h2>实验步骤</h2>
+            <ol class="step-list">
+              <li data-step-item="1" class="active">识别实验器材</li>
+              <li data-step-item="2">连接串联电路</li>
+              <li data-step-item="3">闭合开关并记录现象</li>
+              <li data-step-item="4">连接并联电路</li>
+              <li data-step-item="5">总结差异</li>
+            </ol>
+            <div class="banner" style="margin-top:18px;">
+              已识别器材：<strong id="identified-count">0/5</strong><br />
+              当前错误：<strong id="error-count">0</strong> 次
+            </div>
+          </aside>
+
+          <section class="card">
+            <span class="eyebrow">Interactive Lab</span>
+            <h2>点击器材、连接端子、完成实验</h2>
+
+            <div class="equipment-strip" aria-label="实验器材识别区">
+              <button class="equipment-pill" data-equipment="battery" type="button">电池盒</button>
+              <button class="equipment-pill" data-equipment="switch" type="button">开关</button>
+              <button class="equipment-pill" data-equipment="bulb1" type="button">灯泡 A</button>
+              <button class="equipment-pill" data-equipment="bulb2" type="button">灯泡 B</button>
+              <button class="equipment-pill" data-equipment="wire" type="button">导线</button>
+            </div>
+
+            <div class="lab-board" id="lab-board">
+              <svg class="connection-layer" id="connection-layer" aria-hidden="true"></svg>
+
+              <div class="lab-component" data-layout="series" style="left:36px; top:210px;">
+                <div class="component-title">电池盒</div>
+                <div class="component-subtitle">起点/终点</div>
+              </div>
+              <button class="terminal" data-layout-scope="series" data-terminal="battery_pos" style="left:132px; top:230px;" aria-label="电池正极端子"></button>
+              <button class="terminal" data-layout-scope="series" data-terminal="battery_neg" style="left:132px; top:278px;" aria-label="电池负极端子"></button>
+
+              <div class="lab-component small" data-layout="series" style="left:220px; top:220px;">
+                <div class="component-title">开关</div>
+              </div>
+              <button class="terminal" data-layout-scope="series" data-terminal="switch_in" style="left:204px; top:244px;" aria-label="开关输入端子"></button>
+              <button class="terminal" data-layout-scope="series" data-terminal="switch_out" style="left:318px; top:244px;" aria-label="开关输出端子"></button>
+
+              <div class="lab-component lab-bulb" data-layout="series" style="left:390px; top:210px;">
+                <div class="component-title">灯泡 A</div>
+              </div>
+              <button class="terminal" data-layout-scope="series" data-terminal="bulb1_in" style="left:374px; top:244px;" aria-label="灯泡A输入端子"></button>
+              <button class="terminal" data-layout-scope="series" data-terminal="bulb1_out" style="left:488px; top:244px;" aria-label="灯泡A输出端子"></button>
+
+              <div class="lab-component lab-bulb" data-layout="series" style="left:568px; top:210px;">
+                <div class="component-title">灯泡 B</div>
+              </div>
+              <button class="terminal" data-layout-scope="series" data-terminal="bulb2_in" style="left:552px; top:244px;" aria-label="灯泡B输入端子"></button>
+              <button class="terminal" data-layout-scope="series" data-terminal="bulb2_out" style="left:666px; top:244px;" aria-label="灯泡B输出端子"></button>
+
+              <div class="lab-component" data-layout="parallel" hidden style="left:36px; top:210px;">
+                <div class="component-title">电池盒</div>
+                <div class="component-subtitle">并联电源</div>
+              </div>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="battery_pos" hidden style="left:132px; top:230px;" aria-label="并联电池正极端子"></button>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="battery_neg" hidden style="left:132px; top:278px;" aria-label="并联电池负极端子"></button>
+
+              <div class="lab-component small" data-layout="parallel" hidden style="left:214px; top:138px;">
+                <div class="component-title">分流点</div>
+              </div>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="split_pos" hidden style="left:306px; top:162px;" aria-label="并联分流点端子"></button>
+
+              <div class="lab-component lab-bulb" data-layout="parallel" hidden style="left:392px; top:92px;">
+                <div class="component-title">灯泡 A</div>
+              </div>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="bulb1_in" hidden style="left:376px; top:126px;" aria-label="并联灯泡A输入端子"></button>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="bulb1_out" hidden style="left:490px; top:126px;" aria-label="并联灯泡A输出端子"></button>
+
+              <div class="lab-component lab-bulb" data-layout="parallel" hidden style="left:392px; top:318px;">
+                <div class="component-title">灯泡 B</div>
+              </div>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="bulb2_in" hidden style="left:376px; top:352px;" aria-label="并联灯泡B输入端子"></button>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="bulb2_out" hidden style="left:490px; top:352px;" aria-label="并联灯泡B输出端子"></button>
+
+              <div class="lab-component small" data-layout="parallel" hidden style="left:586px; top:228px;">
+                <div class="component-title">汇流点</div>
+              </div>
+              <button class="terminal" data-layout-scope="parallel" data-terminal="merge_neg" hidden style="left:570px; top:252px;" aria-label="并联汇流点端子"></button>
+            </div>
+
+            <div class="control-stack">
+              <button class="button button-ghost" id="reset-circuit-btn" type="button">重置当前电路</button>
+              <button class="button" id="check-circuit-btn" type="button">检查当前连接</button>
+              <button class="button button-ghost" id="observe-series-btn" type="button">闭合开关</button>
+              <button class="button button-ghost" id="record-series-btn" type="button" disabled>记录观察</button>
+            </div>
+          </section>
+
+          <aside class="card helper-stack">
+            <div>
+              <span class="eyebrow">Prompt</span>
+              <h2>当前提示</h2>
+              <div class="banner warning" id="prompt-text">先点击实验器材，完成器材识别。</div>
+            </div>
+
+            <div>
+              <span class="eyebrow">Summary</span>
+              <h2>实验结论</h2>
+              <div class="summary-options">
+                <button class="summary-option" data-summary="same-path" type="button">串联电路和并联电路都只有一条电流路径</button>
+                <button class="summary-option" data-summary="parallel-branches" type="button">并联电路有多条支路，串联电路只有一条路径</button>
+                <button class="summary-option" data-summary="no-difference" type="button">两种连接方式没有本质差别</button>
+              </div>
+              <div class="control-stack">
+                <button class="button" id="submit-summary-btn" type="button">提交结论</button>
+              </div>
+            </div>
+
+            <div class="banner success completion-card" id="completion-result" hidden>
+              实验完成！当前得分：<strong id="score-text">100</strong><br />
+              你已经完成器材识别、串联搭建、并联搭建和差异总结。
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="./interactive-circuit.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2716 @@
+[
+  {
+    "id": "bio-junior-blood-smear-001",
+    "title": "观察人血永久涂片",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "人体内的物质运输",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-blood-smear.json"
+  },
+  {
+    "id": "bio-junior-breath-gas-001",
+    "title": "呼出气体与空气的差异",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "人体的呼吸",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 6,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 17
+    },
+    "dataFile": "bio-junior-breath-gas.json"
+  },
+  {
+    "id": "bio-junior-fermentation-001",
+    "title": "酵母发酵现象",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "八年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "细菌和真菌",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 4,
+      "speciesCount": 4,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "bio-junior-fermentation.json"
+  },
+  {
+    "id": "bio-junior-fish-circulation-001",
+    "title": "观察小鱼尾鳍内血液流动",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "生物体内的运输",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 3,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-fish-circulation.json"
+  },
+  {
+    "id": "bio-junior-germination-001",
+    "title": "种子萌发条件",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 13,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "生物体的结构层次",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 14
+    },
+    "dataFile": "bio-junior-germination.json"
+  },
+  {
+    "id": "bio-junior-heart-rate-001",
+    "title": "运动前后心率变化",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "人体生命活动",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 6,
+      "speciesCount": 6,
+      "reactionRuleCount": 1,
+      "componentCount": 14
+    },
+    "dataFile": "bio-junior-heart-rate.json"
+  },
+  {
+    "id": "bio-junior-microscope-001",
+    "title": "显微镜使用",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "显微观察入门",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 9,
+      "reactionRuleCount": 2,
+      "componentCount": 7
+    },
+    "dataFile": "bio-junior-microscope.json"
+  },
+  {
+    "id": "bio-junior-onion-cell-001",
+    "title": "观察洋葱表皮细胞",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "细胞是生命活动的基本单位",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 2,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-onion-cell.json"
+  },
+  {
+    "id": "bio-junior-oral-cell-001",
+    "title": "观察口腔上皮细胞",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "细胞是生命活动的基本单位",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 2,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-oral-cell.json"
+  },
+  {
+    "id": "bio-junior-paramecium-001",
+    "title": "观察草履虫",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "单细胞生物",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 3,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-paramecium.json"
+  },
+  {
+    "id": "bio-junior-photosynthesis-001",
+    "title": "绿叶在光下制造淀粉",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 15,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "绿色植物的生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 15,
+      "speciesCount": 17,
+      "reactionRuleCount": 4,
+      "componentCount": 13
+    },
+    "dataFile": "bio-junior-photosynthesis.json"
+  },
+  {
+    "id": "bio-junior-phototropism-001",
+    "title": "植物的向光性",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "植物的生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 15
+    },
+    "dataFile": "bio-junior-phototropism.json"
+  },
+  {
+    "id": "bio-junior-pigment-separation-001",
+    "title": "绿叶中色素的分离",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "绿色植物的生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-pigment-separation.json"
+  },
+  {
+    "id": "bio-junior-plasmolysis-001",
+    "title": "观察植物细胞的质壁分离与复原",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "细胞的生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-plasmolysis.json"
+  },
+  {
+    "id": "bio-junior-potato-osmosis-001",
+    "title": "马铃薯条吸水与失水",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "细胞的生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 6,
+      "speciesCount": 6,
+      "reactionRuleCount": 2,
+      "componentCount": 13
+    },
+    "dataFile": "bio-junior-potato-osmosis.json"
+  },
+  {
+    "id": "bio-junior-respiration-001",
+    "title": "呼吸模型与吸气过程",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "人体的呼吸",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 5,
+      "speciesCount": 5,
+      "reactionRuleCount": 1,
+      "componentCount": 13
+    },
+    "dataFile": "bio-junior-respiration.json"
+  },
+  {
+    "id": "bio-junior-saliva-digestion-001",
+    "title": "唾液对淀粉的消化作用",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "人体的营养",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 9,
+      "reactionRuleCount": 3,
+      "componentCount": 12
+    },
+    "dataFile": "bio-junior-saliva-digestion.json"
+  },
+  {
+    "id": "bio-junior-seed-structure-001",
+    "title": "观察菜豆种子的结构",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "种子的结构",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 1,
+      "componentCount": 13
+    },
+    "dataFile": "bio-junior-seed-structure.json"
+  },
+  {
+    "id": "bio-junior-stem-transport-001",
+    "title": "茎对水和无机盐的运输作用",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "绿色植物的生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 6,
+      "speciesCount": 6,
+      "reactionRuleCount": 1,
+      "componentCount": 15
+    },
+    "dataFile": "bio-junior-stem-transport.json"
+  },
+  {
+    "id": "bio-junior-stomata-001",
+    "title": "观察叶片气孔",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "植物的蒸腾作用",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 2,
+      "componentCount": 13
+    },
+    "dataFile": "bio-junior-stomata.json"
+  },
+  {
+    "id": "bio-junior-transpiration-001",
+    "title": "植物蒸腾作用现象",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "植物的生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 14
+    },
+    "dataFile": "bio-junior-transpiration.json"
+  },
+  {
+    "id": "bio-junior-yeast-budding-001",
+    "title": "观察酵母菌的出芽生殖",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "八年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "微生物",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 9,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "bio-junior-yeast-budding.json"
+  },
+  {
+    "id": "bio-senior-dna-extraction-001",
+    "title": "DNA 的粗提取与观察",
+    "stage": "高中",
+    "subject": "生物",
+    "grade": "高一/高二",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "遗传物质基础",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "bio-senior-dna-extraction.json"
+  },
+  {
+    "id": "bio-senior-enzyme-001",
+    "title": "酶活性影响因素",
+    "stage": "高中",
+    "subject": "生物",
+    "grade": "高一/高二",
+    "durationMinutes": 15,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "酶与代谢调控",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 9,
+      "reactionRuleCount": 1,
+      "componentCount": 12
+    },
+    "dataFile": "bio-senior-enzyme.json"
+  },
+  {
+    "id": "bio-senior-mitosis-001",
+    "title": "观察植物细胞有丝分裂",
+    "stage": "高中",
+    "subject": "生物",
+    "grade": "选择性必修",
+    "durationMinutes": 15,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "细胞生命历程",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 2,
+      "componentCount": 12
+    },
+    "dataFile": "bio-senior-mitosis.json"
+  },
+  {
+    "id": "bio-senior-osmosis-001",
+    "title": "植物细胞吸水和失水",
+    "stage": "高中",
+    "subject": "生物",
+    "grade": "高一",
+    "durationMinutes": 14,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "细胞与水分",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 3,
+      "componentCount": 11
+    },
+    "dataFile": "bio-senior-osmosis.json"
+  },
+  {
+    "id": "chem-junior-acid-base-001",
+    "title": "酸碱性检验",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "酸和碱",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "configured",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 6,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-acid-base.json"
+  },
+  {
+    "id": "chem-junior-cabbage-indicator-001",
+    "title": "紫甘蓝指示剂变色",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "酸和碱",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 5,
+      "speciesCount": 6,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-cabbage-indicator.json"
+  },
+  {
+    "id": "chem-junior-carbon-dioxide-001",
+    "title": "二氧化碳的制取与检验",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 14,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "常见气体",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 9,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-carbon-dioxide.json"
+  },
+  {
+    "id": "chem-junior-combustion-001",
+    "title": "燃烧条件探究",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "燃烧与灭火",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 12
+    },
+    "dataFile": "chem-junior-combustion.json"
+  },
+  {
+    "id": "chem-junior-electrolysis-water-001",
+    "title": "电解水",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "水的组成",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 13,
+      "speciesCount": 15,
+      "reactionRuleCount": 3,
+      "componentCount": 11
+    },
+    "dataFile": "chem-junior-electrolysis-water.json"
+  },
+  {
+    "id": "chem-junior-extinguishing-001",
+    "title": "灭火原理",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "燃烧与灭火",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-extinguishing.json"
+  },
+  {
+    "id": "chem-junior-filtration-001",
+    "title": "过滤与蒸发分离混合物",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 14,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "物质的分离",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 10,
+      "reactionRuleCount": 2,
+      "componentCount": 13
+    },
+    "dataFile": "chem-junior-filtration.json"
+  },
+  {
+    "id": "chem-junior-hydrogen-preparation-001",
+    "title": "实验室制取氢气",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "气体制取",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 12,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-hydrogen-preparation.json"
+  },
+  {
+    "id": "chem-junior-mass-conservation-001",
+    "title": "质量守恒定律",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "化学反应与质量关系",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "chem-junior-mass-conservation.json"
+  },
+  {
+    "id": "chem-junior-metal-acid-001",
+    "title": "金属与酸反应",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "酸和金属",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-metal-acid.json"
+  },
+  {
+    "id": "chem-junior-oxygen-001",
+    "title": "氧气制备与收集",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 13,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "常见气体制备",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 11,
+      "speciesCount": 13,
+      "reactionRuleCount": 2,
+      "componentCount": 13
+    },
+    "dataFile": "chem-junior-oxygen.json"
+  },
+  {
+    "id": "chem-junior-ph-paper-001",
+    "title": "用 pH 试纸测酸碱度",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 9,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "酸和碱",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-ph-paper.json"
+  },
+  {
+    "id": "chem-junior-precipitation-001",
+    "title": "沉淀反应",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "复分解反应",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-precipitation.json"
+  },
+  {
+    "id": "chem-junior-rusting-001",
+    "title": "铁生锈条件",
+    "stage": "初中",
+    "subject": "化学",
+    "grade": "九年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "金属与金属材料",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-junior-rusting.json"
+  },
+  {
+    "id": "chem-senior-ammonia-fountain-001",
+    "title": "氨气喷泉",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高一/高二",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "氨与铵盐",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-ammonia-fountain.json"
+  },
+  {
+    "id": "chem-senior-blue-bottle-001",
+    "title": "蓝瓶子反应",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "选择性必修",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "氧化还原与颜色变化",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 6,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-blue-bottle.json"
+  },
+  {
+    "id": "chem-senior-chromate-equilibrium-001",
+    "title": "铬酸根与重铬酸根平衡",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "选择性必修",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "化学平衡",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 9,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-chromate-equilibrium.json"
+  },
+  {
+    "id": "chem-senior-cobalt-chloride-cycle-001",
+    "title": "氯化钴可逆变色",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "选择性必修",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "物质结构与性质",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 11,
+      "speciesCount": 12,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "chem-senior-cobalt-chloride-cycle.json"
+  },
+  {
+    "id": "chem-senior-ferric-thiocyanate-001",
+    "title": "铁离子与硫氰酸根显色",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高一/高二",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "离子反应与检验",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 1,
+      "componentCount": 12
+    },
+    "dataFile": "chem-senior-ferric-thiocyanate.json"
+  },
+  {
+    "id": "chem-senior-flame-test-001",
+    "title": "焰色反应",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高一/高二",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "元素与物质性质",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "chem-senior-flame-test.json"
+  },
+  {
+    "id": "chem-senior-galvanic-001",
+    "title": "原电池基础",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高二",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "电化学基础",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 13
+    },
+    "dataFile": "chem-senior-galvanic.json"
+  },
+  {
+    "id": "chem-senior-golden-rain-001",
+    "title": "黄金雨实验",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高一/高二",
+    "durationMinutes": 13,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "复分解反应与沉淀",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 12,
+      "speciesCount": 14,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-golden-rain.json"
+  },
+  {
+    "id": "chem-senior-iodine-clock-001",
+    "title": "碘钟反应",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高一/高二",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "化学反应速率与机理",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-iodine-clock.json"
+  },
+  {
+    "id": "chem-senior-luminol-glow-001",
+    "title": "鲁米诺化学发光",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "选择性必修",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "氧化还原与能量转化",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-luminol-glow.json"
+  },
+  {
+    "id": "chem-senior-rate-001",
+    "title": "化学反应速率影响因素",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高一/高二",
+    "durationMinutes": 15,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "反应原理",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 4,
+      "speciesCount": 4,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "chem-senior-rate.json"
+  },
+  {
+    "id": "chem-senior-silver-mirror-001",
+    "title": "银镜反应",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "选择性必修",
+    "durationMinutes": 13,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "有机化学基础",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-silver-mirror.json"
+  },
+  {
+    "id": "chem-senior-titration-001",
+    "title": "酸碱中和滴定",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "选择性必修",
+    "durationMinutes": 16,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "化学反应与定量分析",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "chem-senior-titration.json"
+  },
+  {
+    "id": "phy-junior-average-speed-001",
+    "title": "测量平均速度",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "机械运动",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "phy-junior-average-speed.json"
+  },
+  {
+    "id": "phy-junior-balance-forces-001",
+    "title": "二力平衡",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "力与运动",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 7,
+      "reactionRuleCount": 2,
+      "componentCount": 12
+    },
+    "dataFile": "phy-junior-balance-forces.json"
+  },
+  {
+    "id": "phy-junior-boiling-001",
+    "title": "水的沸腾",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "物态变化",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 12
+    },
+    "dataFile": "phy-junior-boiling.json"
+  },
+  {
+    "id": "phy-junior-buoyancy-001",
+    "title": "浮力的大小规律",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "浮力",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "phy-junior-buoyancy.json"
+  },
+  {
+    "id": "phy-junior-circuit-001",
+    "title": "串联与并联电路",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "电与电路",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "configured",
+      "defaultLens": "meso",
+      "materialCount": 6,
+      "speciesCount": 4,
+      "reactionRuleCount": 2,
+      "componentCount": 13
+    },
+    "dataFile": "phy-junior-circuit.json"
+  },
+  {
+    "id": "phy-junior-convex-lens-001",
+    "title": "凸透镜成像规律",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 14,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "光学成像",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 6,
+      "speciesCount": 7,
+      "reactionRuleCount": 2,
+      "componentCount": 9
+    },
+    "dataFile": "phy-junior-convex-lens.json"
+  },
+  {
+    "id": "phy-junior-density-001",
+    "title": "测量固体密度",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 14,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "质量与密度",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "phy-junior-density.json"
+  },
+  {
+    "id": "phy-junior-dispersion-001",
+    "title": "光的色散",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光现象",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 6,
+      "speciesCount": 7,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "phy-junior-dispersion.json"
+  },
+  {
+    "id": "phy-junior-electromagnet-001",
+    "title": "电磁铁",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "九年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "电与磁",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 14,
+      "speciesCount": 16,
+      "reactionRuleCount": 3,
+      "componentCount": 11
+    },
+    "dataFile": "phy-junior-electromagnet.json"
+  },
+  {
+    "id": "phy-junior-inertia-001",
+    "title": "惯性现象",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "力与运动",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 5,
+      "speciesCount": 5,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "phy-junior-inertia.json"
+  },
+  {
+    "id": "phy-junior-liquid-density-001",
+    "title": "测量液体密度",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "质量与密度",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 7,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "phy-junior-liquid-density.json"
+  },
+  {
+    "id": "phy-junior-plane-mirror-001",
+    "title": "平面镜成像",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光现象",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 2,
+      "componentCount": 12
+    },
+    "dataFile": "phy-junior-plane-mirror.json"
+  },
+  {
+    "id": "phy-junior-pressure-001",
+    "title": "液体压强大小规律",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 13,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "压强",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 6,
+      "speciesCount": 6,
+      "reactionRuleCount": 1,
+      "componentCount": 9
+    },
+    "dataFile": "phy-junior-pressure.json"
+  },
+  {
+    "id": "phy-junior-reflection-001",
+    "title": "光的反射规律",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光现象",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 4,
+      "speciesCount": 5,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "phy-junior-reflection.json"
+  },
+  {
+    "id": "phy-junior-solid-pressure-001",
+    "title": "固体压强大小规律",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "压强",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 5,
+      "speciesCount": 5,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "phy-junior-solid-pressure.json"
+  },
+  {
+    "id": "phy-junior-sound-medium-001",
+    "title": "声音传播需要介质",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "声现象",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "phy-junior-sound-medium.json"
+  },
+  {
+    "id": "phy-junior-variable-resistor-001",
+    "title": "滑动变阻器",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "九年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "电路与欧姆定律",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 14
+    },
+    "dataFile": "phy-junior-variable-resistor.json"
+  },
+  {
+    "id": "phy-senior-acceleration-001",
+    "title": "探究加速度与力、质量的关系",
+    "stage": "高中",
+    "subject": "物理",
+    "grade": "必修第一册",
+    "durationMinutes": 16,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "牛顿运动定律",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "phy-senior-acceleration.json"
+  },
+  {
+    "id": "phy-senior-ohm-001",
+    "title": "欧姆定律实验",
+    "stage": "高中",
+    "subject": "物理",
+    "grade": "高二",
+    "durationMinutes": 15,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "欧姆定律与数据测量",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 8,
+      "speciesCount": 9,
+      "reactionRuleCount": 1,
+      "componentCount": 17
+    },
+    "dataFile": "phy-senior-ohm.json"
+  },
+  {
+    "id": "phy-senior-refraction-001",
+    "title": "光的折射规律",
+    "stage": "高中",
+    "subject": "物理",
+    "grade": "高一",
+    "durationMinutes": 15,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "光学规律",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 6,
+      "speciesCount": 7,
+      "reactionRuleCount": 2,
+      "componentCount": 9
+    },
+    "dataFile": "phy-senior-refraction.json"
+  },
+  {
+    "id": "sci-primary-air-pressure-001",
+    "title": "大气压托水实验",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "空气与水",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 3,
+      "speciesCount": 3,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-air-pressure.json"
+  },
+  {
+    "id": "sci-primary-air-space-001",
+    "title": "空气占据空间",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "三年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "空气",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 4,
+      "speciesCount": 4,
+      "reactionRuleCount": 1,
+      "componentCount": 8
+    },
+    "dataFile": "sci-primary-air-space.json"
+  },
+  {
+    "id": "sci-primary-capillary-action-001",
+    "title": "纸条吸水与毛细现象",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "水与材料",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 6,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-capillary-action.json"
+  },
+  {
+    "id": "sci-primary-circuit-001",
+    "title": "让小灯泡亮起来",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "四年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "电路启蒙",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 8,
+      "speciesCount": 9,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-circuit.json"
+  },
+  {
+    "id": "sci-primary-color-wheel-001",
+    "title": "转动的彩色轮",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光的色彩",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-color-wheel.json"
+  },
+  {
+    "id": "sci-primary-conductivity-001",
+    "title": "导体和绝缘体",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 9,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "电路",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 12,
+      "speciesCount": 13,
+      "reactionRuleCount": 2,
+      "componentCount": 12
+    },
+    "dataFile": "sci-primary-conductivity.json"
+  },
+  {
+    "id": "sci-primary-evaporation-001",
+    "title": "水的蒸发与凝结",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "水的变化",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 3,
+      "speciesCount": 3,
+      "reactionRuleCount": 1,
+      "componentCount": 8
+    },
+    "dataFile": "sci-primary-evaporation.json"
+  },
+  {
+    "id": "sci-primary-floating-sinking-001",
+    "title": "浮与沉",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "三年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "物体与材料",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 5,
+      "speciesCount": 5,
+      "reactionRuleCount": 1,
+      "componentCount": 8
+    },
+    "dataFile": "sci-primary-floating-sinking.json"
+  },
+  {
+    "id": "sci-primary-friction-001",
+    "title": "摩擦力大小比较",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "运动与力",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 9,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-friction.json"
+  },
+  {
+    "id": "sci-primary-heat-convection-001",
+    "title": "热对流现象",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "热与物质变化",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-heat-convection.json"
+  },
+  {
+    "id": "sci-primary-incline-001",
+    "title": "斜面的作用",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "简单机械",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-incline.json"
+  },
+  {
+    "id": "sci-primary-lever-001",
+    "title": "杠杆的作用",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "简单机械",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 5,
+      "speciesCount": 5,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-lever.json"
+  },
+  {
+    "id": "sci-primary-light-straight-001",
+    "title": "光是沿直线传播的",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光与影",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-light-straight.json"
+  },
+  {
+    "id": "sci-primary-magnet-001",
+    "title": "磁铁的基本性质",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "四年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "磁与生活",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 7,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-magnet.json"
+  },
+  {
+    "id": "sci-primary-pendulum-001",
+    "title": "摆的快慢",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "运动与时间",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 7,
+      "speciesCount": 7,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-pendulum.json"
+  },
+  {
+    "id": "sci-primary-periscope-001",
+    "title": "潜望镜",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光与观察",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-periscope.json"
+  },
+  {
+    "id": "sci-primary-pinhole-imaging-001",
+    "title": "小孔成像",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光与影",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-pinhole-imaging.json"
+  },
+  {
+    "id": "sci-primary-pulley-001",
+    "title": "定滑轮和动滑轮",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "简单机械",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-pulley.json"
+  },
+  {
+    "id": "sci-primary-shadow-001",
+    "title": "影子的方向与长度",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "光与影",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 2,
+      "componentCount": 9
+    },
+    "dataFile": "sci-primary-shadow.json"
+  },
+  {
+    "id": "sci-primary-siphon-001",
+    "title": "虹吸现象",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "空气与水",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 3,
+      "speciesCount": 3,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-siphon.json"
+  },
+  {
+    "id": "sci-primary-solubility-001",
+    "title": "物质在水中的溶解",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "四年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "物质变化",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 3,
+      "speciesCount": 3,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-solubility.json"
+  },
+  {
+    "id": "sci-primary-sound-vibration-001",
+    "title": "声音的产生",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "四年级",
+    "durationMinutes": 11,
+    "modes": [
+      "引导",
+      "练习",
+      "考核"
+    ],
+    "curriculumTheme": "声音",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 5,
+      "speciesCount": 6,
+      "reactionRuleCount": 1,
+      "componentCount": 8
+    },
+    "dataFile": "sci-primary-sound-vibration.json"
+  },
+  {
+    "id": "sci-primary-static-electricity-001",
+    "title": "摩擦起电",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 9,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "电与磁",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 9,
+      "speciesCount": 10,
+      "reactionRuleCount": 3,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-static-electricity.json"
+  },
+  {
+    "id": "sci-primary-surface-tension-001",
+    "title": "水的表面张力",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 9,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "水与液体",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 10
+    },
+    "dataFile": "sci-primary-surface-tension.json"
+  },
+  {
+    "id": "sci-primary-thermal-conduction-001",
+    "title": "热传导快慢比较",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "热与材料",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 10,
+      "speciesCount": 11,
+      "reactionRuleCount": 2,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-thermal-conduction.json"
+  },
+  {
+    "id": "sci-primary-thermal-expansion-001",
+    "title": "热胀冷缩现象",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "五年级",
+    "durationMinutes": 12,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "热",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "meso",
+      "materialCount": 3,
+      "speciesCount": 3,
+      "reactionRuleCount": 1,
+      "componentCount": 8
+    },
+    "dataFile": "sci-primary-thermal-expansion.json"
+  },
+  {
+    "id": "sci-primary-wheel-axle-001",
+    "title": "轮轴的作用",
+    "stage": "小学",
+    "subject": "科学",
+    "grade": "六年级",
+    "durationMinutes": 10,
+    "modes": [
+      "引导",
+      "练习"
+    ],
+    "curriculumTheme": "简单机械",
+    "productStatus": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true,
+    "multiscaleSummary": {
+      "source": "derived",
+      "defaultLens": "micro",
+      "materialCount": 8,
+      "speciesCount": 8,
+      "reactionRuleCount": 1,
+      "componentCount": 11
+    },
+    "dataFile": "sci-primary-wheel-axle.json"
+  }
+]

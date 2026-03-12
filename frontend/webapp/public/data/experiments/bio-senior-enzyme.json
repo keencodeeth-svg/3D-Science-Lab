@@ -1,0 +1,178 @@
+{
+  "id": "bio-senior-enzyme-001",
+  "title": "酶活性影响因素",
+  "stage": "高中",
+  "subject": "生物",
+  "grade": "高一/高二",
+  "durationMinutes": 15,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "biology-multi-tube-bench",
+    "cameraPreset": "tube-top-view",
+    "assets": [
+      "tube-rack.glb",
+      "tube.glb",
+      "dropper.glb",
+      "timer.glb"
+    ]
+  },
+  "objectives": [
+    "理解温度和 pH 会影响酶活性",
+    "学会设置对照组和单一变量",
+    "根据结果得出规范结论"
+  ],
+  "equipment": [
+    {
+      "id": "tube-rack",
+      "name": "试管架",
+      "type": "support"
+    },
+    {
+      "id": "tube-set",
+      "name": "试管组",
+      "type": "container"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "transfer"
+    },
+    {
+      "id": "condition-panel",
+      "name": "条件控制面板",
+      "type": "control"
+    },
+    {
+      "id": "timer",
+      "name": "计时器",
+      "type": "timer"
+    }
+  ],
+  "steps": [
+    {
+      "id": "choose-variable",
+      "order": 1,
+      "title": "选择实验变量",
+      "description": "选择温度或 pH 作为单一变量。",
+      "actionType": "set-variable",
+      "targetObject": "condition-panel",
+      "successCondition": "single-variable-selected",
+      "failureHints": [
+        "每次只应选择一个变量。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "condition-control"
+      ]
+    },
+    {
+      "id": "create-groups",
+      "order": 2,
+      "title": "设置对照组",
+      "description": "建立实验组和对照组。",
+      "actionType": "place-object",
+      "targetObject": "tube-rack",
+      "successCondition": "control-and-experiment-groups-ready",
+      "failureHints": [
+        "请设置对照组。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "group-layout"
+      ]
+    },
+    {
+      "id": "add-reagents",
+      "order": 3,
+      "title": "加入反应液",
+      "description": "为各组加入底物和酶液。",
+      "actionType": "add-material",
+      "targetObject": "tube-set",
+      "successCondition": "reagents-added-correctly",
+      "failureHints": [
+        "反应液加入对象错误。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "run-reaction",
+      "order": 4,
+      "title": "观察反应变化",
+      "description": "设定条件并启动计时。",
+      "actionType": "set-variable",
+      "targetObject": "timer",
+      "successCondition": "reaction-results-visible",
+      "failureHints": [
+        "请启动计时并完成条件设置。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "condition-control",
+        "timer-panel",
+        "reaction-feedback"
+      ]
+    },
+    {
+      "id": "record-and-conclude",
+      "order": 5,
+      "title": "记录并总结",
+      "description": "记录各组结果并得出结论。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "enzyme-conclusion-submitted",
+      "failureHints": [
+        "请先记录结果再提交结论。"
+      ],
+      "scoringWeight": 25,
+      "requiredCapabilities": [
+        "data-table",
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 40,
+    "observationScorePercent": 30,
+    "resultScorePercent": 30
+  },
+  "feedback": {
+    "successSummary": "你已完成对照组设置、条件控制和酶活性结果比较。",
+    "commonMistakes": [
+      "同时改变多个变量",
+      "未设置对照组",
+      "未记录结果直接下结论"
+    ]
+  },
+  "capabilities": [
+    "condition-control",
+    "group-layout",
+    "material-add",
+    "timer-panel",
+    "reaction-feedback",
+    "data-table",
+    "summary-panel"
+  ],
+  "curriculum": {
+    "theme": "酶与代谢调控",
+    "unit": "酶活性影响因素",
+    "knowledgePoints": [
+      "变量控制",
+      "实验对照",
+      "结果记录与结论"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教师端展示</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="container">
+        <header class="page-head">
+          <div>
+            <span class="eyebrow">Teacher Workspace</span>
+            <h1>教师工作台</h1>
+            <p>首屏优先是摘要数据、实验布置入口和班级结果。</p>
+          </div>
+          <div class="actions">
+            <a class="button button-ghost" href="./index.html">返回首页</a>
+            <a class="button" href="./class-detail.html">查看班级结果</a>
+          </div>
+        </header>
+
+        <section class="kpis" style="margin-top:18px;">
+          <article class="card kpi-card"><span class="metric-label">今日待完成</span><strong>38</strong></article>
+          <article class="card kpi-card"><span class="metric-label">班级完成率</span><strong>72%</strong></article>
+          <article class="card kpi-card"><span class="metric-label">平均得分</span><strong>81</strong></article>
+          <article class="card kpi-card"><span class="metric-label">高频错误</span><strong>接线错误</strong></article>
+        </section>
+
+        <section class="two-col" style="margin-top:18px;">
+          <article class="card">
+            <h2>最近布置</h2>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th>实验</th><th>班级</th><th>状态</th></tr></thead>
+                <tbody>
+                  <tr><td>串联与并联电路</td><td>八年级 2 班</td><td>进行中</td></tr>
+                  <tr><td>氧气制备与收集</td><td>九年级 1 班</td><td>未开始</td></tr>
+                  <tr><td>原电池基础</td><td>高二 3 班</td><td>已结束</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <article class="card">
+            <h2>快捷操作</h2>
+            <ul>
+              <li>一键打开课堂演示</li>
+              <li>复制上次布置</li>
+              <li>查看高频错误步骤</li>
+              <li>筛选未完成学生</li>
+            </ul>
+            <div class="banner">教师端默认给结论，不让老师自己做复杂分析。</div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

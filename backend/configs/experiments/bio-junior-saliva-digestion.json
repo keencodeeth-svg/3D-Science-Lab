@@ -1,0 +1,181 @@
+{
+  "id": "bio-junior-saliva-digestion-001",
+  "title": "唾液对淀粉的消化作用",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-digestion-bench",
+    "cameraPreset": "tube-front",
+    "assets": [
+      "test-tube-rack.glb",
+      "starch-solution.glb",
+      "saliva-sample.glb",
+      "dropper.glb",
+      "warm-bath.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "人体的营养",
+    "unit": "唾液的消化作用",
+    "knowledgePoints": [
+      "对照实验",
+      "温水保温",
+      "淀粉遇碘变色"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识试管、淀粉液、唾液、滴管和温水环境等实验材料",
+    "通过设置唾液组和对照组观察淀粉是否被分解",
+    "理解唾液中的消化作用会使淀粉在适宜条件下发生变化"
+  ],
+  "equipment": [
+    {
+      "id": "test-tube-a",
+      "name": "试管 A",
+      "type": "container"
+    },
+    {
+      "id": "test-tube-b",
+      "name": "试管 B",
+      "type": "container"
+    },
+    {
+      "id": "starch-solution",
+      "name": "淀粉液",
+      "type": "solution"
+    },
+    {
+      "id": "saliva-sample",
+      "name": "唾液",
+      "type": "sample"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "warm-bath",
+      "name": "温水环境",
+      "type": "environment"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-saliva-digestion-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识试管、淀粉液、唾液、滴管和温水环境。",
+      "actionType": "identify-object",
+      "targetObject": "saliva-digestion-panel",
+      "successCondition": "saliva-digestion-tools-identified",
+      "failureHints": [
+        "请先识别唾液消化实验所需器材和材料。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-control-tubes",
+      "order": 2,
+      "title": "设置对照试管",
+      "description": "一支试管加入唾液，另一支作为对照，保证可比较。",
+      "actionType": "add-material",
+      "targetObject": "test-tube-rack",
+      "successCondition": "saliva-digestion-control-ready",
+      "failureHints": [
+        "请形成唾液组和对照组，便于后续比较。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "warm-tubes",
+      "order": 3,
+      "title": "放入温水中保温",
+      "description": "把两支试管放入适宜温水环境中保温。",
+      "actionType": "set-variable",
+      "targetObject": "warm-bath",
+      "successCondition": "saliva-digestion-warmed",
+      "failureHints": [
+        "请先把试管放在适宜温水环境中，再进行检验。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-iodine-result",
+      "order": 4,
+      "title": "滴加碘液观察",
+      "description": "滴加碘液后比较两支试管颜色变化。",
+      "actionType": "record-observation",
+      "targetObject": "test-tube-rack",
+      "successCondition": "saliva-digestion-observation-recorded",
+      "failureHints": [
+        "请记录两支试管滴加碘液后的颜色差异。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-saliva-digestion",
+      "order": 5,
+      "title": "总结消化作用",
+      "description": "总结唾液在适宜条件下对淀粉的消化作用。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "saliva-digestion-summary-submitted",
+      "failureHints": [
+        "请把对照结果和唾液消化淀粉的结论对应起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成唾液消化淀粉实验，并能说明唾液在适宜条件下会使淀粉发生变化。",
+    "commonMistakes": [
+      "没有形成清晰的唾液组与对照组",
+      "未先保温就直接比较现象",
+      "只看到颜色变化，没有联系到淀粉分解结论"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "variable-control",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

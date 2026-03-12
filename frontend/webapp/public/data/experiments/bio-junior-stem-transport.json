@@ -1,0 +1,174 @@
+{
+  "id": "bio-junior-stem-transport-001",
+  "title": "茎对水和无机盐的运输作用",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-stem-transport-bench",
+    "cameraPreset": "beaker-front",
+    "assets": [
+      "beaker.glb",
+      "red-water.glb",
+      "stem.glb",
+      "leaf-vein.glb",
+      "blade.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "绿色植物的生活",
+    "unit": "茎的运输作用",
+    "knowledgePoints": [
+      "有色水示踪",
+      "导管运输",
+      "向上运输"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识烧杯、红色有色水、植物茎段、叶脉和刀片等实验器材",
+    "通过有色水示踪观察茎和叶脉中的运输痕迹",
+    "理解水和无机盐沿植物茎中的导管向上运输"
+  ],
+  "equipment": [
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "red-water",
+      "name": "红色有色水",
+      "type": "solution"
+    },
+    {
+      "id": "stem",
+      "name": "植物茎段",
+      "type": "sample"
+    },
+    {
+      "id": "leaf-vein",
+      "name": "叶脉",
+      "type": "sample"
+    },
+    {
+      "id": "blade",
+      "name": "刀片",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-stem-transport-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识烧杯、红色有色水、植物茎段、叶脉和刀片。",
+      "actionType": "identify-object",
+      "targetObject": "stem-transport-panel",
+      "successCondition": "stem-transport-tools-identified",
+      "failureHints": [
+        "请先识别茎运输作用实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "insert-stem-into-red-water",
+      "order": 2,
+      "title": "插入有色水",
+      "description": "把植物茎段插入红色有色水中。",
+      "actionType": "place-object",
+      "targetObject": "beaker",
+      "successCondition": "stem-transport-inserted",
+      "failureHints": [
+        "请让茎段下端接触有色水后再观察。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-stain-trace",
+      "order": 3,
+      "title": "观察茎叶染色",
+      "description": "观察茎和叶脉中是否逐渐出现红色运输痕迹。",
+      "actionType": "record-observation",
+      "targetObject": "stem",
+      "successCondition": "stem-transport-stain-recorded",
+      "failureHints": [
+        "请记录茎和叶脉中出现的红色路径。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "judge-transport-path",
+      "order": 4,
+      "title": "判断运输路径",
+      "description": "根据染色位置判断水分沿植物茎中的导管运输。",
+      "actionType": "record-observation",
+      "targetObject": "leaf-vein",
+      "successCondition": "stem-transport-path-judged",
+      "failureHints": [
+        "请把染色位置和运输路径对应起来。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-stem-transport",
+      "order": 5,
+      "title": "总结运输作用",
+      "description": "总结茎把水和无机盐向上运输到叶等器官的作用。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "stem-transport-summary-submitted",
+      "failureHints": [
+        "请把有色水示踪现象和导管运输作用联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成茎运输作用实验，并能说明水和无机盐会沿导管向上运输到叶等器官。",
+    "commonMistakes": [
+      "茎段没有正确插入有色水中",
+      "只观察茎的颜色，没有结合叶脉变化",
+      "没有把染色路径与导管运输作用对应起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

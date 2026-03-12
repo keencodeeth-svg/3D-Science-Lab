@@ -1,0 +1,174 @@
+{
+  "id": "chem-junior-mass-conservation-001",
+  "title": "质量守恒定律",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-balance-bench",
+    "cameraPreset": "balance-front",
+    "assets": [
+      "balance.glb",
+      "flask.glb",
+      "balloon.glb",
+      "powder-cup.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "化学反应与质量关系",
+    "unit": "质量守恒定律",
+    "knowledgePoints": [
+      "密闭体系",
+      "反应前后质量比较",
+      "总质量不变"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识电子天平、密闭反应装置和药品杯等实验材料",
+    "通过比较反应前后总质量理解质量守恒",
+    "能说明质量守恒成立的前提是体系封闭"
+  ],
+  "equipment": [
+    {
+      "id": "balance",
+      "name": "电子天平",
+      "type": "meter"
+    },
+    {
+      "id": "flask",
+      "name": "锥形瓶",
+      "type": "container"
+    },
+    {
+      "id": "balloon",
+      "name": "气球",
+      "type": "tool"
+    },
+    {
+      "id": "acid-dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "powder-cup",
+      "name": "药品杯",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-mass-conservation-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别电子天平、锥形瓶、气球、滴管和药品杯。",
+      "actionType": "identify-object",
+      "targetObject": "mass-conservation-panel",
+      "successCondition": "mass-conservation-tools-identified",
+      "failureHints": [
+        "请先识别质量守恒实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "record-mass-before",
+      "order": 2,
+      "title": "记录反应前质量",
+      "description": "把密闭装置放在天平上，先记录反应前总质量。",
+      "actionType": "record-observation",
+      "targetObject": "balance",
+      "successCondition": "mass-before-recorded",
+      "failureHints": [
+        "请先记录反应前的总质量。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "meter-reading",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "trigger-reaction-sealed",
+      "order": 3,
+      "title": "密闭触发反应",
+      "description": "保持装置密闭后再触发反应，观察气球鼓起。",
+      "actionType": "add-material",
+      "targetObject": "flask",
+      "successCondition": "sealed-reaction-triggered",
+      "failureHints": [
+        "请保持装置密闭后再触发反应。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "compare-mass-before-after",
+      "order": 4,
+      "title": "比较反应前后质量",
+      "description": "比较反应前后天平读数是否变化。",
+      "actionType": "set-variable",
+      "targetObject": "balance-panel",
+      "successCondition": "mass-before-after-compared",
+      "failureHints": [
+        "请把反应前后天平读数做对应比较。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-mass-conservation",
+      "order": 5,
+      "title": "总结质量守恒",
+      "description": "总结密闭体系中化学反应前后总质量的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "mass-conservation-summary-submitted",
+      "failureHints": [
+        "请围绕密闭体系和总质量不变完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成质量守恒定律实验，并能说明在密闭体系中反应前后总质量保持不变。",
+    "commonMistakes": [
+      "没有先记录反应前质量",
+      "触发反应时装置不密闭，导致比较失真",
+      "只记住读数没变，没有强调密闭体系这一前提"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "meter-reading",
+    "observation-panel",
+    "material-add",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

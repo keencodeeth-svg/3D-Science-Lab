@@ -1,0 +1,204 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --line: #d7deea;
+  --text: #1d2a3b;
+  --muted: #617289;
+  --accent: #3f6fff;
+  --accent-soft: #eef3ff;
+  --success: #e8f7ee;
+  --warning: #fff5df;
+  --danger: #fff0f0;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+.shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 56px;
+}
+
+.topbar, .page-head, .toolbar, .result-head, .teacher-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar { padding: 12px 0 24px; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: white;
+}
+
+.nav, .actions, .tabs, .chip-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button, .tab, .chip {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button.primary, .tab.active, .chip.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.button.subtle {
+  background: var(--accent-soft);
+  border-color: #cfe0ff;
+}
+
+.page-grid, .grid-2, .grid-3, .grid-4, .dashboard-grid, .task-grid, .list-grid {
+  display: grid;
+  gap: 16px;
+}
+.grid-2 { grid-template-columns: 1.1fr 0.9fr; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-4, .dashboard-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.task-grid { grid-template-columns: 1.2fr 0.8fr; }
+.list-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.card, .wireframe-box, .metric, .placeholder {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.card, .metric, .wireframe-box { padding: 20px; }
+
+.metric strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.8rem;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.muted, p, li, td, th, small { color: var(--muted); line-height: 1.6; }
+
+.hero-card h1, .page-head h1, .teacher-head h1, .result-head h1 {
+  margin: 10px 0 8px;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.placeholder {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  border-style: dashed;
+  background: #fafcff;
+}
+
+.side-steps ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.side-steps li {
+  padding: 8px 0;
+}
+
+.side-steps li.active {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.checklist {
+  margin: 0;
+  padding-left: 18px;
+}
+.checklist li { margin: 8px 0; }
+
+.banner {
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+}
+.banner.success { background: var(--success); }
+.banner.warning { background: var(--warning); }
+.banner.danger { background: var(--danger); }
+
+.page-links a {
+  display: block;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+.page-links a + a { margin-top: 12px; }
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+footer.note {
+  margin-top: 24px;
+  font-size: 0.94rem;
+}
+
+@media (max-width: 960px) {
+  .grid-2, .grid-3, .grid-4, .dashboard-grid, .task-grid, .list-grid, .kpi-row {
+    grid-template-columns: 1fr;
+  }
+  .topbar, .page-head, .toolbar, .result-head, .teacher-head { flex-direction: column; align-items: flex-start; }
+}

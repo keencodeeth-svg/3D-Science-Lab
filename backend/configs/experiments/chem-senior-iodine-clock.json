@@ -1,0 +1,172 @@
+{
+  "id": "chem-senior-iodine-clock-001",
+  "title": "碘钟反应",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "高一/高二",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-clock-bench",
+    "cameraPreset": "beaker-top",
+    "assets": [
+      "beaker.glb",
+      "solution-a.glb",
+      "solution-b.glb",
+      "timer.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "化学反应速率与机理",
+    "unit": "碘钟反应",
+    "knowledgePoints": [
+      "延迟显色",
+      "计时观察",
+      "整体突变现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识碘钟反应中所需溶液、指示剂和计时器材",
+    "观察体系由无色延迟后突然整体变蓝的现象",
+    "理解计时和变量控制在演示速率差异中的价值"
+  ],
+  "equipment": [
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "solution-a",
+      "name": "无色溶液 A",
+      "type": "solution"
+    },
+    {
+      "id": "solution-b",
+      "name": "无色溶液 B",
+      "type": "solution"
+    },
+    {
+      "id": "starch-indicator",
+      "name": "淀粉指示剂",
+      "type": "solution"
+    },
+    {
+      "id": "timer",
+      "name": "计时器",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-clock-reaction-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别烧杯、两种无色溶液、淀粉指示剂和计时器。",
+      "actionType": "identify-object",
+      "targetObject": "iodine-clock-panel",
+      "successCondition": "iodine-clock-tools-identified",
+      "failureHints": [
+        "请先识别碘钟反应的实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "pour-solutions",
+      "order": 2,
+      "title": "倒入两种溶液",
+      "description": "将两种无色溶液和淀粉指示剂倒入同一烧杯中。",
+      "actionType": "add-material",
+      "targetObject": "beaker",
+      "successCondition": "iodine-clock-solutions-added",
+      "failureHints": [
+        "请先把溶液和指示剂加入同一体系。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "start-timing",
+      "order": 3,
+      "title": "开始混合计时",
+      "description": "快速搅拌并启动计时，观察延迟阶段。",
+      "actionType": "set-variable",
+      "targetObject": "timer",
+      "successCondition": "iodine-clock-timing-started",
+      "failureHints": [
+        "请在混合后及时开始计时。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "timing-panel"
+      ]
+    },
+    {
+      "id": "record-sudden-blue",
+      "order": 4,
+      "title": "观察瞬间变蓝",
+      "description": "记录溶液延迟后突然整体变成深蓝色的瞬间。",
+      "actionType": "record-observation",
+      "targetObject": "beaker",
+      "successCondition": "iodine-clock-color-recorded",
+      "failureHints": [
+        "请记录从无色到瞬间深蓝的整体变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-iodine-clock",
+      "order": 5,
+      "title": "总结碘钟现象",
+      "description": "总结碘钟反应的延迟显色特征和观察重点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "iodine-clock-summary-submitted",
+      "failureHints": [
+        "请围绕延迟显色和突然变蓝的过程完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 25,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成碘钟反应的关键观察，并能总结其“延迟后瞬间变蓝”的典型特征。",
+    "commonMistakes": [
+      "混合后没有及时开始计时",
+      "只看到变蓝结果，没有记录前期延迟阶段",
+      "忽略淀粉指示剂在显色中的作用"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "timing-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

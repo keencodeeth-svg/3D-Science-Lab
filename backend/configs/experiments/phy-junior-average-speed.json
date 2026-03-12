@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-average-speed-001",
+  "title": "测量平均速度",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-motion-track",
+    "cameraPreset": "track-front",
+    "assets": [
+      "track.glb",
+      "cart.glb",
+      "timer.glb",
+      "ruler.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "机械运动",
+    "unit": "测量平均速度",
+    "knowledgePoints": [
+      "设定路程",
+      "记录时间",
+      "速度公式 v=s/t"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识轨道、小车、计时器和刻度尺等实验器材",
+    "通过测量路程和时间计算小车平均速度",
+    "掌握平均速度等于路程除以时间的基本方法"
+  ],
+  "equipment": [
+    {
+      "id": "track",
+      "name": "轨道",
+      "type": "tool"
+    },
+    {
+      "id": "cart",
+      "name": "小车",
+      "type": "sample"
+    },
+    {
+      "id": "timer",
+      "name": "电子计时器",
+      "type": "meter"
+    },
+    {
+      "id": "ruler",
+      "name": "刻度尺",
+      "type": "tool"
+    },
+    {
+      "id": "marker",
+      "name": "起终点标记",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-average-speed-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别轨道、小车、电子计时器、刻度尺和起终点标记。",
+      "actionType": "identify-object",
+      "targetObject": "average-speed-panel",
+      "successCondition": "average-speed-tools-identified",
+      "failureHints": [
+        "请先识别测量平均速度实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "set-distance",
+      "order": 2,
+      "title": "设定路程",
+      "description": "先把实验路程设定为 1.0 m，形成清晰的测量范围。",
+      "actionType": "place-object",
+      "targetObject": "marker",
+      "successCondition": "average-speed-distance-set",
+      "failureHints": [
+        "请先设定清晰的起点和终点。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "release-cart-and-time",
+      "order": 3,
+      "title": "释放小车并记录时间",
+      "description": "释放小车通过全程，并记录所用时间。",
+      "actionType": "record-observation",
+      "targetObject": "timer",
+      "successCondition": "average-speed-time-recorded",
+      "failureHints": [
+        "请记录小车通过全程所用时间。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel",
+        "meter-reading"
+      ]
+    },
+    {
+      "id": "compare-distance-and-time",
+      "order": 4,
+      "title": "比较路程和时间",
+      "description": "根据 1.0 m 路程和计时器示数判断平均速度。",
+      "actionType": "set-variable",
+      "targetObject": "speed-panel",
+      "successCondition": "average-speed-calculated",
+      "failureHints": [
+        "请把测得的路程和时间结合起来计算。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-average-speed",
+      "order": 5,
+      "title": "总结平均速度公式",
+      "description": "总结平均速度等于路程除以时间。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "average-speed-summary-submitted",
+      "failureHints": [
+        "请围绕公式 v=s/t 和测量步骤完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成平均速度测量实验，并能根据路程和时间计算小车的平均速度。",
+    "commonMistakes": [
+      "没有先设定清晰的测量路程",
+      "计时记录不准确",
+      "只记录路程和时间，没有应用速度公式计算"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "meter-reading",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

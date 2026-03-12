@@ -1,0 +1,179 @@
+{
+  "id": "bio-junior-potato-osmosis-001",
+  "title": "马铃薯条吸水与失水",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-osmosis-bench",
+    "cameraPreset": "beaker-front",
+    "assets": [
+      "potato-strip.glb",
+      "salt-water.glb",
+      "clear-water.glb",
+      "beaker-set.glb",
+      "tongs.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "细胞的生活",
+    "unit": "植物组织吸水和失水",
+    "knowledgePoints": [
+      "盐水组",
+      "清水组",
+      "吸水失水比较"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识马铃薯条、盐水、清水、烧杯和镊子等器材材料",
+    "通过盐水组和清水组对照比较植物组织吸水与失水变化",
+    "理解植物组织在不同浓度液体中的形态变化与水分进出有关"
+  ],
+  "equipment": [
+    {
+      "id": "potato-strip-a",
+      "name": "马铃薯条 A",
+      "type": "sample"
+    },
+    {
+      "id": "potato-strip-b",
+      "name": "马铃薯条 B",
+      "type": "sample"
+    },
+    {
+      "id": "salt-water",
+      "name": "盐水",
+      "type": "solution"
+    },
+    {
+      "id": "clear-water",
+      "name": "清水",
+      "type": "solution"
+    },
+    {
+      "id": "beaker-set",
+      "name": "烧杯组",
+      "type": "container"
+    },
+    {
+      "id": "tongs",
+      "name": "镊子",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-potato-osmosis-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识马铃薯条、盐水、清水、烧杯和镊子。",
+      "actionType": "identify-object",
+      "targetObject": "potato-osmosis-panel",
+      "successCondition": "potato-osmosis-tools-identified",
+      "failureHints": [
+        "请先识别马铃薯吸水失水实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-potato-into-liquids",
+      "order": 2,
+      "title": "放入两种液体",
+      "description": "把两条马铃薯条分别放入盐水和清水中。",
+      "actionType": "place-object",
+      "targetObject": "beaker-set",
+      "successCondition": "potato-osmosis-placed",
+      "failureHints": [
+        "请把两条马铃薯条分别放入不同液体中形成对照。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-salt-water-change",
+      "order": 3,
+      "title": "观察盐水组变化",
+      "description": "观察盐水中的马铃薯条是否变软、弯曲。",
+      "actionType": "record-observation",
+      "targetObject": "salt-water",
+      "successCondition": "potato-osmosis-salt-recorded",
+      "failureHints": [
+        "请记录盐水组马铃薯条的形态变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "compare-clear-water-group",
+      "order": 4,
+      "title": "比较清水组差异",
+      "description": "比较清水中的马铃薯条是否更挺直饱满。",
+      "actionType": "record-observation",
+      "targetObject": "clear-water",
+      "successCondition": "potato-osmosis-clear-recorded",
+      "failureHints": [
+        "请把清水组和盐水组的差异记录完整。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-potato-osmosis",
+      "order": 5,
+      "title": "总结吸水失水",
+      "description": "总结植物组织在不同浓度液体中的吸水和失水现象。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "potato-osmosis-summary-submitted",
+      "failureHints": [
+        "请把盐水组和清水组的差异与吸水失水联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成马铃薯条吸水失水实验，并能说明植物组织在不同浓度液体中会出现不同的吸水和失水变化。",
+    "commonMistakes": [
+      "没有让两组形成清晰对照",
+      "只记录其中一组，不比较另一组差异",
+      "没有把软硬变化与水分进出联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

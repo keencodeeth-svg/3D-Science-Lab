@@ -1,0 +1,175 @@
+{
+  "id": "sci-primary-incline-001",
+  "title": "斜面的作用",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "六年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-mechanics-bench",
+    "cameraPreset": "incline-front",
+    "assets": [
+      "ramp.glb",
+      "cart.glb",
+      "scale.glb",
+      "stand.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "简单机械",
+    "unit": "斜面的作用",
+    "knowledgePoints": [
+      "水平拉力",
+      "斜面省力",
+      "路程变化"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识斜面板、小车、弹簧测力计和重物等器材",
+    "通过水平提升和斜面提升比较所需拉力",
+    "理解斜面可以省力但会增加运动距离"
+  ],
+  "equipment": [
+    {
+      "id": "ramp",
+      "name": "斜面板",
+      "type": "tool"
+    },
+    {
+      "id": "cart",
+      "name": "小车",
+      "type": "sample"
+    },
+    {
+      "id": "scale",
+      "name": "弹簧测力计",
+      "type": "meter"
+    },
+    {
+      "id": "stand",
+      "name": "支架",
+      "type": "tool"
+    },
+    {
+      "id": "block",
+      "name": "重物",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-incline-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别斜面板、小车、测力计、支架和重物。",
+      "actionType": "identify-object",
+      "targetObject": "incline-panel",
+      "successCondition": "incline-tools-identified",
+      "failureHints": [
+        "请先识别斜面实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "pull-on-flat",
+      "order": 2,
+      "title": "在水平面上拉动物体",
+      "description": "先在水平面上拉动物体，记录较大的拉力读数。",
+      "actionType": "record-observation",
+      "targetObject": "scale",
+      "successCondition": "flat-pull-recorded",
+      "failureHints": [
+        "请先记录水平拉动时的读数。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "meter-reading",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "pull-on-incline",
+      "order": 3,
+      "title": "改用斜面拉动物体",
+      "description": "改用斜面把物体拉到同样高度，比较读数变化。",
+      "actionType": "place-object",
+      "targetObject": "ramp",
+      "successCondition": "incline-pull-recorded",
+      "failureHints": [
+        "请改用斜面提升同样重物。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-pull-force",
+      "order": 4,
+      "title": "比较所需拉力",
+      "description": "根据两次测力计示数比较斜面是否省力。",
+      "actionType": "record-observation",
+      "targetObject": "comparison-panel",
+      "successCondition": "incline-force-compared",
+      "failureHints": [
+        "请比较水平和斜面两次拉力读数。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-incline",
+      "order": 5,
+      "title": "总结斜面省力特点",
+      "description": "总结斜面可以省力，但通常会增加运动距离。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "incline-summary-submitted",
+      "failureHints": [
+        "请围绕省力和增加路程完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成斜面实验，并能说明斜面可以省力，但一般需要走更长的路程。",
+    "commonMistakes": [
+      "没有先记录水平拉动的基准读数",
+      "比较时没有保持同样提升高度",
+      "只说省力，没有提到路程增加"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "meter-reading",
+    "observation-panel",
+    "object-placement",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-boiling-001",
+  "title": "水的沸腾",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-heating-bench",
+    "cameraPreset": "beaker-front",
+    "assets": [
+      "beaker.glb",
+      "thermometer.glb",
+      "tripod.glb",
+      "heater.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "物态变化",
+    "unit": "水的沸腾",
+    "knowledgePoints": [
+      "加热装置组装",
+      "温度变化",
+      "沸腾现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识烧杯、温度计、三脚架和酒精灯等器材",
+    "通过持续加热观察水温和气泡变化",
+    "理解水沸腾时温度保持不变但持续吸热的特点"
+  ],
+  "equipment": [
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "thermometer",
+      "name": "温度计",
+      "type": "meter"
+    },
+    {
+      "id": "tripod",
+      "name": "三脚架",
+      "type": "tool"
+    },
+    {
+      "id": "heater",
+      "name": "酒精灯",
+      "type": "heater"
+    },
+    {
+      "id": "mesh",
+      "name": "石棉网",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-boiling-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别烧杯、温度计、石棉网、三脚架和酒精灯。",
+      "actionType": "identify-object",
+      "targetObject": "boiling-panel",
+      "successCondition": "boiling-tools-identified",
+      "failureHints": [
+        "请先识别水的沸腾实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "assemble-heating-device",
+      "order": 2,
+      "title": "组装加热装置",
+      "description": "把烧杯、石棉网和酒精灯按规范组装成加热装置。",
+      "actionType": "place-object",
+      "targetObject": "heating-stage",
+      "successCondition": "boiling-device-assembled",
+      "failureHints": [
+        "请先按规范组装加热装置。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "heat-and-read-temperature",
+      "order": 3,
+      "title": "加热并读取温度",
+      "description": "持续加热并读取水温变化，直到接近沸腾。",
+      "actionType": "heat-object",
+      "targetObject": "beaker",
+      "successCondition": "boiling-temperature-read",
+      "failureHints": [
+        "请边加热边记录温度变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heater-control",
+        "meter-reading"
+      ]
+    },
+    {
+      "id": "observe-boiling",
+      "order": 4,
+      "title": "观察沸腾现象",
+      "description": "观察气泡、液面和温度读数在沸腾时的变化。",
+      "actionType": "record-observation",
+      "targetObject": "beaker",
+      "successCondition": "boiling-observation-recorded",
+      "failureHints": [
+        "请记录沸腾时气泡和温度的典型变化。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-boiling",
+      "order": 5,
+      "title": "总结沸腾规律",
+      "description": "总结水沸腾时的温度和现象特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "boiling-summary-submitted",
+      "failureHints": [
+        "请围绕沸腾温度和持续吸热完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成水的沸腾实验，并能说明水沸腾时温度保持稳定但仍持续吸热。",
+    "commonMistakes": [
+      "没有先规范组装加热装置",
+      "只看见气泡变化，没有关注温度读数",
+      "误以为沸腾时温度会持续升高"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "heater-control",
+    "meter-reading",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

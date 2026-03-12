@@ -1,0 +1,176 @@
+{
+  "id": "bio-junior-plasmolysis-001",
+  "title": "观察植物细胞的质壁分离与复原",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-bench",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "microscope.glb",
+      "slide.glb",
+      "onion-epidermis.glb",
+      "salt-solution.glb",
+      "water-dropper.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "细胞的生活",
+    "unit": "植物细胞吸水和失水",
+    "knowledgePoints": [
+      "高浓度溶液",
+      "质壁分离",
+      "吸水复原"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识显微镜、载玻片、洋葱表皮、浓盐水和清水等器材材料",
+    "通过前后对照观察植物细胞在失水和吸水条件下的变化",
+    "理解高浓度溶液中细胞失水发生质壁分离，清水中又可复原"
+  ],
+  "equipment": [
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "optical"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "sample"
+    },
+    {
+      "id": "onion-epidermis",
+      "name": "洋葱表皮",
+      "type": "sample"
+    },
+    {
+      "id": "salt-solution",
+      "name": "浓盐水",
+      "type": "solution"
+    },
+    {
+      "id": "clear-water",
+      "name": "清水",
+      "type": "solution"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-plasmolysis-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识显微镜、载玻片、洋葱表皮、浓盐水和清水。",
+      "actionType": "identify-object",
+      "targetObject": "plasmolysis-panel",
+      "successCondition": "plasmolysis-tools-identified",
+      "failureHints": [
+        "请先识别质壁分离实验所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-concentrated-salt",
+      "order": 2,
+      "title": "滴加浓盐水",
+      "description": "先在洋葱表皮装片上滴加浓盐水，制造细胞失水条件。",
+      "actionType": "add-material",
+      "targetObject": "slide",
+      "successCondition": "plasmolysis-salt-added",
+      "failureHints": [
+        "请先滴加浓盐水，再观察细胞变化。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "observe-plasmolysis",
+      "order": 3,
+      "title": "观察质壁分离",
+      "description": "调清视野并观察细胞膜与细胞壁分离的现象。",
+      "actionType": "record-observation",
+      "targetObject": "microscope",
+      "successCondition": "plasmolysis-observation-recorded",
+      "failureHints": [
+        "请记录细胞原生质层向内收缩的现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "focus-adjust",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "add-water-recovery",
+      "order": 4,
+      "title": "滴加清水观察复原",
+      "description": "再滴加清水，观察细胞吸水后是否复原。",
+      "actionType": "add-material",
+      "targetObject": "slide",
+      "successCondition": "plasmolysis-recovery-observed",
+      "failureHints": [
+        "请在观察到质壁分离后再滴加清水。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-plasmolysis",
+      "order": 5,
+      "title": "总结吸水失水现象",
+      "description": "总结植物细胞在不同浓度溶液中的吸水和失水变化。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "plasmolysis-summary-submitted",
+      "failureHints": [
+        "请把高浓度溶液失水与清水复原的现象总结完整。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成质壁分离与复原实验，并能说明植物细胞在高浓度溶液中失水、在清水中吸水复原。",
+    "commonMistakes": [
+      "没有先滴加浓盐水就判断质壁分离现象",
+      "显微镜视野不清晰就直接记录",
+      "没有把失水和吸水复原联系到不同溶液浓度"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "focus-adjust",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

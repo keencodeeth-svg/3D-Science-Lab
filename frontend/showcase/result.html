@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>结果页展示</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="container">
+        <header class="page-head">
+          <div>
+            <span class="eyebrow">Result Summary</span>
+            <h1>实验已完成</h1>
+            <p>结果页重点是：让学生知道做得怎么样，以及下一步怎么做。</p>
+          </div>
+          <div class="actions">
+            <a class="button button-ghost" href="./student-hall.html">返回大厅</a>
+            <a class="button" href="./lab-session.html">再练一次</a>
+          </div>
+        </header>
+
+        <section class="kpis" style="margin-top:18px;">
+          <article class="card kpi-card"><span class="metric-label">得分</span><strong>86</strong></article>
+          <article class="card kpi-card"><span class="metric-label">完成时长</span><strong>11 分钟</strong></article>
+          <article class="card kpi-card"><span class="metric-label">错误步骤</span><strong>2 个</strong></article>
+          <article class="card kpi-card"><span class="metric-label">推荐动作</span><strong>再练一次</strong></article>
+        </section>
+
+        <section class="two-col" style="margin-top:18px;">
+          <article class="summary-card">
+            <h2>复盘建议</h2>
+            <ul>
+              <li>第 2 步：导线首次连接位置错误</li>
+              <li>第 4 步：并联回路曾误接成串联</li>
+              <li>建议切换到练习模式再次完成一次</li>
+            </ul>
+          </article>
+          <article class="summary-card">
+            <h2>原理回顾</h2>
+            <p>串联电路只有一条电流路径，并联电路存在多条支路；连接方式不同会影响实验现象。</p>
+            <div class="banner success">下一步建议：切换到无强提示模式，再完成一次并联接法比较。</div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

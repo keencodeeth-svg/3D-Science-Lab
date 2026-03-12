@@ -1,0 +1,172 @@
+{
+  "id": "phy-junior-dispersion-001",
+  "title": "光的色散",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-optics-bench",
+    "cameraPreset": "prism-front",
+    "assets": [
+      "light-box.glb",
+      "slit.glb",
+      "prism.glb",
+      "screen.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光现象",
+    "unit": "光的色散",
+    "knowledgePoints": [
+      "三棱镜位置调整",
+      "白光色散",
+      "彩色光带"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识光源盒、狭缝、三棱镜和光屏等器材",
+    "通过让白光通过三棱镜观察彩色光带",
+    "理解白光由多种色光组成"
+  ],
+  "equipment": [
+    {
+      "id": "light-box",
+      "name": "光源盒",
+      "type": "tool"
+    },
+    {
+      "id": "slit",
+      "name": "狭缝",
+      "type": "tool"
+    },
+    {
+      "id": "prism",
+      "name": "三棱镜",
+      "type": "tool"
+    },
+    {
+      "id": "screen",
+      "name": "光屏",
+      "type": "tool"
+    },
+    {
+      "id": "support",
+      "name": "支架",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-dispersion-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别光源盒、狭缝、三棱镜、光屏和支架。",
+      "actionType": "identify-object",
+      "targetObject": "dispersion-panel",
+      "successCondition": "dispersion-tools-identified",
+      "failureHints": [
+        "请先识别色散实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "adjust-prism-position",
+      "order": 2,
+      "title": "调整三棱镜位置",
+      "description": "把三棱镜放到光路中合适的位置，保证光能通过。",
+      "actionType": "place-object",
+      "targetObject": "prism",
+      "successCondition": "prism-position-adjusted",
+      "failureHints": [
+        "请先把三棱镜放在正确的光路位置。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "pass-white-light",
+      "order": 3,
+      "title": "让白光通过棱镜",
+      "description": "用白光照射三棱镜，让光线投到光屏上。",
+      "actionType": "switch-view",
+      "targetObject": "light-box",
+      "successCondition": "white-light-through-prism",
+      "failureHints": [
+        "请让白光顺利通过三棱镜并投到光屏。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "observe-dispersion",
+      "order": 4,
+      "title": "观察色散现象",
+      "description": "观察光屏上的彩色光带顺序和范围。",
+      "actionType": "record-observation",
+      "targetObject": "screen",
+      "successCondition": "dispersion-recorded",
+      "failureHints": [
+        "请记录彩色光带的出现和排列。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-dispersion",
+      "order": 5,
+      "title": "总结白光组成",
+      "description": "总结白光经过三棱镜后发生色散的规律。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "dispersion-summary-submitted",
+      "failureHints": [
+        "请围绕白光分解成多种色光完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成光的色散实验，并能说明白光通过三棱镜后会分解成多种色光。",
+    "commonMistakes": [
+      "三棱镜位置不对，导致光线没有正确通过",
+      "只看见彩色光带，没有比较颜色顺序",
+      "没有总结白光由多种色光组成"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "view-switch",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

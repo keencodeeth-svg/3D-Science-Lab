@@ -1,0 +1,164 @@
+{
+  "id": "bio-junior-microscope-001",
+  "title": "显微镜使用",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-desk",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "microscope.glb",
+      "slide.glb",
+      "sample.glb"
+    ]
+  },
+  "objectives": [
+    "认识显微镜结构",
+    "完成对光、放片、调焦",
+    "获得清晰视野并记录观察结果"
+  ],
+  "equipment": [
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "optical"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "sample"
+    },
+    {
+      "id": "sample",
+      "name": "样本切片",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-parts",
+      "order": 1,
+      "title": "识别结构",
+      "description": "识别镜筒、物镜和调焦部件。",
+      "actionType": "identify-object",
+      "targetObject": "microscope",
+      "successCondition": "key-parts-identified",
+      "failureHints": [
+        "请先认识主要结构。"
+      ],
+      "scoringWeight": 10,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "set-light",
+      "order": 2,
+      "title": "完成对光",
+      "description": "调整光源或反光镜。",
+      "actionType": "place-object",
+      "targetObject": "light-module",
+      "successCondition": "light-adjusted",
+      "failureHints": [
+        "未完成对光，视野会偏暗。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "light-adjust"
+      ]
+    },
+    {
+      "id": "place-slide",
+      "order": 3,
+      "title": "放置样本",
+      "description": "固定载玻片和样本。",
+      "actionType": "place-object",
+      "targetObject": "stage",
+      "successCondition": "slide-fixed",
+      "failureHints": [
+        "样本未固定到载物台。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-focus",
+      "order": 4,
+      "title": "粗调与细调",
+      "description": "先粗准焦再细准焦。",
+      "actionType": "adjust-focus",
+      "targetObject": "focus-system",
+      "successCondition": "clear-image-achieved",
+      "failureHints": [
+        "请先低倍观察。",
+        "粗调和细调顺序错误。"
+      ],
+      "scoringWeight": 35,
+      "requiredCapabilities": [
+        "focus-adjust",
+        "view-zoom"
+      ]
+    },
+    {
+      "id": "record-result",
+      "order": 5,
+      "title": "记录观察",
+      "description": "记录样本特征与视野状态。",
+      "actionType": "record-observation",
+      "targetObject": "observation-panel",
+      "successCondition": "observation-submitted",
+      "failureHints": [
+        "请完成观察记录。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 30,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已完成显微镜对光、调焦与样本观察。",
+    "commonMistakes": [
+      "未先对光",
+      "一开始就使用高倍物镜",
+      "粗调细调顺序错误"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "light-adjust",
+    "object-placement",
+    "focus-adjust",
+    "view-zoom",
+    "observation-panel"
+  ],
+  "curriculum": {
+    "theme": "显微观察入门",
+    "unit": "细胞与生物体结构",
+    "knowledgePoints": [
+      "显微镜结构识别",
+      "对光与调焦",
+      "规范观察记录"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "chem-senior-flame-test-001",
+  "title": "焰色反应",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "高一/高二",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-flame-bench",
+    "cameraPreset": "flame-front",
+    "assets": [
+      "alcohol-lamp.glb",
+      "wire-loop.glb",
+      "salt-dishes.glb",
+      "ceramic-dish.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "元素与物质性质",
+    "unit": "焰色反应",
+    "knowledgePoints": [
+      "金属离子特征焰色",
+      "规范取样",
+      "颜色对比观察"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识焰色反应实验的核心器材与安全操作顺序",
+    "观察钠盐和铜盐在火焰中的典型颜色差异",
+    "能根据现象总结金属离子特征焰色的判别价值"
+  ],
+  "equipment": [
+    {
+      "id": "alcohol-lamp",
+      "name": "酒精灯",
+      "type": "heater"
+    },
+    {
+      "id": "wire-loop",
+      "name": "金属丝环",
+      "type": "tool"
+    },
+    {
+      "id": "sodium-salt",
+      "name": "钠盐样品",
+      "type": "sample"
+    },
+    {
+      "id": "copper-salt",
+      "name": "铜盐样品",
+      "type": "sample"
+    },
+    {
+      "id": "ceramic-dish",
+      "name": "瓷皿",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-flame-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识酒精灯、金属丝环、钠盐、铜盐和瓷皿。",
+      "actionType": "identify-object",
+      "targetObject": "flame-panel",
+      "successCondition": "flame-tools-identified",
+      "failureHints": [
+        "请先识别焰色反应所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "stabilize-lamp-flame",
+      "order": 2,
+      "title": "点燃酒精灯",
+      "description": "建立稳定无烟的火焰环境。",
+      "actionType": "set-variable",
+      "targetObject": "alcohol-lamp",
+      "successCondition": "flame-stabilized",
+      "failureHints": [
+        "请先建立稳定火焰，再进行焰色观察。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "heater-control"
+      ]
+    },
+    {
+      "id": "observe-sodium-flame",
+      "order": 3,
+      "title": "观察钠盐黄焰",
+      "description": "将蘸有钠盐的金属丝伸入火焰，观察明亮黄色。",
+      "actionType": "record-observation",
+      "targetObject": "sodium-flame",
+      "successCondition": "sodium-flame-recorded",
+      "failureHints": [
+        "请重点记录钠盐的明亮黄色火焰。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "observe-copper-flame",
+      "order": 4,
+      "title": "观察铜盐绿焰",
+      "description": "更换样品后继续观察铜盐蓝绿色火焰。",
+      "actionType": "record-observation",
+      "targetObject": "copper-flame",
+      "successCondition": "copper-flame-recorded",
+      "failureHints": [
+        "请与钠盐黄焰区分，记录铜盐的蓝绿色。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-flame-test",
+      "order": 5,
+      "title": "总结焰色特征",
+      "description": "总结不同金属离子对应的典型焰色。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "flame-summary-submitted",
+      "failureHints": [
+        "请根据两种样品的颜色差异完成结论总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成焰色反应的关键观察，并能区分钠盐黄焰和铜盐蓝绿色焰。",
+    "commonMistakes": [
+      "火焰未稳定就开始观察",
+      "钠盐和铜盐的颜色对应关系混淆",
+      "只描述颜色，不总结离子判别意义"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "heater-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

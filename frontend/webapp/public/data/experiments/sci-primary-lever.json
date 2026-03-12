@@ -1,0 +1,174 @@
+{
+  "id": "sci-primary-lever-001",
+  "title": "杠杆的作用",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "六年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-mechanics-bench",
+    "cameraPreset": "lever-front",
+    "assets": [
+      "lever-ruler.glb",
+      "fulcrum.glb",
+      "weights.glb",
+      "hook.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "简单机械",
+    "unit": "杠杆的作用",
+    "knowledgePoints": [
+      "支点",
+      "力臂变化",
+      "杠杆平衡"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识杠杆尺、支点、挂钩和砝码等器材",
+    "通过调节动力臂观察杠杆重新平衡的过程",
+    "理解杠杆平衡与两侧力臂关系有关"
+  ],
+  "equipment": [
+    {
+      "id": "lever-ruler",
+      "name": "杠杆尺",
+      "type": "tool"
+    },
+    {
+      "id": "fulcrum",
+      "name": "支点",
+      "type": "tool"
+    },
+    {
+      "id": "left-hook",
+      "name": "左挂钩",
+      "type": "tool"
+    },
+    {
+      "id": "right-hook",
+      "name": "右挂钩",
+      "type": "tool"
+    },
+    {
+      "id": "weights",
+      "name": "金属砝码",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-lever-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识杠杆尺、支点、左右挂钩和金属砝码。",
+      "actionType": "identify-object",
+      "targetObject": "lever-panel",
+      "successCondition": "lever-tools-identified",
+      "failureHints": [
+        "请先识别杠杆实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "hang-resistance-weight",
+      "order": 2,
+      "title": "挂上阻力砝码",
+      "description": "先在左侧挂上阻力砝码，建立需要平衡的初始状态。",
+      "actionType": "place-object",
+      "targetObject": "left-hook",
+      "successCondition": "lever-resistance-weight-hung",
+      "failureHints": [
+        "请先在左侧挂上阻力砝码。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-effort-arm",
+      "order": 3,
+      "title": "调节动力臂",
+      "description": "把右侧砝码逐步外移，找到能让杠杆恢复平衡的位置。",
+      "actionType": "set-variable",
+      "targetObject": "right-hook",
+      "successCondition": "lever-effort-arm-adjusted",
+      "failureHints": [
+        "请通过改变右侧位置寻找平衡点。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-lever-balance",
+      "order": 4,
+      "title": "观察杠杆平衡",
+      "description": "观察两侧力臂变化与杠杆姿态，判断什么时候重新平衡。",
+      "actionType": "record-observation",
+      "targetObject": "lever-ruler",
+      "successCondition": "lever-balance-recorded",
+      "failureHints": [
+        "请记录杠杆恢复平衡时的状态。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-lever",
+      "order": 5,
+      "title": "总结省力规律",
+      "description": "总结杠杆平衡与动力臂、阻力臂之间的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "lever-summary-submitted",
+      "failureHints": [
+        "请围绕力臂变化和杠杆平衡完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成杠杆实验，并能说明调整动力臂可以让杠杆重新达到平衡。",
+    "commonMistakes": [
+      "没有先在左侧建立阻力状态",
+      "只移动砝码，没有观察杠杆姿态变化",
+      "没有把平衡结果和力臂关系联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

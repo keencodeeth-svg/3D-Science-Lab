@@ -1,0 +1,201 @@
+{
+  "id": "chem-junior-oxygen-001",
+  "title": "氧气制备与收集",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 13,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-heating-bench",
+    "cameraPreset": "tube-side-view",
+    "assets": [
+      "test-tube.glb",
+      "stand.glb",
+      "lamp.glb",
+      "water-tank.glb",
+      "gas-bottle.glb"
+    ]
+  },
+  "objectives": [
+    "认识制备氧气相关器材",
+    "掌握基本装置搭建顺序",
+    "完成气体收集并判断关键时机"
+  ],
+  "equipment": [
+    {
+      "id": "test-tube",
+      "name": "试管",
+      "type": "container"
+    },
+    {
+      "id": "stand",
+      "name": "铁架台",
+      "type": "support"
+    },
+    {
+      "id": "lamp",
+      "name": "酒精灯",
+      "type": "heating"
+    },
+    {
+      "id": "delivery-tube",
+      "name": "导管",
+      "type": "connector"
+    },
+    {
+      "id": "water-tank",
+      "name": "水槽",
+      "type": "support"
+    },
+    {
+      "id": "gas-bottle",
+      "name": "集气瓶",
+      "type": "collector"
+    }
+  ],
+  "steps": [
+    {
+      "id": "assemble-device",
+      "order": 1,
+      "title": "搭建制气装置",
+      "description": "摆放试管、铁架台和导管。",
+      "actionType": "place-object",
+      "targetObject": "assembly-area",
+      "successCondition": "base-device-assembled",
+      "failureHints": [
+        "装置位置不正确。",
+        "导管连接不完整。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "add-materials",
+      "order": 2,
+      "title": "加入药品",
+      "description": "把指定药品加入试管。",
+      "actionType": "add-material",
+      "targetObject": "test-tube",
+      "successCondition": "required-materials-added",
+      "failureHints": [
+        "药品加入顺序或对象错误。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "check-seal",
+      "order": 3,
+      "title": "检查气密性",
+      "description": "在加热前完成检查。",
+      "actionType": "record-observation",
+      "targetObject": "seal-check-panel",
+      "successCondition": "seal-check-completed",
+      "failureHints": [
+        "未先检查气密性。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "heat-tube",
+      "order": 4,
+      "title": "开始加热",
+      "description": "点燃酒精灯并加热试管。",
+      "actionType": "heat-object",
+      "targetObject": "test-tube",
+      "successCondition": "gas-production-started",
+      "failureHints": [
+        "加热顺序错误。",
+        "存在危险操作。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "heating-state",
+        "danger-block"
+      ]
+    },
+    {
+      "id": "collect-gas",
+      "order": 5,
+      "title": "收集氧气",
+      "description": "观察气泡并完成收集。",
+      "actionType": "record-observation",
+      "targetObject": "gas-bottle",
+      "successCondition": "oxygen-collected",
+      "failureHints": [
+        "集气瓶位置不正确。",
+        "收集时机判断错误。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "gas-animation",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "complete-summary",
+      "order": 6,
+      "title": "完成结论",
+      "description": "总结制备与收集关键注意事项。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "summary-submitted",
+      "failureHints": [
+        "请完成关键注意事项总结。"
+      ],
+      "scoringWeight": 10,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 60,
+    "observationScorePercent": 40,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已完成氧气制备与收集流程，并掌握关键规范。",
+    "commonMistakes": [
+      "未检查气密性",
+      "导管连接错误",
+      "危险加热顺序"
+    ]
+  },
+  "capabilities": [
+    "object-placement",
+    "material-add",
+    "observation-panel",
+    "heating-state",
+    "danger-block",
+    "gas-animation",
+    "summary-panel"
+  ],
+  "curriculum": {
+    "theme": "常见气体制备",
+    "unit": "氧气的制取与收集",
+    "knowledgePoints": [
+      "装置搭建",
+      "气密性检查",
+      "收集时机判断"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  }
+}

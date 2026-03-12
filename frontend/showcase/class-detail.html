@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>班级结果展示</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="container">
+        <header class="page-head">
+          <div>
+            <span class="eyebrow">Class Analytics</span>
+            <h1>八年级 2 班 · 串联与并联电路</h1>
+            <p>教师默认看到完成率、平均分、错误步骤和待跟进学生。</p>
+          </div>
+          <div class="actions">
+            <a class="button button-ghost" href="./teacher-dashboard.html">返回工作台</a>
+            <a class="button" href="./teacher-dashboard.html">再次布置</a>
+          </div>
+        </header>
+
+        <section class="kpis" style="margin-top:18px;">
+          <article class="card kpi-card"><span class="metric-label">完成率</span><strong>72%</strong></article>
+          <article class="card kpi-card"><span class="metric-label">平均分</span><strong>81</strong></article>
+          <article class="card kpi-card"><span class="metric-label">平均时长</span><strong>10.8 分钟</strong></article>
+          <article class="card kpi-card"><span class="metric-label">待跟进</span><strong>6 人</strong></article>
+        </section>
+
+        <section class="two-col" style="margin-top:18px;">
+          <article class="card">
+            <h2>TOP 错误步骤</h2>
+            <ol>
+              <li>导线未接到正确接线柱</li>
+              <li>并联回路误接成串联</li>
+              <li>未先检查回路就闭合开关</li>
+            </ol>
+            <div class="banner warning">教学建议：下一节课先复习并联接法，再安排二次练习。</div>
+          </article>
+          <article class="card">
+            <h2>学生列表</h2>
+            <table class="table">
+              <thead><tr><th>学生</th><th>状态</th><th>得分</th><th>耗时</th></tr></thead>
+              <tbody>
+                <tr><td>张同学</td><td>已完成</td><td>92</td><td>9 分钟</td></tr>
+                <tr><td>李同学</td><td>已完成</td><td>78</td><td>12 分钟</td></tr>
+                <tr><td>王同学</td><td>进行中</td><td>-</td><td>-</td></tr>
+                <tr><td>赵同学</td><td>未开始</td><td>-</td><td>-</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

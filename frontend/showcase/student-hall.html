@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学生端展示页</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="container">
+        <header class="page-head">
+          <div>
+            <span class="eyebrow">Student Workspace</span>
+            <h1>实验大厅</h1>
+            <p>优先展示老师布置任务、推荐实验和筛选入口。</p>
+          </div>
+          <div class="actions">
+            <a class="button button-ghost" href="./index.html">返回首页</a>
+            <a class="button" href="./lab-session.html">进入实验页</a>
+          </div>
+        </header>
+
+        <section class="banner success" style="margin-top:18px;">今日推荐：先完成老师布置的 `串联与并联电路`，再选择自由练习。</section>
+
+        <section class="card" style="margin-top:18px;">
+          <div class="toolbar">
+            <div class="chip-row">
+              <button class="chip active">全部学段</button>
+              <button class="chip">初中</button>
+              <button class="chip">高中</button>
+            </div>
+            <div class="chip-row">
+              <button class="chip active">全部学科</button>
+              <button class="chip">物理</button>
+              <button class="chip">化学</button>
+              <button class="chip">生物</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="three-col" style="margin-top:18px;">
+          <article class="experiment-card">
+            <div class="badge-row"><span class="badge">初中</span><span class="badge">物理</span></div>
+            <h3>串联与并联电路</h3>
+            <p>八年级 · 12 分钟 · 引导 / 练习 / 考核</p>
+            <div class="banner">老师已布置</div>
+            <div class="actions" style="margin-top:14px;"><a class="button" href="./lab-session.html">进入可操作实验</a></div>
+          </article>
+          <article class="experiment-card">
+            <div class="badge-row"><span class="badge">初中</span><span class="badge">化学</span></div>
+            <h3>氧气制备与收集</h3>
+            <p>九年级 · 13 分钟 · 引导 / 练习</p>
+            <div class="banner">推荐练习</div>
+          </article>
+          <article class="experiment-card">
+            <div class="badge-row"><span class="badge">高中</span><span class="badge">生物</span></div>
+            <h3>酶活性影响因素</h3>
+            <p>高一/高二 · 15 分钟 · 引导 / 练习 / 考核</p>
+            <div class="banner">进阶实验</div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

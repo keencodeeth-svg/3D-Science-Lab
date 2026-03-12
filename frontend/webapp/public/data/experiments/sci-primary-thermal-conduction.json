@@ -1,0 +1,173 @@
+{
+  "id": "sci-primary-thermal-conduction-001",
+  "title": "热传导快慢比较",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-heat-bench",
+    "cameraPreset": "rod-front",
+    "assets": [
+      "metal-rod.glb",
+      "wood-rod.glb",
+      "heater.glb",
+      "wax-beads.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "热与材料",
+    "unit": "热传导快慢比较",
+    "knowledgePoints": [
+      "不同材料",
+      "受热先后",
+      "导热本领"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识金属棒、木棒、加热器和蜡珠等材料",
+    "通过蜡珠脱落先后判断不同材料导热快慢",
+    "理解金属通常比木头导热更快"
+  ],
+  "equipment": [
+    {
+      "id": "metal-rod",
+      "name": "金属棒",
+      "type": "sample"
+    },
+    {
+      "id": "wood-rod",
+      "name": "木棒",
+      "type": "sample"
+    },
+    {
+      "id": "heater",
+      "name": "加热器",
+      "type": "heater"
+    },
+    {
+      "id": "wax-beads",
+      "name": "蜡珠",
+      "type": "material"
+    },
+    {
+      "id": "stand",
+      "name": "支架",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-thermal-conduction-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别金属棒、木棒、加热器、蜡珠和支架。",
+      "actionType": "identify-object",
+      "targetObject": "thermal-conduction-panel",
+      "successCondition": "thermal-conduction-tools-identified",
+      "failureHints": [
+        "请先识别热传导实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "heat-metal-rod",
+      "order": 2,
+      "title": "加热金属棒",
+      "description": "先加热金属棒的一端，观察蜡珠先后受热变化。",
+      "actionType": "heat-object",
+      "targetObject": "metal-rod",
+      "successCondition": "metal-rod-heated",
+      "failureHints": [
+        "请先加热金属棒一端。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heater-control"
+      ]
+    },
+    {
+      "id": "compare-wood-rod",
+      "order": 3,
+      "title": "比较木棒变化",
+      "description": "再比较木棒上的蜡珠变化是否同样明显。",
+      "actionType": "record-observation",
+      "targetObject": "wood-rod",
+      "successCondition": "wood-rod-compared",
+      "failureHints": [
+        "请比较木棒与金属棒上的蜡珠变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "observe-wax-drop",
+      "order": 4,
+      "title": "观察蜡珠脱落",
+      "description": "根据蜡珠脱落情况判断哪种材料导热更快。",
+      "actionType": "record-observation",
+      "targetObject": "wax-beads",
+      "successCondition": "wax-drop-recorded",
+      "failureHints": [
+        "请记录蜡珠受热脱落的先后变化。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-thermal-conduction",
+      "order": 5,
+      "title": "总结传热规律",
+      "description": "总结不同材料导热本领的差异。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "thermal-conduction-summary-submitted",
+      "failureHints": [
+        "请围绕材料差异和导热快慢完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成热传导实验，并能说明金属比木棒导热更快。",
+    "commonMistakes": [
+      "没有先建立金属棒受热现象",
+      "只看一根棒，不做对照比较",
+      "没有把蜡珠脱落先后和导热快慢联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "heater-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

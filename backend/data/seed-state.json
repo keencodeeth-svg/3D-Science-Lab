@@ -1,0 +1,44 @@
+{
+  "school": {
+    "name": "星河实验学校",
+    "district": "数字化实验教学试点校",
+    "campusCount": 2,
+    "teacherCount": 18,
+    "studentCount": 1260
+  },
+  "classrooms": [
+    { "id": "class-701", "name": "七年级（1）班", "stage": "初中", "gradeLabel": "七年级", "studentCount": 42, "homeroomTeacher": "陈老师" },
+    { "id": "class-801", "name": "八年级（1）班", "stage": "初中", "gradeLabel": "八年级", "studentCount": 40, "homeroomTeacher": "王老师" },
+    { "id": "class-901", "name": "九年级（1）班", "stage": "初中", "gradeLabel": "九年级", "studentCount": 38, "homeroomTeacher": "周老师" },
+    { "id": "class-g101", "name": "高一（1）班", "stage": "高中", "gradeLabel": "高一", "studentCount": 45, "homeroomTeacher": "刘老师" },
+    { "id": "class-g201", "name": "高二（1）班", "stage": "高中", "gradeLabel": "高二", "studentCount": 41, "homeroomTeacher": "赵老师" },
+    { "id": "class-p401", "name": "四年级（1）班", "stage": "小学", "gradeLabel": "四年级", "studentCount": 36, "homeroomTeacher": "李老师" },
+    { "id": "class-p501", "name": "五年级（1）班", "stage": "小学", "gradeLabel": "五年级", "studentCount": 35, "homeroomTeacher": "吴老师" }
+  ],
+  "students": [
+    { "id": "stu-701-01", "name": "林语晨", "stage": "初中", "gradeLabel": "七年级", "classId": "class-701", "className": "七年级（1）班" },
+    { "id": "stu-701-02", "name": "赵子墨", "stage": "初中", "gradeLabel": "七年级", "classId": "class-701", "className": "七年级（1）班" },
+    { "id": "stu-701-03", "name": "周嘉禾", "stage": "初中", "gradeLabel": "七年级", "classId": "class-701", "className": "七年级（1）班" },
+    { "id": "stu-801-01", "name": "王一诺", "stage": "初中", "gradeLabel": "八年级", "classId": "class-801", "className": "八年级（1）班" },
+    { "id": "stu-801-02", "name": "陈泽远", "stage": "初中", "gradeLabel": "八年级", "classId": "class-801", "className": "八年级（1）班" },
+    { "id": "stu-801-03", "name": "许安然", "stage": "初中", "gradeLabel": "八年级", "classId": "class-801", "className": "八年级（1）班" },
+    { "id": "stu-901-01", "name": "刘思齐", "stage": "初中", "gradeLabel": "九年级", "classId": "class-901", "className": "九年级（1）班" },
+    { "id": "stu-901-02", "name": "吴可欣", "stage": "初中", "gradeLabel": "九年级", "classId": "class-901", "className": "九年级（1）班" },
+    { "id": "stu-901-03", "name": "何明轩", "stage": "初中", "gradeLabel": "九年级", "classId": "class-901", "className": "九年级（1）班" },
+    { "id": "stu-g101-01", "name": "秦书瑶", "stage": "高中", "gradeLabel": "高一", "classId": "class-g101", "className": "高一（1）班" },
+    { "id": "stu-g101-02", "name": "沈知远", "stage": "高中", "gradeLabel": "高一", "classId": "class-g101", "className": "高一（1）班" },
+    { "id": "stu-g101-03", "name": "方雅宁", "stage": "高中", "gradeLabel": "高一", "classId": "class-g101", "className": "高一（1）班" },
+    { "id": "stu-g201-01", "name": "顾星河", "stage": "高中", "gradeLabel": "高二", "classId": "class-g201", "className": "高二（1）班" },
+    { "id": "stu-g201-02", "name": "李承泽", "stage": "高中", "gradeLabel": "高二", "classId": "class-g201", "className": "高二（1）班" },
+    { "id": "stu-g201-03", "name": "宋清妍", "stage": "高中", "gradeLabel": "高二", "classId": "class-g201", "className": "高二（1）班" },
+    { "id": "stu-p401-01", "name": "豆豆", "stage": "小学", "gradeLabel": "四年级", "classId": "class-p401", "className": "四年级（1）班" },
+    { "id": "stu-p401-02", "name": "可可", "stage": "小学", "gradeLabel": "四年级", "classId": "class-p401", "className": "四年级（1）班" },
+    { "id": "stu-p401-03", "name": "乐乐", "stage": "小学", "gradeLabel": "四年级", "classId": "class-p401", "className": "四年级（1）班" },
+    { "id": "stu-p501-01", "name": "晨晨", "stage": "小学", "gradeLabel": "五年级", "classId": "class-p501", "className": "五年级（1）班" },
+    { "id": "stu-p501-02", "name": "宁宁", "stage": "小学", "gradeLabel": "五年级", "classId": "class-p501", "className": "五年级（1）班" },
+    { "id": "stu-p501-03", "name": "小满", "stage": "小学", "gradeLabel": "五年级", "classId": "class-p501", "className": "五年级（1）班" }
+  ],
+  "currentStudentId": "stu-701-01",
+  "assignments": [],
+  "attempts": []
+}

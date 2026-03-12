@@ -1,0 +1,172 @@
+{
+  "id": "phy-junior-inertia-001",
+  "title": "惯性现象",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-cart-bench",
+    "cameraPreset": "track-front",
+    "assets": [
+      "cart.glb",
+      "wood-block.glb",
+      "track.glb",
+      "ruler.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "力与运动",
+    "unit": "惯性现象",
+    "knowledgePoints": [
+      "原有静止状态",
+      "快速拉动小车",
+      "惯性解释"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识小车、木块、轨道和挡块等实验器材",
+    "通过快速拉动小车观察木块保持原来状态的现象",
+    "理解惯性与物体保持原有运动状态的关系"
+  ],
+  "equipment": [
+    {
+      "id": "cart",
+      "name": "小车",
+      "type": "sample"
+    },
+    {
+      "id": "wood-block",
+      "name": "木块",
+      "type": "sample"
+    },
+    {
+      "id": "track",
+      "name": "轨道",
+      "type": "tool"
+    },
+    {
+      "id": "ruler",
+      "name": "刻度尺",
+      "type": "tool"
+    },
+    {
+      "id": "stopper",
+      "name": "挡块",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-inertia-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别小车、木块、轨道、刻度尺和挡块。",
+      "actionType": "identify-object",
+      "targetObject": "inertia-panel",
+      "successCondition": "inertia-tools-identified",
+      "failureHints": [
+        "请先识别惯性实验所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-block-on-cart",
+      "order": 2,
+      "title": "在小车上放木块",
+      "description": "把木块稳定放在小车上，建立惯性实验装置。",
+      "actionType": "place-object",
+      "targetObject": "cart",
+      "successCondition": "block-on-cart-ready",
+      "failureHints": [
+        "请先把木块稳定放在小车上。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "pull-cart-quickly",
+      "order": 3,
+      "title": "快速拉动小车",
+      "description": "迅速拉动小车，比较木块和小车的相对运动。",
+      "actionType": "set-variable",
+      "targetObject": "cart",
+      "successCondition": "cart-pulled-quickly",
+      "failureHints": [
+        "请快速而不是缓慢地拉动小车。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-block-state",
+      "order": 4,
+      "title": "观察木块状态",
+      "description": "观察木块是否保持原来静止状态。",
+      "actionType": "record-observation",
+      "targetObject": "wood-block",
+      "successCondition": "block-state-recorded",
+      "failureHints": [
+        "请观察并记录木块与小车的相对运动状态。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-inertia",
+      "order": 5,
+      "title": "总结惯性现象",
+      "description": "总结惯性现象与物体原有运动状态的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "inertia-summary-submitted",
+      "failureHints": [
+        "请围绕物体保持原有状态的特点完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成惯性现象实验，并能说明木块在小车被快速拉动时为何仍倾向保持原来的静止状态。",
+    "commonMistakes": [
+      "木块没有放稳就开始操作",
+      "拉动小车过慢，现象不明显",
+      "只描述木块没跟上小车，没有总结惯性的本质"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

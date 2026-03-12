@@ -1,0 +1,175 @@
+{
+  "id": "sci-primary-color-wheel-001",
+  "title": "转动的彩色轮",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "六年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-color-bench",
+    "cameraPreset": "wheel-front",
+    "assets": [
+      "color-disk.glb",
+      "stand.glb",
+      "axle.glb",
+      "pull-handle.glb",
+      "view-card.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光的色彩",
+    "unit": "彩色轮混色",
+    "knowledgePoints": [
+      "七色盘",
+      "快速旋转",
+      "视觉综合色"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识七色盘、支架、转轴和拉线手柄等器材",
+    "通过快速旋转彩色轮观察综合色变化",
+    "理解颜色在视觉上快速混合时的表现"
+  ],
+  "equipment": [
+    {
+      "id": "color-disk",
+      "name": "七色盘",
+      "type": "sample"
+    },
+    {
+      "id": "stand",
+      "name": "支架",
+      "type": "tool"
+    },
+    {
+      "id": "axle",
+      "name": "转轴",
+      "type": "tool"
+    },
+    {
+      "id": "pull-handle",
+      "name": "拉线手柄",
+      "type": "tool"
+    },
+    {
+      "id": "view-card",
+      "name": "观察卡",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-color-wheel-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识七色盘、支架、转轴、拉线手柄和观察卡。",
+      "actionType": "identify-object",
+      "targetObject": "color-wheel-panel",
+      "successCondition": "color-wheel-tools-identified",
+      "failureHints": [
+        "请先识别彩色轮实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "install-color-disk",
+      "order": 2,
+      "title": "安装色盘",
+      "description": "把七色盘安装到转轴上，准备旋转。",
+      "actionType": "place-object",
+      "targetObject": "axle",
+      "successCondition": "color-disk-installed",
+      "failureHints": [
+        "请先把七色盘正确安装到转轴上。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "spin-color-wheel",
+      "order": 3,
+      "title": "快速转动",
+      "description": "快速拉动手柄，让色盘持续旋转。",
+      "actionType": "set-variable",
+      "targetObject": "pull-handle",
+      "successCondition": "color-wheel-spun",
+      "failureHints": [
+        "请让色盘快速而稳定地旋转。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-combined-color",
+      "order": 4,
+      "title": "观察综合色",
+      "description": "观察旋转后的七色盘颜色是否趋于综合色。",
+      "actionType": "record-observation",
+      "targetObject": "view-card",
+      "successCondition": "color-wheel-observation-recorded",
+      "failureHints": [
+        "请比较静止状态和快速旋转状态下的颜色变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-color-wheel",
+      "order": 5,
+      "title": "总结混合现象",
+      "description": "总结多种颜色在快速旋转时的视觉混合现象。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "color-wheel-summary-submitted",
+      "failureHints": [
+        "请围绕颜色快速混合后的综合色完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成彩色轮实验，并能说明多种颜色快速旋转时会在视觉上趋于综合色。",
+    "commonMistakes": [
+      "色盘没有安装稳固就开始旋转",
+      "转动速度不够快，颜色变化不明显",
+      "只看到颜色变淡，没有总结视觉混合规律"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

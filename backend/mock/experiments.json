@@ -1,0 +1,29 @@
+[
+  {
+    "id": "phy-junior-circuit-001",
+    "title": "串联与并联电路",
+    "stage": "初中",
+    "subject": "物理",
+    "grade": "八年级",
+    "durationMinutes": 12,
+    "modes": ["引导", "练习", "考核"]
+  },
+  {
+    "id": "chem-senior-cell-001",
+    "title": "原电池基础",
+    "stage": "高中",
+    "subject": "化学",
+    "grade": "高二",
+    "durationMinutes": 12,
+    "modes": ["引导", "考核"]
+  },
+  {
+    "id": "bio-junior-microscope-001",
+    "title": "显微镜使用",
+    "stage": "初中",
+    "subject": "生物",
+    "grade": "七年级",
+    "durationMinutes": 11,
+    "modes": ["引导", "练习"]
+  }
+]

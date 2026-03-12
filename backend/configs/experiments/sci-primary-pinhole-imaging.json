@@ -1,0 +1,176 @@
+{
+  "id": "sci-primary-pinhole-imaging-001",
+  "title": "小孔成像",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "primary-light-lab",
+    "cameraPreset": "pinhole-side",
+    "assets": [
+      "candle.glb",
+      "pinhole-box.glb",
+      "screen.glb",
+      "track.glb",
+      "matchbox.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光与影",
+    "unit": "小孔成像",
+    "knowledgePoints": [
+      "光沿直线传播",
+      "倒立的像",
+      "物屏位置关系"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识蜡烛、小孔成像盒、成像屏和滑轨等器材",
+    "通过调整蜡烛、小孔和屏的位置观察倒像",
+    "理解小孔成像与光沿直线传播之间的关系"
+  ],
+  "equipment": [
+    {
+      "id": "candle",
+      "name": "蜡烛",
+      "type": "light"
+    },
+    {
+      "id": "pinhole-box",
+      "name": "小孔成像盒",
+      "type": "tool"
+    },
+    {
+      "id": "screen",
+      "name": "成像屏",
+      "type": "screen"
+    },
+    {
+      "id": "track",
+      "name": "滑轨",
+      "type": "tool"
+    },
+    {
+      "id": "matchbox",
+      "name": "火柴",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-pinhole-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识蜡烛、小孔成像盒、成像屏、滑轨和火柴。",
+      "actionType": "identify-object",
+      "targetObject": "pinhole-panel",
+      "successCondition": "pinhole-tools-identified",
+      "failureHints": [
+        "请先识别小孔成像实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "light-pinhole-candle",
+      "order": 2,
+      "title": "点亮蜡烛",
+      "description": "点亮蜡烛，形成稳定光源。",
+      "actionType": "set-variable",
+      "targetObject": "candle",
+      "successCondition": "pinhole-candle-lit",
+      "failureHints": [
+        "请先点亮蜡烛，成像屏上才可能出现烛焰像。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "adjust-pinhole-track",
+      "order": 3,
+      "title": "调整小孔与屏",
+      "description": "让蜡烛、小孔和成像屏大致排成一条直线，并调节距离。",
+      "actionType": "set-variable",
+      "targetObject": "track",
+      "successCondition": "pinhole-track-adjusted",
+      "failureHints": [
+        "请把蜡烛、小孔和成像屏调整到合适位置。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "variable-control",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "observe-inverted-image",
+      "order": 4,
+      "title": "观察倒像",
+      "description": "观察成像屏上是否出现倒立的烛焰像。",
+      "actionType": "record-observation",
+      "targetObject": "screen",
+      "successCondition": "pinhole-image-recorded",
+      "failureHints": [
+        "请重点观察成像屏上的烛焰方向和清晰程度。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "view-switch",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-pinhole-imaging",
+      "order": 5,
+      "title": "总结成像特点",
+      "description": "总结小孔成像出现倒像的原因和特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "pinhole-summary-submitted",
+      "failureHints": [
+        "请把倒像现象和光沿直线传播联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 68,
+    "observationScorePercent": 22,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成小孔成像实验，并能说明倒立的像与光沿直线传播有关。",
+    "commonMistakes": [
+      "没有先建立稳定光源",
+      "蜡烛、小孔和成像屏没有排成合适位置",
+      "观察到倒像后没有解释其形成原因"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "variable-control",
+    "comparison-panel",
+    "view-switch",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-reflection-001",
+  "title": "光的反射规律",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-optics-bench",
+    "cameraPreset": "laser-front",
+    "assets": [
+      "laser-box.glb",
+      "plane-mirror.glb",
+      "protractor.glb",
+      "screen-card.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光现象",
+    "unit": "光的反射规律",
+    "knowledgePoints": [
+      "入射光线",
+      "反射角与入射角",
+      "三线共面"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识激光盒、平面镜、法线和量角器等器材",
+    "通过改变入射角观察反射角的对应变化",
+    "理解反射角等于入射角和三线共面的规律"
+  ],
+  "equipment": [
+    {
+      "id": "laser-box",
+      "name": "激光盒",
+      "type": "tool"
+    },
+    {
+      "id": "plane-mirror",
+      "name": "平面镜",
+      "type": "tool"
+    },
+    {
+      "id": "normal-line",
+      "name": "法线",
+      "type": "tool"
+    },
+    {
+      "id": "protractor",
+      "name": "量角器",
+      "type": "tool"
+    },
+    {
+      "id": "screen-card",
+      "name": "接收卡",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-reflection-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别激光盒、平面镜、法线、量角器和接收卡。",
+      "actionType": "identify-object",
+      "targetObject": "reflection-panel",
+      "successCondition": "reflection-tools-identified",
+      "failureHints": [
+        "请先识别光的反射实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "emit-incident-light",
+      "order": 2,
+      "title": "发出入射光线",
+      "description": "让激光照向平面镜，建立清晰的入射光线和反射光线。",
+      "actionType": "place-object",
+      "targetObject": "laser-box",
+      "successCondition": "incident-light-ready",
+      "failureHints": [
+        "请先让激光稳定照向镜面。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-incident-angle",
+      "order": 3,
+      "title": "调节入射角",
+      "description": "改变入射角，再观察反射角如何变化。",
+      "actionType": "set-variable",
+      "targetObject": "protractor",
+      "successCondition": "incident-angle-adjusted",
+      "failureHints": [
+        "请改变入射角后再观察反射角。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "compare-reflection-angle",
+      "order": 4,
+      "title": "比较反射角",
+      "description": "比较入射角和反射角的大小关系。",
+      "actionType": "record-observation",
+      "targetObject": "protractor",
+      "successCondition": "reflection-angle-compared",
+      "failureHints": [
+        "请测量并比较入射角和反射角。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-reflection-law",
+      "order": 5,
+      "title": "总结反射规律",
+      "description": "总结光的反射规律和三线关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "reflection-summary-submitted",
+      "failureHints": [
+        "请围绕反射角等于入射角和三线共面完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成光的反射规律实验，并能说明反射角等于入射角，入射光线、反射光线和法线在同一平面内。",
+    "commonMistakes": [
+      "没有先形成清晰的入射光线和反射光线",
+      "改变入射角后不重新测量反射角",
+      "只记住角度关系，没有总结三线共面"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

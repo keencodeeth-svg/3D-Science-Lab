@@ -1,0 +1,172 @@
+{
+  "id": "sci-primary-air-pressure-001",
+  "title": "大气压托水实验",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-water-cup-bench",
+    "cameraPreset": "cup-front",
+    "assets": [
+      "glass-cup.glb",
+      "hard-card.glb",
+      "tray.glb",
+      "sink.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "空气与水",
+    "unit": "大气压托水实验",
+    "knowledgePoints": [
+      "减少杯中空气",
+      "卡片封口",
+      "大气压作用"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识玻璃杯、硬卡片和托盘等实验材料",
+    "通过加满水、封口和倒转观察卡片托水现象",
+    "理解大气压对卡片和杯中水的支撑作用"
+  ],
+  "equipment": [
+    {
+      "id": "glass-cup",
+      "name": "玻璃杯",
+      "type": "container"
+    },
+    {
+      "id": "water",
+      "name": "水",
+      "type": "material"
+    },
+    {
+      "id": "hard-card",
+      "name": "硬卡片",
+      "type": "tool"
+    },
+    {
+      "id": "tray",
+      "name": "托盘",
+      "type": "tool"
+    },
+    {
+      "id": "sink",
+      "name": "水槽",
+      "type": "container"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-air-pressure-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别玻璃杯、水、硬卡片、托盘和水槽。",
+      "actionType": "identify-object",
+      "targetObject": "air-pressure-panel",
+      "successCondition": "air-pressure-tools-identified",
+      "failureHints": [
+        "请先识别大气压托水实验的材料。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "fill-cup-with-water",
+      "order": 2,
+      "title": "向杯中加满水",
+      "description": "把杯中加满水，尽量减少空气残留。",
+      "actionType": "add-material",
+      "targetObject": "glass-cup",
+      "successCondition": "cup-filled-with-water",
+      "failureHints": [
+        "请把杯中尽量加满水后再进行下一步。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "cover-with-card",
+      "order": 3,
+      "title": "盖上硬卡片",
+      "description": "用硬卡片紧贴杯口，准备倒转水杯。",
+      "actionType": "place-object",
+      "targetObject": "hard-card",
+      "successCondition": "hard-card-covered",
+      "failureHints": [
+        "请先让硬卡片紧贴杯口完成封口。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "invert-cup-observe",
+      "order": 4,
+      "title": "倒转水杯观察",
+      "description": "缓慢倒转水杯，观察卡片是否掉落和水是否漏出。",
+      "actionType": "record-observation",
+      "targetObject": "glass-cup",
+      "successCondition": "air-pressure-observation-recorded",
+      "failureHints": [
+        "请在倒转后观察卡片和杯中水的状态。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-air-pressure",
+      "order": 5,
+      "title": "总结大气压作用",
+      "description": "总结硬卡片能托住杯中水的原因。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "air-pressure-summary-submitted",
+      "failureHints": [
+        "请围绕杯外大气压和杯内水的状态完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成大气压托水实验，并能说明硬卡片不掉落的原因。",
+    "commonMistakes": [
+      "杯中没有加满水，残留空气太多",
+      "硬卡片没有贴紧杯口就开始倒转",
+      "只记住现象，没有解释大气压的作用"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

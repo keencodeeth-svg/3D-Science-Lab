@@ -1,0 +1,172 @@
+{
+  "id": "chem-junior-hydrogen-preparation-001",
+  "title": "实验室制取氢气",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-hydrogen-rig",
+    "cameraPreset": "generator-front",
+    "assets": [
+      "flask.glb",
+      "funnel.glb",
+      "collector.glb",
+      "zinc.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "气体制取",
+    "unit": "实验室制取氢气",
+    "knowledgePoints": [
+      "发生装置",
+      "集气方法",
+      "验纯现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识发生瓶、长颈漏斗、锌粒和集气装置",
+    "掌握实验室制取氢气时先排空气再收集的顺序",
+    "根据点燃现象判断氢气是否较纯净"
+  ],
+  "equipment": [
+    {
+      "id": "flask",
+      "name": "发生瓶",
+      "type": "container"
+    },
+    {
+      "id": "funnel",
+      "name": "长颈漏斗",
+      "type": "tool"
+    },
+    {
+      "id": "zinc",
+      "name": "锌粒",
+      "type": "sample"
+    },
+    {
+      "id": "acid",
+      "name": "稀酸",
+      "type": "solution"
+    },
+    {
+      "id": "collector",
+      "name": "集气装置",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-hydrogen-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别发生瓶、长颈漏斗、锌粒、稀酸和集气装置。",
+      "actionType": "identify-object",
+      "targetObject": "hydrogen-panel",
+      "successCondition": "hydrogen-tools-identified",
+      "failureHints": [
+        "请先识别实验室制氢装置。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-zinc-and-acid",
+      "order": 2,
+      "title": "加入锌粒和稀酸",
+      "description": "把锌粒与稀酸加入装置中，观察反应开始放出气泡。",
+      "actionType": "add-material",
+      "targetObject": "flask",
+      "successCondition": "hydrogen-reaction-started",
+      "failureHints": [
+        "请先在发生装置中建立反应。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "collect-gas",
+      "order": 3,
+      "title": "收集气体",
+      "description": "待气体稳定后，再收集生成的氢气。",
+      "actionType": "place-object",
+      "targetObject": "collector",
+      "successCondition": "hydrogen-collected",
+      "failureHints": [
+        "请等气体稳定后再开始收集。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-purity-test",
+      "order": 4,
+      "title": "观察验纯现象",
+      "description": "根据点燃时的现象判断是否为较纯净氢气。",
+      "actionType": "record-observation",
+      "targetObject": "collector",
+      "successCondition": "hydrogen-purity-tested",
+      "failureHints": [
+        "请根据点燃时的现象完成验纯判断。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-hydrogen-prep",
+      "order": 5,
+      "title": "总结氢气制取特点",
+      "description": "总结实验室制氢常见现象与注意点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "hydrogen-prep-summary-submitted",
+      "failureHints": [
+        "请围绕装置、现象和验纯完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成实验室制取氢气，并能说明先排空气、再收集、最后验纯的关键流程。",
+    "commonMistakes": [
+      "反应刚开始就收集，导致气体不纯",
+      "没有根据点燃现象进行验纯判断",
+      "只记住放气泡，没有总结操作顺序"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

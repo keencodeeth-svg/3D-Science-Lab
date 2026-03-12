@@ -1,0 +1,173 @@
+{
+  "id": "chem-senior-rate-001",
+  "title": "化学反应速率影响因素",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "高一/高二",
+  "durationMinutes": 15,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "chemistry-rate-bench",
+    "cameraPreset": "reaction-top",
+    "assets": [
+      "test-tubes.glb",
+      "reagents.glb",
+      "thermometer.glb",
+      "timer.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "反应原理",
+    "unit": "化学反应速率",
+    "knowledgePoints": [
+      "浓度影响",
+      "温度影响",
+      "对照实验"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "通过对照实验比较影响反应速率的因素",
+    "规范记录反应快慢现象",
+    "理解变量控制"
+  ],
+  "equipment": [
+    {
+      "id": "test-tube-a",
+      "name": "试管 A",
+      "type": "container"
+    },
+    {
+      "id": "test-tube-b",
+      "name": "试管 B",
+      "type": "container"
+    },
+    {
+      "id": "reagent-set",
+      "name": "试剂组",
+      "type": "material"
+    },
+    {
+      "id": "thermometer",
+      "name": "温度计",
+      "type": "meter"
+    },
+    {
+      "id": "timer",
+      "name": "计时器",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-materials",
+      "order": 1,
+      "title": "识别材料",
+      "description": "认识试管、试剂组和温度计。",
+      "actionType": "identify-object",
+      "targetObject": "materials-panel",
+      "successCondition": "rate-materials-identified",
+      "failureHints": [
+        "请先识别本次实验材料。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "build-control-group",
+      "order": 2,
+      "title": "建立对照组",
+      "description": "准备两组仅有一个变量差异的实验条件。",
+      "actionType": "place-object",
+      "targetObject": "control-stage",
+      "successCondition": "control-group-ready",
+      "failureHints": [
+        "对照组变量设置不明确。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "change-variable",
+      "order": 3,
+      "title": "改变变量",
+      "description": "改变温度或浓度，比较反应快慢。",
+      "actionType": "set-variable",
+      "targetObject": "reaction-conditions",
+      "successCondition": "rate-variable-compared",
+      "failureHints": [
+        "请只改变一个变量后再比较。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "record-rate",
+      "order": 4,
+      "title": "记录反应快慢",
+      "description": "记录不同条件下反应进行快慢的差异。",
+      "actionType": "record-observation",
+      "targetObject": "record-panel",
+      "successCondition": "rate-observation-recorded",
+      "failureHints": [
+        "请根据实验现象记录速率差异。"
+      ],
+      "scoringWeight": 19,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-rate",
+      "order": 5,
+      "title": "总结影响因素",
+      "description": "总结温度或浓度对反应速率的影响。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "rate-summary-submitted",
+      "failureHints": [
+        "请完整总结变量与速率变化关系。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 25,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已能通过对照实验分析影响化学反应速率的因素。",
+    "commonMistakes": [
+      "一次改变多个变量",
+      "没有形成对照组",
+      "只记录结果不分析变量关系"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

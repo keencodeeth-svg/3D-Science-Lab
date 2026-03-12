@@ -1,0 +1,195 @@
+{
+  "id": "chem-junior-filtration-001",
+  "title": "过滤与蒸发分离混合物",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 14,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-separation-bench",
+    "cameraPreset": "funnel-front",
+    "assets": [
+      "funnel.glb",
+      "filter-paper.glb",
+      "beaker.glb",
+      "evaporating-dish.glb",
+      "lamp.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "物质的分离",
+    "unit": "过滤与蒸发",
+    "knowledgePoints": [
+      "过滤操作",
+      "蒸发操作",
+      "混合物分离"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "掌握过滤和蒸发分离混合物的基本步骤",
+    "理解不同分离方法适用的场景",
+    "能根据现象判断分离结果"
+  ],
+  "equipment": [
+    {
+      "id": "funnel",
+      "name": "漏斗",
+      "type": "tool"
+    },
+    {
+      "id": "filter-paper",
+      "name": "滤纸",
+      "type": "material"
+    },
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "glass-rod",
+      "name": "玻璃棒",
+      "type": "tool"
+    },
+    {
+      "id": "evaporating-dish",
+      "name": "蒸发皿",
+      "type": "container"
+    },
+    {
+      "id": "alcohol-lamp",
+      "name": "酒精灯",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-apparatus",
+      "order": 1,
+      "title": "识别仪器",
+      "description": "先认识漏斗、滤纸、玻璃棒和蒸发皿。",
+      "actionType": "identify-object",
+      "targetObject": "apparatus-panel",
+      "successCondition": "separation-apparatus-identified",
+      "failureHints": [
+        "请先识别过滤与蒸发所用仪器。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-filter-paper",
+      "order": 2,
+      "title": "完成过滤装置",
+      "description": "折叠滤纸并放入漏斗，搭好过滤装置。",
+      "actionType": "place-object",
+      "targetObject": "funnel",
+      "successCondition": "filtration-setup-ready",
+      "failureHints": [
+        "滤纸贴合不规范会影响过滤效果。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "pour-mixture",
+      "order": 3,
+      "title": "沿玻璃棒过滤",
+      "description": "沿玻璃棒缓慢倒入混合液，完成过滤。",
+      "actionType": "add-material",
+      "targetObject": "beaker",
+      "successCondition": "mixture-filtered",
+      "failureHints": [
+        "倒液过快或未沿玻璃棒都会影响操作规范。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "heat-filtrate",
+      "order": 4,
+      "title": "加热蒸发滤液",
+      "description": "将滤液转入蒸发皿并控制加热。",
+      "actionType": "heat-object",
+      "targetObject": "evaporating-dish",
+      "successCondition": "filtrate-heated",
+      "failureHints": [
+        "蒸发时要注意缓慢加热并观察液面变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heat-control"
+      ]
+    },
+    {
+      "id": "record-crystal",
+      "order": 5,
+      "title": "记录蒸发结果",
+      "description": "观察蒸发后的晶体或残留物并记录。",
+      "actionType": "record-observation",
+      "targetObject": "evaporating-dish",
+      "successCondition": "evaporation-result-recorded",
+      "failureHints": [
+        "请根据蒸发后的现象完成记录。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-separation",
+      "order": 6,
+      "title": "总结分离方法",
+      "description": "总结过滤与蒸发分别解决什么问题。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "separation-summary-submitted",
+      "failureHints": [
+        "请说明过滤和蒸发各自的作用。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 20,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成过滤与蒸发分离混合物的关键流程，并能说明两种方法的作用。",
+    "commonMistakes": [
+      "滤纸放置不规范",
+      "倒液未沿玻璃棒",
+      "蒸发时忽略观察液面变化"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "heat-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

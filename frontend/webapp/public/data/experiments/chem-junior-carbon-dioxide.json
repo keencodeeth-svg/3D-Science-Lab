@@ -1,0 +1,173 @@
+{
+  "id": "chem-junior-carbon-dioxide-001",
+  "title": "二氧化碳的制取与检验",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 14,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-gas-bench",
+    "cameraPreset": "flask-front",
+    "assets": [
+      "flask.glb",
+      "delivery-tube.glb",
+      "limewater.glb",
+      "marble.glb",
+      "acid.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "常见气体",
+    "unit": "二氧化碳的制取与检验",
+    "knowledgePoints": [
+      "装置组装",
+      "气体制取",
+      "澄清石灰水检验"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "完成二氧化碳制取装置的基本搭建",
+    "观察反应与收集过程中的现象",
+    "掌握用澄清石灰水检验二氧化碳的方法"
+  ],
+  "equipment": [
+    {
+      "id": "flask",
+      "name": "锥形瓶",
+      "type": "container"
+    },
+    {
+      "id": "delivery-tube",
+      "name": "导气管",
+      "type": "tool"
+    },
+    {
+      "id": "marble",
+      "name": "大理石",
+      "type": "material"
+    },
+    {
+      "id": "dilute-acid",
+      "name": "稀酸",
+      "type": "solution"
+    },
+    {
+      "id": "limewater",
+      "name": "澄清石灰水",
+      "type": "solution"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-gas-tools",
+      "order": 1,
+      "title": "识别仪器与药品",
+      "description": "先认识锥形瓶、导气管、大理石和澄清石灰水。",
+      "actionType": "identify-object",
+      "targetObject": "gas-panel",
+      "successCondition": "gas-tools-identified",
+      "failureHints": [
+        "请先识别本实验所需仪器与药品。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "assemble-gas-device",
+      "order": 2,
+      "title": "搭建制气装置",
+      "description": "连接锥形瓶和导气管，完成装置搭建。",
+      "actionType": "place-object",
+      "targetObject": "flask",
+      "successCondition": "gas-device-ready",
+      "failureHints": [
+        "请确认导气路径连接正确。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "start-reaction",
+      "order": 3,
+      "title": "加入药品开始反应",
+      "description": "加入稀酸与大理石，让装置开始产气。",
+      "actionType": "add-material",
+      "targetObject": "reaction-flask",
+      "successCondition": "gas-reaction-started",
+      "failureHints": [
+        "请按规范将药品加入反应瓶。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "record-limewater",
+      "order": 4,
+      "title": "观察检验现象",
+      "description": "观察通入石灰水后的变化并记录。",
+      "actionType": "record-observation",
+      "targetObject": "limewater",
+      "successCondition": "limewater-result-recorded",
+      "failureHints": [
+        "请根据石灰水变化判断是否生成二氧化碳。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-carbon-dioxide",
+      "order": 5,
+      "title": "总结制取与检验",
+      "description": "总结二氧化碳制取步骤及检验依据。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "carbon-dioxide-summary-submitted",
+      "failureHints": [
+        "请同时概括制取过程和检验现象。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 20,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成二氧化碳的制取与检验流程，并能用石灰水现象判断气体种类。",
+    "commonMistakes": [
+      "装置连接不完整",
+      "药品加入顺序不清",
+      "忽略石灰水现象与结论的对应"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

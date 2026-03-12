@@ -1,0 +1,190 @@
+{
+  "id": "chem-senior-titration-001",
+  "title": "酸碱中和滴定",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "选择性必修",
+  "durationMinutes": 16,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "chemistry-titration-bench",
+    "cameraPreset": "burette-front",
+    "assets": [
+      "burette.glb",
+      "conical-flask.glb",
+      "indicator.glb",
+      "standard-solution.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "化学反应与定量分析",
+    "unit": "中和滴定",
+    "knowledgePoints": [
+      "滴定装置",
+      "终点判断",
+      "定量分析"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "掌握酸碱滴定的基本装置和操作顺序",
+    "理解滴定终点颜色变化的意义",
+    "能根据实验过程归纳滴定关键控制点"
+  ],
+  "equipment": [
+    {
+      "id": "burette",
+      "name": "滴定管",
+      "type": "tool"
+    },
+    {
+      "id": "conical-flask",
+      "name": "锥形瓶",
+      "type": "container"
+    },
+    {
+      "id": "indicator",
+      "name": "酚酞指示剂",
+      "type": "solution"
+    },
+    {
+      "id": "standard-solution",
+      "name": "标准溶液",
+      "type": "solution"
+    },
+    {
+      "id": "wash-bottle",
+      "name": "洗瓶",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-titration-tools",
+      "order": 1,
+      "title": "识别仪器与试剂",
+      "description": "先认识滴定管、锥形瓶、指示剂和标准溶液。",
+      "actionType": "identify-object",
+      "targetObject": "titration-panel",
+      "successCondition": "titration-tools-identified",
+      "failureHints": [
+        "请先识别滴定实验所用仪器与试剂。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-burette",
+      "order": 2,
+      "title": "安装滴定管",
+      "description": "将滴定管固定并检查初始状态。",
+      "actionType": "place-object",
+      "targetObject": "burette",
+      "successCondition": "burette-ready",
+      "failureHints": [
+        "滴定管安装和初始检查要规范。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "add-indicator",
+      "order": 3,
+      "title": "加入待测液与指示剂",
+      "description": "向锥形瓶中加入待测液并滴加指示剂。",
+      "actionType": "add-material",
+      "targetObject": "conical-flask",
+      "successCondition": "indicator-added",
+      "failureHints": [
+        "请先完成待测液和指示剂加入。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "set-drip-speed",
+      "order": 4,
+      "title": "调整滴定速度",
+      "description": "接近终点时切换为标准滴定速度。",
+      "actionType": "set-variable",
+      "targetObject": "speed-panel",
+      "successCondition": "drip-speed-adjusted",
+      "failureHints": [
+        "接近终点时需要更精细地控制滴定速度。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "record-endpoint",
+      "order": 5,
+      "title": "观察终点颜色变化",
+      "description": "观察终点附近溶液颜色变化并记录。",
+      "actionType": "record-observation",
+      "targetObject": "conical-flask",
+      "successCondition": "endpoint-recorded",
+      "failureHints": [
+        "请根据颜色变化判断终点是否达到。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-titration",
+      "order": 6,
+      "title": "总结滴定关键点",
+      "description": "总结酸碱中和滴定的关键控制点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "titration-summary-submitted",
+      "failureHints": [
+        "请概括装置、速度控制和终点判断三个关键点。"
+      ],
+      "scoringWeight": 14,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 20,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已掌握中和滴定的基本流程，并能围绕终点判断和操作控制总结关键要点。",
+    "commonMistakes": [
+      "滴定管准备不规范",
+      "接近终点仍滴加过快",
+      "终点判断与颜色变化不对应"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

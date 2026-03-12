@@ -1,0 +1,175 @@
+{
+  "id": "bio-junior-respiration-001",
+  "title": "呼吸模型与吸气过程",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-respiration-bench",
+    "cameraPreset": "model-front",
+    "assets": [
+      "bell-jar.glb",
+      "balloons.glb",
+      "branch-tube.glb",
+      "membrane.glb",
+      "stand.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "人体的呼吸",
+    "unit": "呼吸运动模型",
+    "knowledgePoints": [
+      "膈肌运动",
+      "胸腔容积变化",
+      "吸气过程"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识钟罩、球囊、Y 形导管和橡皮膜等模型器材",
+    "通过下拉橡皮膜观察球囊胀大的现象",
+    "理解膈肌下移会使胸腔容积增大并形成吸气"
+  ],
+  "equipment": [
+    {
+      "id": "bell-jar",
+      "name": "钟罩",
+      "type": "tool"
+    },
+    {
+      "id": "balloons",
+      "name": "球囊",
+      "type": "sample"
+    },
+    {
+      "id": "branch-tube",
+      "name": "Y 形导管",
+      "type": "tool"
+    },
+    {
+      "id": "membrane",
+      "name": "橡皮膜",
+      "type": "material"
+    },
+    {
+      "id": "stand",
+      "name": "支架",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-respiration-tools",
+      "order": 1,
+      "title": "识别模型器材",
+      "description": "先认识钟罩、球囊、Y 形导管、橡皮膜和支架。",
+      "actionType": "identify-object",
+      "targetObject": "respiration-panel",
+      "successCondition": "respiration-tools-identified",
+      "failureHints": [
+        "请先识别呼吸模型实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "assemble-respiration-model",
+      "order": 2,
+      "title": "装好呼吸模型",
+      "description": "连接并密封模型，确保钟罩内容积变化能够传递到球囊。",
+      "actionType": "place-object",
+      "targetObject": "bell-jar",
+      "successCondition": "respiration-model-assembled",
+      "failureHints": [
+        "模型必须保持较好密封，后续现象才会明显。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "pull-membrane-down",
+      "order": 3,
+      "title": "下拉膈膜",
+      "description": "向下拉动底部橡皮膜，模拟膈肌收缩下移。",
+      "actionType": "set-variable",
+      "targetObject": "membrane",
+      "successCondition": "respiration-membrane-pulled",
+      "failureHints": [
+        "请先下拉橡皮膜，再观察球囊变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-balloon-change",
+      "order": 4,
+      "title": "观察球囊变化",
+      "description": "观察球囊是否胀大，并比较模型内体积变化。",
+      "actionType": "record-observation",
+      "targetObject": "balloons",
+      "successCondition": "respiration-observation-recorded",
+      "failureHints": [
+        "请记录橡皮膜下拉后球囊的状态变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-respiration-model",
+      "order": 5,
+      "title": "总结吸气原理",
+      "description": "总结膈肌运动、胸腔容积变化与吸气过程之间的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "respiration-summary-submitted",
+      "failureHints": [
+        "请把膈肌下移、容积增大和吸气联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成呼吸模型实验，并能说明膈肌下移会使胸腔容积增大，从而形成吸气。",
+    "commonMistakes": [
+      "模型没有密封好就开始观察",
+      "没有先下拉橡皮膜就判断球囊变化",
+      "只记住球囊胀大，没有解释容积与吸气的关系"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

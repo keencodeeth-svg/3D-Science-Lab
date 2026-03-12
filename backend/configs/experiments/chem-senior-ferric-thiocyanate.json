@@ -1,0 +1,179 @@
+{
+  "id": "chem-senior-ferric-thiocyanate-001",
+  "title": "铁离子与硫氰酸根显色",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "高一/高二",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-colorimetry-bench",
+    "cameraPreset": "tube-front",
+    "assets": [
+      "test-tube-rack.glb",
+      "ferric-solution.glb",
+      "thiocyanate-solution.glb",
+      "dropper.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "离子反应与检验",
+    "unit": "铁离子显色检验",
+    "knowledgePoints": [
+      "对照实验",
+      "血红色络合现象",
+      "离子检验方法"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识铁离子显色检验所用的基础器材和试剂",
+    "通过对照组建立显色前后的观察基线",
+    "理解硫氰酸根可用于铁离子检验的原因"
+  ],
+  "equipment": [
+    {
+      "id": "test-tube-rack",
+      "name": "试管架",
+      "type": "tool"
+    },
+    {
+      "id": "test-tube-left",
+      "name": "左侧试管",
+      "type": "container"
+    },
+    {
+      "id": "test-tube-right",
+      "name": "右侧试管",
+      "type": "container"
+    },
+    {
+      "id": "ferric-solution",
+      "name": "铁离子溶液",
+      "type": "solution"
+    },
+    {
+      "id": "thiocyanate-solution",
+      "name": "硫氰酸钾溶液",
+      "type": "solution"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-color-test-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别两支试管、试管架、铁离子溶液、硫氰酸钾和滴管。",
+      "actionType": "identify-object",
+      "targetObject": "color-test-panel",
+      "successCondition": "color-test-tools-identified",
+      "failureHints": [
+        "请先完成显色检验器材识别。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-ferric-solution",
+      "order": 2,
+      "title": "加入铁离子溶液",
+      "description": "向两支试管中加入等量铁离子溶液，建立对照基础。",
+      "actionType": "add-material",
+      "targetObject": "test-tube-rack",
+      "successCondition": "ferric-solution-added",
+      "failureHints": [
+        "请先向两支试管中建立等量对照体系。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "add-thiocyanate",
+      "order": 3,
+      "title": "滴加硫氰酸钾",
+      "description": "只向右侧试管滴加硫氰酸钾溶液。",
+      "actionType": "add-material",
+      "targetObject": "test-tube-right",
+      "successCondition": "thiocyanate-added",
+      "failureHints": [
+        "请保持左侧对照组不加硫氰酸钾。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "record-blood-red-color",
+      "order": 4,
+      "title": "观察血红显色",
+      "description": "比较两支试管颜色，记录右侧是否出现血红色。",
+      "actionType": "record-observation",
+      "targetObject": "comparison-panel",
+      "successCondition": "blood-red-color-recorded",
+      "failureHints": [
+        "请完成对照比较并记录显色结果。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-ferric-detection",
+      "order": 5,
+      "title": "总结显色检验",
+      "description": "总结铁离子和硫氰酸根显色检验的结论。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "ferric-detection-summary-submitted",
+      "failureHints": [
+        "请结合对照组和血红色现象完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 64,
+    "observationScorePercent": 26,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已通过对照实验完成铁离子的显色检验，并能解释血红色现象的判断价值。",
+    "commonMistakes": [
+      "没有建立清晰的对照组",
+      "两支试管都加入硫氰酸钾，导致比较失效",
+      "只记住血红色，不知道其对应的是铁离子检验"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

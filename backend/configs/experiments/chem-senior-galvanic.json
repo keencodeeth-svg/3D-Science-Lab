@@ -1,0 +1,182 @@
+{
+  "id": "chem-senior-galvanic-001",
+  "title": "原电池基础",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "高二",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "chemistry-dual-beaker-bench",
+    "cameraPreset": "beaker-front-wide",
+    "assets": [
+      "beaker.glb",
+      "electrode.glb",
+      "salt-bridge.glb",
+      "ammeter.glb"
+    ]
+  },
+  "objectives": [
+    "认识原电池装置组成",
+    "完成电极、溶液和盐桥搭建",
+    "理解宏观现象和微观机制"
+  ],
+  "equipment": [
+    {
+      "id": "beaker-a",
+      "name": "烧杯 A",
+      "type": "container"
+    },
+    {
+      "id": "beaker-b",
+      "name": "烧杯 B",
+      "type": "container"
+    },
+    {
+      "id": "electrode-a",
+      "name": "电极片 A",
+      "type": "electrode"
+    },
+    {
+      "id": "electrode-b",
+      "name": "电极片 B",
+      "type": "electrode"
+    },
+    {
+      "id": "salt-bridge",
+      "name": "盐桥",
+      "type": "connector"
+    },
+    {
+      "id": "ammeter",
+      "name": "电流计",
+      "type": "meter"
+    }
+  ],
+  "steps": [
+    {
+      "id": "select-electrodes",
+      "order": 1,
+      "title": "选择电极材料",
+      "description": "选择正确材料组合。",
+      "actionType": "place-object",
+      "targetObject": "electrode-selection-area",
+      "successCondition": "valid-electrode-pair-selected",
+      "failureHints": [
+        "电极材料选择不当。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "build-device",
+      "order": 2,
+      "title": "搭建原电池装置",
+      "description": "放入电极、连接导线和盐桥。",
+      "actionType": "place-object",
+      "targetObject": "device-area",
+      "successCondition": "galvanic-device-complete",
+      "failureHints": [
+        "装置组成不完整。",
+        "缺少盐桥。"
+      ],
+      "scoringWeight": 35,
+      "requiredCapabilities": [
+        "object-placement",
+        "wire-connect"
+      ]
+    },
+    {
+      "id": "observe-current",
+      "order": 3,
+      "title": "观察宏观现象",
+      "description": "查看指针变化或灯亮现象。",
+      "actionType": "record-observation",
+      "targetObject": "ammeter",
+      "successCondition": "macro-observation-recorded",
+      "failureHints": [
+        "请先形成完整装置再观察现象。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "meter-reading",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "switch-micro-view",
+      "order": 4,
+      "title": "切换微观视角",
+      "description": "观察电子和离子迁移。",
+      "actionType": "switch-view",
+      "targetObject": "micro-view-toggle",
+      "successCondition": "micro-view-visited",
+      "failureHints": [
+        "请切换到微观视角理解过程。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "submit-principle",
+      "order": 5,
+      "title": "总结形成条件",
+      "description": "总结原电池形成条件和电流来源。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "principle-summary-submitted",
+      "failureHints": [
+        "请完成原理总结。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 50,
+    "observationScorePercent": 20,
+    "resultScorePercent": 30
+  },
+  "feedback": {
+    "successSummary": "你已搭建原电池并理解宏观与微观过程。",
+    "commonMistakes": [
+      "缺少盐桥",
+      "电极材料错误",
+      "只看现象不总结原理"
+    ]
+  },
+  "capabilities": [
+    "object-placement",
+    "wire-connect",
+    "meter-reading",
+    "observation-panel",
+    "view-switch",
+    "summary-panel"
+  ],
+  "curriculum": {
+    "theme": "电化学基础",
+    "unit": "原电池与电极反应",
+    "knowledgePoints": [
+      "原电池形成条件",
+      "电子转移方向",
+      "宏观现象与微观解释"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "id": "sci-primary-thermal-expansion-001",
+  "title": "热胀冷缩现象",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "primary-temperature-bench",
+    "cameraPreset": "bottle-front",
+    "assets": [
+      "glass-bottle.glb",
+      "balloon.glb",
+      "hot-water.glb",
+      "cold-water.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "热",
+    "unit": "热胀冷缩",
+    "knowledgePoints": [
+      "温度变化",
+      "空气体积变化",
+      "现象解释"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "通过瓶口气球观察空气受热受冷后的变化",
+    "认识热胀冷缩的常见现象",
+    "能比较不同温度条件下的变化差异"
+  ],
+  "equipment": [
+    {
+      "id": "glass-bottle",
+      "name": "玻璃瓶",
+      "type": "container"
+    },
+    {
+      "id": "balloon",
+      "name": "气球",
+      "type": "material"
+    },
+    {
+      "id": "hot-water",
+      "name": "热水容器",
+      "type": "container"
+    },
+    {
+      "id": "cold-water",
+      "name": "冷水容器",
+      "type": "container"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-setup",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识玻璃瓶、气球和冷热水容器。",
+      "actionType": "identify-object",
+      "targetObject": "temperature-panel",
+      "successCondition": "thermal-materials-identified",
+      "failureHints": [
+        "请先识别所有实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "assemble-balloon",
+      "order": 2,
+      "title": "安装气球",
+      "description": "将气球套在玻璃瓶口。",
+      "actionType": "place-object",
+      "targetObject": "glass-bottle",
+      "successCondition": "balloon-installed",
+      "failureHints": [
+        "请先将气球固定在瓶口。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "change-temperature",
+      "order": 3,
+      "title": "改变温度条件",
+      "description": "比较放入热水与冷水中的变化。",
+      "actionType": "set-variable",
+      "targetObject": "temperature-panel",
+      "successCondition": "temperature-condition-selected",
+      "failureHints": [
+        "请先选择清晰的温度条件进行比较。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "record-balloon-change",
+      "order": 4,
+      "title": "记录气球变化",
+      "description": "观察气球鼓起或回缩的现象。",
+      "actionType": "record-observation",
+      "targetObject": "balloon-surface",
+      "successCondition": "balloon-change-recorded",
+      "failureHints": [
+        "请根据气球变化完成记录。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-thermal",
+      "order": 5,
+      "title": "总结热胀冷缩",
+      "description": "总结温度变化与空气体积变化的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "thermal-summary-submitted",
+      "failureHints": [
+        "请把温度条件与气球变化联系起来。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 68,
+    "observationScorePercent": 22,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已观察到空气受热和受冷时的变化，并能用热胀冷缩解释实验现象。",
+    "commonMistakes": [
+      "没有比较冷热两种条件",
+      "只记结果不记条件",
+      "结论没有说明变化原因"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

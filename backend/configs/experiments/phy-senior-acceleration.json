@@ -1,0 +1,190 @@
+{
+  "id": "phy-senior-acceleration-001",
+  "title": "探究加速度与力、质量的关系",
+  "stage": "高中",
+  "subject": "物理",
+  "grade": "必修第一册",
+  "durationMinutes": 16,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-dynamics-bench",
+    "cameraPreset": "track-side",
+    "assets": [
+      "track.glb",
+      "cart.glb",
+      "pulley.glb",
+      "weights.glb",
+      "timer.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "牛顿运动定律",
+    "unit": "加速度实验",
+    "knowledgePoints": [
+      "控制变量",
+      "力与加速度",
+      "质量与加速度"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "通过控制变量探究加速度与受力、质量的关系",
+    "理解多次测量与对比的重要性",
+    "能基于数据变化概括实验结论"
+  ],
+  "equipment": [
+    {
+      "id": "track",
+      "name": "导轨",
+      "type": "tool"
+    },
+    {
+      "id": "cart",
+      "name": "小车",
+      "type": "sample"
+    },
+    {
+      "id": "pulley",
+      "name": "滑轮",
+      "type": "tool"
+    },
+    {
+      "id": "weights",
+      "name": "砝码组",
+      "type": "material"
+    },
+    {
+      "id": "timer",
+      "name": "计时读数面板",
+      "type": "meter"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-dynamics-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识导轨、小车、滑轮和砝码组。",
+      "actionType": "identify-object",
+      "targetObject": "dynamics-panel",
+      "successCondition": "dynamics-tools-identified",
+      "failureHints": [
+        "请先识别动力学实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "assemble-track-device",
+      "order": 2,
+      "title": "搭建实验装置",
+      "description": "完成导轨、小车和滑轮的连接搭建。",
+      "actionType": "place-object",
+      "targetObject": "track",
+      "successCondition": "track-device-ready",
+      "failureHints": [
+        "请先搭好完整的实验装置。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "add-weight",
+      "order": 3,
+      "title": "加入拉力砝码",
+      "description": "通过砝码组为小车提供牵引力。",
+      "actionType": "add-material",
+      "targetObject": "weights",
+      "successCondition": "weight-added",
+      "failureHints": [
+        "请按实验要求配置砝码。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "set-force-or-mass",
+      "order": 4,
+      "title": "调整变量",
+      "description": "选择改变受力或改变质量进行对比。",
+      "actionType": "set-variable",
+      "targetObject": "variable-panel",
+      "successCondition": "variable-adjusted",
+      "failureHints": [
+        "请明确本轮实验控制了哪个变量。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "record-acceleration",
+      "order": 5,
+      "title": "记录加速度变化",
+      "description": "比较不同条件下小车的读数变化。",
+      "actionType": "record-observation",
+      "targetObject": "timer",
+      "successCondition": "acceleration-recorded",
+      "failureHints": [
+        "请根据读数变化完成记录。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-acceleration",
+      "order": 6,
+      "title": "总结关系",
+      "description": "总结加速度与力、质量之间的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "acceleration-summary-submitted",
+      "failureHints": [
+        "请结合控制变量法总结实验结论。"
+      ],
+      "scoringWeight": 14,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 20,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已基于控制变量法完成加速度关系探究，并能概括力、质量与加速度的变化关系。",
+    "commonMistakes": [
+      "没有说明控制变量",
+      "只做一次测量就下结论",
+      "读数变化没有转化为关系判断"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

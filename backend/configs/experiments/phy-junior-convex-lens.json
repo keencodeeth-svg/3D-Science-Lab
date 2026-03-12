@@ -1,0 +1,183 @@
+{
+  "id": "phy-junior-convex-lens-001",
+  "title": "凸透镜成像规律",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 14,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "光学实验台",
+    "cameraPreset": "side",
+    "assets": [
+      "bench",
+      "candle",
+      "convex-lens",
+      "screen",
+      "light-rays"
+    ]
+  },
+  "objectives": [
+    "认识蜡烛、凸透镜和光屏组成的典型光学实验装置",
+    "通过改变物距和像距，比较 2f 外、f~2f、1f 内三种情况下的成像特点",
+    "理解凸透镜成像时像的正倒、大小、虚实与物距之间的关系"
+  ],
+  "equipment": [
+    {
+      "id": "candle",
+      "name": "蜡烛",
+      "type": "光源"
+    },
+    {
+      "id": "lens",
+      "name": "凸透镜",
+      "type": "透镜"
+    },
+    {
+      "id": "screen",
+      "name": "光屏",
+      "type": "接收屏"
+    },
+    {
+      "id": "bench",
+      "name": "光具座",
+      "type": "支撑装置"
+    }
+  ],
+  "steps": [
+    {
+      "id": "setup-bench",
+      "order": 1,
+      "title": "搭建光具座",
+      "description": "把蜡烛、凸透镜和光屏依次放到光具座上，形成完整光路。",
+      "actionType": "place-object",
+      "targetObject": "optical-bench",
+      "successCondition": "三件主要器材全部摆放完成",
+      "failureHints": [
+        "漏放光屏会导致无法比较实像与虚像",
+        "摆好器材后再开始调节距离"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "three-scene",
+        "object-placement"
+      ]
+    },
+    {
+      "id": "record-outside-2f",
+      "order": 2,
+      "title": "记录 2f 外成像",
+      "description": "把物体放到 2f 以外，移动光屏接到清晰倒立缩小实像。",
+      "actionType": "set-variable",
+      "targetObject": "candle-and-screen",
+      "successCondition": "物距大于 2f 且在光屏上形成清晰实像并完成记录",
+      "failureHints": [
+        "物距必须先放到 2f 以外",
+        "光屏位置要接近理论像距"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "distance-slider",
+        "focus-evaluation",
+        "observation-record"
+      ]
+    },
+    {
+      "id": "record-between-f-2f",
+      "order": 3,
+      "title": "记录 f~2f 成像",
+      "description": "把物体放到 f 与 2f 之间，再次移动光屏接到清晰倒立放大实像。",
+      "actionType": "set-variable",
+      "targetObject": "candle-and-screen",
+      "successCondition": "物距处于 f 与 2f 之间并完成成像记录",
+      "failureHints": [
+        "物距进入 f 与 2f 之间后，像距会增大",
+        "清晰像应为倒立放大实像"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "distance-slider",
+        "focus-evaluation",
+        "observation-record"
+      ]
+    },
+    {
+      "id": "observe-virtual-image",
+      "order": 4,
+      "title": "观察 1f 内虚像",
+      "description": "把物体移入一倍焦距内，观察光屏不能接像，但物体同侧出现正立放大虚像。",
+      "actionType": "record-observation",
+      "targetObject": "virtual-image",
+      "successCondition": "正确识别一倍焦距内不成实像、只能看到虚像",
+      "failureHints": [
+        "物体进入一倍焦距内后，光屏不能再接到清晰实像",
+        "此时应关注虚像的正立放大特点"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "ray-visualization",
+        "virtual-image-preview"
+      ]
+    },
+    {
+      "id": "summarize-law",
+      "order": 5,
+      "title": "总结成像规律",
+      "description": "综合三次观察，概括凸透镜成像与物距的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "选择完整且正确的成像规律总结",
+      "failureHints": [
+        "需要同时覆盖 2f 外、f~2f、1f 内三种情况",
+        "注意区分正倒、大小和虚实"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-selection"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 20,
+    "resultScorePercent": 15
+  },
+  "feedback": {
+    "successSummary": "已完成凸透镜成像规律验证，能够判断不同物距下像的正倒、大小与虚实。",
+    "commonMistakes": [
+      "没有把物距真正放到 2f 以外，却误判为缩小实像",
+      "物距在 f 与 2f 之间时，没有继续移动光屏到更远位置",
+      "物体进入一倍焦距内后，仍误以为光屏可以接到清晰实像"
+    ]
+  },
+  "capabilities": [
+    "three-scene",
+    "object-placement",
+    "distance-slider",
+    "focus-evaluation",
+    "ray-visualization",
+    "virtual-image-preview",
+    "observation-record",
+    "summary-selection"
+  ],
+  "curriculum": {
+    "theme": "光学成像",
+    "unit": "凸透镜成像规律",
+    "knowledgePoints": [
+      "2f 外成像",
+      "f 到 2f 之间成像",
+      "焦距内虚像"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  }
+}

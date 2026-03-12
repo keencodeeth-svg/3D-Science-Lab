@@ -1,0 +1,172 @@
+{
+  "id": "bio-junior-phototropism-001",
+  "title": "植物的向光性",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-growth-box",
+    "cameraPreset": "growth-front",
+    "assets": [
+      "seedling-pot.glb",
+      "light-box.glb",
+      "shade-card.glb",
+      "record-ruler.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "植物的生活",
+    "unit": "植物的向光性",
+    "knowledgePoints": [
+      "单侧光照",
+      "生长方向变化",
+      "植物适应环境"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识向光性实验中的幼苗、光照箱和遮光装置",
+    "通过设置单侧光照观察幼苗弯向光源的现象",
+    "理解植物向光生长对获取光照和生存的意义"
+  ],
+  "equipment": [
+    {
+      "id": "seedling-pot",
+      "name": "幼苗盆",
+      "type": "sample"
+    },
+    {
+      "id": "light-box",
+      "name": "光照箱",
+      "type": "environment"
+    },
+    {
+      "id": "shade-card",
+      "name": "遮光板",
+      "type": "tool"
+    },
+    {
+      "id": "record-ruler",
+      "name": "记录尺",
+      "type": "tool"
+    },
+    {
+      "id": "growth-board",
+      "name": "观察板",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-phototropism-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识幼苗盆、光照箱、遮光板、记录尺和观察板。",
+      "actionType": "identify-object",
+      "targetObject": "phototropism-panel",
+      "successCondition": "phototropism-tools-identified",
+      "failureHints": [
+        "请先识别向光性实验的器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "set-single-light",
+      "order": 2,
+      "title": "设置单侧光照",
+      "description": "让光线从一侧照射幼苗，建立向光生长条件。",
+      "actionType": "set-variable",
+      "targetObject": "light-box",
+      "successCondition": "single-light-ready",
+      "failureHints": [
+        "请先把光线设置为单侧照射。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-seedling-change",
+      "order": 3,
+      "title": "观察幼苗变化",
+      "description": "观察一段时间后幼苗茎的弯曲方向。",
+      "actionType": "record-observation",
+      "targetObject": "growth-board",
+      "successCondition": "seedling-change-recorded",
+      "failureHints": [
+        "请先在单侧光照条件下观察幼苗变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "compare-growth-direction",
+      "order": 4,
+      "title": "比较生长方向",
+      "description": "比较幼苗最终朝向与光源位置的关系。",
+      "actionType": "set-variable",
+      "targetObject": "comparison-panel",
+      "successCondition": "growth-direction-compared",
+      "failureHints": [
+        "请把幼苗朝向和光源方向做对应比较。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-phototropism",
+      "order": 5,
+      "title": "总结向光现象",
+      "description": "总结植物向光生长的现象及其意义。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "phototropism-summary-submitted",
+      "failureHints": [
+        "请围绕单侧光和向光弯曲完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成植物向光性实验，并能说明幼苗为何会朝向光源弯曲生长。",
+    "commonMistakes": [
+      "没有先建立单侧光照条件",
+      "只看到幼苗弯曲，不比较其与光源的方向关系",
+      "没有总结向光性对植物生存的意义"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "variable-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

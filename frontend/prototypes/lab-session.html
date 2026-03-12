@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D 实验页 - 低保真原型</title>
+    <link rel="stylesheet" href="./lowfi.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="toolbar card">
+        <div>
+          <strong>串联与并联电路</strong>
+          <p class="muted">引导模式 · 当前步骤 2/6</p>
+        </div>
+        <div class="actions">
+          <a class="button" href="./experiment-detail.html">返回详情</a>
+          <a class="button subtle" href="./lab-session.html">重置实验</a>
+          <a class="button primary" href="./result.html">提交结果</a>
+        </div>
+      </header>
+
+      <section class="task-grid" style="margin-top:16px;">
+        <aside class="card side-steps">
+          <span class="label">Steps</span>
+          <h2>步骤导航</h2>
+          <ol>
+            <li>识别器材</li>
+            <li class="active">连接导线到正确接线柱</li>
+            <li>完成串联电路搭建</li>
+            <li>闭合开关观察现象</li>
+            <li>搭建并联电路</li>
+            <li>总结差异</li>
+          </ol>
+        </aside>
+
+        <section class="grid-2">
+          <article class="card">
+            <span class="label">3D Scene</span>
+            <div class="placeholder" style="min-height:420px;">3D 实验台占位区 / 器材可拖拽 / 接线点可高亮</div>
+          </article>
+          <article class="card">
+            <span class="label">Feedback</span>
+            <h2>当前提示</h2>
+            <div class="banner warning">请把导线的一端连接到电池正极接线柱，再连接到开关输入端。</div>
+            <h3 style="margin-top:18px;">原理说明</h3>
+            <p>形成完整闭合回路后，电流才能通过小灯泡并产生发光现象。</p>
+            <h3 style="margin-top:18px;">观察记录</h3>
+            <div class="placeholder" style="min-height:120px;">阶段记录 / 关键现象 / 错误次数</div>
+          </article>
+        </section>
+      </section>
+
+      <section class="toolbar card" style="margin-top:16px;">
+        <div class="chip-row">
+          <button class="chip active">下一步</button>
+          <button class="chip">放大观察</button>
+          <button class="chip">显示更多提示</button>
+        </div>
+        <small>主 CTA 始终可见；实验页始终可见步骤与重置入口。</small>
+      </section>
+    </main>
+  </body>
+</html>

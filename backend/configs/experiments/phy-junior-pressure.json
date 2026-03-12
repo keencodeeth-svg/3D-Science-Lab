@@ -1,0 +1,184 @@
+{
+  "id": "phy-junior-pressure-001",
+  "title": "液体压强大小规律",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 13,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-pressure-bench",
+    "cameraPreset": "tank-side",
+    "assets": [
+      "water-tank.glb",
+      "pressure-probe.glb",
+      "u-gauge.glb",
+      "depth-scale.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "压强",
+    "unit": "液体压强",
+    "knowledgePoints": [
+      "深度变化",
+      "压强大小比较",
+      "读数观察"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "通过压强计观察液体压强随深度变化的规律",
+    "学会比较不同深度处的读数差异",
+    "能根据实验现象总结规律"
+  ],
+  "equipment": [
+    {
+      "id": "water-tank",
+      "name": "液体容器",
+      "type": "container"
+    },
+    {
+      "id": "pressure-probe",
+      "name": "压强探头",
+      "type": "tool"
+    },
+    {
+      "id": "u-gauge",
+      "name": "U 形压强计",
+      "type": "meter"
+    },
+    {
+      "id": "depth-scale",
+      "name": "深度刻度尺",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-pressure-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识液体容器、压强探头和 U 形压强计。",
+      "actionType": "identify-object",
+      "targetObject": "pressure-panel",
+      "successCondition": "pressure-tools-identified",
+      "failureHints": [
+        "请先识别液体压强实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-probe",
+      "order": 2,
+      "title": "放置压强探头",
+      "description": "将探头放入液体中并保持方向稳定。",
+      "actionType": "place-object",
+      "targetObject": "water-tank",
+      "successCondition": "pressure-probe-placed",
+      "failureHints": [
+        "请先把探头稳定放入液体中。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "set-depth",
+      "order": 3,
+      "title": "改变深度",
+      "description": "比较浅层、标准深度和深层位置的压强读数。",
+      "actionType": "set-variable",
+      "targetObject": "depth-scale",
+      "successCondition": "depth-adjusted",
+      "failureHints": [
+        "请在不同深度处进行比较。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "switch-gauge-view",
+      "order": 4,
+      "title": "切换读数视角",
+      "description": "切换到压强计读数视角观察液面高度差。",
+      "actionType": "switch-view",
+      "targetObject": "u-gauge",
+      "successCondition": "gauge-view-activated",
+      "failureHints": [
+        "请切换到便于读数的视角。"
+      ],
+      "scoringWeight": 14,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "record-pressure-result",
+      "order": 5,
+      "title": "记录读数变化",
+      "description": "记录不同深度下液面高度差的变化。",
+      "actionType": "record-observation",
+      "targetObject": "u-gauge",
+      "successCondition": "pressure-result-recorded",
+      "failureHints": [
+        "请根据读数差异完成记录。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-pressure",
+      "order": 6,
+      "title": "总结液体压强规律",
+      "description": "总结液体压强和深度的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "pressure-summary-submitted",
+      "failureHints": [
+        "请根据不同深度的读数差异进行总结。"
+      ],
+      "scoringWeight": 14,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 68,
+    "observationScorePercent": 22,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已观察到液体压强随深度增大而增大的趋势，并能依据读数变化总结规律。",
+    "commonMistakes": [
+      "探头放置不稳定",
+      "没有比较多个深度",
+      "读数与结论不对应"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "comparison-panel",
+    "view-switch",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

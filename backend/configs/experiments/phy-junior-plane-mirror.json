@@ -1,0 +1,173 @@
+{
+  "id": "phy-junior-plane-mirror-001",
+  "title": "平面镜成像",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-optics-bench",
+    "cameraPreset": "mirror-front",
+    "assets": [
+      "glass-plate.glb",
+      "object-candle.glb",
+      "image-candle.glb",
+      "scale.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光现象",
+    "unit": "平面镜成像",
+    "knowledgePoints": [
+      "像与物重合",
+      "像距物距关系",
+      "虚像特点"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识玻璃板、物体蜡烛、像蜡烛和刻度尺等实验器材",
+    "通过移动像蜡烛与镜中像重合来确定像的位置",
+    "理解平面镜所成像与物大小相等、像距等于物距"
+  ],
+  "equipment": [
+    {
+      "id": "glass-plate",
+      "name": "玻璃板",
+      "type": "tool"
+    },
+    {
+      "id": "object-candle",
+      "name": "物体蜡烛",
+      "type": "sample"
+    },
+    {
+      "id": "image-candle",
+      "name": "像蜡烛",
+      "type": "sample"
+    },
+    {
+      "id": "scale",
+      "name": "刻度尺",
+      "type": "tool"
+    },
+    {
+      "id": "screen",
+      "name": "挡光屏",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-plane-mirror-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别玻璃板、物体蜡烛、像蜡烛、刻度尺和挡光屏。",
+      "actionType": "identify-object",
+      "targetObject": "plane-mirror-panel",
+      "successCondition": "plane-mirror-tools-identified",
+      "failureHints": [
+        "请先识别平面镜成像实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-object-candle",
+      "order": 2,
+      "title": "放置物体蜡烛",
+      "description": "把物体蜡烛放在玻璃板前固定位置，建立成像基准。",
+      "actionType": "place-object",
+      "targetObject": "object-candle",
+      "successCondition": "object-candle-placed",
+      "failureHints": [
+        "请先固定好物体蜡烛位置。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "align-image-candle",
+      "order": 3,
+      "title": "对齐像蜡烛",
+      "description": "移动像蜡烛，让它与玻璃板中的像完全重合。",
+      "actionType": "place-object",
+      "targetObject": "image-candle",
+      "successCondition": "image-candle-aligned",
+      "failureHints": [
+        "请把像蜡烛移动到与镜中像完全重合的位置。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-image-distance",
+      "order": 4,
+      "title": "比较像距物距",
+      "description": "比较物体到镜面和像到镜面的距离是否相等。",
+      "actionType": "record-observation",
+      "targetObject": "scale",
+      "successCondition": "image-distance-compared",
+      "failureHints": [
+        "请测量并比较物距和像距。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-plane-mirror",
+      "order": 5,
+      "title": "总结成像规律",
+      "description": "总结平面镜所成像的大小、正倒和虚实特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "plane-mirror-summary-submitted",
+      "failureHints": [
+        "请围绕大小、正立和虚像特点完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成平面镜成像实验，并能说明像与物大小相等、像距等于物距且成的是虚像。",
+    "commonMistakes": [
+      "没有先固定物体蜡烛位置",
+      "像蜡烛未与镜中像完全重合就开始测量",
+      "只记住像距物距相等，没有总结虚像特征"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

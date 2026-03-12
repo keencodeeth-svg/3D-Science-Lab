@@ -1,0 +1,189 @@
+{
+  "id": "bio-junior-photosynthesis-001",
+  "title": "绿叶在光下制造淀粉",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 15,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-photosynthesis-bench",
+    "cameraPreset": "leaf-close",
+    "assets": [
+      "leaf.glb",
+      "iodine.glb",
+      "alcohol-bath.glb",
+      "shade-paper.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "绿色植物的生活",
+    "unit": "光合作用",
+    "knowledgePoints": [
+      "遮光对照",
+      "脱色处理",
+      "碘液检验"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "通过遮光对照理解叶片在光下制造淀粉",
+    "掌握叶片脱色和碘液检验的目的",
+    "能根据颜色变化判断淀粉存在情况"
+  ],
+  "equipment": [
+    {
+      "id": "leaf",
+      "name": "叶片",
+      "type": "sample"
+    },
+    {
+      "id": "shade-paper",
+      "name": "遮光纸",
+      "type": "material"
+    },
+    {
+      "id": "alcohol-bath",
+      "name": "酒精水浴装置",
+      "type": "tool"
+    },
+    {
+      "id": "iodine",
+      "name": "碘液",
+      "type": "solution"
+    },
+    {
+      "id": "forceps",
+      "name": "镊子",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-photosynthesis-tools",
+      "order": 1,
+      "title": "识别材料",
+      "description": "先认识叶片、遮光纸、酒精水浴装置和碘液。",
+      "actionType": "identify-object",
+      "targetObject": "materials-panel",
+      "successCondition": "photosynthesis-materials-identified",
+      "failureHints": [
+        "请先识别光合作用实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "compare-control-leaf",
+      "order": 2,
+      "title": "查看遮光与对照",
+      "description": "切换视角比较遮光部分和见光部分。",
+      "actionType": "switch-view",
+      "targetObject": "leaf-surface",
+      "successCondition": "control-leaf-compared",
+      "failureHints": [
+        "请先比较处理组和对照组的差异。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "decolorize-leaf",
+      "order": 3,
+      "title": "完成脱色处理",
+      "description": "通过酒精水浴让叶片完成脱色。",
+      "actionType": "heat-object",
+      "targetObject": "alcohol-bath",
+      "successCondition": "leaf-decolorized",
+      "failureHints": [
+        "脱色处理不充分会影响后续检验。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "heat-control"
+      ]
+    },
+    {
+      "id": "add-iodine",
+      "order": 4,
+      "title": "滴加碘液",
+      "description": "向叶片滴加碘液进行淀粉检验。",
+      "actionType": "add-material",
+      "targetObject": "leaf",
+      "successCondition": "iodine-added",
+      "failureHints": [
+        "请在脱色后再进行碘液检验。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "record-color-change",
+      "order": 5,
+      "title": "记录颜色变化",
+      "description": "观察遮光与见光部分的颜色差异并记录。",
+      "actionType": "record-observation",
+      "targetObject": "leaf-surface",
+      "successCondition": "color-change-recorded",
+      "failureHints": [
+        "请根据颜色变化判断淀粉分布。"
+      ],
+      "scoringWeight": 14,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-photosynthesis",
+      "order": 6,
+      "title": "总结实验结论",
+      "description": "总结叶片在光下制造淀粉的依据。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "photosynthesis-summary-submitted",
+      "failureHints": [
+        "请把对照关系和颜色变化结合起来说明。"
+      ],
+      "scoringWeight": 12,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 25,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已通过遮光对照、脱色和碘液检验证明绿叶在光下能制造淀粉。",
+    "commonMistakes": [
+      "没有先做对照比较",
+      "脱色与检验顺序混乱",
+      "只看颜色不说结论"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "view-switch",
+    "heat-control",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

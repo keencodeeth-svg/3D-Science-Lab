@@ -1,0 +1,174 @@
+{
+  "id": "chem-junior-electrolysis-water-001",
+  "title": "电解水",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-electrolysis-bench",
+    "cameraPreset": "cell-front",
+    "assets": [
+      "power.glb",
+      "cell.glb",
+      "electrode.glb",
+      "tube.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "水的组成",
+    "unit": "电解水",
+    "knowledgePoints": [
+      "电解装置连接",
+      "气泡产生",
+      "体积比 2:1"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识电源、电解槽、电极和集气管等器材",
+    "通过通电观察两侧气体产生和体积差异",
+    "理解水电解后生成氢气和氧气的体积关系"
+  ],
+  "equipment": [
+    {
+      "id": "power",
+      "name": "电源",
+      "type": "tool"
+    },
+    {
+      "id": "cell",
+      "name": "电解槽",
+      "type": "container"
+    },
+    {
+      "id": "electrode",
+      "name": "电极",
+      "type": "tool"
+    },
+    {
+      "id": "water",
+      "name": "水",
+      "type": "material"
+    },
+    {
+      "id": "tube",
+      "name": "集气管",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-electrolysis-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别电源、电解槽、电极、水和集气管。",
+      "actionType": "identify-object",
+      "targetObject": "electrolysis-panel",
+      "successCondition": "electrolysis-tools-identified",
+      "failureHints": [
+        "请先识别电解水实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "connect-electrolysis-device",
+      "order": 2,
+      "title": "连接电解装置",
+      "description": "把电极、电解槽和电源规范连接。",
+      "actionType": "connect-wire",
+      "targetObject": "cell",
+      "successCondition": "electrolysis-device-connected",
+      "failureHints": [
+        "请先把电解装置规范连接。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "wire-connect"
+      ]
+    },
+    {
+      "id": "start-electrolysis",
+      "order": 3,
+      "title": "启动电解过程",
+      "description": "通电后观察两侧气泡和集气量变化。",
+      "actionType": "set-variable",
+      "targetObject": "power",
+      "successCondition": "electrolysis-started",
+      "failureHints": [
+        "请在装置连接完成后再通电。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "compare-gas-volumes",
+      "order": 4,
+      "title": "比较两侧气体体积",
+      "description": "比较两侧气体体积多少关系。",
+      "actionType": "record-observation",
+      "targetObject": "tube",
+      "successCondition": "gas-volumes-compared",
+      "failureHints": [
+        "请比较两侧集气管中的气体体积。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-electrolysis-water",
+      "order": 5,
+      "title": "总结电解水规律",
+      "description": "总结水电解产生氢气和氧气的规律。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "electrolysis-summary-submitted",
+      "failureHints": [
+        "请围绕生成气体种类和体积比完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成电解水实验，并能说明通电后水会分解生成氢气和氧气，且体积比约为 2:1。",
+    "commonMistakes": [
+      "装置未连接好就开始通电",
+      "只看到气泡，没有比较两侧气体体积",
+      "没有总结氢气和氧气的体积关系"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "wire-connect",
+    "variable-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

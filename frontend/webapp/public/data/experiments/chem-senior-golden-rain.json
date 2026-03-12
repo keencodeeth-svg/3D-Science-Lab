@@ -1,0 +1,172 @@
+{
+  "id": "chem-senior-golden-rain-001",
+  "title": "黄金雨实验",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "高一/高二",
+  "durationMinutes": 13,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-crystal-bath",
+    "cameraPreset": "tube-front",
+    "assets": [
+      "test-tube.glb",
+      "lead-nitrate.glb",
+      "potassium-iodide.glb",
+      "hot-water-bath.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "复分解反应与沉淀",
+    "unit": "黄金雨实验",
+    "knowledgePoints": [
+      "黄色沉淀形成",
+      "受热溶解与冷却析晶",
+      "晶体观察"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "观察两种溶液混合后形成亮黄色沉淀的过程",
+    "理解加热澄清和冷却析出金色晶体的变化链路",
+    "能根据现象总结沉淀与晶体转化的特点"
+  ],
+  "equipment": [
+    {
+      "id": "test-tube",
+      "name": "试管",
+      "type": "container"
+    },
+    {
+      "id": "lead-nitrate-solution",
+      "name": "硝酸铅溶液",
+      "type": "solution"
+    },
+    {
+      "id": "potassium-iodide-solution",
+      "name": "碘化钾溶液",
+      "type": "solution"
+    },
+    {
+      "id": "hot-water-bath",
+      "name": "热水浴",
+      "type": "heater"
+    },
+    {
+      "id": "test-tube-rack",
+      "name": "试管架",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-golden-rain-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别试管、两种溶液、热水浴和试管架。",
+      "actionType": "identify-object",
+      "targetObject": "golden-rain-panel",
+      "successCondition": "golden-rain-tools-identified",
+      "failureHints": [
+        "请先识别黄金雨实验的基础器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "mix-yellow-precipitate",
+      "order": 2,
+      "title": "混合形成黄沉淀",
+      "description": "把两种溶液混合，观察亮黄色沉淀是否生成。",
+      "actionType": "add-material",
+      "targetObject": "test-tube",
+      "successCondition": "golden-rain-precipitate-formed",
+      "failureHints": [
+        "请先混合两种溶液形成初始黄色沉淀。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "heat-to-clear",
+      "order": 3,
+      "title": "加热使其澄清",
+      "description": "将试管放入热水浴中，观察沉淀逐渐消失。",
+      "actionType": "heat-object",
+      "targetObject": "hot-water-bath",
+      "successCondition": "golden-rain-heated-clear",
+      "failureHints": [
+        "请先通过热水浴使体系澄清。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heater-control"
+      ]
+    },
+    {
+      "id": "record-crystal-rain",
+      "order": 4,
+      "title": "冷却析出金晶",
+      "description": "取出冷却，记录片状金黄色晶体重新析出的现象。",
+      "actionType": "record-observation",
+      "targetObject": "test-tube",
+      "successCondition": "golden-rain-crystal-recorded",
+      "failureHints": [
+        "请记录冷却后析出的金黄色片状晶体。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-golden-rain",
+      "order": 5,
+      "title": "总结金色雨现象",
+      "description": "总结“黄沉淀-澄清-金色晶体”三阶段变化。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "golden-rain-summary-submitted",
+      "failureHints": [
+        "请围绕三阶段变化完成现象总结。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成黄金雨实验的关键操作，并能描述黄色沉淀、澄清与金色晶体析出的完整变化。",
+    "commonMistakes": [
+      "没有先形成清晰的黄色沉淀",
+      "热水浴加热与冷却观察顺序混乱",
+      "只关注颜色，没有记录晶体重新析出的形态变化"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "heater-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

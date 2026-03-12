@@ -1,0 +1,175 @@
+{
+  "id": "sci-primary-siphon-001",
+  "title": "虹吸现象",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "六年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-water-level-bench",
+    "cameraPreset": "siphon-side",
+    "assets": [
+      "cup-set.glb",
+      "colored-water.glb",
+      "tube.glb",
+      "support.glb",
+      "clip.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "空气与水",
+    "unit": "虹吸现象",
+    "knowledgePoints": [
+      "高低液面差",
+      "导管充液",
+      "持续流动"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识高位杯、低位杯、导管和有色水等器材",
+    "通过排尽导管空气和形成液面差观察虹吸流动",
+    "理解虹吸启动需要导管充满液体且存在高低位置差"
+  ],
+  "equipment": [
+    {
+      "id": "high-cup",
+      "name": "高位杯",
+      "type": "container"
+    },
+    {
+      "id": "low-cup",
+      "name": "低位杯",
+      "type": "container"
+    },
+    {
+      "id": "colored-water",
+      "name": "有色水",
+      "type": "solution"
+    },
+    {
+      "id": "tube",
+      "name": "导管",
+      "type": "tool"
+    },
+    {
+      "id": "support",
+      "name": "支架夹",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-siphon-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识高位杯、低位杯、有色水、导管和支架夹。",
+      "actionType": "identify-object",
+      "targetObject": "siphon-panel",
+      "successCondition": "siphon-tools-identified",
+      "failureHints": [
+        "请先识别虹吸实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-high-water",
+      "order": 2,
+      "title": "准备高位液体",
+      "description": "向高位杯加入有色水，并保持高低位差。",
+      "actionType": "add-material",
+      "targetObject": "high-cup",
+      "successCondition": "siphon-high-water-ready",
+      "failureHints": [
+        "请先让高位杯装有液体并与低位杯形成高度差。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "purge-tube-air",
+      "order": 3,
+      "title": "排尽导管空气",
+      "description": "让导管内充满液体，避免空气阻断流动。",
+      "actionType": "set-variable",
+      "targetObject": "tube",
+      "successCondition": "siphon-tube-primed",
+      "failureHints": [
+        "请先让导管充满液体并排尽空气。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-siphon-flow",
+      "order": 4,
+      "title": "观察虹吸流动",
+      "description": "观察有色水是否从高位杯持续流向低位杯。",
+      "actionType": "record-observation",
+      "targetObject": "tube",
+      "successCondition": "siphon-observation-recorded",
+      "failureHints": [
+        "请确认液体是否连续从高位杯流到低位杯。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-siphon",
+      "order": 5,
+      "title": "总结虹吸条件",
+      "description": "总结虹吸启动和持续流动需要满足的条件。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "siphon-summary-submitted",
+      "failureHints": [
+        "请围绕导管充液和高低液面差完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成虹吸实验，并能说明导管充满液体且存在高低液面差时会形成持续流动。",
+    "commonMistakes": [
+      "没有先形成高低位差",
+      "导管内残留空气导致无法持续流动",
+      "只看到液体流动，没有总结虹吸成立条件"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "variable-control",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

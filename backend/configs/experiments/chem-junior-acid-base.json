@@ -1,0 +1,522 @@
+{
+  "id": "chem-junior-acid-base-001",
+  "title": "酸碱性检验",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-indicator-bench",
+    "cameraPreset": "bench-front",
+    "assets": [
+      "dropper.glb",
+      "litmus.glb",
+      "solution-cups.glb",
+      "indicator.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "酸和碱",
+    "unit": "酸碱性检验",
+    "knowledgePoints": [
+      "指示剂使用",
+      "颜色变化判断",
+      "酸碱性比较"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识常见酸碱性检验材料",
+    "学会用指示剂判断溶液酸碱性",
+    "比较不同溶液的酸碱性"
+  ],
+  "equipment": [
+    {
+      "id": "litmus-paper",
+      "name": "石蕊试纸",
+      "type": "material"
+    },
+    {
+      "id": "indicator",
+      "name": "酸碱指示剂",
+      "type": "material"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "solution-a",
+      "name": "待测溶液 A",
+      "type": "solution"
+    },
+    {
+      "id": "solution-b",
+      "name": "待测溶液 B",
+      "type": "solution"
+    }
+  ],
+  "multiscale": {
+    "defaultLens": "micro",
+    "equipmentProfiles": [
+      {
+        "equipmentId": "litmus-paper",
+        "physicalGroup": "material",
+        "constraints": [
+          "试纸需要保持纤维载体与显色层完整",
+          "浸润后优先反馈颜色变化而不是形变"
+        ],
+        "components": [
+          {
+            "id": "litmus-paper-sheet",
+            "name": "纤维基底",
+            "role": "吸附待测液体",
+            "materialRef": "cellulose"
+          },
+          {
+            "id": "litmus-paper-dye",
+            "name": "显色层",
+            "role": "响应酸碱变化",
+            "materialRef": "indicator-dye"
+          }
+        ]
+      },
+      {
+        "equipmentId": "indicator",
+        "physicalGroup": "material",
+        "constraints": [
+          "指示剂进入溶液后应优先改变颜色而不是体积",
+          "变色范围取决于质子化平衡"
+        ],
+        "components": [
+          {
+            "id": "indicator-solvent",
+            "name": "溶剂背景",
+            "role": "分散指示剂分子",
+            "materialRef": "water"
+          },
+          {
+            "id": "indicator-active-molecule",
+            "name": "活性分子",
+            "role": "发生质子化与去质子化",
+            "materialRef": "indicator-dye"
+          }
+        ]
+      },
+      {
+        "equipmentId": "dropper",
+        "physicalGroup": "tool",
+        "constraints": [
+          "滴液动作受球囊压差控制",
+          "优先表现液滴生成与释放节奏"
+        ],
+        "components": [
+          {
+            "id": "dropper-bulb",
+            "name": "橡胶球囊",
+            "role": "产生压差",
+            "materialRef": "rubber"
+          },
+          {
+            "id": "dropper-tip",
+            "name": "滴液嘴",
+            "role": "控制液滴",
+            "materialRef": "plastic"
+          }
+        ]
+      },
+      {
+        "equipmentId": "solution-a",
+        "physicalGroup": "solution",
+        "constraints": [
+          "酸性表现应以水合氢离子浓度为主",
+          "颜色变化在加入指示剂后再触发"
+        ],
+        "components": [
+          {
+            "id": "solution-a-solvent",
+            "name": "溶剂层",
+            "role": "承载离子分布",
+            "materialRef": "water"
+          },
+          {
+            "id": "solution-a-acid",
+            "name": "酸性粒子",
+            "role": "提供酸性",
+            "materialRef": "hydronium"
+          }
+        ]
+      },
+      {
+        "equipmentId": "solution-b",
+        "physicalGroup": "solution",
+        "constraints": [
+          "碱性表现应以氢氧根浓度为主",
+          "对比实验组时要保持相同观察条件"
+        ],
+        "components": [
+          {
+            "id": "solution-b-solvent",
+            "name": "溶剂层",
+            "role": "承载离子分布",
+            "materialRef": "water"
+          },
+          {
+            "id": "solution-b-base",
+            "name": "碱性粒子",
+            "role": "提供碱性",
+            "materialRef": "hydroxide"
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "id": "cellulose",
+        "name": "纤维素",
+        "category": "biopolymer",
+        "formula": "(C6H10O5)n",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "porosity",
+            "label": "孔隙度",
+            "value": 64,
+            "unit": "%"
+          },
+          {
+            "key": "absorption",
+            "label": "吸附性",
+            "value": 70,
+            "unit": "%"
+          }
+        ],
+        "microModel": {
+          "narrative": "纤维素链交织成多孔网络，能够吸附液体并承载显色分子。",
+          "species": [
+            {
+              "id": "cellulose-fiber",
+              "name": "纤维素链",
+              "formula": "(C6H10O5)n",
+              "color": "#f4e2b8",
+              "particleCountHint": 22,
+              "arrangement": "network"
+            }
+          ],
+          "interactions": [
+            "纤维结构吸附液体",
+            "为显色层提供固定位置"
+          ]
+        }
+      },
+      {
+        "id": "indicator-dye",
+        "name": "指示剂染料",
+        "category": "organic-indicator",
+        "state": "liquid",
+        "properties": [
+          {
+            "key": "colorShift",
+            "label": "变色敏感度",
+            "value": 93,
+            "unit": "%"
+          },
+          {
+            "key": "acidBaseResponse",
+            "label": "酸碱响应",
+            "value": "明显"
+          }
+        ],
+        "microModel": {
+          "narrative": "指示剂分子在质子化与去质子化状态之间切换，颜色随分子结构变化而改变。",
+          "species": [
+            {
+              "id": "indicator-neutral",
+              "name": "指示剂分子",
+              "color": "#8f74ff",
+              "particleCountHint": 18,
+              "arrangement": "solution"
+            },
+            {
+              "id": "indicator-protonated",
+              "name": "质子化指示剂",
+              "color": "#ff6b89",
+              "particleCountHint": 10,
+              "arrangement": "solution"
+            }
+          ],
+          "interactions": [
+            "结合质子后结构改变",
+            "吸收光谱改变导致颜色变化"
+          ]
+        }
+      },
+      {
+        "id": "water",
+        "name": "水",
+        "category": "solvent",
+        "formula": "H2O",
+        "state": "liquid",
+        "properties": [
+          {
+            "key": "polarity",
+            "label": "极性",
+            "value": "高"
+          },
+          {
+            "key": "fluidity",
+            "label": "流动性",
+            "value": 90,
+            "unit": "%"
+          }
+        ],
+        "microModel": {
+          "narrative": "水分子持续热运动，为离子和指示剂分子提供溶液环境。",
+          "species": [
+            {
+              "id": "water-molecule",
+              "name": "水分子",
+              "formula": "H2O",
+              "color": "#6ed4ff",
+              "particleCountHint": 72,
+              "arrangement": "flow"
+            }
+          ],
+          "interactions": [
+            "包围离子形成水化层",
+            "帮助分子扩散与混合"
+          ]
+        }
+      },
+      {
+        "id": "hydronium",
+        "name": "水合氢离子",
+        "category": "ion",
+        "formula": "H3O+",
+        "state": "liquid",
+        "properties": [
+          {
+            "key": "acidity",
+            "label": "酸性贡献",
+            "value": 95,
+            "unit": "%"
+          }
+        ],
+        "microModel": {
+          "narrative": "水合氢离子浓度升高时，指示剂更容易被质子化，从而呈现酸性颜色。",
+          "species": [
+            {
+              "id": "h3o-plus",
+              "name": "水合氢离子",
+              "formula": "H3O+",
+              "color": "#ff758f",
+              "particleCountHint": 16,
+              "arrangement": "solution"
+            }
+          ],
+          "interactions": [
+            "与指示剂发生质子转移",
+            "决定溶液酸性表现"
+          ]
+        }
+      },
+      {
+        "id": "hydroxide",
+        "name": "氢氧根离子",
+        "category": "ion",
+        "formula": "OH-",
+        "state": "liquid",
+        "properties": [
+          {
+            "key": "alkalinity",
+            "label": "碱性贡献",
+            "value": 95,
+            "unit": "%"
+          }
+        ],
+        "microModel": {
+          "narrative": "氢氧根离子浓度升高时，指示剂更容易去质子化，从而呈现碱性颜色。",
+          "species": [
+            {
+              "id": "oh-minus",
+              "name": "氢氧根离子",
+              "formula": "OH-",
+              "color": "#63d6a3",
+              "particleCountHint": 16,
+              "arrangement": "solution"
+            }
+          ],
+          "interactions": [
+            "促进去质子化平衡",
+            "决定溶液碱性表现"
+          ]
+        }
+      },
+      {
+        "id": "rubber",
+        "name": "橡胶",
+        "category": "polymer",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "elasticity",
+            "label": "弹性",
+            "value": 91,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "id": "plastic",
+        "name": "塑料",
+        "category": "polymer",
+        "state": "solid",
+        "properties": [
+          {
+            "key": "insulation",
+            "label": "绝缘性",
+            "value": 88,
+            "unit": "%"
+          }
+        ]
+      }
+    ],
+    "reactionRules": [
+      {
+        "id": "indicator-protonation-shift",
+        "when": "指示剂加入酸性溶液时",
+        "observe": "溶液转向酸性颜色",
+        "microNarrative": "水合氢离子与指示剂分子发生质子转移，使分子电子结构变化并改变吸收光谱。",
+        "materialRefs": [
+          "indicator-dye",
+          "hydronium",
+          "water"
+        ]
+      },
+      {
+        "id": "indicator-deprotonation-shift",
+        "when": "指示剂加入碱性溶液时",
+        "observe": "溶液转向碱性颜色",
+        "microNarrative": "氢氧根推动去质子化平衡，指示剂分子结构重新分布后呈现另一种颜色。",
+        "materialRefs": [
+          "indicator-dye",
+          "hydroxide",
+          "water"
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "identify-materials",
+      "order": 1,
+      "title": "识别材料",
+      "description": "认识试纸、指示剂和待测溶液。",
+      "actionType": "identify-object",
+      "targetObject": "indicator-panel",
+      "successCondition": "acid-base-materials-identified",
+      "failureHints": [
+        "请先识别检验材料。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-indicator",
+      "order": 2,
+      "title": "加入指示剂",
+      "description": "向待测溶液中规范加入指示剂。",
+      "actionType": "add-material",
+      "targetObject": "solution-cups",
+      "successCondition": "indicator-added",
+      "failureHints": [
+        "加入对象或顺序不规范。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "observe-color",
+      "order": 3,
+      "title": "观察颜色变化",
+      "description": "观察颜色变化并判断酸碱性。",
+      "actionType": "record-observation",
+      "targetObject": "color-panel",
+      "successCondition": "color-change-recorded",
+      "failureHints": [
+        "请根据颜色变化判断酸碱性。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "compare-solutions",
+      "order": 4,
+      "title": "比较两种溶液",
+      "description": "比较两种溶液的酸碱性差异。",
+      "actionType": "set-variable",
+      "targetObject": "comparison-panel",
+      "successCondition": "solutions-compared",
+      "failureHints": [
+        "请先记录两种溶液的颜色变化，再比较。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summarize-acid-base",
+      "order": 5,
+      "title": "总结判断方法",
+      "description": "总结酸碱性检验的判断方法和注意事项。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "acid-base-summary-submitted",
+      "failureHints": [
+        "请完整描述检验方法和结果。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 25,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已掌握用指示剂判断溶液酸碱性的基本方法。",
+    "commonMistakes": [
+      "试纸使用方式错误",
+      "只记颜色不下判断",
+      "比较两种溶液时没有形成对应关系"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

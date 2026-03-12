@@ -1,0 +1,187 @@
+{
+  "id": "phy-senior-ohm-001",
+  "title": "欧姆定律实验",
+  "stage": "高中",
+  "subject": "物理",
+  "grade": "高二",
+  "durationMinutes": 15,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "physics-measure-bench",
+    "cameraPreset": "meter-top-view",
+    "assets": [
+      "power.glb",
+      "resistor.glb",
+      "voltmeter.glb",
+      "ammeter.glb",
+      "rheostat.glb",
+      "wire.glb"
+    ]
+  },
+  "objectives": [
+    "掌握电流表和电压表接法",
+    "使用滑动变阻器改变条件",
+    "完成多组测量并总结关系"
+  ],
+  "equipment": [
+    {
+      "id": "power",
+      "name": "电源",
+      "type": "power"
+    },
+    {
+      "id": "resistor",
+      "name": "定值电阻",
+      "type": "load"
+    },
+    {
+      "id": "ammeter",
+      "name": "电流表",
+      "type": "meter"
+    },
+    {
+      "id": "voltmeter",
+      "name": "电压表",
+      "type": "meter"
+    },
+    {
+      "id": "rheostat",
+      "name": "滑动变阻器",
+      "type": "control"
+    },
+    {
+      "id": "wire-set",
+      "name": "导线组",
+      "type": "connector"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-meters",
+      "order": 1,
+      "title": "识别电表与变阻器",
+      "description": "确认各器材功能。",
+      "actionType": "identify-object",
+      "targetObject": "equipment-panel",
+      "successCondition": "meters-identified",
+      "failureHints": [
+        "请先区分电流表、电压表和变阻器。"
+      ],
+      "scoringWeight": 10,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "build-main-circuit",
+      "order": 2,
+      "title": "连接主电路",
+      "description": "接入电源、电阻和变阻器。",
+      "actionType": "connect-wire",
+      "targetObject": "main-circuit-terminals",
+      "successCondition": "main-circuit-built",
+      "failureHints": [
+        "主回路连接错误。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "wire-connect",
+        "circuit-closure-check"
+      ]
+    },
+    {
+      "id": "attach-meters",
+      "order": 3,
+      "title": "接入电表",
+      "description": "正确连接电流表和电压表。",
+      "actionType": "connect-wire",
+      "targetObject": "meter-terminals",
+      "successCondition": "meters-correctly-connected",
+      "failureHints": [
+        "电流表位置错误。",
+        "电压表没有并联到被测部分。"
+      ],
+      "scoringWeight": 25,
+      "requiredCapabilities": [
+        "wire-connect",
+        "meter-polarity-check"
+      ]
+    },
+    {
+      "id": "set-variables",
+      "order": 4,
+      "title": "改变条件并读数",
+      "description": "调整滑动变阻器，记录多组数据。",
+      "actionType": "set-variable",
+      "targetObject": "rheostat-slider",
+      "successCondition": "three-valid-readings-recorded",
+      "failureHints": [
+        "请至少完成三组有效数据。"
+      ],
+      "scoringWeight": 25,
+      "requiredCapabilities": [
+        "meter-reading",
+        "data-table"
+      ]
+    },
+    {
+      "id": "submit-conclusion",
+      "order": 5,
+      "title": "得出实验结论",
+      "description": "根据数据总结电流和电压关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "ohm-summary-submitted",
+      "failureHints": [
+        "请根据测量数据完成结论。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel",
+        "data-table"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 40,
+    "observationScorePercent": 35,
+    "resultScorePercent": 25
+  },
+  "feedback": {
+    "successSummary": "你已完成欧姆定律实验接线、测量和结论总结。",
+    "commonMistakes": [
+      "电流表串并联错误",
+      "电压表连接错误",
+      "测量组数不足"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "wire-connect",
+    "circuit-closure-check",
+    "meter-polarity-check",
+    "meter-reading",
+    "data-table",
+    "summary-panel"
+  ],
+  "curriculum": {
+    "theme": "欧姆定律与数据测量",
+    "unit": "电学实验与图像",
+    "knowledgePoints": [
+      "电表接法",
+      "数据测量",
+      "图像归纳与结论"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  }
+}

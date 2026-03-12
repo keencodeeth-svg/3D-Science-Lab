@@ -1,0 +1,175 @@
+{
+  "id": "sci-primary-capillary-action-001",
+  "title": "纸条吸水与毛细现象",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-liquid-transfer-bench",
+    "cameraPreset": "cup-side",
+    "assets": [
+      "beaker-set.glb",
+      "colored-water.glb",
+      "paper-strip.glb",
+      "tray.glb",
+      "clip.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "水与材料",
+    "unit": "毛细现象",
+    "knowledgePoints": [
+      "纸条吸水",
+      "液体爬升",
+      "毛细现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识烧杯、有色水、纸条、托盘和夹子等器材",
+    "观察有色水沿纸条上升并逐渐转移的现象",
+    "理解细小空隙中液体会发生毛细现象"
+  ],
+  "equipment": [
+    {
+      "id": "beaker-left",
+      "name": "左侧烧杯",
+      "type": "container"
+    },
+    {
+      "id": "beaker-right",
+      "name": "右侧烧杯",
+      "type": "container"
+    },
+    {
+      "id": "colored-water",
+      "name": "有色水",
+      "type": "solution"
+    },
+    {
+      "id": "paper-strip",
+      "name": "纸条",
+      "type": "material"
+    },
+    {
+      "id": "clip",
+      "name": "夹子",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-capillary-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识烧杯、有色水、纸条、托盘和夹子。",
+      "actionType": "identify-object",
+      "targetObject": "capillary-panel",
+      "successCondition": "capillary-tools-identified",
+      "failureHints": [
+        "请先识别毛细现象实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "pour-colored-water",
+      "order": 2,
+      "title": "加入有色水",
+      "description": "先向左侧烧杯加入有色水。",
+      "actionType": "add-material",
+      "targetObject": "beaker-left",
+      "successCondition": "capillary-colored-water-added",
+      "failureHints": [
+        "请先在左侧烧杯中加入有色水。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "place-paper-strip",
+      "order": 3,
+      "title": "搭放纸条",
+      "description": "把纸条一端浸入有色水，另一端搭向空杯。",
+      "actionType": "place-object",
+      "targetObject": "paper-strip",
+      "successCondition": "capillary-paper-strip-placed",
+      "failureHints": [
+        "请让纸条一端接触有色水，另一端朝向空杯。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-climb-transfer",
+      "order": 4,
+      "title": "观察爬升转移",
+      "description": "观察有色水沿纸条上升并逐渐向另一侧转移。",
+      "actionType": "record-observation",
+      "targetObject": "paper-strip",
+      "successCondition": "capillary-observation-recorded",
+      "failureHints": [
+        "请重点记录液体在纸条中的爬升和转移过程。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-capillary-action",
+      "order": 5,
+      "title": "总结毛细现象",
+      "description": "总结细小空隙中的液体爬升现象及原因。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "capillary-summary-submitted",
+      "failureHints": [
+        "请把纸条吸水现象和毛细作用联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成毛细现象实验，并能说明有色水会沿纸条细小空隙上升和转移。",
+    "commonMistakes": [
+      "没有先向左侧烧杯加入有色水",
+      "纸条没有正确搭放，无法形成连续吸水路径",
+      "只记录现象，没有总结毛细作用"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "object-placement",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

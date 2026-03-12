@@ -1,0 +1,1791 @@
+.scene-canvas.has-shared-three-stage {
+  position: relative;
+  isolation: isolate;
+  border-color: rgba(144, 227, 255, 0.3);
+  background: linear-gradient(180deg, rgba(7, 12, 22, 0.18), rgba(4, 8, 16, 0.28));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -36px 80px rgba(2, 8, 16, 0.46);
+}
+
+.scene-canvas.has-shared-three-stage > :not(.shared-workbench-stage) {
+  position: relative;
+  z-index: 1;
+}
+
+.shared-workbench-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shared-workbench-stage.overlay-only {
+  z-index: 2;
+}
+
+.shared-workbench-stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 38%),
+    linear-gradient(180deg, rgba(4, 8, 15, 0.04), rgba(4, 8, 15, 0.34));
+  pointer-events: none;
+}
+
+.shared-workbench-stage.overlay-only::after {
+  display: none;
+}
+
+.shared-workbench-stage-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+}
+
+.shared-workbench-stage-chrome {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.shared-workbench-stage-banner,
+.shared-workbench-stage-overlay,
+.shared-workbench-stage-hint,
+.shared-workbench-stage-dock {
+  z-index: 1;
+}
+
+.shared-workbench-stage-banner {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 4px;
+  width: min(520px, calc(100% - 180px));
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(182, 231, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(6, 12, 22, 0.42);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(16px);
+  pointer-events: none;
+}
+
+.shared-workbench-stage-banner span {
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(208, 230, 255, 0.72);
+}
+
+.shared-workbench-stage-banner strong {
+  font-size: 0.98rem;
+  color: rgba(247, 251, 255, 0.97);
+  line-height: 1.2;
+}
+
+.shared-workbench-stage-banner small {
+  color: rgba(228, 241, 255, 0.76);
+  line-height: 1.35;
+}
+
+.shared-workbench-stage-overlay {
+  position: absolute;
+  top: 102px;
+  left: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: calc(100% - 28px);
+  pointer-events: none;
+}
+
+.shared-workbench-stage-chip {
+  display: grid;
+  gap: 3px;
+  min-width: 112px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(182, 231, 255, 0.18);
+  background: rgba(6, 12, 22, 0.4);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.shared-workbench-stage-chip.active {
+  border-color: rgba(140, 232, 198, 0.28);
+  background: rgba(8, 20, 18, 0.46);
+}
+
+.shared-workbench-stage-chip span {
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(208, 230, 255, 0.7);
+}
+
+.shared-workbench-stage-chip strong {
+  font-size: 0.82rem;
+  color: rgba(247, 251, 255, 0.96);
+  word-break: break-word;
+}
+
+.shared-workbench-stage-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(182, 231, 255, 0.16);
+  background: rgba(6, 12, 22, 0.36);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+  color: rgba(241, 248, 255, 0.82);
+  font-size: 0.74rem;
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.shared-workbench-stage-dock {
+  position: absolute;
+  top: 154px;
+  right: 14px;
+  display: grid;
+  gap: 10px;
+  width: min(320px, calc(100% - 28px));
+  pointer-events: none;
+}
+
+.shared-workbench-stage-focus-panel,
+.shared-workbench-stage-lens-panel,
+.shared-workbench-stage-selector-button,
+.shared-workbench-stage-data-card,
+.shared-workbench-stage-species-chip {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(182, 231, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(6, 12, 22, 0.4);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(16px);
+}
+
+.shared-workbench-stage-focus-panel {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  pointer-events: auto;
+}
+
+.shared-workbench-stage-lens-panel {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  pointer-events: auto;
+}
+
+.shared-workbench-stage-focus-panel span,
+.shared-workbench-stage-selector-button span,
+.shared-workbench-stage-lens-head span,
+.shared-workbench-stage-data-card span {
+  color: rgba(208, 230, 255, 0.7);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.shared-workbench-stage-focus-panel strong,
+.shared-workbench-stage-selector-button strong,
+.shared-workbench-stage-lens-head strong,
+.shared-workbench-stage-data-card strong,
+.shared-workbench-stage-species-chip span {
+  color: rgba(247, 251, 255, 0.96);
+  line-height: 1.35;
+}
+
+.shared-workbench-stage-focus-panel small,
+.shared-workbench-stage-lens-head small,
+.shared-workbench-stage-data-card small {
+  color: rgba(228, 241, 255, 0.8);
+  line-height: 1.45;
+}
+
+.shared-workbench-stage-focus-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.shared-workbench-stage-focus-pill {
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(182, 231, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(236, 246, 255, 0.86);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+}
+
+.shared-workbench-stage-focus-pill.active {
+  border-color: rgba(140, 232, 198, 0.24);
+  background: rgba(10, 29, 23, 0.46);
+}
+
+.shared-workbench-stage-focus-pill-button {
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(182, 231, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(236, 246, 255, 0.86);
+  display: inline-flex;
+  align-items: center;
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.shared-workbench-stage-focus-pill-button:hover,
+.shared-workbench-stage-focus-pill-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(140, 232, 198, 0.22);
+}
+
+.shared-workbench-stage-focus-pill-button.active {
+  border-color: rgba(140, 232, 198, 0.24);
+  background:
+    linear-gradient(135deg, rgba(74, 121, 240, 0.18), rgba(56, 224, 193, 0.14)),
+    rgba(10, 29, 23, 0.46);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.14);
+}
+
+.shared-workbench-stage-lens-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+}
+
+.shared-workbench-stage-lens-head > div {
+  display: grid;
+  gap: 5px;
+}
+
+.shared-workbench-stage-lens-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.shared-workbench-stage-lens-switch,
+.shared-workbench-stage-lens-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.shared-workbench-stage-lens-switch {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shared-workbench-stage-lens-button {
+  min-height: 42px;
+  padding: 0 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(182, 231, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(241, 248, 255, 0.86);
+  font: inherit;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.shared-workbench-stage-lens-button:hover,
+.shared-workbench-stage-lens-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(140, 232, 198, 0.22);
+}
+
+.shared-workbench-stage-lens-button.active {
+  border-color: rgba(140, 232, 198, 0.26);
+  background:
+    linear-gradient(135deg, rgba(74, 121, 240, 0.18), rgba(56, 224, 193, 0.14)),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+}
+
+.shared-workbench-stage-lens-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shared-workbench-stage-data-card {
+  min-height: 88px;
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+
+.shared-workbench-stage-data-card.emphasis {
+  border-color: rgba(140, 232, 198, 0.24);
+  background:
+    linear-gradient(180deg, rgba(56, 224, 193, 0.12), rgba(255, 255, 255, 0.03)),
+    rgba(6, 12, 22, 0.42);
+}
+
+.shared-workbench-stage-micro-shell {
+  display: grid;
+  gap: 10px;
+}
+
+.shared-workbench-stage-micro-visual {
+  position: relative;
+  min-height: 148px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(182, 231, 255, 0.16);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(101, 217, 255, 0.16), transparent 24%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 44%),
+    linear-gradient(180deg, rgba(8, 18, 30, 0.76), rgba(6, 12, 22, 0.92));
+}
+
+.shared-workbench-stage-micro-orbit,
+.shared-workbench-stage-micro-core,
+.shared-workbench-stage-particle {
+  position: absolute;
+}
+
+.shared-workbench-stage-micro-orbit {
+  border-radius: 999px;
+  border: 1px solid rgba(182, 231, 255, 0.12);
+  animation: sharedWorkbenchOrbit 18s linear infinite;
+}
+
+.shared-workbench-stage-micro-orbit.orbit-a {
+  inset: 18px auto auto 22px;
+  width: 82px;
+  height: 82px;
+}
+
+.shared-workbench-stage-micro-orbit.orbit-b {
+  inset: auto 22px 16px auto;
+  width: 116px;
+  height: 116px;
+  animation-direction: reverse;
+  animation-duration: 22s;
+}
+
+.shared-workbench-stage-micro-core {
+  inset: 50% auto auto 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.82), rgba(101, 217, 255, 0.18) 58%, transparent 72%);
+  box-shadow:
+    0 0 0 14px rgba(101, 217, 255, 0.05),
+    0 0 24px rgba(101, 217, 255, 0.28);
+}
+
+.shared-workbench-stage-particle {
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+  opacity: 0.92;
+  animation-name: sharedWorkbenchParticleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.shared-workbench-stage-species-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.shared-workbench-stage-species-chip {
+  min-height: 34px;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shared-workbench-stage-species-chip i {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+  flex: 0 0 auto;
+}
+
+.shared-workbench-stage-selector {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.shared-workbench-stage-selector-button {
+  min-height: 72px;
+  padding: 12px;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.shared-workbench-stage-selector-button:hover,
+.shared-workbench-stage-selector-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(140, 232, 198, 0.24);
+}
+
+.shared-workbench-stage-selector-button strong {
+  font-size: 0.86rem;
+}
+
+.shared-workbench-stage-selector-button.active {
+  border-color: rgba(140, 232, 198, 0.26);
+  background:
+    linear-gradient(135deg, rgba(74, 121, 240, 0.22), rgba(56, 224, 193, 0.16)),
+    rgba(6, 12, 22, 0.44);
+  box-shadow:
+    0 20px 34px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.shared-workbench-stage-structure-shell {
+  --shared-structure-accent: rgba(117, 215, 255, 0.44);
+  position: absolute;
+  left: calc(50% - 24px);
+  bottom: 72px;
+  transform: translateX(-50%);
+  width: min(760px, calc(100% - 392px));
+  height: 262px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.92;
+}
+
+.shared-workbench-stage-structure-shell.macro {
+  --shared-structure-accent: rgba(246, 195, 84, 0.34);
+}
+
+.shared-workbench-stage-structure-shell.meso {
+  --shared-structure-accent: rgba(117, 215, 255, 0.42);
+}
+
+.shared-workbench-stage-structure-shell.micro {
+  --shared-structure-accent: rgba(111, 248, 220, 0.44);
+}
+
+.shared-workbench-stage-structure-grid,
+.shared-workbench-stage-structure-floor,
+.shared-workbench-stage-structure-flow-lane,
+.shared-workbench-stage-structure-row,
+.shared-workbench-stage-material-stream {
+  position: absolute;
+  inset: 0;
+}
+
+.shared-workbench-stage-structure-grid {
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 22%, rgba(5, 11, 20, 0.08) 100%),
+    radial-gradient(circle at 50% 100%, var(--shared-structure-accent), transparent 42%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.62) 20%, rgba(0,0,0,0.96) 68%, transparent 100%);
+}
+
+.shared-workbench-stage-structure-grid::before,
+.shared-workbench-stage-structure-grid::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 12px;
+  height: 144px;
+  border-radius: 22px;
+  transform-origin: center bottom;
+}
+
+.shared-workbench-stage-structure-grid::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11.5%,
+      rgba(182, 231, 255, 0.12) 11.5% 12%,
+      transparent 12% 24%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(182, 231, 255, 0.08) 0 1px,
+      transparent 1px 20px
+    );
+  transform: perspective(680px) rotateX(70deg);
+  opacity: 0.58;
+}
+
+.shared-workbench-stage-structure-grid::after {
+  inset: auto 10% 26px;
+  height: 84px;
+  background:
+    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--shared-structure-accent) 24%, transparent), transparent 62%),
+    linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: perspective(580px) rotateX(80deg);
+  opacity: 0.36;
+}
+
+.shared-workbench-stage-structure-floor {
+  inset: auto 6% 22px;
+  height: 96px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at center, color-mix(in srgb, var(--shared-structure-accent) 22%, rgba(255,255,255,0.06)), transparent 64%),
+    linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  filter: blur(12px);
+  opacity: 0.72;
+}
+
+.shared-workbench-stage-structure-flow {
+  --stage-structure-tone: rgba(117, 215, 255, 0.82);
+  position: absolute;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--stage-structure-tone) 2%, transparent),
+      color-mix(in srgb, var(--stage-structure-tone) 70%, rgba(255,255,255,0.28)),
+      color-mix(in srgb, var(--stage-structure-tone) 2%, transparent)
+    );
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--stage-structure-tone) 20%, transparent),
+    0 0 32px color-mix(in srgb, var(--stage-structure-tone) 12%, transparent);
+  transform: translateY(-50%);
+  animation: sharedWorkbenchFlowPulse 4.2s ease-in-out infinite;
+  opacity: 0.74;
+}
+
+.shared-workbench-stage-structure-node {
+  --stage-structure-tone: rgba(117, 215, 255, 0.82);
+  position: absolute;
+  transform: translateX(-50%);
+  animation: sharedWorkbenchNodeRise 5.2s ease-in-out infinite;
+}
+
+.shared-workbench-stage-structure-node-shadow,
+.shared-workbench-stage-structure-node-column,
+.shared-workbench-stage-structure-node-cap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.shared-workbench-stage-structure-node-shadow {
+  bottom: -12px;
+  width: 82%;
+  height: 22px;
+  border-radius: 999px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--stage-structure-tone) 18%, rgba(0,0,0,0.12)), transparent 70%);
+  filter: blur(8px);
+  opacity: 0.82;
+}
+
+.shared-workbench-stage-structure-node-column {
+  bottom: 18px;
+  width: 72%;
+  height: 100%;
+  border-radius: 18px 18px 8px 8px;
+  border: 1px solid color-mix(in srgb, var(--stage-structure-tone) 30%, rgba(255,255,255,0.08));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--stage-structure-tone) 24%, rgba(255,255,255,0.12)), rgba(255,255,255,0.02) 42%, rgba(5, 12, 22, 0.52) 100%),
+    rgba(6, 12, 22, 0.32);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.shared-workbench-stage-structure-node-column::before {
+  content: '';
+  position: absolute;
+  inset: 12px 16% 12px 18%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), transparent 30%, color-mix(in srgb, var(--stage-structure-tone) 22%, transparent));
+  opacity: 0.86;
+}
+
+.shared-workbench-stage-structure-node-cap {
+  bottom: calc(100% + 4px);
+  width: 58%;
+  height: 12px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent),
+    color-mix(in srgb, var(--stage-structure-tone) 56%, rgba(255,255,255,0.12));
+  box-shadow: 0 0 18px color-mix(in srgb, var(--stage-structure-tone) 30%, transparent);
+}
+
+.shared-workbench-stage-structure-node-label {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 18px);
+  width: min(150px, 18vw);
+  padding: 8px 10px;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 2px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--stage-structure-tone) 24%, rgba(255,255,255,0.08));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03)),
+    rgba(6, 12, 22, 0.56);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18);
+}
+
+.shared-workbench-stage-structure-node-label strong,
+.shared-workbench-stage-structure-node-label small {
+  margin: 0;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.shared-workbench-stage-structure-node-label strong {
+  color: rgba(247, 251, 255, 0.96);
+  font-size: 0.76rem;
+}
+
+.shared-workbench-stage-structure-node-label small {
+  color: rgba(208, 230, 255, 0.72);
+  font-size: 0.64rem;
+}
+
+.shared-workbench-stage-material-stream {
+  inset: auto 5% 0;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.shared-workbench-stage-material-pill {
+  --stage-structure-tone: rgba(117, 215, 255, 0.82);
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--stage-structure-tone) 28%, rgba(255,255,255,0.08));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    color-mix(in srgb, var(--stage-structure-tone) 14%, rgba(6, 12, 22, 0.8));
+  color: rgba(241, 248, 255, 0.88);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+}
+
+.shared-workbench-stage-scope {
+  --stage-scope-accent: rgba(117, 215, 255, 0.84);
+  position: absolute;
+  left: 18px;
+  bottom: 82px;
+  width: min(320px, calc(100% - 420px));
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+  border-radius: 22px;
+  border: 1px solid color-mix(in srgb, var(--stage-scope-accent) 22%, rgba(255,255,255,0.08));
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--stage-scope-accent) 14%, transparent), transparent 36%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    rgba(6, 12, 22, 0.48);
+  box-shadow:
+    0 20px 38px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+}
+
+.shared-workbench-stage-scope.meso {
+  --stage-scope-accent: rgba(117, 215, 255, 0.82);
+}
+
+.shared-workbench-stage-scope.micro {
+  --stage-scope-accent: rgba(111, 248, 220, 0.88);
+}
+
+.shared-workbench-stage-scope-head {
+  display: grid;
+  gap: 4px;
+}
+
+.shared-workbench-stage-scope-head span {
+  color: rgba(208, 230, 255, 0.68);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.shared-workbench-stage-scope-head strong {
+  color: rgba(247, 251, 255, 0.96);
+  font-size: 0.92rem;
+  line-height: 1.32;
+}
+
+.shared-workbench-stage-scope-head small,
+.shared-workbench-stage-scope-band-card small {
+  margin: 0;
+  color: rgba(228, 241, 255, 0.78);
+  line-height: 1.4;
+}
+
+.shared-workbench-stage-scope-visual {
+  position: relative;
+  min-height: 148px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(182, 231, 255, 0.14);
+  background:
+    radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--stage-scope-accent) 16%, transparent), transparent 22%),
+    linear-gradient(180deg, rgba(8, 18, 30, 0.7), rgba(6, 12, 22, 0.92));
+}
+
+.shared-workbench-stage-scope-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 24%),
+    linear-gradient(180deg, transparent, rgba(255,255,255,0.02) 40%, rgba(0,0,0,0.12));
+  pointer-events: none;
+}
+
+.shared-workbench-stage-scope-band-row {
+  position: absolute;
+  inset: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  align-items: end;
+}
+
+.shared-workbench-stage-scope-band-card {
+  display: grid;
+  gap: 8px;
+  align-content: end;
+}
+
+.shared-workbench-stage-scope-band-card strong {
+  color: rgba(247, 251, 255, 0.96);
+  font-size: 0.78rem;
+  line-height: 1.28;
+}
+
+.shared-workbench-stage-scope-band {
+  --stage-scope-tone: rgba(117, 215, 255, 0.82);
+  display: block;
+  border-radius: 14px 14px 8px 8px;
+  border: 1px solid color-mix(in srgb, var(--stage-scope-tone) 26%, rgba(255,255,255,0.08));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--stage-scope-tone) 28%, rgba(255,255,255,0.12)), rgba(255,255,255,0.03) 36%, rgba(6, 12, 22, 0.38) 100%),
+    rgba(255,255,255,0.03);
+  box-shadow:
+    0 16px 28px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: sharedWorkbenchScopeBandLift 4.8s ease-in-out infinite;
+}
+
+.shared-workbench-stage-scope-core,
+.shared-workbench-stage-scope-ring,
+.shared-workbench-stage-scope-particle {
+  position: absolute;
+}
+
+.shared-workbench-stage-scope-core {
+  inset: 50% auto auto 50%;
+  width: 52px;
+  height: 52px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.88), color-mix(in srgb, var(--stage-scope-accent) 22%, rgba(255,255,255,0.08)) 60%, transparent 74%);
+  box-shadow:
+    0 0 0 18px color-mix(in srgb, var(--stage-scope-accent) 8%, transparent),
+    0 0 30px color-mix(in srgb, var(--stage-scope-accent) 26%, transparent);
+}
+
+.shared-workbench-stage-scope-ring {
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--stage-scope-accent) 22%, rgba(255,255,255,0.08));
+  animation: sharedWorkbenchOrbit 16s linear infinite;
+}
+
+.shared-workbench-stage-scope-ring.ring-a {
+  inset: 24px auto auto 30px;
+  width: 96px;
+  height: 96px;
+}
+
+.shared-workbench-stage-scope-ring.ring-b {
+  inset: auto 24px 20px auto;
+  width: 124px;
+  height: 124px;
+  animation-direction: reverse;
+  animation-duration: 20s;
+}
+
+.shared-workbench-stage-scope-particle {
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  opacity: 0.92;
+  box-shadow: 0 0 16px rgba(255,255,255,0.12);
+  animation-name: sharedWorkbenchParticleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.shared-workbench-stage-scope-foot {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.shared-workbench-stage-scope-foot-pill {
+  --stage-scope-tone: rgba(117, 215, 255, 0.82);
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--stage-scope-tone) 28%, rgba(255,255,255,0.08));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    color-mix(in srgb, var(--stage-scope-tone) 14%, rgba(6, 12, 22, 0.82));
+  color: rgba(241, 248, 255, 0.88);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+}
+
+/* Product UX upgrade v61: keep function chrome available without burying the bench */
+.lab-workbench-shell .shared-workbench-stage-overlay,
+.lab-workbench-shell .shared-workbench-stage-focus-panel,
+.lab-workbench-shell .shared-workbench-stage-selector,
+.lab-workbench-shell .shared-workbench-stage-scope,
+.lab-workbench-shell .lab-scene-runtime-layer .lab-scene-scale-hud {
+  display: none;
+}
+
+.lab-workbench-shell .shared-workbench-stage-banner {
+  top: 16px;
+  width: min(460px, calc(100% - 132px));
+  padding: 10px 14px;
+}
+
+.lab-workbench-shell .shared-workbench-stage-banner small {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.lab-workbench-shell .shared-workbench-stage-dock {
+  top: auto;
+  right: 18px;
+  bottom: 18px;
+  width: min(252px, calc(100% - 36px));
+  gap: 0;
+}
+
+.lab-workbench-shell .shared-workbench-stage-lens-panel {
+  padding: 12px 14px;
+  gap: 10px;
+}
+
+.lab-workbench-shell .shared-workbench-stage-lens-panel .shared-workbench-stage-lens-grid,
+.lab-workbench-shell .shared-workbench-stage-lens-panel .shared-workbench-stage-micro-shell {
+  display: none;
+}
+
+.lab-workbench-shell .shared-workbench-stage-lens-head {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.lab-workbench-shell .shared-workbench-stage-lens-meta {
+  justify-content: flex-start;
+}
+
+.lab-workbench-shell .shared-workbench-stage-lens-switch {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lab-workbench-shell .shared-workbench-stage-lens-button {
+  min-height: 38px;
+  font-size: 0.78rem;
+}
+
+.lab-workbench-shell .shared-workbench-stage-hint {
+  left: 18px;
+  right: auto;
+  bottom: 18px;
+  max-width: calc(100% - 324px);
+}
+
+.lab-workbench-shell .shared-workbench-stage-structure-shell {
+  bottom: 42px;
+  width: min(640px, calc(100% - 140px));
+}
+
+.lab-workbench-shell .lab-scene-lens-tag {
+  top: 16px;
+  left: 16px;
+  max-width: min(260px, calc(100% - 36px));
+  padding: 8px 10px;
+  gap: 3px;
+}
+
+.lab-workbench-shell .lab-scene-lens-tag strong {
+  font-size: 0.82rem;
+}
+
+.lab-workbench-shell .lab-scene-lens-tag small {
+  -webkit-line-clamp: 1;
+}
+
+.lab-workbench-shell.is-fullscreen .shared-workbench-stage-banner,
+.lab-workbench-shell.is-fullscreen .shared-workbench-stage-dock,
+.lab-workbench-shell.is-fullscreen .shared-workbench-stage-hint,
+.lab-workbench-shell.is-fullscreen .shared-workbench-stage-structure-shell,
+.lab-workbench-shell.is-fullscreen .lab-scene-lens-tag,
+.lab-workbench-shell.is-fullscreen .lab-scene-runtime-layer .lab-scene-scale-hud,
+.lab-workbench-shell.is-fullscreen .lab-workbench-engine-portal.floating,
+.lab-workbench-shell:fullscreen .shared-workbench-stage-banner,
+.lab-workbench-shell:fullscreen .shared-workbench-stage-dock,
+.lab-workbench-shell:fullscreen .shared-workbench-stage-hint,
+.lab-workbench-shell:fullscreen .shared-workbench-stage-structure-shell,
+.lab-workbench-shell:fullscreen .lab-scene-lens-tag,
+.lab-workbench-shell:fullscreen .lab-scene-runtime-layer .lab-scene-scale-hud,
+.lab-workbench-shell:fullscreen .lab-workbench-engine-portal.floating {
+  display: none;
+}
+
+/* Keep only scene-level particles in fullscreen to avoid covering the bench. */
+.lab-workbench-shell.is-fullscreen .lab-scene-particle-field,
+.lab-workbench-shell:fullscreen .lab-scene-particle-field {
+  inset: 10px;
+  opacity: 0.22;
+}
+
+.lab-workbench-shell.is-fullscreen .lab-scene-particle-label,
+.lab-workbench-shell:fullscreen .lab-scene-particle-label {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .shared-workbench-stage-banner {
+    left: 14px;
+    right: 14px;
+    transform: none;
+    width: auto;
+    top: 12px;
+  }
+
+  .shared-workbench-stage-overlay {
+    top: 110px;
+    gap: 8px;
+  }
+
+  .shared-workbench-stage-chip {
+    min-width: 96px;
+    padding: 9px 10px;
+  }
+
+  .shared-workbench-stage-hint {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    text-align: center;
+  }
+
+  .shared-workbench-stage-dock {
+    top: auto;
+    right: 12px;
+    left: 12px;
+    bottom: 58px;
+    width: auto;
+  }
+
+  .shared-workbench-stage-structure-shell {
+    left: 12px;
+    right: 12px;
+    bottom: 156px;
+    transform: none;
+    width: auto;
+    height: 176px;
+    opacity: 0.62;
+  }
+
+  .shared-workbench-stage-scope {
+    left: 12px;
+    right: 12px;
+    bottom: 248px;
+    width: auto;
+    padding: 12px;
+  }
+
+  .shared-workbench-stage-scope-band-row {
+    inset: 12px;
+    gap: 8px;
+  }
+
+  .shared-workbench-stage-structure-node-label,
+  .shared-workbench-stage-material-stream,
+  .shared-workbench-stage-scope-foot {
+    display: none;
+  }
+
+  .shared-workbench-stage-selector {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .shared-workbench-stage-lens-head,
+  .shared-workbench-stage-lens-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shared-workbench-stage-lens-switch {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 920px) {
+  .lab-workbench-shell .shared-workbench-stage-banner,
+  .lab-workbench-shell .lab-scene-lens-tag {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+  }
+
+  .lab-workbench-shell .shared-workbench-stage-banner {
+    width: auto;
+  }
+
+  .lab-workbench-shell .shared-workbench-stage-dock {
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  .lab-workbench-shell .shared-workbench-stage-hint {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+    text-align: center;
+  }
+
+  .lab-workbench-shell .shared-workbench-stage-structure-shell {
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shared-workbench-stage-structure-flow,
+  .shared-workbench-stage-structure-node,
+  .shared-workbench-stage-scope-band,
+  .shared-workbench-stage-scope-ring,
+  .shared-workbench-stage-scope-particle,
+  .shared-workbench-stage-micro-orbit,
+  .shared-workbench-stage-particle {
+    animation: none !important;
+  }
+}
+
+@keyframes sharedWorkbenchOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sharedWorkbenchParticleFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.84;
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 6px)) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes sharedWorkbenchFlowPulse {
+  0%, 100% {
+    opacity: 0.42;
+    filter: saturate(0.92);
+  }
+  50% {
+    opacity: 0.86;
+    filter: saturate(1.18);
+  }
+}
+
+@keyframes sharedWorkbenchNodeRise {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes sharedWorkbenchScopeBandLift {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.86;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+
+/* Product UX upgrade v34: lab studio modes for operation, records and guidance */
+.lab-studio-layer-panel,
+.lab-guide-panel,
+.lab-mode-shell {
+  overflow: visible;
+}
+
+.lab-mode-shell {
+  position: relative;
+}
+
+.lab-loading-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(5, 12, 22, 0.78), rgba(5, 12, 22, 0.64)),
+    rgba(5, 12, 22, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.lab-loading-scrim-card {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(101, 217, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    rgba(8, 18, 32, 0.82);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+
+.lab-loading-scrim-card strong,
+.lab-loading-scrim-card small {
+  margin: 0;
+}
+
+.lab-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.lab-guide-card {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    rgba(9, 18, 31, 0.72);
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.lab-guide-card strong,
+.lab-guide-card p {
+  margin: 0;
+}
+
+.lab-mode-shell[data-lab-mode='operation'] .playground-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(276px, 316px);
+}
+
+.lab-mode-shell[data-lab-mode='operation'] .playground-grid > .playground-side:first-child {
+  display: none;
+}
+
+.lab-mode-shell[data-lab-mode='record'] .playground-grid {
+  grid-template-columns: minmax(248px, 284px) minmax(0, 1fr);
+}
+
+.lab-mode-shell[data-lab-mode='record'] .playground-grid > .playground-side:last-child {
+  display: none;
+}
+
+.lab-mode-shell[data-lab-mode='guide'] .playground-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.lab-mode-shell[data-lab-mode='guide'] .playground-grid > .playground-side {
+  display: none;
+}
+
+.lab-mode-shell[data-lab-mode='guide'] .scene-panel {
+  max-width: none;
+}
+
+.lab-mode-shell[data-lab-mode='guide'] .scene-toolbar {
+  top: calc(var(--shell-sticky-offset) + 88px);
+}
+
+@media (max-width: 1100px) {
+  .lab-mode-shell[data-lab-mode='operation'] .playground-grid,
+  .lab-mode-shell[data-lab-mode='record'] .playground-grid,
+  .lab-mode-shell[data-lab-mode='guide'] .playground-grid,
+  .lab-guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-mode-shell[data-lab-mode='operation'] .playground-grid > .playground-side:first-child,
+  .lab-mode-shell[data-lab-mode='record'] .playground-grid > .playground-side:last-child,
+  .lab-mode-shell[data-lab-mode='guide'] .playground-grid > .playground-side {
+    display: grid;
+  }
+
+  .lab-mode-shell[data-lab-mode='guide'] .scene-toolbar {
+    top: var(--shell-sticky-offset);
+  }
+}
+
+@media (max-width: 920px) {
+  .lab-guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* Shared workbench multiscale lens integration */
+.scene-canvas {
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.scene-canvas::before,
+.scene-canvas::after {
+  transition: opacity 220ms ease, background 220ms ease, transform 220ms ease;
+}
+
+.scene-canvas[data-multiscale-lens='meso'] {
+  border-color: rgba(118, 228, 203, 0.34);
+  box-shadow:
+    0 30px 66px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    inset 0 0 0 1px rgba(118, 228, 203, 0.08),
+    inset 0 -30px 54px rgba(2, 16, 20, 0.22);
+}
+
+.scene-canvas[data-multiscale-lens='meso']::before {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(118, 228, 203, 0.18), transparent 22%),
+    radial-gradient(circle at 16% 0%, rgba(255,255,255,0.12), transparent 24%),
+    repeating-linear-gradient(90deg, rgba(118, 228, 203, 0.08) 0 1px, transparent 1px 36px),
+    linear-gradient(180deg, rgba(255,255,255,0.04), transparent 28%, rgba(0,0,0,0.16) 100%);
+  opacity: 0.98;
+}
+
+.scene-canvas[data-multiscale-lens='micro'] {
+  border-color: rgba(132, 221, 255, 0.38);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    inset 0 0 0 1px rgba(132, 221, 255, 0.1),
+    inset 0 -34px 62px rgba(3, 11, 20, 0.28);
+}
+
+.scene-canvas[data-multiscale-lens='micro']::before {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(132, 221, 255, 0.24), transparent 18%),
+    radial-gradient(circle at 50% 44%, rgba(255,255,255,0.08), transparent 34%),
+    radial-gradient(circle at 84% 8%, rgba(101, 217, 255, 0.16), transparent 22%),
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 24%, rgba(0,0,0,0.22) 100%);
+  opacity: 1;
+}
+
+.scene-canvas[data-multiscale-lens='micro']::after {
+  opacity: 0.94;
+  transform: translateY(-2px) scaleX(1.01);
+}
+
+.shared-workbench-stage[data-active-lens='meso'] .shared-workbench-stage-lens-panel,
+.shared-workbench-stage[data-active-lens='micro'] .shared-workbench-stage-lens-panel {
+  border-color: rgba(140, 232, 198, 0.26);
+}
+
+.shared-workbench-stage[data-active-lens='micro'] .shared-workbench-stage-focus-panel,
+.shared-workbench-stage[data-active-lens='micro'] .shared-workbench-stage-chip.active {
+  border-color: rgba(132, 221, 255, 0.26);
+  background:
+    linear-gradient(180deg, rgba(132, 221, 255, 0.12), rgba(255,255,255,0.03)),
+    rgba(6, 12, 22, 0.44);
+}
+
+
+/* Product UX upgrade v50: programmatic particle field for micro explanations */
+.lab-scene-runtime-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.lab-scene-particle-field {
+  position: absolute;
+  inset: 14px;
+  overflow: hidden;
+  border-radius: 18px;
+  mask-image: linear-gradient(180deg, transparent 2%, black 12%, black 74%, transparent 100%);
+  opacity: 0.68;
+}
+
+.lab-scene-particle-field.meso {
+  opacity: 0.42;
+}
+
+.lab-scene-particle-group {
+  position: absolute;
+  inset: 0;
+}
+
+.lab-scene-particle-node,
+.lab-scene-particle-bond,
+.lab-scene-particle-label,
+.lab-scene-lens-tag {
+  pointer-events: none;
+}
+
+.lab-scene-particle-node,
+.lab-scene-particle-bond {
+  position: absolute;
+  transform-origin: left center;
+}
+
+.lab-scene-particle-node {
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 32% 32%, rgba(255,255,255,0.92), color-mix(in srgb, var(--particle-color) 56%, white) 28%, var(--particle-color) 78%);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 0 14px color-mix(in srgb, var(--particle-color) 42%, transparent);
+  animation: labSceneParticleFloat 4.8s ease-in-out infinite;
+}
+
+.lab-scene-particle-bond {
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--particle-color) 4%, transparent), color-mix(in srgb, var(--particle-color) 44%, rgba(255,255,255,0.22)), color-mix(in srgb, var(--particle-color) 4%, transparent));
+  filter: blur(0.2px);
+}
+
+.lab-scene-particle-label {
+  position: absolute;
+  transform: translateX(-50%);
+  max-width: 132px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--particle-color) 28%, rgba(255,255,255,0.08));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    rgba(8, 14, 24, 0.54);
+  color: rgba(244, 248, 255, 0.82);
+  font-size: 0.66rem;
+  line-height: 1.25;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+.lab-scene-lens-tag {
+  --lab-scene-scale-accent: rgba(101, 217, 255, 0.82);
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  max-width: min(320px, calc(100% - 36px));
+  padding: 10px 12px;
+  display: grid;
+  gap: 4px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--lab-scene-scale-accent) 22%, rgba(255,255,255,0.08));
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--lab-scene-scale-accent) 18%, transparent), transparent 38%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    rgba(7, 14, 24, 0.62);
+  box-shadow:
+    0 16px 28px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(16px);
+}
+
+.lab-scene-lens-tag.macro {
+  --lab-scene-scale-accent: rgba(246, 195, 84, 0.88);
+}
+
+.lab-scene-lens-tag.meso {
+  --lab-scene-scale-accent: rgba(101, 217, 255, 0.84);
+}
+
+.lab-scene-lens-tag.micro {
+  --lab-scene-scale-accent: rgba(111, 248, 220, 0.88);
+}
+
+.lab-scene-lens-tag span {
+  color: rgba(228, 240, 255, 0.68);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lab-scene-lens-tag strong {
+  color: #f4f8ff;
+  font-size: 0.9rem;
+  line-height: 1.32;
+}
+
+.lab-scene-lens-tag small {
+  margin: 0;
+  color: rgba(228, 240, 255, 0.8);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.lab-scene-runtime-layer .lab-scene-scale-hud {
+  z-index: 1;
+}
+
+@keyframes labSceneParticleFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 4px)) scale(1.06);
+  }
+}
+
+@media (max-width: 920px) {
+  .lab-scene-particle-field {
+    inset: 10px;
+  }
+
+  .lab-scene-lens-tag {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    max-width: none;
+  }
+
+  .lab-scene-particle-label {
+    display: none;
+  }
+}
+
+/* Product UX upgrade v51: shared workbench engine card across inspector and scene */
+.lab-workbench-engine-portal {
+  --lab-engine-accent: rgba(101, 217, 255, 0.84);
+  --lab-engine-border: rgba(101, 217, 255, 0.22);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.lab-workbench-engine-portal.macro {
+  --lab-engine-accent: rgba(246, 195, 84, 0.88);
+  --lab-engine-border: rgba(246, 195, 84, 0.22);
+}
+
+.lab-workbench-engine-portal.meso {
+  --lab-engine-accent: rgba(101, 217, 255, 0.84);
+  --lab-engine-border: rgba(101, 217, 255, 0.22);
+}
+
+.lab-workbench-engine-portal.micro {
+  --lab-engine-accent: rgba(111, 248, 220, 0.88);
+  --lab-engine-border: rgba(111, 248, 220, 0.22);
+}
+
+.lab-workbench-engine-portal.floating {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: min(328px, calc(100% - 36px));
+}
+
+.lab-workbench-engine-portal.rail {
+  order: -1;
+  position: sticky;
+  top: 0;
+}
+
+.lab-workbench-engine-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 22px;
+  border: 1px solid var(--lab-engine-border);
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--lab-engine-accent) 16%, transparent), transparent 36%),
+    radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03)),
+    rgba(7, 14, 24, 0.78);
+  box-shadow:
+    0 20px 42px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+}
+
+.lab-workbench-engine-head,
+.lab-workbench-engine-pill-row,
+.lab-workbench-engine-section-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lab-workbench-engine-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.lab-workbench-engine-copy span,
+.lab-workbench-engine-section-head span,
+.lab-workbench-engine-scale-card span,
+.lab-workbench-engine-chip-card span {
+  color: rgba(228, 240, 255, 0.68);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.lab-workbench-engine-copy strong,
+.lab-workbench-engine-section-head strong,
+.lab-workbench-engine-scale-card strong,
+.lab-workbench-engine-chip-card strong,
+.lab-workbench-engine-rule-card strong {
+  color: #f4f8ff;
+}
+
+.lab-workbench-engine-copy strong {
+  font-size: 0.96rem;
+  line-height: 1.32;
+}
+
+.lab-workbench-engine-copy small,
+.lab-workbench-engine-scale-card small,
+.lab-workbench-engine-rule-card small,
+.lab-workbench-engine-note {
+  margin: 0;
+  color: rgba(228, 240, 255, 0.8);
+  line-height: 1.45;
+}
+
+.lab-workbench-engine-copy small,
+.lab-workbench-engine-scale-card small,
+.lab-workbench-engine-note {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lab-workbench-engine-copy small {
+  -webkit-line-clamp: 2;
+}
+
+.lab-workbench-engine-pill-row {
+  align-items: center;
+}
+
+.lab-workbench-engine-pill {
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(244, 248, 255, 0.86);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.lab-workbench-engine-pill.lens {
+  border-color: var(--lab-engine-border);
+  background: color-mix(in srgb, var(--lab-engine-accent) 16%, rgba(255,255,255,0.04));
+}
+
+.lab-workbench-engine-scale-grid,
+.lab-workbench-engine-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.lab-workbench-engine-scale-grid {
+  grid-template-columns: 1fr;
+}
+
+.lab-workbench-engine-scale-card,
+.lab-workbench-engine-chip-card,
+.lab-workbench-engine-rule-card {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)),
+    rgba(255, 255, 255, 0.03);
+}
+
+.lab-workbench-engine-scale-card {
+  min-height: 68px;
+  padding: 10px 12px;
+  display: grid;
+  gap: 5px;
+}
+
+.lab-workbench-engine-scale-card.meso {
+  border-color: var(--lab-engine-border);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--lab-engine-accent) 20%, transparent), rgba(255,255,255,0.03)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.lab-workbench-engine-scale-card strong {
+  font-size: 0.84rem;
+  line-height: 1.34;
+}
+
+.lab-workbench-engine-scale-card small {
+  -webkit-line-clamp: 2;
+}
+
+.lab-workbench-engine-section {
+  display: grid;
+  gap: 8px;
+}
+
+.lab-workbench-engine-section-head strong {
+  font-size: 0.8rem;
+  line-height: 1.32;
+}
+
+.lab-workbench-engine-chip-card,
+.lab-workbench-engine-rule-card {
+  padding: 10px 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.lab-workbench-engine-chip-card strong {
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.lab-workbench-engine-chip-card.muted,
+.lab-workbench-engine-species-pill.muted {
+  opacity: 0.72;
+  border-style: dashed;
+}
+
+.lab-workbench-engine-rule-list,
+.lab-workbench-engine-species-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lab-workbench-engine-rule-card {
+  flex: 1 1 120px;
+}
+
+.lab-workbench-engine-rule-card small {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.lab-workbench-engine-species-pill {
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--engine-species-color, var(--lab-engine-accent)) 30%, rgba(255,255,255,0.08));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    color-mix(in srgb, var(--engine-species-color, var(--lab-engine-accent)) 16%, rgba(8, 14, 24, 0.82));
+  color: rgba(244, 248, 255, 0.88);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.lab-workbench-shell[data-inspector-view='actions'] .playground-grid > .playground-side:last-child > .lab-workbench-engine-portal,
+.lab-workbench-shell[data-inspector-view='checklist'] .playground-grid > .playground-side:last-child > .lab-workbench-engine-portal,
+.lab-workbench-shell[data-inspector-view='recovery'] .playground-grid > .playground-side:last-child > .lab-workbench-engine-portal {
+  display: grid !important;
+}
+
+@media (max-width: 1100px) {
+  .lab-workbench-engine-portal.floating {
+    width: min(320px, calc(100% - 28px));
+    top: 14px;
+    right: 14px;
+  }
+
+  .lab-workbench-engine-chip-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 920px) {
+  .lab-workbench-engine-portal.floating {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  .lab-workbench-engine-card {
+    padding: 12px;
+    gap: 10px;
+  }
+}

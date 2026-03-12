@@ -1,0 +1,171 @@
+{
+  "id": "chem-junior-metal-acid-001",
+  "title": "金属与酸反应",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-test-tube-rack",
+    "cameraPreset": "tube-front",
+    "assets": [
+      "test-tube.glb",
+      "zinc-granule.glb",
+      "acid-dropper.glb",
+      "burning-splint.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "酸和金属",
+    "unit": "金属与酸反应",
+    "knowledgePoints": [
+      "气泡现象",
+      "氢气检验",
+      "活泼金属"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识试管、锌粒、滴管和燃着木条等实验材料",
+    "观察锌和稀酸反应生成气泡的现象",
+    "通过气体检验理解活泼金属与酸反应可生成氢气"
+  ],
+  "equipment": [
+    {
+      "id": "test-tube",
+      "name": "试管",
+      "type": "container"
+    },
+    {
+      "id": "zinc-granule",
+      "name": "锌粒",
+      "type": "sample"
+    },
+    {
+      "id": "acid-dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "burning-splint",
+      "name": "燃着木条",
+      "type": "tool"
+    },
+    {
+      "id": "tube-rack",
+      "name": "试管架",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-metal-acid-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别试管、锌粒、滴管、燃着木条和试管架。",
+      "actionType": "identify-object",
+      "targetObject": "metal-acid-panel",
+      "successCondition": "metal-acid-tools-identified",
+      "failureHints": [
+        "请先识别金属与酸反应实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-acid-to-metal",
+      "order": 2,
+      "title": "向金属中滴加酸",
+      "description": "向装有锌粒的试管中滴加稀酸，观察是否有气泡产生。",
+      "actionType": "add-material",
+      "targetObject": "test-tube",
+      "successCondition": "acid-added-to-zinc",
+      "failureHints": [
+        "请先把稀酸加入装有锌粒的试管中。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "observe-bubbles",
+      "order": 3,
+      "title": "观察气泡现象",
+      "description": "记录试管内是否持续放出气泡。",
+      "actionType": "record-observation",
+      "targetObject": "test-tube",
+      "successCondition": "bubbles-recorded",
+      "failureHints": [
+        "请记录锌和稀酸反应时的气泡现象。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "test-generated-gas",
+      "order": 4,
+      "title": "检验生成气体",
+      "description": "用燃着木条检验生成气体。",
+      "actionType": "record-observation",
+      "targetObject": "burning-splint",
+      "successCondition": "gas-tested",
+      "failureHints": [
+        "请根据点燃时的现象判断生成气体。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-metal-acid",
+      "order": 5,
+      "title": "总结金属与酸反应",
+      "description": "总结活泼金属和酸反应生成的气体与规律。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "metal-acid-summary-submitted",
+      "failureHints": [
+        "请围绕气泡和氢气生成规律完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成金属与酸反应实验，并能说明活泼金属和酸反应会生成氢气。",
+    "commonMistakes": [
+      "没有先把酸滴加到装有锌粒的试管中",
+      "只看到气泡，不进行气体检验",
+      "没有把生成气体和活泼金属与酸反应规律联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实验结果页 - 低保真原型</title>
+    <link rel="stylesheet" href="./lowfi.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="result-head">
+        <div>
+          <span class="label">Result</span>
+          <h1>实验已完成</h1>
+          <p>系统需要告诉学生：做得怎么样、错在哪里、下一步做什么。</p>
+        </div>
+        <div class="actions">
+          <a class="button" href="./student-hall.html">返回大厅</a>
+          <a class="button primary" href="./lab-session.html">再练一次</a>
+        </div>
+      </header>
+
+      <section class="kpi-row" style="margin-top:16px;">
+        <article class="metric"><span class="muted">得分</span><strong>86</strong></article>
+        <article class="metric"><span class="muted">完成时长</span><strong>11 分钟</strong></article>
+        <article class="metric"><span class="muted">错误步骤</span><strong>2 个</strong></article>
+      </section>
+
+      <section class="grid-2" style="margin-top:16px;">
+        <article class="card">
+          <h2>复盘建议</h2>
+          <ul class="checklist">
+            <li>第 2 步：导线首次连接位置错误</li>
+            <li>第 5 步：并联电路曾误接为串联</li>
+            <li>建议再次练习并联接法比较</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>原理回顾</h2>
+          <p>串联电路只有一条电流路径；并联电路存在多条支路，连接方式不同会影响实验现象。</p>
+          <div class="banner success">推荐下一步：进入练习模式，再做一次无强提示版本。</div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-buoyancy-001",
+  "title": "浮力的大小规律",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-buoyancy-bench",
+    "cameraPreset": "scale-front",
+    "assets": [
+      "spring-scale.glb",
+      "metal-block.glb",
+      "beaker.glb",
+      "support-stand.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "浮力",
+    "unit": "浮力的大小规律",
+    "knowledgePoints": [
+      "空气中示数",
+      "浸入液体后示数变化",
+      "浮力与示数差"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识弹簧测力计、金属块和水槽等实验器材",
+    "通过比较空气中与水中的示数变化理解浮力存在",
+    "能根据两次示数差说明浮力的大小"
+  ],
+  "equipment": [
+    {
+      "id": "spring-scale",
+      "name": "弹簧测力计",
+      "type": "meter"
+    },
+    {
+      "id": "metal-block",
+      "name": "金属块",
+      "type": "sample"
+    },
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "water",
+      "name": "水",
+      "type": "material"
+    },
+    {
+      "id": "support-stand",
+      "name": "铁架台",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-buoyancy-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别弹簧测力计、金属块、烧杯、水和铁架台。",
+      "actionType": "identify-object",
+      "targetObject": "buoyancy-panel",
+      "successCondition": "buoyancy-tools-identified",
+      "failureHints": [
+        "请先识别浮力实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "measure-in-air",
+      "order": 2,
+      "title": "测量空气中示数",
+      "description": "先在空气中测出金属块的重力示数。",
+      "actionType": "record-observation",
+      "targetObject": "spring-scale",
+      "successCondition": "air-reading-recorded",
+      "failureHints": [
+        "请先记录金属块在空气中的示数。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "meter-reading",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "immerse-block",
+      "order": 3,
+      "title": "将物块浸入水中",
+      "description": "缓慢把金属块浸入水中，再观察测力计读数变化。",
+      "actionType": "place-object",
+      "targetObject": "beaker",
+      "successCondition": "metal-block-immersed",
+      "failureHints": [
+        "请缓慢把金属块浸入水中。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-readings",
+      "order": 4,
+      "title": "比较两次示数",
+      "description": "比较空气中和水中的示数差异。",
+      "actionType": "set-variable",
+      "targetObject": "comparison-panel",
+      "successCondition": "buoyancy-readings-compared",
+      "failureHints": [
+        "请把空气中和水中的示数做对应比较。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-buoyancy",
+      "order": 5,
+      "title": "总结浮力规律",
+      "description": "总结浸入液体后示数减小与浮力的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "buoyancy-summary-submitted",
+      "failureHints": [
+        "请围绕示数减小和浮力大小完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成浮力实验，并能通过测力计两次示数差说明浮力的存在和大小。",
+    "commonMistakes": [
+      "没有先记录空气中的初始示数",
+      "金属块浸入时碰到容器底部，影响读数",
+      "只看到示数变小，没有把差值和浮力联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "meter-reading",
+    "observation-panel",
+    "object-placement",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

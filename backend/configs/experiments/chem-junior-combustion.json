@@ -1,0 +1,172 @@
+{
+  "id": "chem-junior-combustion-001",
+  "title": "燃烧条件探究",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-combustion-bench",
+    "cameraPreset": "candle-front",
+    "assets": [
+      "candle.glb",
+      "glass-dome.glb",
+      "lighter.glb",
+      "tray.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "燃烧与灭火",
+    "unit": "燃烧条件探究",
+    "knowledgePoints": [
+      "可燃物",
+      "氧气参与",
+      "着火点"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识蜡烛、玻璃罩和点火器等实验材料",
+    "通过罩住蜡烛观察火焰变化理解氧气参与燃烧的作用",
+    "能完整总结燃烧发生需要满足的三个条件"
+  ],
+  "equipment": [
+    {
+      "id": "candle",
+      "name": "蜡烛",
+      "type": "sample"
+    },
+    {
+      "id": "glass-dome",
+      "name": "玻璃罩",
+      "type": "tool"
+    },
+    {
+      "id": "lighter",
+      "name": "点火器",
+      "type": "tool"
+    },
+    {
+      "id": "tray",
+      "name": "托盘",
+      "type": "tool"
+    },
+    {
+      "id": "airflow-card",
+      "name": "空气条件提示卡",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-combustion-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别蜡烛、玻璃罩、点火器、托盘和空气条件提示卡。",
+      "actionType": "identify-object",
+      "targetObject": "combustion-panel",
+      "successCondition": "combustion-tools-identified",
+      "failureHints": [
+        "请先识别燃烧条件探究所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "light-candle",
+      "order": 2,
+      "title": "点燃蜡烛",
+      "description": "先点燃蜡烛，建立稳定燃烧现象。",
+      "actionType": "heat-object",
+      "targetObject": "candle",
+      "successCondition": "candle-lit",
+      "failureHints": [
+        "请先点燃蜡烛，再观察后续现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heater-control"
+      ]
+    },
+    {
+      "id": "cover-with-dome",
+      "order": 3,
+      "title": "罩上玻璃罩",
+      "description": "再把玻璃罩扣在蜡烛上方，比较罩内外火焰状态。",
+      "actionType": "place-object",
+      "targetObject": "glass-dome",
+      "successCondition": "glass-dome-placed",
+      "failureHints": [
+        "请把玻璃罩完整罩在燃烧蜡烛上方。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-flame-change",
+      "order": 4,
+      "title": "观察火焰变化",
+      "description": "观察火焰先减弱再熄灭的过程，并思考与空气的关系。",
+      "actionType": "record-observation",
+      "targetObject": "candle",
+      "successCondition": "flame-change-recorded",
+      "failureHints": [
+        "请记录火焰在玻璃罩下的变化过程。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-combustion-conditions",
+      "order": 5,
+      "title": "总结燃烧条件",
+      "description": "把可燃物、氧气和达到着火点三项条件完整总结出来。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "combustion-summary-submitted",
+      "failureHints": [
+        "请把燃烧的三个条件完整总结出来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成燃烧条件探究，并能说明燃烧需要可燃物、氧气和达到着火点。",
+    "commonMistakes": [
+      "没有先建立稳定燃烧现象",
+      "只看见火焰熄灭，没有联想到氧气不足",
+      "总结燃烧条件时遗漏任一关键要素"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "heater-control",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

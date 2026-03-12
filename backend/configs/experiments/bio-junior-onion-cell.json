@@ -1,0 +1,172 @@
+{
+  "id": "bio-junior-onion-cell-001",
+  "title": "观察洋葱表皮细胞",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-bench",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "onion-tweezer.glb",
+      "slide.glb",
+      "coverslip.glb",
+      "microscope.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "细胞是生命活动的基本单位",
+    "unit": "观察洋葱表皮细胞",
+    "knowledgePoints": [
+      "植物细胞临时装片",
+      "染色盖片",
+      "植物细胞结构"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "掌握洋葱表皮临时装片的规范制作方法",
+    "通过显微调焦观察细胞排列、细胞壁和细胞核",
+    "能区分植物细胞与动物细胞的基本结构差异"
+  ],
+  "equipment": [
+    {
+      "id": "onion-tweezer",
+      "name": "镊子与洋葱表皮",
+      "type": "tool"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "tool"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "coverslip",
+      "name": "盖玻片",
+      "type": "tool"
+    },
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "instrument"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-onion-cell-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别镊子、载玻片、滴管、盖玻片和显微镜。",
+      "actionType": "identify-object",
+      "targetObject": "onion-cell-panel",
+      "successCondition": "onion-cell-tools-identified",
+      "failureHints": [
+        "请先识别洋葱表皮细胞实验所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-onion-slide",
+      "order": 2,
+      "title": "制作洋葱表皮装片",
+      "description": "撕取薄而透明的洋葱表皮并平铺在载玻片上。",
+      "actionType": "place-object",
+      "targetObject": "slide",
+      "successCondition": "onion-slide-ready",
+      "failureHints": [
+        "请先把洋葱表皮平整地放在载玻片上。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "stain-onion-slide",
+      "order": 3,
+      "title": "滴加染液并盖片",
+      "description": "滴加染液后盖上盖玻片，提升细胞结构对比度。",
+      "actionType": "add-material",
+      "targetObject": "slide",
+      "successCondition": "onion-slide-stained",
+      "failureHints": [
+        "请先完成染色和盖片，再进行显微观察。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "focus-onion-cell",
+      "order": 4,
+      "title": "调焦观察细胞",
+      "description": "调焦后观察细胞排列、细胞壁和细胞核。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "onion-cell-focused",
+      "failureHints": [
+        "请通过显微调焦获得清晰细胞图像。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "focus-adjust"
+      ]
+    },
+    {
+      "id": "summary-onion-cell-structure",
+      "order": 5,
+      "title": "判断植物细胞结构",
+      "description": "总结洋葱表皮细胞的主要结构特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "onion-cell-summary-submitted",
+      "failureHints": [
+        "请围绕细胞壁、细胞膜、细胞质和细胞核完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成洋葱表皮细胞的装片制作与观察，并能概括植物细胞的主要结构特征。",
+    "commonMistakes": [
+      "表皮撕取过厚或没有平整铺开",
+      "未盖片就直接观察，导致图像不清晰",
+      "没有注意植物细胞的细胞壁特征"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "focus-adjust",
+    "summary-panel"
+  ]
+}

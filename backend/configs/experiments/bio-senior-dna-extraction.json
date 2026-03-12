@@ -1,0 +1,173 @@
+{
+  "id": "bio-senior-dna-extraction-001",
+  "title": "DNA 的粗提取与观察",
+  "stage": "高中",
+  "subject": "生物",
+  "grade": "高一/高二",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "biology-molecular-bench",
+    "cameraPreset": "tube-front",
+    "assets": [
+      "fruit-pulp.glb",
+      "lysis-solution.glb",
+      "filter-funnel.glb",
+      "cold-alcohol.glb",
+      "test-tube.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "遗传物质基础",
+    "unit": "DNA 的粗提取与观察",
+    "knowledgePoints": [
+      "裂解过滤",
+      "酒精分层",
+      "DNA 析出"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识果泥、裂解液、过滤漏斗、冷酒精和试管等实验器材材料",
+    "通过裂解、过滤和酒精分层观察 DNA 的粗提取现象",
+    "理解 DNA 在冷酒精中溶解度较低，因此会在分界处析出"
+  ],
+  "equipment": [
+    {
+      "id": "fruit-pulp",
+      "name": "果泥",
+      "type": "sample"
+    },
+    {
+      "id": "lysis-solution",
+      "name": "裂解液",
+      "type": "solution"
+    },
+    {
+      "id": "filter-funnel",
+      "name": "过滤漏斗",
+      "type": "tool"
+    },
+    {
+      "id": "cold-alcohol",
+      "name": "冷酒精",
+      "type": "solution"
+    },
+    {
+      "id": "test-tube",
+      "name": "试管",
+      "type": "container"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-dna-extraction-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识果泥、裂解液、过滤漏斗、冷酒精和试管。",
+      "actionType": "identify-object",
+      "targetObject": "dna-extraction-panel",
+      "successCondition": "dna-extraction-tools-identified",
+      "failureHints": [
+        "请先识别 DNA 粗提取实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "lyse-and-filter-sample",
+      "order": 2,
+      "title": "加入裂解液并过滤",
+      "description": "将果泥与裂解液混合后过滤，获得滤液。",
+      "actionType": "add-material",
+      "targetObject": "test-tube",
+      "successCondition": "dna-extraction-filtered",
+      "failureHints": [
+        "请先完成果泥裂解和过滤，再进行分层操作。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "add-cold-alcohol",
+      "order": 3,
+      "title": "沿壁加入冷酒精",
+      "description": "沿试管壁缓慢加入冷酒精，形成清晰分层。",
+      "actionType": "add-material",
+      "targetObject": "test-tube",
+      "successCondition": "dna-extraction-alcohol-added",
+      "failureHints": [
+        "请沿试管壁缓慢加入冷酒精，避免混合过快。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "observe-dna-precipitate",
+      "order": 4,
+      "title": "观察 DNA 析出",
+      "description": "观察液体分界处是否析出白色丝状物。",
+      "actionType": "record-observation",
+      "targetObject": "test-tube",
+      "successCondition": "dna-extraction-observation-recorded",
+      "failureHints": [
+        "请重点观察分界面附近是否出现白色丝状沉淀。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-dna-extraction",
+      "order": 5,
+      "title": "总结粗提取原理",
+      "description": "总结 DNA 粗提取步骤和在酒精中析出的原因。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "dna-extraction-summary-submitted",
+      "failureHints": [
+        "请把裂解、过滤、酒精分层和析出原因总结完整。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成 DNA 粗提取实验，并能说明 DNA 在冷酒精中溶解度低，会在分界处析出白色丝状物。",
+    "commonMistakes": [
+      "没有先完成裂解过滤就直接加酒精",
+      "加酒精过快，导致分层不清晰",
+      "观察到白色丝状物后没有联系到 DNA 析出原理"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

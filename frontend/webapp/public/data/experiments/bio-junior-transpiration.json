@@ -1,0 +1,167 @@
+{
+  "id": "bio-junior-transpiration-001",
+  "title": "植物蒸腾作用现象",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-plant-bench",
+    "cameraPreset": "leaf-close",
+    "assets": [
+      "potted-plant.glb",
+      "transparent-bag.glb",
+      "string.glb",
+      "control-plant.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "植物的生活",
+    "unit": "蒸腾作用",
+    "knowledgePoints": [
+      "蒸腾作用现象",
+      "对照实验",
+      "叶片与水分散失"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "通过套袋实验观察蒸腾作用现象",
+    "理解对照实验的重要性",
+    "将现象与叶片散失水分联系起来"
+  ],
+  "equipment": [
+    {
+      "id": "plant-a",
+      "name": "实验植物",
+      "type": "sample"
+    },
+    {
+      "id": "plant-b",
+      "name": "对照植物",
+      "type": "sample"
+    },
+    {
+      "id": "transparent-bag",
+      "name": "透明塑料袋",
+      "type": "tool"
+    },
+    {
+      "id": "string",
+      "name": "扎绳",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-materials",
+      "order": 1,
+      "title": "识别材料",
+      "description": "先认识实验植物、对照植物和透明塑料袋。",
+      "actionType": "identify-object",
+      "targetObject": "materials-panel",
+      "successCondition": "transpiration-materials-identified",
+      "failureHints": [
+        "请先识别本次实验材料。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "assemble-device",
+      "order": 2,
+      "title": "完成套袋装置",
+      "description": "为实验植物完成套袋并扎紧。",
+      "actionType": "place-object",
+      "targetObject": "plant-a",
+      "successCondition": "transpiration-device-ready",
+      "failureHints": [
+        "套袋不严会影响实验现象。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "switch-control-view",
+      "order": 3,
+      "title": "查看对照组",
+      "description": "切换到对照植物视角，比较差异。",
+      "actionType": "switch-view",
+      "targetObject": "plant-b",
+      "successCondition": "control-view-compared",
+      "failureHints": [
+        "请比较实验组和对照组的差异。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "record-droplets",
+      "order": 4,
+      "title": "记录水珠现象",
+      "description": "观察塑料袋内壁是否出现水珠，并记录。",
+      "actionType": "record-observation",
+      "targetObject": "bag-surface",
+      "successCondition": "droplets-recorded",
+      "failureHints": [
+        "请根据观察现象完成记录。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "complete-summary",
+      "order": 5,
+      "title": "总结蒸腾作用",
+      "description": "总结植物蒸腾作用与叶片散失水分的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "transpiration-summary-submitted",
+      "failureHints": [
+        "请结合实验组和对照组现象总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 35,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已通过套袋实验观察到蒸腾作用现象，并理解对照组的重要性。",
+    "commonMistakes": [
+      "没有设置或比较对照组",
+      "只看实验组不看对照组",
+      "现象与结论没有对应"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "view-switch",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

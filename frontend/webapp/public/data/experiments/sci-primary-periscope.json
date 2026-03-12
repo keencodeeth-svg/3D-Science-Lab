@@ -1,0 +1,173 @@
+{
+  "id": "sci-primary-periscope-001",
+  "title": "潜望镜",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "六年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-optics-bench",
+    "cameraPreset": "periscope-front",
+    "assets": [
+      "tube.glb",
+      "mirror.glb",
+      "eyepiece.glb",
+      "target.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光与观察",
+    "unit": "潜望镜",
+    "knowledgePoints": [
+      "45 度平面镜",
+      "两次反射",
+      "改变光路"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识镜筒、平面镜、目镜和观察目标等器材",
+    "通过安装上下两块平面镜让光线改变传播方向",
+    "理解潜望镜利用平面镜反射来观察被遮挡目标"
+  ],
+  "equipment": [
+    {
+      "id": "tube",
+      "name": "镜筒",
+      "type": "tool"
+    },
+    {
+      "id": "mirror",
+      "name": "平面镜",
+      "type": "tool"
+    },
+    {
+      "id": "eyepiece",
+      "name": "目镜",
+      "type": "tool"
+    },
+    {
+      "id": "target",
+      "name": "观察目标",
+      "type": "sample"
+    },
+    {
+      "id": "light",
+      "name": "入射光线",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-periscope-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别镜筒、平面镜、目镜、观察目标和光线方向。",
+      "actionType": "identify-object",
+      "targetObject": "periscope-panel",
+      "successCondition": "periscope-tools-identified",
+      "failureHints": [
+        "请先识别潜望镜实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "install-top-mirror",
+      "order": 2,
+      "title": "安装上方平面镜",
+      "description": "先把上方平面镜按 45 度方向装入潜望镜顶部。",
+      "actionType": "place-object",
+      "targetObject": "tube-top",
+      "successCondition": "periscope-top-mirror-installed",
+      "failureHints": [
+        "请先安装好上方平面镜。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "install-bottom-mirror",
+      "order": 3,
+      "title": "安装下方平面镜",
+      "description": "再把下方平面镜按对应角度装入底部，让光线继续折向观察者。",
+      "actionType": "place-object",
+      "targetObject": "tube-bottom",
+      "successCondition": "periscope-bottom-mirror-installed",
+      "failureHints": [
+        "请再安装好下方平面镜。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-periscope-image",
+      "order": 4,
+      "title": "观察潜望镜成像",
+      "description": "比较光线在两块平面镜中的传播路径与最终观察效果。",
+      "actionType": "record-observation",
+      "targetObject": "target",
+      "successCondition": "periscope-image-recorded",
+      "failureHints": [
+        "请记录通过潜望镜看到目标的效果。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-periscope",
+      "order": 5,
+      "title": "总结改变光路",
+      "description": "总结潜望镜利用两块平面镜改变光路的原理。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "periscope-summary-submitted",
+      "failureHints": [
+        "请围绕两次反射和改变光路完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成潜望镜实验，并能说明它利用两块平面镜反射来改变光路。",
+    "commonMistakes": [
+      "没有按正确角度安装上下两块平面镜",
+      "只看到目标，没有分析光线传播路径",
+      "没有总结潜望镜依靠平面镜反射工作的原理"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

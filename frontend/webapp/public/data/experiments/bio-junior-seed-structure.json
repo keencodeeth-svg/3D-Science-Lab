@@ -1,0 +1,173 @@
+{
+  "id": "bio-junior-seed-structure-001",
+  "title": "观察菜豆种子的结构",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-seed-bench",
+    "cameraPreset": "dish-top",
+    "assets": [
+      "dish.glb",
+      "bean-seed.glb",
+      "tweezers.glb",
+      "magnifier.glb",
+      "dissection-needle.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "种子的结构",
+    "unit": "观察菜豆种子",
+    "knowledgePoints": [
+      "种皮",
+      "子叶",
+      "胚芽胚轴胚根"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识培养皿、菜豆种子、镊子、放大镜和解剖针等器材",
+    "通过浸泡、剥皮和分开子叶观察种子内部结构",
+    "掌握菜豆种子由种皮、子叶和胚等部分组成"
+  ],
+  "equipment": [
+    {
+      "id": "dish",
+      "name": "培养皿",
+      "type": "container"
+    },
+    {
+      "id": "bean-seed",
+      "name": "菜豆种子",
+      "type": "sample"
+    },
+    {
+      "id": "tweezers",
+      "name": "镊子",
+      "type": "tool"
+    },
+    {
+      "id": "magnifier",
+      "name": "放大镜",
+      "type": "tool"
+    },
+    {
+      "id": "dissection-needle",
+      "name": "解剖针",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-seed-structure-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识培养皿、菜豆种子、镊子、放大镜和解剖针。",
+      "actionType": "identify-object",
+      "targetObject": "seed-structure-panel",
+      "successCondition": "seed-structure-tools-identified",
+      "failureHints": [
+        "请先识别菜豆种子结构观察所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "soak-seed-coat",
+      "order": 2,
+      "title": "浸泡并软化种皮",
+      "description": "先把菜豆浸泡软化，便于完整剥去种皮。",
+      "actionType": "add-material",
+      "targetObject": "dish",
+      "successCondition": "seed-structure-soaked",
+      "failureHints": [
+        "请先软化种皮，再进行剥离观察。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "peel-and-separate-cotyledon",
+      "order": 3,
+      "title": "剥去种皮并分开子叶",
+      "description": "轻轻剥去种皮，再分开两片肥厚子叶。",
+      "actionType": "place-object",
+      "targetObject": "bean-seed",
+      "successCondition": "seed-structure-opened",
+      "failureHints": [
+        "请轻轻分开子叶，避免损坏内部胚的结构。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-embryo-structure",
+      "order": 4,
+      "title": "观察胚的结构",
+      "description": "观察胚芽、胚轴和胚根所在的位置。",
+      "actionType": "record-observation",
+      "targetObject": "magnifier",
+      "successCondition": "seed-structure-observation-recorded",
+      "failureHints": [
+        "请记录种皮、子叶和胚各部分的位置。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-seed-structure",
+      "order": 5,
+      "title": "总结菜豆种子结构",
+      "description": "总结菜豆种子的基本结构组成及其作用。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "seed-structure-summary-submitted",
+      "failureHints": [
+        "请把种皮、子叶和胚的结构名称总结完整。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成菜豆种子结构观察，并能辨认种皮、子叶和胚的主要部分。",
+    "commonMistakes": [
+      "没有先软化种皮就直接剥离",
+      "分开子叶时损坏了胚结构",
+      "看到内部结构后没有准确命名各部分"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

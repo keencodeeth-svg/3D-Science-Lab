@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "updatedAt": "2026-03-10",
+  "notes": "Reserved manifest for reusable lab apparatus models. Add glb/gltf assets here and load them through src/lib/labModelAsset.ts.",
+  "assets": [
+    {
+      "id": "microscope_basic",
+      "category": "biology",
+      "type": "instrument",
+      "status": "placeholder",
+      "url": "/lab-assets/biology/microscope_basic.glb",
+      "materialRole": "auto"
+    },
+    {
+      "id": "beaker_250ml",
+      "category": "chemistry",
+      "type": "glassware",
+      "status": "placeholder",
+      "url": "/lab-assets/chemistry/beaker_250ml.glb",
+      "materialRole": "glass"
+    },
+    {
+      "id": "test_tube_standard",
+      "category": "chemistry",
+      "type": "glassware",
+      "status": "placeholder",
+      "url": "/lab-assets/chemistry/test_tube_standard.glb",
+      "materialRole": "glass"
+    },
+    {
+      "id": "alcohol_lamp",
+      "category": "chemistry",
+      "type": "heater",
+      "status": "placeholder",
+      "url": "/lab-assets/chemistry/alcohol_lamp.glb",
+      "materialRole": "auto"
+    },
+    {
+      "id": "analog_meter_round",
+      "category": "physics",
+      "type": "instrument",
+      "status": "placeholder",
+      "url": "/lab-assets/physics/analog_meter_round.glb",
+      "materialRole": "auto"
+    }
+  ]
+}

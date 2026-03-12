@@ -1,0 +1,172 @@
+{
+  "id": "bio-junior-stomata-001",
+  "title": "观察叶片气孔",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-bench",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "leaf-tweezer.glb",
+      "slide.glb",
+      "coverslip.glb",
+      "microscope.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "植物的蒸腾作用",
+    "unit": "观察叶片气孔",
+    "knowledgePoints": [
+      "下表皮取样",
+      "保卫细胞",
+      "气孔结构与作用"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "掌握叶片下表皮临时装片的制作方法",
+    "通过显微镜识别保卫细胞和气孔结构",
+    "理解气孔在植物蒸腾与气体交换中的作用"
+  ],
+  "equipment": [
+    {
+      "id": "leaf-tweezer",
+      "name": "叶片与镊子",
+      "type": "tool"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "tool"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "coverslip",
+      "name": "盖玻片",
+      "type": "tool"
+    },
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "instrument"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-stomata-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别叶片与镊子、载玻片、滴管、盖玻片和显微镜。",
+      "actionType": "identify-object",
+      "targetObject": "stomata-panel",
+      "successCondition": "stomata-tools-identified",
+      "failureHints": [
+        "请先识别气孔观察实验所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-lower-epidermis",
+      "order": 2,
+      "title": "撕取下表皮制片",
+      "description": "从叶片下表皮轻轻撕取薄膜并平整放在载玻片上。",
+      "actionType": "place-object",
+      "targetObject": "slide",
+      "successCondition": "stomata-slide-ready",
+      "failureHints": [
+        "请从叶片下表皮取样并平整制片。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "stain-stomata-slide",
+      "order": 3,
+      "title": "滴加染液并盖片",
+      "description": "滴加染液并盖上盖玻片，提高保卫细胞与气孔的可见度。",
+      "actionType": "add-material",
+      "targetObject": "slide",
+      "successCondition": "stomata-slide-stained",
+      "failureHints": [
+        "请先完成染色与盖片，再进入调焦观察。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "focus-stomata",
+      "order": 4,
+      "title": "调焦观察气孔",
+      "description": "调焦观察成对保卫细胞和中间的气孔。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "stomata-focused",
+      "failureHints": [
+        "请通过调焦获得清晰的保卫细胞和气孔图像。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "focus-adjust"
+      ]
+    },
+    {
+      "id": "summary-stomata",
+      "order": 5,
+      "title": "总结气孔特点",
+      "description": "总结叶片气孔的结构特征及其作用。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "stomata-summary-submitted",
+      "failureHints": [
+        "请围绕保卫细胞、气孔开口及其作用完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成叶片气孔的装片制作与观察，并能说明保卫细胞和气孔在蒸腾作用中的意义。",
+    "commonMistakes": [
+      "没有从叶片下表皮取样",
+      "调焦不清晰就判断结构",
+      "只记住气孔形态，没有总结其功能"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "focus-adjust",
+    "summary-panel"
+  ]
+}

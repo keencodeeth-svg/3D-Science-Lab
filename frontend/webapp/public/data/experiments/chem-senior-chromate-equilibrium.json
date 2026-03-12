@@ -1,0 +1,173 @@
+{
+  "id": "chem-senior-chromate-equilibrium-001",
+  "title": "铬酸根与重铬酸根平衡",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "选择性必修",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-equilibrium-bench",
+    "cameraPreset": "beaker-front",
+    "assets": [
+      "beaker.glb",
+      "chromate-solution.glb",
+      "acid.glb",
+      "alkali.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "化学平衡",
+    "unit": "铬酸根与重铬酸根平衡",
+    "knowledgePoints": [
+      "平衡移动",
+      "颜色可逆变化",
+      "酸碱条件影响"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识铬酸根与重铬酸根平衡实验的关键溶液和器材",
+    "观察黄色体系在酸碱条件变化下的可逆颜色转化",
+    "理解酸液和碱液对平衡移动方向的影响"
+  ],
+  "equipment": [
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "chromate-solution",
+      "name": "铬酸根溶液",
+      "type": "solution"
+    },
+    {
+      "id": "acid-solution",
+      "name": "酸液",
+      "type": "solution"
+    },
+    {
+      "id": "alkali-solution",
+      "name": "碱液",
+      "type": "solution"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-equilibrium-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别烧杯、铬酸根溶液、酸液、碱液和滴管。",
+      "actionType": "identify-object",
+      "targetObject": "equilibrium-panel",
+      "successCondition": "equilibrium-tools-identified",
+      "failureHints": [
+        "请先识别平衡实验的器材和试剂。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-yellow-system",
+      "order": 2,
+      "title": "建立黄色体系",
+      "description": "先建立黄色铬酸根起始体系，作为平衡移动起点。",
+      "actionType": "add-material",
+      "targetObject": "beaker",
+      "successCondition": "chromate-yellow-system-ready",
+      "failureHints": [
+        "本实验应先建立黄色铬酸根体系。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "add-acid-turn-orange",
+      "order": 3,
+      "title": "滴酸后变橙",
+      "description": "滴加酸液，观察体系是否由黄色转为橙色。",
+      "actionType": "add-material",
+      "targetObject": "beaker",
+      "successCondition": "equilibrium-acid-added",
+      "failureHints": [
+        "请先滴加酸液，再观察颜色由黄转橙。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "add-alkali-turn-yellow",
+      "order": 4,
+      "title": "滴碱后回黄",
+      "description": "继续滴加碱液，判断颜色是否重新回到黄色。",
+      "actionType": "add-material",
+      "targetObject": "beaker",
+      "successCondition": "equilibrium-alkali-added",
+      "failureHints": [
+        "请通过滴加碱液验证颜色是否由橙重新回黄。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-equilibrium-shift",
+      "order": 5,
+      "title": "总结平衡移动",
+      "description": "总结酸碱条件改变时黄色和橙色之间的可逆转化。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "equilibrium-summary-submitted",
+      "failureHints": [
+        "请围绕黄橙颜色变化和平衡移动完成总结。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成铬酸根与重铬酸根平衡实验，并能说明酸碱条件改变引发的黄橙可逆变化。",
+    "commonMistakes": [
+      "没有先建立黄色起始体系",
+      "酸液和碱液加入顺序混乱",
+      "只记住颜色变化，没有总结平衡移动方向"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "id": "chem-senior-cobalt-chloride-cycle-001",
+  "title": "氯化钴可逆变色",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "选择性必修",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-cobalt-bench",
+    "cameraPreset": "sample-front",
+    "assets": [
+      "surface-dish.glb",
+      "cobalt-chloride.glb",
+      "alcohol-lamp.glb",
+      "dropper.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "物质结构与性质",
+    "unit": "氯化钴可逆变色",
+    "knowledgePoints": [
+      "失水与再水合",
+      "可逆颜色变化",
+      "条件控制"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识氯化钴可逆变色实验的核心器材和样品状态",
+    "观察样品在加热后由粉红转蓝、加水后再回粉的过程",
+    "理解失水和再水合导致颜色可逆变化的原因"
+  ],
+  "equipment": [
+    {
+      "id": "surface-dish",
+      "name": "表面皿",
+      "type": "container"
+    },
+    {
+      "id": "cobalt-chloride-sample",
+      "name": "氯化钴样品",
+      "type": "sample"
+    },
+    {
+      "id": "alcohol-lamp",
+      "name": "酒精灯",
+      "type": "heater"
+    },
+    {
+      "id": "dropper",
+      "name": "加水滴管",
+      "type": "tool"
+    },
+    {
+      "id": "lab-stand",
+      "name": "实验支架",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-cobalt-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别表面皿、氯化钴样品、酒精灯、滴管和支架。",
+      "actionType": "identify-object",
+      "targetObject": "cobalt-panel",
+      "successCondition": "cobalt-tools-identified",
+      "failureHints": [
+        "请先识别可逆变色实验的器材和样品。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-pink-system",
+      "order": 2,
+      "title": "准备粉红体系",
+      "description": "建立含结晶水的粉红色起始样品状态。",
+      "actionType": "add-material",
+      "targetObject": "surface-dish",
+      "successCondition": "cobalt-pink-system-ready",
+      "failureHints": [
+        "本实验应先从含结晶水的粉红色状态开始。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "heat-turn-blue",
+      "order": 3,
+      "title": "加热后变蓝",
+      "description": "对样品进行加热，观察是否由粉红转为蓝色。",
+      "actionType": "heat-object",
+      "targetObject": "cobalt-chloride-sample",
+      "successCondition": "cobalt-heated-blue",
+      "failureHints": [
+        "请先加热样品，再判断是否出现蓝色。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heater-control"
+      ]
+    },
+    {
+      "id": "rehydrate-turn-pink",
+      "order": 4,
+      "title": "加水后回粉",
+      "description": "滴加少量水，判断蓝色样品是否重新恢复粉红。",
+      "actionType": "add-material",
+      "targetObject": "cobalt-chloride-sample",
+      "successCondition": "cobalt-rehydrated",
+      "failureHints": [
+        "请在变蓝后再滴加少量水，观察是否回粉。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-cobalt-cycle",
+      "order": 5,
+      "title": "总结可逆变色",
+      "description": "总结失水与再水合对颜色可逆变化的影响。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "cobalt-cycle-summary-submitted",
+      "failureHints": [
+        "请围绕加热失水、加水回粉和可逆变化完成总结。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成氯化钴可逆变色实验，并能说明样品在失水和再水合过程中的粉蓝往返变化。",
+    "commonMistakes": [
+      "没有先建立粉红色起始体系",
+      "先加水后加热，导致顺序颠倒",
+      "只记录颜色，不说明失水与再水合的条件作用"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "heater-control",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

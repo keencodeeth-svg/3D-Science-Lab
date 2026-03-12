@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Science Lab - 初高中三维模拟实验平台</title>
+    <meta
+      name="description"
+      content="面向初中、高中的物理、化学、生物三维模拟实验平台，支持学生练习、教师授课与学校管理。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar container">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark">3D</span>
+          <span>
+            <strong>Science Lab</strong>
+            <small>初高中三维实验平台</small>
+          </span>
+        </a>
+        <nav class="nav">
+          <a href="#value">价值</a>
+          <a href="#modules">模块</a>
+          <a href="#matrix">实验矩阵</a>
+          <a href="#roadmap">路线</a>
+        </nav>
+        <a class="button button-ghost" href="./lab-hall.html">查看实验大厅</a>
+      </header>
+
+      <main>
+        <section class="hero container">
+          <div class="hero-copy card-glow">
+            <span class="eyebrow">Web 3D · 初中/高中 · 物理/化学/生物</span>
+            <h1>把学校实验室搬到线上，做成可独立运营的产品</h1>
+            <p>
+              用三维场景、交互步骤、过程判定和教师数据看板，做一个既能教学演示、又能学生练习、还能学校采购的实验平台。
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="./lab-hall.html">进入产品原型</a>
+              <a class="button button-ghost" href="../docs/prd.md">查看 PRD</a>
+            </div>
+            <div class="stats-grid" id="hero-stats"></div>
+          </div>
+
+          <div class="hero-panel card">
+            <div class="panel-chip">MVP 重点</div>
+            <div class="hero-stack">
+              <article>
+                <h3>学生端</h3>
+                <p>3D 实验大厅、步骤引导、错因反馈、实验报告</p>
+              </article>
+              <article>
+                <h3>教师端</h3>
+                <p>实验布置、课堂演示、班级完成率、错题分布</p>
+              </article>
+              <article>
+                <h3>学校端</h3>
+                <p>内容管理、账号管理、学校级使用数据与采购证明</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="container section" id="value">
+          <div class="section-heading">
+            <span class="eyebrow">为什么值得做</span>
+            <h2>不是单纯演示，而是教学闭环产品</h2>
+          </div>
+          <div class="grid grid-3">
+            <article class="card feature-card">
+              <h3>更安全</h3>
+              <p>危险实验、高成本实验、受场地限制实验都能反复练习。</p>
+            </article>
+            <article class="card feature-card">
+              <h3>更清晰</h3>
+              <p>把电荷流动、分子变化、细胞结构等微观过程可视化。</p>
+            </article>
+            <article class="card feature-card">
+              <h3>更可评估</h3>
+              <p>记录每一步操作、完成时长、错误节点和实验结果。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="container section" id="modules">
+          <div class="section-heading">
+            <span class="eyebrow">产品模块</span>
+            <h2>围绕学生、教师、学校三类角色设计</h2>
+          </div>
+          <div class="grid grid-3">
+            <article class="card module-card">
+              <h3>学生实验空间</h3>
+              <ul>
+                <li>3D 场景交互</li>
+                <li>引导/练习/考核模式</li>
+                <li>实验报告与复盘建议</li>
+              </ul>
+            </article>
+            <article class="card module-card">
+              <h3>教师工作台</h3>
+              <ul>
+                <li>班级实验布置</li>
+                <li>课堂投屏演示</li>
+                <li>完成率与错因统计</li>
+              </ul>
+            </article>
+            <article class="card module-card">
+              <h3>内容与学校管理</h3>
+              <ul>
+                <li>教材版本映射</li>
+                <li>权限与组织管理</li>
+                <li>学校级数据报表</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="container section" id="matrix">
+          <div class="section-heading">
+            <span class="eyebrow">MVP 实验矩阵</span>
+            <h2>先做 12 个高频实验，覆盖三学科与两学段</h2>
+          </div>
+          <div class="matrix card">
+            <div class="matrix-row matrix-head">
+              <span>学段</span>
+              <span>物理</span>
+              <span>化学</span>
+              <span>生物</span>
+            </div>
+            <div class="matrix-row">
+              <span>初中</span>
+              <span>串并联 / 凸透镜</span>
+              <span>氧气制备 / 中和反应</span>
+              <span>显微镜 / 光合作用</span>
+            </div>
+            <div class="matrix-row">
+              <span>高中</span>
+              <span>欧姆定律 / 单摆</span>
+              <span>反应速率 / 原电池</span>
+              <span>酶活性 / 有丝分裂</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="container section roadmap" id="roadmap">
+          <div class="section-heading">
+            <span class="eyebrow">落地路线</span>
+            <h2>12 周做出能试点、能演示、能卖的 MVP</h2>
+          </div>
+          <div class="grid grid-4">
+            <article class="card roadmap-card">
+              <strong>Week 1-2</strong>
+              <p>PRD、实验清单、技术方案、原型范围定义</p>
+            </article>
+            <article class="card roadmap-card">
+              <strong>Week 3-4</strong>
+              <p>官网首页、实验大厅、首个 3D Demo</p>
+            </article>
+            <article class="card roadmap-card">
+              <strong>Week 5-8</strong>
+              <p>实验引擎、步骤判定、评分与配置化系统</p>
+            </article>
+            <article class="card roadmap-card">
+              <strong>Week 9-12</strong>
+              <p>教师闭环、12 个实验、试点演示方案</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

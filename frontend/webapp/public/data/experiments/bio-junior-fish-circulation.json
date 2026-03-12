@@ -1,0 +1,179 @@
+{
+  "id": "bio-junior-fish-circulation-001",
+  "title": "观察小鱼尾鳍内血液流动",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-fish-microscope-bench",
+    "cameraPreset": "scope-front",
+    "assets": [
+      "microscope.glb",
+      "fish-tray.glb",
+      "dropper.glb",
+      "slide-stage.glb",
+      "light-source.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "生物体内的运输",
+    "unit": "观察小鱼尾鳍内血液流动",
+    "knowledgePoints": [
+      "显微观察",
+      "毛细血管",
+      "血流方向"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识显微镜、尾鳍观察槽、滴管和光源等器材",
+    "调节光线和焦距，观察尾鳍内血液流动现象",
+    "理解毛细血管细小、血细胞常单行通过的特点"
+  ],
+  "equipment": [
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "optical"
+    },
+    {
+      "id": "fish-tray",
+      "name": "尾鳍观察槽",
+      "type": "sample"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "slide-stage",
+      "name": "载物台",
+      "type": "tool"
+    },
+    {
+      "id": "light-source",
+      "name": "光源",
+      "type": "light"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-fish-circulation-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识显微镜、尾鳍观察槽、滴管、载物台和光源。",
+      "actionType": "identify-object",
+      "targetObject": "fish-circulation-panel",
+      "successCondition": "fish-circulation-tools-identified",
+      "failureHints": [
+        "请先识别观察小鱼尾鳍血流所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "position-tail-fin-area",
+      "order": 2,
+      "title": "固定观察尾鳍区域",
+      "description": "把尾鳍观察区放到显微镜载物台中央。",
+      "actionType": "place-object",
+      "targetObject": "slide-stage",
+      "successCondition": "fish-circulation-positioned",
+      "failureHints": [
+        "请先把观察区域对准载物台中央。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-light-focus",
+      "order": 3,
+      "title": "调光调焦",
+      "description": "调节光线和焦距，让血管边界与血细胞运动清晰可见。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "fish-circulation-focused",
+      "failureHints": [
+        "请继续调光和调焦，直到血细胞移动足够清晰。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "light-adjust",
+        "focus-adjust",
+        "view-zoom"
+      ]
+    },
+    {
+      "id": "observe-blood-flow",
+      "order": 4,
+      "title": "观察血流方向",
+      "description": "观察毛细血管中血细胞的流向和通过状态。",
+      "actionType": "record-observation",
+      "targetObject": "fish-tray",
+      "successCondition": "fish-circulation-observation-recorded",
+      "failureHints": [
+        "请记录不同血管中的流向差异和毛细血管现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-fish-circulation",
+      "order": 5,
+      "title": "总结血液流动特点",
+      "description": "总结血液在毛细血管中的流动特点及其意义。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "fish-circulation-summary-submitted",
+      "failureHints": [
+        "请把毛细血管细小和血流持续流动的特点写清楚。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成小鱼尾鳍血流观察，并能说明毛细血管很细、血细胞常单行通过且血液持续流动。",
+    "commonMistakes": [
+      "观察区没有放在载物台中央",
+      "光线和焦距没有调清楚就开始记录",
+      "没有把毛细血管特点和观察现象对应起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "light-adjust",
+    "focus-adjust",
+    "view-zoom",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

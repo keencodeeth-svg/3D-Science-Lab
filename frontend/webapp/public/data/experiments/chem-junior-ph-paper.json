@@ -1,0 +1,172 @@
+{
+  "id": "chem-junior-ph-paper-001",
+  "title": "用 pH 试纸测酸碱度",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 9,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-ph-bench",
+    "cameraPreset": "paper-front",
+    "assets": [
+      "ph-paper.glb",
+      "chart.glb",
+      "sample.glb",
+      "white-tile.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "酸和碱",
+    "unit": "用 pH 试纸测酸碱度",
+    "knowledgePoints": [
+      "规范润湿试纸",
+      "比色卡读取",
+      "酸碱度判断"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识 pH 试纸、标准比色卡和待测溶液等材料",
+    "掌握用玻璃棒蘸液滴到试纸上的规范测定方法",
+    "能根据颜色和数值范围判断待测液的酸碱度"
+  ],
+  "equipment": [
+    {
+      "id": "ph-paper",
+      "name": "pH 试纸",
+      "type": "material"
+    },
+    {
+      "id": "chart",
+      "name": "标准比色卡",
+      "type": "tool"
+    },
+    {
+      "id": "sample",
+      "name": "待测溶液",
+      "type": "solution"
+    },
+    {
+      "id": "glass-rod",
+      "name": "玻璃棒",
+      "type": "tool"
+    },
+    {
+      "id": "white-tile",
+      "name": "白瓷板",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-ph-paper-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别 pH 试纸、标准比色卡、待测溶液、玻璃棒和白瓷板。",
+      "actionType": "identify-object",
+      "targetObject": "ph-paper-panel",
+      "successCondition": "ph-paper-tools-identified",
+      "failureHints": [
+        "请先识别 pH 试纸测定所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "wet-ph-paper",
+      "order": 2,
+      "title": "润湿试纸",
+      "description": "用玻璃棒蘸取待测液，滴到 pH 试纸上。",
+      "actionType": "add-material",
+      "targetObject": "ph-paper",
+      "successCondition": "ph-paper-wet",
+      "failureHints": [
+        "请用玻璃棒蘸液滴到试纸上，不要直接把试纸伸入溶液。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "compare-color-card",
+      "order": 3,
+      "title": "比对色卡",
+      "description": "将显色后的试纸与标准比色卡进行比较。",
+      "actionType": "set-variable",
+      "targetObject": "chart",
+      "successCondition": "ph-paper-color-compared",
+      "failureHints": [
+        "请把试纸颜色与标准色卡对应比较。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "judge-ph",
+      "order": 4,
+      "title": "判断酸碱度",
+      "description": "根据颜色和数值范围判断待测液酸碱度。",
+      "actionType": "record-observation",
+      "targetObject": "ph-panel",
+      "successCondition": "ph-judged",
+      "failureHints": [
+        "请根据比色结果判断待测液的 pH 范围。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-ph-paper",
+      "order": 5,
+      "title": "总结测定方法",
+      "description": "总结 pH 试纸通过显色比对来测定酸碱度。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "ph-paper-summary-submitted",
+      "failureHints": [
+        "请围绕取液、显色和比色完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成 pH 试纸测定实验，并能说明通过显色比对可以判断溶液的酸碱度。",
+    "commonMistakes": [
+      "直接把试纸浸入溶液，操作不规范",
+      "没有将试纸颜色与比色卡准确比对",
+      "只说酸或碱，没有给出合理的酸碱度范围"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

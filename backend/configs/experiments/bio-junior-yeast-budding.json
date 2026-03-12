@@ -1,0 +1,177 @@
+{
+  "id": "bio-junior-yeast-budding-001",
+  "title": "观察酵母菌的出芽生殖",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "八年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-desk",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "microscope.glb",
+      "slide.glb",
+      "dropper.glb",
+      "coverslip.glb",
+      "yeast-culture.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "微生物",
+    "unit": "酵母菌出芽生殖",
+    "knowledgePoints": [
+      "临时装片",
+      "显微调焦",
+      "无性生殖"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识显微镜、载玻片、滴管、盖玻片和酵母培养液等器材",
+    "学会制作酵母临时装片并调焦观察",
+    "理解酵母菌主要通过出芽方式进行无性生殖"
+  ],
+  "equipment": [
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "optical"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "sample"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "coverslip",
+      "name": "盖玻片",
+      "type": "sample"
+    },
+    {
+      "id": "yeast-culture",
+      "name": "酵母培养液",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-yeast-budding-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识显微镜、载玻片、滴管、盖玻片和酵母培养液。",
+      "actionType": "identify-object",
+      "targetObject": "yeast-budding-panel",
+      "successCondition": "yeast-budding-tools-identified",
+      "failureHints": [
+        "请先识别观察酵母菌出芽生殖的器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-yeast-slide",
+      "order": 2,
+      "title": "制作酵母临时装片",
+      "description": "在载玻片上滴加酵母液并盖上盖玻片，形成观察样本。",
+      "actionType": "place-object",
+      "targetObject": "slide",
+      "successCondition": "yeast-budding-slide-ready",
+      "failureHints": [
+        "请先完成临时装片制作，再进入显微观察。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "focus-yeast-cells",
+      "order": 3,
+      "title": "调焦观察",
+      "description": "调节显微镜焦距，使酵母细胞轮廓清晰。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "yeast-budding-focused",
+      "failureHints": [
+        "请继续调光调焦，直到酵母细胞轮廓清晰。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "light-adjust",
+        "focus-adjust",
+        "view-zoom"
+      ]
+    },
+    {
+      "id": "observe-budding-cell",
+      "order": 4,
+      "title": "识别出芽现象",
+      "description": "观察母细胞旁边的小突起，识别出芽生殖现象。",
+      "actionType": "record-observation",
+      "targetObject": "yeast-culture",
+      "successCondition": "yeast-budding-observation-recorded",
+      "failureHints": [
+        "请记录母细胞和芽体之间的关系。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-yeast-budding",
+      "order": 5,
+      "title": "总结出芽生殖特点",
+      "description": "总结酵母菌出芽生殖的主要特征。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "yeast-budding-summary-submitted",
+      "failureHints": [
+        "请把芽体形成和无性生殖特点概括清楚。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 68,
+    "observationScorePercent": 22,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成酵母菌出芽生殖观察，并能说明酵母菌主要通过出芽方式进行无性生殖。",
+    "commonMistakes": [
+      "没有先规范制作酵母临时装片",
+      "显微镜图像未调清就判断结果",
+      "看到小突起后没有联系到出芽生殖"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "light-adjust",
+    "focus-adjust",
+    "view-zoom",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

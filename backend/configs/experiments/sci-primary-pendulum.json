@@ -1,0 +1,174 @@
+{
+  "id": "sci-primary-pendulum-001",
+  "title": "摆的快慢",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-pendulum-bench",
+    "cameraPreset": "pendulum-front",
+    "assets": [
+      "pendulum-ball.glb",
+      "string.glb",
+      "stand.glb",
+      "timer.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "运动与时间",
+    "unit": "摆的快慢",
+    "knowledgePoints": [
+      "摆长",
+      "摆动周期",
+      "长短比较"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识摆球、细线、支架和计时器等器材",
+    "通过改变摆长比较摆动快慢",
+    "理解摆长会影响摆动周期"
+  ],
+  "equipment": [
+    {
+      "id": "pendulum-ball",
+      "name": "摆球",
+      "type": "sample"
+    },
+    {
+      "id": "string",
+      "name": "细线",
+      "type": "tool"
+    },
+    {
+      "id": "stand",
+      "name": "支架",
+      "type": "tool"
+    },
+    {
+      "id": "ruler",
+      "name": "刻度尺",
+      "type": "tool"
+    },
+    {
+      "id": "timer",
+      "name": "计时器",
+      "type": "meter"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-pendulum-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别摆球、细线、支架、刻度尺和计时器。",
+      "actionType": "identify-object",
+      "targetObject": "pendulum-panel",
+      "successCondition": "pendulum-tools-identified",
+      "failureHints": [
+        "请先识别摆实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "set-pendulum-length",
+      "order": 2,
+      "title": "设置摆长",
+      "description": "先设置一个明确的摆长，建立比较条件。",
+      "actionType": "set-variable",
+      "targetObject": "string",
+      "successCondition": "pendulum-length-set",
+      "failureHints": [
+        "请先设定清晰的摆长。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "release-pendulum",
+      "order": 3,
+      "title": "释放摆球",
+      "description": "从相近角度释放摆球，观察摆动周期。",
+      "actionType": "place-object",
+      "targetObject": "pendulum-ball",
+      "successCondition": "pendulum-released",
+      "failureHints": [
+        "请从相近角度释放摆球。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-pendulum-speed",
+      "order": 4,
+      "title": "比较摆动快慢",
+      "description": "比较不同摆长下摆动的快慢。",
+      "actionType": "record-observation",
+      "targetObject": "timer",
+      "successCondition": "pendulum-speed-compared",
+      "failureHints": [
+        "请比较不同摆长下摆动周期。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-pendulum",
+      "order": 5,
+      "title": "总结摆的规律",
+      "description": "总结摆的快慢与摆长的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "pendulum-summary-submitted",
+      "failureHints": [
+        "请围绕摆长和摆动快慢完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成摆的实验，并能说明摆长变化会影响摆动快慢。",
+    "commonMistakes": [
+      "没有先设定明确的摆长",
+      "两次释放角度差异过大，导致比较不准确",
+      "只看现象，没有总结摆长与周期的关系"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "variable-control",
+    "object-placement",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

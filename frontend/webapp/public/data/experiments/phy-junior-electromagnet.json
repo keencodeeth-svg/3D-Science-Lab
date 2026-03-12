@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-electromagnet-001",
+  "title": "电磁铁",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "九年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-electromagnet-bench",
+    "cameraPreset": "coil-front",
+    "assets": [
+      "battery.glb",
+      "coil.glb",
+      "iron-core.glb",
+      "paper-clips.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "电与磁",
+    "unit": "电磁铁",
+    "knowledgePoints": [
+      "通电磁性",
+      "线圈匝数",
+      "吸引回形针数量"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识电池、线圈、铁芯和回形针等实验器材",
+    "通过通电和增加匝数比较电磁铁磁性强弱",
+    "理解电磁铁磁性与通电状态、线圈匝数有关"
+  ],
+  "equipment": [
+    {
+      "id": "battery",
+      "name": "电池",
+      "type": "power"
+    },
+    {
+      "id": "coil",
+      "name": "线圈",
+      "type": "component"
+    },
+    {
+      "id": "iron-core",
+      "name": "铁芯",
+      "type": "component"
+    },
+    {
+      "id": "switch",
+      "name": "开关",
+      "type": "component"
+    },
+    {
+      "id": "paper-clips",
+      "name": "回形针",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-electromagnet-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别电池、线圈、铁芯、开关和回形针。",
+      "actionType": "identify-object",
+      "targetObject": "electromagnet-panel",
+      "successCondition": "electromagnet-tools-identified",
+      "failureHints": [
+        "请先识别电磁铁实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "close-circuit",
+      "order": 2,
+      "title": "闭合电路",
+      "description": "先闭合电路，让电磁铁具备吸引回形针的能力。",
+      "actionType": "connect-wire",
+      "targetObject": "coil",
+      "successCondition": "electromagnet-circuit-closed",
+      "failureHints": [
+        "请先把电路接通。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "wire-connect"
+      ]
+    },
+    {
+      "id": "increase-coil-turns",
+      "order": 3,
+      "title": "增加线圈匝数",
+      "description": "增加线圈匝数，再比较磁性是否增强。",
+      "actionType": "set-variable",
+      "targetObject": "coil",
+      "successCondition": "coil-turns-increased",
+      "failureHints": [
+        "请通过改变线圈匝数再观察磁性变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "compare-paper-clip-count",
+      "order": 4,
+      "title": "比较吸起回形针数量",
+      "description": "根据吸起回形针数量判断强弱变化。",
+      "actionType": "record-observation",
+      "targetObject": "paper-clips",
+      "successCondition": "paper-clip-count-compared",
+      "failureHints": [
+        "请比较通电和增加匝数后吸起回形针数量。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-electromagnet",
+      "order": 5,
+      "title": "总结磁性规律",
+      "description": "总结电磁铁通电与匝数变化对磁性的影响。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "electromagnet-summary-submitted",
+      "failureHints": [
+        "请围绕通电和匝数变化完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成电磁铁实验，并能说明电磁铁只有通电时有磁性，线圈匝数增加后磁性会增强。",
+    "commonMistakes": [
+      "没有先闭合电路就判断磁性",
+      "增加匝数后不比较吸起回形针数量",
+      "只记住磁性能吸引回形针，没有总结影响因素"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "wire-connect",
+    "variable-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

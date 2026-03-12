@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学生实验大厅 - 低保真原型</title>
+    <link rel="stylesheet" href="./lowfi.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="page-head">
+        <div>
+          <span class="label">Student</span>
+          <h1>实验大厅</h1>
+          <p>选择今天要完成的实验，优先展示老师布置任务和推荐实验。</p>
+        </div>
+        <div class="actions">
+          <a class="button subtle" href="./login.html">切换账号</a>
+          <a class="button" href="./result.html">我的记录</a>
+        </div>
+      </header>
+
+      <section class="banner success" style="margin:18px 0 16px;">今日推荐：先完成老师布置的 `串联与并联电路`，再进入自由练习。</section>
+
+      <section class="toolbar card">
+        <div class="chip-row">
+          <button class="chip active">全部学段</button>
+          <button class="chip">初中</button>
+          <button class="chip">高中</button>
+        </div>
+        <div class="chip-row">
+          <button class="chip active">全部学科</button>
+          <button class="chip">物理</button>
+          <button class="chip">化学</button>
+          <button class="chip">生物</button>
+        </div>
+        <div class="chip-row">
+          <button class="chip active">全部模式</button>
+          <button class="chip">引导</button>
+          <button class="chip">练习</button>
+          <button class="chip">考核</button>
+        </div>
+      </section>
+
+      <section class="grid-3" style="margin-top:16px;">
+        <article class="card">
+          <span class="label">初中 · 物理</span>
+          <h3>串联与并联电路</h3>
+          <p>预计 12 分钟 · 引导 / 练习 / 考核</p>
+          <div class="actions"><a class="button primary" href="./experiment-detail.html">查看详情</a></div>
+        </article>
+        <article class="card">
+          <span class="label">初中 · 化学</span>
+          <h3>氧气制备与收集</h3>
+          <p>预计 13 分钟 · 引导 / 练习</p>
+          <div class="actions"><a class="button" href="./experiment-detail.html">查看详情</a></div>
+        </article>
+        <article class="card">
+          <span class="label">高中 · 生物</span>
+          <h3>酶活性影响因素</h3>
+          <p>预计 15 分钟 · 引导 / 练习 / 考核</p>
+          <div class="actions"><a class="button" href="./experiment-detail.html">查看详情</a></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

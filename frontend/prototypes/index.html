@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P0 低保真原型总览</title>
+    <link rel="stylesheet" href="./lowfi.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html">
+          <span class="brand-mark">P0</span>
+          <span>3D Science Lab 低保真原型</span>
+        </a>
+        <div class="actions">
+          <a class="button subtle" href="../../docs/product/page-ia.md">页面 IA</a>
+          <a class="button subtle" href="../../docs/product/page-wireframes.md">线框文案</a>
+          <a class="button primary" href="../../docs/product/experiments/index.md">实验卡</a>
+        </div>
+      </header>
+
+      <section class="grid-2">
+        <article class="card hero-card">
+          <span class="label">Prototype Hub</span>
+          <h1>把 `Demo MVP` 的核心页面先跑通</h1>
+          <p>这组页面是给产品、设计、前端一起对齐信息结构和关键动作的低保真原型，不是最终视觉稿。</p>
+          <ul class="checklist">
+            <li>学生主链路：登录 → 大厅 → 详情 → 实验 → 结果</li>
+            <li>教师主链路：工作台 → 布置/演示 → 班级结果</li>
+            <li>所有主按钮保持 `44px` 可点击高度</li>
+          </ul>
+        </article>
+        <article class="card page-links">
+          <a href="./login.html">登录页</a>
+          <a href="./student-hall.html">学生实验大厅</a>
+          <a href="./experiment-detail.html">实验详情页</a>
+          <a href="./lab-session.html">3D 实验页</a>
+          <a href="./result.html">实验结果页</a>
+          <a href="./teacher-dashboard.html">教师工作台</a>
+          <a href="./class-detail.html">班级实验详情页</a>
+        </article>
+      </section>
+
+      <footer class="note muted">建议从 `student-hall.html` 和 `teacher-dashboard.html` 开始看整体链路。</footer>
+    </main>
+  </body>
+</html>

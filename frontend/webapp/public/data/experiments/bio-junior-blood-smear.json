@@ -1,0 +1,178 @@
+{
+  "id": "bio-junior-blood-smear-001",
+  "title": "观察人血永久涂片",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-desk",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "microscope.glb",
+      "blood-smear-slide.glb",
+      "focus-knob.glb",
+      "light-source.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "人体内的物质运输",
+    "unit": "观察人血永久涂片",
+    "knowledgePoints": [
+      "显微观察",
+      "红细胞特征",
+      "白细胞特征"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识显微镜、人血涂片标本、调焦装置和光源等器材",
+    "通过显微镜观察红细胞和白细胞的典型特征",
+    "理解不同血细胞在形态上的主要差异"
+  ],
+  "equipment": [
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "optical"
+    },
+    {
+      "id": "slide-stage",
+      "name": "载物台",
+      "type": "tool"
+    },
+    {
+      "id": "blood-smear-slide",
+      "name": "人血涂片标本",
+      "type": "sample"
+    },
+    {
+      "id": "focus-knob",
+      "name": "调焦旋钮",
+      "type": "tool"
+    },
+    {
+      "id": "light-source",
+      "name": "反光镜或光源",
+      "type": "light"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-blood-smear-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识显微镜、人血涂片标本、调焦装置和光源。",
+      "actionType": "identify-object",
+      "targetObject": "blood-smear-panel",
+      "successCondition": "blood-smear-tools-identified",
+      "failureHints": [
+        "请先识别人血涂片观察所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-blood-smear-slide",
+      "order": 2,
+      "title": "放置血涂片标本",
+      "description": "把人血涂片标本放到载物台上准备观察。",
+      "actionType": "place-object",
+      "targetObject": "slide-stage",
+      "successCondition": "blood-smear-slide-placed",
+      "failureHints": [
+        "请先把血涂片标本固定在载物台上。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-blood-smear-microscope",
+      "order": 3,
+      "title": "调节显微镜",
+      "description": "调节光线和焦距，使血细胞轮廓清晰。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "blood-smear-focused",
+      "failureHints": [
+        "请继续调节光线和焦距，直到细胞轮廓清晰。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "light-adjust",
+        "focus-adjust",
+        "view-zoom"
+      ]
+    },
+    {
+      "id": "observe-blood-cells",
+      "order": 4,
+      "title": "识别血细胞特征",
+      "description": "观察并区分红细胞和白细胞的典型特征。",
+      "actionType": "record-observation",
+      "targetObject": "blood-smear-slide",
+      "successCondition": "blood-smear-observation-recorded",
+      "failureHints": [
+        "请记录红细胞和白细胞在数量、形态上的差异。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-blood-smear",
+      "order": 5,
+      "title": "总结观察结论",
+      "description": "总结人血涂片中血细胞的主要观察结果。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "blood-smear-summary-submitted",
+      "failureHints": [
+        "请把红细胞和白细胞的特征比较完整。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成人血永久涂片观察，并能区分红细胞和白细胞的主要形态特征。",
+    "commonMistakes": [
+      "没有先固定标本就开始调焦",
+      "显微图像不清晰就判断细胞类型",
+      "只描述单一细胞，没有做对比总结"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "light-adjust",
+    "focus-adjust",
+    "view-zoom",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

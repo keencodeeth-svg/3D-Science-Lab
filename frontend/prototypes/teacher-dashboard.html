@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教师工作台 - 低保真原型</title>
+    <link rel="stylesheet" href="./lowfi.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="teacher-head">
+        <div>
+          <span class="label">Teacher</span>
+          <h1>教师工作台</h1>
+          <p>优先支持：快速布置、课堂演示、班级结果查看。</p>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="./class-detail.html">布置实验</a>
+          <a class="button subtle" href="./lab-session.html">打开演示模式</a>
+        </div>
+      </header>
+
+      <section class="dashboard-grid" style="margin-top:16px;">
+        <article class="metric"><span class="muted">今日待完成</span><strong>38</strong></article>
+        <article class="metric"><span class="muted">班级完成率</span><strong>72%</strong></article>
+        <article class="metric"><span class="muted">平均得分</span><strong>81</strong></article>
+        <article class="metric"><span class="muted">高频错误步骤</span><strong>接线错误</strong></article>
+      </section>
+
+      <section class="grid-2" style="margin-top:16px;">
+        <article class="card">
+          <h2>最近布置</h2>
+          <table class="table">
+            <thead><tr><th>实验</th><th>班级</th><th>状态</th><th>操作</th></tr></thead>
+            <tbody>
+              <tr><td>串联与并联电路</td><td>八年级 2 班</td><td>进行中</td><td><a href="./class-detail.html">查看</a></td></tr>
+              <tr><td>氧气制备与收集</td><td>九年级 1 班</td><td>未开始</td><td><a href="./class-detail.html">查看</a></td></tr>
+              <tr><td>原电池基础</td><td>高二 3 班</td><td>已结束</td><td><a href="./class-detail.html">查看</a></td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="card">
+          <h2>快捷操作</h2>
+          <ul class="checklist">
+            <li>复制上次布置</li>
+            <li>一键打开课堂演示</li>
+            <li>查看高频错误步骤</li>
+            <li>筛选未完成学生</li>
+          </ul>
+          <div class="banner" style="margin-top:16px;">教师页默认先给摘要结论，不要求老师自己做复杂分析。</div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

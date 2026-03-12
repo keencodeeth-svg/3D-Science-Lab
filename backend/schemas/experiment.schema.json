@@ -1,0 +1,311 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://3dsciencelab.local/schemas/experiment.schema.json",
+  "title": "Experiment Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "stage",
+    "subject",
+    "grade",
+    "durationMinutes",
+    "modes",
+    "scene",
+    "curriculum",
+    "productization",
+    "objectives",
+    "equipment",
+    "steps",
+    "scoring",
+    "feedback",
+    "capabilities"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "stage": { "enum": ["小学", "初中", "高中"] },
+    "subject": { "enum": ["科学", "物理", "化学", "生物"] },
+    "grade": { "type": "string", "minLength": 1 },
+    "durationMinutes": { "type": "integer", "minimum": 1 },
+    "modes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["引导", "练习", "考核"] },
+      "uniqueItems": true
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["environment", "cameraPreset", "assets"],
+      "properties": {
+        "environment": { "type": "string" },
+        "cameraPreset": { "type": "string" },
+        "assets": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "curriculum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["theme", "unit", "knowledgePoints"],
+      "properties": {
+        "theme": { "type": "string", "minLength": 1 },
+        "unit": { "type": "string", "minLength": 1 },
+        "knowledgePoints": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "productization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "interactionMode", "assessmentReady", "teacherReady", "assetsReady"],
+      "properties": {
+        "status": { "enum": ["规划中", "开发中", "试点可用", "产品级"] },
+        "interactionMode": { "enum": ["观察型", "半交互", "全交互"] },
+        "assessmentReady": { "type": "boolean" },
+        "teacherReady": { "type": "boolean" },
+        "assetsReady": { "type": "boolean" }
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "equipment": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "optional": { "type": "boolean" }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "order",
+          "title",
+          "actionType",
+          "targetObject",
+          "successCondition",
+          "failureHints",
+          "scoringWeight"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "order": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "actionType": {
+            "enum": [
+              "identify-object",
+              "place-object",
+              "connect-wire",
+              "add-material",
+              "heat-object",
+              "adjust-focus",
+              "switch-view",
+              "record-observation",
+              "set-variable",
+              "complete-summary"
+            ]
+          },
+          "targetObject": { "type": "string" },
+          "successCondition": { "type": "string" },
+          "failureHints": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "scoringWeight": { "type": "integer", "minimum": 1, "maximum": 100 },
+          "requiredCapabilities": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "scoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stepScorePercent", "observationScorePercent", "resultScorePercent"],
+      "properties": {
+        "stepScorePercent": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "observationScorePercent": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "resultScorePercent": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["successSummary", "commonMistakes"],
+      "properties": {
+        "successSummary": { "type": "string" },
+        "commonMistakes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "multiscale": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defaultLens", "equipmentProfiles", "materials", "reactionRules"],
+      "properties": {
+        "defaultLens": {
+          "enum": ["macro", "meso", "micro"]
+        },
+        "equipmentProfiles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["equipmentId", "physicalGroup", "constraints", "components"],
+            "properties": {
+              "equipmentId": { "type": "string", "minLength": 1 },
+              "physicalGroup": { "type": "string", "minLength": 1 },
+              "constraints": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "components": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["id", "name", "role"],
+                  "properties": {
+                    "id": { "type": "string", "minLength": 1 },
+                    "name": { "type": "string", "minLength": 1 },
+                    "role": { "type": "string", "minLength": 1 },
+                    "materialRef": { "type": "string", "minLength": 1 }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "materials": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "category", "state", "properties"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "name": { "type": "string", "minLength": 1 },
+              "category": { "type": "string", "minLength": 1 },
+              "formula": { "type": "string", "minLength": 1 },
+              "state": {
+                "enum": ["solid", "liquid", "gas", "mixed"]
+              },
+              "properties": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["key", "label", "value"],
+                  "properties": {
+                    "key": { "type": "string", "minLength": 1 },
+                    "label": { "type": "string", "minLength": 1 },
+                    "value": {
+                      "oneOf": [
+                        { "type": "number" },
+                        { "type": "string", "minLength": 1 }
+                      ]
+                    },
+                    "unit": { "type": "string", "minLength": 1 }
+                  }
+                }
+              },
+              "microModel": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["narrative", "species", "interactions"],
+                "properties": {
+                  "narrative": { "type": "string", "minLength": 1 },
+                  "species": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": ["id", "name", "color", "particleCountHint", "arrangement"],
+                      "properties": {
+                        "id": { "type": "string", "minLength": 1 },
+                        "name": { "type": "string", "minLength": 1 },
+                        "formula": { "type": "string", "minLength": 1 },
+                        "color": { "type": "string", "minLength": 1 },
+                        "particleCountHint": { "type": "integer", "minimum": 1 },
+                        "arrangement": {
+                          "enum": ["lattice", "cluster", "flow", "solution", "gas", "chain", "network"]
+                        }
+                      }
+                    }
+                  },
+                  "interactions": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "type": "string", "minLength": 1 }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "reactionRules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "when", "observe", "microNarrative"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "when": { "type": "string", "minLength": 1 },
+              "observe": { "type": "string", "minLength": 1 },
+              "microNarrative": { "type": "string", "minLength": 1 },
+              "materialRefs": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 },
+                "uniqueItems": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

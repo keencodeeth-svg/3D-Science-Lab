@@ -1,0 +1,172 @@
+{
+  "id": "chem-senior-silver-mirror-001",
+  "title": "银镜反应",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "选择性必修",
+  "durationMinutes": 13,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-water-bath-bench",
+    "cameraPreset": "bath-front",
+    "assets": [
+      "test-tube.glb",
+      "silver-ammonia.glb",
+      "glucose-solution.glb",
+      "water-bath.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "有机化学基础",
+    "unit": "银镜反应",
+    "knowledgePoints": [
+      "温热水浴",
+      "还原性现象",
+      "银层析出"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "掌握银镜反应所需试剂和温热水浴环境的准备方式",
+    "观察试管内壁逐渐形成银层的典型现象",
+    "理解银镜反应在还原性检验中的实验意义"
+  ],
+  "equipment": [
+    {
+      "id": "test-tube",
+      "name": "试管",
+      "type": "container"
+    },
+    {
+      "id": "silver-ammonia-solution",
+      "name": "银氨溶液",
+      "type": "solution"
+    },
+    {
+      "id": "glucose-solution",
+      "name": "葡萄糖溶液",
+      "type": "solution"
+    },
+    {
+      "id": "water-bath",
+      "name": "温热水浴",
+      "type": "heater"
+    },
+    {
+      "id": "test-tube-clamp",
+      "name": "试管夹",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-silver-mirror-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别试管、银氨溶液、葡萄糖溶液、水浴和试管夹。",
+      "actionType": "identify-object",
+      "targetObject": "silver-mirror-panel",
+      "successCondition": "silver-mirror-tools-identified",
+      "failureHints": [
+        "请先识别银镜反应所需器材和试剂。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-water-bath",
+      "order": 2,
+      "title": "建立温热水浴",
+      "description": "将盛有银氨溶液的试管放入温热水浴中。",
+      "actionType": "heat-object",
+      "targetObject": "water-bath",
+      "successCondition": "water-bath-ready",
+      "failureHints": [
+        "请先建立适合银镜反应的温热水浴环境。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heater-control"
+      ]
+    },
+    {
+      "id": "add-glucose-solution",
+      "order": 3,
+      "title": "加入葡萄糖溶液",
+      "description": "向试管中加入少量葡萄糖溶液并轻轻振荡。",
+      "actionType": "add-material",
+      "targetObject": "test-tube",
+      "successCondition": "glucose-solution-added",
+      "failureHints": [
+        "请在温热条件下再加入葡萄糖溶液。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "record-silver-mirror",
+      "order": 4,
+      "title": "观察银镜形成",
+      "description": "观察试管内壁是否逐渐出现明亮银层。",
+      "actionType": "record-observation",
+      "targetObject": "test-tube",
+      "successCondition": "silver-mirror-recorded",
+      "failureHints": [
+        "请记录试管内壁由无到有形成银层的变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-silver-mirror",
+      "order": 5,
+      "title": "总结银镜反应",
+      "description": "总结银层析出所反映的反应本质与应用价值。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "silver-mirror-summary-submitted",
+      "failureHints": [
+        "请围绕温热条件、银层析出和检验意义完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 67,
+    "observationScorePercent": 23,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成银镜反应的关键操作，并能围绕银层析出解释实验现象。",
+    "commonMistakes": [
+      "未先建立温热水浴环境",
+      "加入葡萄糖后没有结合试管内壁变化进行观察",
+      "只描述银色现象，没有总结其检验意义"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "heater-control",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

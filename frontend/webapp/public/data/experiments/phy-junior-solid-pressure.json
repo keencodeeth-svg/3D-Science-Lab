@@ -1,0 +1,173 @@
+{
+  "id": "phy-junior-solid-pressure-001",
+  "title": "固体压强大小规律",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-pressure-bench",
+    "cameraPreset": "foam-front",
+    "assets": [
+      "foam.glb",
+      "press-block.glb",
+      "wide-face.glb",
+      "ruler.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "压强",
+    "unit": "固体压强大小规律",
+    "knowledgePoints": [
+      "受力面积变化",
+      "海绵凹陷深浅",
+      "压强效果比较"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识海绵块、压块和刻度尺等实验器材",
+    "通过改变受力面积比较海绵凹陷深浅",
+    "理解受力一定时受力面积越小压强越大"
+  ],
+  "equipment": [
+    {
+      "id": "foam",
+      "name": "海绵块",
+      "type": "sample"
+    },
+    {
+      "id": "press-block",
+      "name": "压块",
+      "type": "tool"
+    },
+    {
+      "id": "wide-face",
+      "name": "宽底面",
+      "type": "tool"
+    },
+    {
+      "id": "narrow-face",
+      "name": "窄底面",
+      "type": "tool"
+    },
+    {
+      "id": "ruler",
+      "name": "刻度尺",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-solid-pressure-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别海绵、压块、宽面、窄面和刻度尺。",
+      "actionType": "identify-object",
+      "targetObject": "solid-pressure-panel",
+      "successCondition": "solid-pressure-tools-identified",
+      "failureHints": [
+        "请先识别固体压强实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "press-wide-face",
+      "order": 2,
+      "title": "先用大受力面积压海绵",
+      "description": "先用较大的受力面积压海绵，作为基准。",
+      "actionType": "place-object",
+      "targetObject": "wide-face",
+      "successCondition": "wide-face-pressed",
+      "failureHints": [
+        "请先使用宽底面压海绵。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "press-narrow-face",
+      "order": 3,
+      "title": "再用小受力面积压海绵",
+      "description": "再用较小的受力面积压海绵进行比较。",
+      "actionType": "place-object",
+      "targetObject": "narrow-face",
+      "successCondition": "narrow-face-pressed",
+      "failureHints": [
+        "请再使用窄底面进行比较。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-indentation-depth",
+      "order": 4,
+      "title": "比较凹陷深浅",
+      "description": "比较两次海绵凹陷深浅差异。",
+      "actionType": "record-observation",
+      "targetObject": "ruler",
+      "successCondition": "indentation-depth-compared",
+      "failureHints": [
+        "请比较海绵两次凹陷深浅。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-solid-pressure",
+      "order": 5,
+      "title": "总结压强规律",
+      "description": "总结受力面积变化对压强作用效果的影响。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "solid-pressure-summary-submitted",
+      "failureHints": [
+        "请围绕受力面积与压强效果的关系完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成固体压强实验，并能说明受力一定时受力面积越小，压强作用效果越明显。",
+    "commonMistakes": [
+      "没有先用宽底面建立基准",
+      "两次压海绵时施力条件不一致",
+      "只看见凹陷深浅变化，没有总结受力面积和压强关系"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

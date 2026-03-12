@@ -1,0 +1,175 @@
+{
+  "id": "sci-primary-wheel-axle-001",
+  "title": "轮轴的作用",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "六年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-mechanics-bench",
+    "cameraPreset": "wheel-front",
+    "assets": [
+      "wheel.glb",
+      "axle.glb",
+      "rope.glb",
+      "scale.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "简单机械",
+    "unit": "轮轴的作用",
+    "knowledgePoints": [
+      "直接绕轴",
+      "转动大轮",
+      "省力效果"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识大轮、小轴、绳子、重物和测力计",
+    "通过两种提重方式比较所需拉力",
+    "理解使用大轮带动小轴可以更省力"
+  ],
+  "equipment": [
+    {
+      "id": "wheel",
+      "name": "大轮",
+      "type": "tool"
+    },
+    {
+      "id": "axle",
+      "name": "小轴",
+      "type": "tool"
+    },
+    {
+      "id": "rope",
+      "name": "绳子",
+      "type": "tool"
+    },
+    {
+      "id": "weight",
+      "name": "重物",
+      "type": "sample"
+    },
+    {
+      "id": "scale",
+      "name": "测力计",
+      "type": "meter"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-wheel-axle-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别轮轴、绳子、重物和测力计。",
+      "actionType": "identify-object",
+      "targetObject": "wheel-axle-panel",
+      "successCondition": "wheel-axle-tools-identified",
+      "failureHints": [
+        "请先识别轮轴实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "lift-by-axle",
+      "order": 2,
+      "title": "直接绕轴提升重物",
+      "description": "先直接绕轴提升重物，记录较大的拉力。",
+      "actionType": "record-observation",
+      "targetObject": "scale",
+      "successCondition": "axle-lift-recorded",
+      "failureHints": [
+        "请先记录直接绕轴时的拉力。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "meter-reading",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "lift-by-wheel",
+      "order": 3,
+      "title": "转动大轮提升重物",
+      "description": "再转动大轮提升同样重物，比较读数变化。",
+      "actionType": "place-object",
+      "targetObject": "wheel",
+      "successCondition": "wheel-lift-recorded",
+      "failureHints": [
+        "请再通过转动大轮提升同样重物。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-pull-force-wheel-axle",
+      "order": 4,
+      "title": "比较所需拉力",
+      "description": "根据两次测力计示数判断轮轴是否省力。",
+      "actionType": "record-observation",
+      "targetObject": "comparison-panel",
+      "successCondition": "wheel-axle-force-compared",
+      "failureHints": [
+        "请比较绕轴和转大轮两次示数。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-wheel-axle",
+      "order": 5,
+      "title": "总结轮轴作用",
+      "description": "总结使用大轮带动小轴能更省力。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "wheel-axle-summary-submitted",
+      "failureHints": [
+        "请围绕轮轴省力效果完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成轮轴实验，并能说明转动大轮带动小轴提重时更省力。",
+    "commonMistakes": [
+      "没有先测量直接绕轴时的拉力",
+      "两次提升的重物不一致，导致比较失效",
+      "只记住省力，没有说明是大轮带动小轴产生的效果"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "meter-reading",
+    "observation-panel",
+    "object-placement",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

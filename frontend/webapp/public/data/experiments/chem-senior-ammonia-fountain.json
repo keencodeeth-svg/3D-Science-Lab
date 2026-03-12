@@ -1,0 +1,171 @@
+{
+  "id": "chem-senior-ammonia-fountain-001",
+  "title": "氨气喷泉",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "高一/高二",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-fountain-rig",
+    "cameraPreset": "fountain-front",
+    "assets": [
+      "ammonia-flask.glb",
+      "water-basin.glb",
+      "phenolphthalein.glb",
+      "dropper.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "氨与铵盐",
+    "unit": "氨气喷泉",
+    "knowledgePoints": [
+      "极易溶于水",
+      "压差形成喷泉",
+      "碱性显色"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识氨气喷泉装置及酚酞显色体系",
+    "观察氨气溶于水后形成红色喷泉的现象",
+    "理解压差变化和碱性显色在该实验中的作用"
+  ],
+  "equipment": [
+    {
+      "id": "ammonia-flask",
+      "name": "充满氨气的烧瓶",
+      "type": "container"
+    },
+    {
+      "id": "water-basin",
+      "name": "水槽",
+      "type": "container"
+    },
+    {
+      "id": "phenolphthalein-solution",
+      "name": "酚酞溶液",
+      "type": "solution"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "ammonia-gas",
+      "name": "氨气",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-fountain-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别烧瓶、水槽、酚酞溶液、滴管和氨气体系。",
+      "actionType": "identify-object",
+      "targetObject": "fountain-panel",
+      "successCondition": "fountain-tools-identified",
+      "failureHints": [
+        "请先识别氨气喷泉实验的关键器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-phenolphthalein-water",
+      "order": 2,
+      "title": "准备酚酞水",
+      "description": "先在水槽中配制含酚酞的显色液体。",
+      "actionType": "add-material",
+      "targetObject": "water-basin",
+      "successCondition": "phenolphthalein-water-ready",
+      "failureHints": [
+        "请先建立可显色的水槽体系。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "add-water-into-flask",
+      "order": 3,
+      "title": "滴入少量水",
+      "description": "向烧瓶内滴入少量水，触发压差变化。",
+      "actionType": "add-material",
+      "targetObject": "ammonia-flask",
+      "successCondition": "water-added-into-flask",
+      "failureHints": [
+        "请先向烧瓶内滴入少量水，再观察喷泉。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "record-fountain",
+      "order": 4,
+      "title": "观察红色喷泉",
+      "description": "记录水槽液体被迅速吸入并形成红色喷泉的现象。",
+      "actionType": "record-observation",
+      "targetObject": "fountain-stage",
+      "successCondition": "ammonia-fountain-recorded",
+      "failureHints": [
+        "请同时记录喷泉形成和红色显现两个现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-ammonia-fountain",
+      "order": 5,
+      "title": "总结喷泉现象",
+      "description": "总结氨气易溶于水和显色喷泉之间的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "ammonia-fountain-summary-submitted",
+      "failureHints": [
+        "请围绕溶解性、压差和显色完成总结。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 25,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成氨气喷泉实验的关键观察，并能解释喷泉和红色显色的形成原因。",
+    "commonMistakes": [
+      "没有先准备酚酞显色水槽",
+      "只记录喷泉，不解释氨气易溶于水造成的压差变化",
+      "忽略红色显色与溶液碱性之间的联系"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

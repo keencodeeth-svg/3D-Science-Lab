@@ -1,0 +1,172 @@
+{
+  "id": "chem-junior-extinguishing-001",
+  "title": "灭火原理",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-fire-control-bench",
+    "cameraPreset": "fire-front",
+    "assets": [
+      "fuel-tray.glb",
+      "lid-cover.glb",
+      "sand-cup.glb",
+      "tongs.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "燃烧与灭火",
+    "unit": "灭火原理",
+    "knowledgePoints": [
+      "隔绝空气",
+      "降低温度",
+      "移走可燃物"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识燃烧盘、盖板、细沙杯等灭火演示器材",
+    "观察隔绝空气后火焰迅速熄灭的现象",
+    "理解灭火的三种基本思路"
+  ],
+  "equipment": [
+    {
+      "id": "fuel-tray",
+      "name": "燃烧盘",
+      "type": "sample"
+    },
+    {
+      "id": "lid-cover",
+      "name": "盖板",
+      "type": "tool"
+    },
+    {
+      "id": "sand-cup",
+      "name": "细沙杯",
+      "type": "material"
+    },
+    {
+      "id": "tongs",
+      "name": "坩埚钳",
+      "type": "tool"
+    },
+    {
+      "id": "method-card",
+      "name": "方法提示卡",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-extinguishing-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别燃烧盘、盖板、细沙杯、坩埚钳和方法提示卡。",
+      "actionType": "identify-object",
+      "targetObject": "extinguishing-panel",
+      "successCondition": "extinguishing-tools-identified",
+      "failureHints": [
+        "请先识别灭火实验所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "establish-burning",
+      "order": 2,
+      "title": "建立燃烧现象",
+      "description": "先让燃烧盘中的燃料稳定燃烧，建立灭火前现象。",
+      "actionType": "heat-object",
+      "targetObject": "fuel-tray",
+      "successCondition": "fuel-burning-established",
+      "failureHints": [
+        "请先建立稳定燃烧状态。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "heater-control"
+      ]
+    },
+    {
+      "id": "block-air-to-extinguish",
+      "order": 3,
+      "title": "隔绝空气灭火",
+      "description": "使用盖板或细沙覆盖火焰，隔绝空气。",
+      "actionType": "place-object",
+      "targetObject": "fuel-tray",
+      "successCondition": "air-blocked",
+      "failureHints": [
+        "请用盖板或细沙完整覆盖火焰。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-flame-out",
+      "order": 4,
+      "title": "观察火焰熄灭",
+      "description": "观察火焰迅速减弱并熄灭。",
+      "actionType": "record-observation",
+      "targetObject": "fuel-tray",
+      "successCondition": "extinguishing-observation-recorded",
+      "failureHints": [
+        "请记录火焰熄灭前后的变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-extinguishing",
+      "order": 5,
+      "title": "总结灭火原理",
+      "description": "总结灭火可以通过隔绝空气、降低温度或移走可燃物实现。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "extinguishing-summary-submitted",
+      "failureHints": [
+        "请完整总结常见灭火原理。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成灭火原理实验，并能说明隔绝空气、降低温度和移走可燃物都能达到灭火目的。",
+    "commonMistakes": [
+      "没有先建立明显的燃烧现象",
+      "覆盖不完全，导致火焰没有迅速熄灭",
+      "只记住隔绝空气，忽略其他灭火方式"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "heater-control",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

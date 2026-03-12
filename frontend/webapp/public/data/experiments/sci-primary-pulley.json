@@ -1,0 +1,173 @@
+{
+  "id": "sci-primary-pulley-001",
+  "title": "定滑轮和动滑轮",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "六年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-pulley-rig",
+    "cameraPreset": "pulley-front",
+    "assets": [
+      "fixed-pulley.glb",
+      "movable-pulley.glb",
+      "rope.glb",
+      "spring-scale.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "简单机械",
+    "unit": "定滑轮和动滑轮",
+    "knowledgePoints": [
+      "改变用力方向",
+      "省力效果",
+      "读数比较"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识定滑轮、动滑轮、绳子和弹簧测力计",
+    "通过两种滑轮方式提起同一重物比较拉力变化",
+    "理解定滑轮和动滑轮的不同作用"
+  ],
+  "equipment": [
+    {
+      "id": "fixed-pulley",
+      "name": "定滑轮",
+      "type": "tool"
+    },
+    {
+      "id": "movable-pulley",
+      "name": "动滑轮",
+      "type": "tool"
+    },
+    {
+      "id": "rope",
+      "name": "绳子",
+      "type": "tool"
+    },
+    {
+      "id": "weight",
+      "name": "重物",
+      "type": "sample"
+    },
+    {
+      "id": "spring-scale",
+      "name": "弹簧测力计",
+      "type": "meter"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-pulley-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别定滑轮、动滑轮、绳子、重物和弹簧测力计。",
+      "actionType": "identify-object",
+      "targetObject": "pulley-panel",
+      "successCondition": "pulley-tools-identified",
+      "failureHints": [
+        "请先识别滑轮实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "test-fixed-pulley",
+      "order": 2,
+      "title": "体验定滑轮",
+      "description": "先使用定滑轮提起重物，观察拉力方向和读数。",
+      "actionType": "place-object",
+      "targetObject": "fixed-pulley",
+      "successCondition": "fixed-pulley-tested",
+      "failureHints": [
+        "请先完成定滑轮提重实验。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "test-movable-pulley",
+      "order": 3,
+      "title": "体验动滑轮",
+      "description": "再切换到动滑轮，比较是否更省力。",
+      "actionType": "place-object",
+      "targetObject": "movable-pulley",
+      "successCondition": "movable-pulley-tested",
+      "failureHints": [
+        "请再用动滑轮提起同样重物。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-scale-readings",
+      "order": 4,
+      "title": "比较测力计读数",
+      "description": "根据两次测力计读数比较它们的不同作用。",
+      "actionType": "record-observation",
+      "targetObject": "spring-scale",
+      "successCondition": "pulley-readings-compared",
+      "failureHints": [
+        "请比较两种滑轮时测力计读数。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-pulley",
+      "order": 5,
+      "title": "总结滑轮作用",
+      "description": "总结定滑轮和动滑轮分别能带来什么效果。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "pulley-summary-submitted",
+      "failureHints": [
+        "请分别总结定滑轮和动滑轮的作用。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成滑轮实验，并能说明定滑轮可改变用力方向，动滑轮更省力。",
+    "commonMistakes": [
+      "没有使用同一重物进行两次比较",
+      "只操作了一种滑轮就下结论",
+      "没有把读数差异和滑轮作用联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

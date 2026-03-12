@@ -1,0 +1,172 @@
+{
+  "id": "bio-junior-oral-cell-001",
+  "title": "观察口腔上皮细胞",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-bench",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "cotton-swab.glb",
+      "slide.glb",
+      "coverslip.glb",
+      "microscope.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "细胞是生命活动的基本单位",
+    "unit": "观察口腔上皮细胞",
+    "knowledgePoints": [
+      "制作临时装片",
+      "染色",
+      "显微调焦"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "掌握口腔上皮细胞临时装片的制作顺序",
+    "通过染色和调焦观察细胞轮廓及细胞核",
+    "能概括动物细胞的主要结构特征"
+  ],
+  "equipment": [
+    {
+      "id": "cotton-swab",
+      "name": "棉签",
+      "type": "tool"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "tool"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "coverslip",
+      "name": "盖玻片",
+      "type": "tool"
+    },
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "instrument"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-oral-cell-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别棉签、载玻片、滴管、盖玻片和显微镜。",
+      "actionType": "identify-object",
+      "targetObject": "oral-cell-panel",
+      "successCondition": "oral-cell-tools-identified",
+      "failureHints": [
+        "请先识别口腔上皮细胞实验所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-oral-smear",
+      "order": 2,
+      "title": "制作口腔涂片",
+      "description": "用棉签取样后在载玻片上轻轻涂抹。",
+      "actionType": "place-object",
+      "targetObject": "slide",
+      "successCondition": "oral-smear-ready",
+      "failureHints": [
+        "请先完成口腔取样和均匀涂抹。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "add-stain-oral-cell",
+      "order": 3,
+      "title": "滴加染液",
+      "description": "滴加碘液并盖上盖玻片，提高细胞结构辨识度。",
+      "actionType": "add-material",
+      "targetObject": "slide",
+      "successCondition": "oral-cell-stained",
+      "failureHints": [
+        "请先完成染色和盖片，再进入观察步骤。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "focus-oral-cell",
+      "order": 4,
+      "title": "调焦观察",
+      "description": "调焦后观察细胞轮廓和细胞核。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "oral-cell-focused",
+      "failureHints": [
+        "请通过调焦获得清晰的细胞图像。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "focus-adjust"
+      ]
+    },
+    {
+      "id": "summary-oral-cell-structure",
+      "order": 5,
+      "title": "判断细胞结构",
+      "description": "总结口腔上皮细胞的主要结构特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "oral-cell-summary-submitted",
+      "failureHints": [
+        "请围绕细胞膜、细胞质和细胞核完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成口腔上皮细胞的临时装片制作与观察，并能概括动物细胞的主要结构。",
+    "commonMistakes": [
+      "涂片不均匀或样本过厚",
+      "未染色或未盖片就直接调焦观察",
+      "只看见细胞轮廓，没有结合细胞核进行判断"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "focus-adjust",
+    "summary-panel"
+  ]
+}

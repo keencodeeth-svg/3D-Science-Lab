@@ -1,0 +1,166 @@
+{
+  "id": "sci-primary-air-space-001",
+  "title": "空气占据空间",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "三年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "primary-air-water-bench",
+    "cameraPreset": "tank-front",
+    "assets": [
+      "water-tank.glb",
+      "glass-cup.glb",
+      "tissue.glb",
+      "tray.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "空气",
+    "unit": "空气占据空间",
+    "knowledgePoints": [
+      "空气存在",
+      "倒扣杯实验",
+      "现象解释"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "通过倒扣杯入水实验感受空气的存在",
+    "理解空气会占据一定空间",
+    "能根据纸巾干湿变化解释现象"
+  ],
+  "equipment": [
+    {
+      "id": "water-tank",
+      "name": "水槽",
+      "type": "container"
+    },
+    {
+      "id": "glass-cup",
+      "name": "玻璃杯",
+      "type": "container"
+    },
+    {
+      "id": "tissue",
+      "name": "纸巾",
+      "type": "material"
+    },
+    {
+      "id": "tray",
+      "name": "托盘",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "认识水槽、玻璃杯和纸巾。",
+      "actionType": "identify-object",
+      "targetObject": "materials-panel",
+      "successCondition": "air-space-materials-identified",
+      "failureHints": [
+        "请先识别本实验器材。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-tissue",
+      "order": 2,
+      "title": "放置纸巾",
+      "description": "将纸巾固定在杯底，准备入水。",
+      "actionType": "place-object",
+      "targetObject": "glass-cup",
+      "successCondition": "tissue-placed",
+      "failureHints": [
+        "请先把纸巾放到杯底。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "submerge-cup",
+      "order": 3,
+      "title": "倒扣入水",
+      "description": "将杯子倒扣垂直压入水中。",
+      "actionType": "place-object",
+      "targetObject": "water-tank",
+      "successCondition": "cup-submerged",
+      "failureHints": [
+        "杯口需要保持垂直，避免空气逸出。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "record-tissue-result",
+      "order": 4,
+      "title": "记录纸巾状态",
+      "description": "观察纸巾是否被浸湿，并完成记录。",
+      "actionType": "record-observation",
+      "targetObject": "cup-interior",
+      "successCondition": "tissue-result-recorded",
+      "failureHints": [
+        "请根据纸巾干湿状态完成记录。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-air-space",
+      "order": 5,
+      "title": "总结空气占位",
+      "description": "总结纸巾保持干燥与空气占据空间的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "air-space-summary-submitted",
+      "failureHints": [
+        "请把实验现象与“空气占据空间”联系起来。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 20,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已通过倒扣杯实验验证空气占据空间，并能根据纸巾状态解释现象。",
+    "commonMistakes": [
+      "杯子倾斜导致空气跑出",
+      "没有观察纸巾变化",
+      "结论与现象脱节"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

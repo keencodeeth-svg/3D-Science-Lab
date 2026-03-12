@@ -1,0 +1,168 @@
+{
+  "id": "sci-primary-floating-sinking-001",
+  "title": "浮与沉",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "三年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "primary-water-basin-bench",
+    "cameraPreset": "basin-top",
+    "assets": [
+      "water-basin.glb",
+      "wood-block.glb",
+      "metal-key.glb",
+      "plastic-ball.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "物体与材料",
+    "unit": "浮与沉",
+    "knowledgePoints": [
+      "不同材料的浮沉",
+      "观察比较",
+      "现象归纳"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "观察木块、金属和塑料球在水中的浮沉现象",
+    "比较不同材料与浮沉结果之间的关系",
+    "形成基于现象的初步归纳能力"
+  ],
+  "equipment": [
+    {
+      "id": "water-basin",
+      "name": "水槽",
+      "type": "container"
+    },
+    {
+      "id": "wood-block",
+      "name": "木块",
+      "type": "sample"
+    },
+    {
+      "id": "metal-key",
+      "name": "金属钥匙",
+      "type": "sample"
+    },
+    {
+      "id": "plastic-ball",
+      "name": "塑料球",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-materials",
+      "order": 1,
+      "title": "识别材料",
+      "description": "先认识水槽、木块、金属钥匙和塑料球。",
+      "actionType": "identify-object",
+      "targetObject": "materials-panel",
+      "successCondition": "floating-materials-identified",
+      "failureHints": [
+        "请先确认实验中要比较的材料。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-samples",
+      "order": 2,
+      "title": "放入待测物体",
+      "description": "将木块、金属钥匙和塑料球依次放入水槽。",
+      "actionType": "place-object",
+      "targetObject": "water-basin",
+      "successCondition": "samples-placed",
+      "failureHints": [
+        "请把材料放到同一个水槽中进行比较。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-floating-result",
+      "order": 3,
+      "title": "观察浮沉结果",
+      "description": "观察哪些物体上浮，哪些物体下沉。",
+      "actionType": "record-observation",
+      "targetObject": "water-surface",
+      "successCondition": "floating-result-recorded",
+      "failureHints": [
+        "请根据看到的现象完成记录。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "compare-materials",
+      "order": 4,
+      "title": "比较材料差异",
+      "description": "比较不同材料在水中的表现差异。",
+      "actionType": "set-variable",
+      "targetObject": "comparison-panel",
+      "successCondition": "materials-compared",
+      "failureHints": [
+        "请先完成现象记录，再比较材料差异。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-floating",
+      "order": 5,
+      "title": "总结浮沉规律",
+      "description": "总结不同材料浮与沉的初步规律。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "floating-summary-submitted",
+      "failureHints": [
+        "请根据实验现象完成规律总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 20,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成浮与沉的观察比较，并能根据材料表现进行初步归纳。",
+    "commonMistakes": [
+      "没有逐个比较材料",
+      "只说结果没有记录现象",
+      "结论与观察不对应"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

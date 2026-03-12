@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-sound-medium-001",
+  "title": "声音传播需要介质",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-vacuum-bench",
+    "cameraPreset": "jar-front",
+    "assets": [
+      "bell.glb",
+      "jar.glb",
+      "pump.glb",
+      "gauge.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "声现象",
+    "unit": "声音传播需要介质",
+    "knowledgePoints": [
+      "真空罩装置",
+      "抽气前后声音变化",
+      "真空不能传声"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识电铃、玻璃罩、抽气泵和压力表等器材",
+    "通过抽气比较空气减少前后铃声强弱变化",
+    "理解声音传播需要介质，真空不能传声"
+  ],
+  "equipment": [
+    {
+      "id": "bell",
+      "name": "电铃",
+      "type": "sample"
+    },
+    {
+      "id": "jar",
+      "name": "玻璃罩",
+      "type": "tool"
+    },
+    {
+      "id": "pump",
+      "name": "抽气泵",
+      "type": "tool"
+    },
+    {
+      "id": "hose",
+      "name": "导管",
+      "type": "tool"
+    },
+    {
+      "id": "gauge",
+      "name": "压力表",
+      "type": "meter"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-sound-medium-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别电铃、玻璃罩、抽气泵、导管和压力表。",
+      "actionType": "identify-object",
+      "targetObject": "sound-medium-panel",
+      "successCondition": "sound-medium-tools-identified",
+      "failureHints": [
+        "请先识别声音传播实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "assemble-vacuum-jar",
+      "order": 2,
+      "title": "组装真空罩装置",
+      "description": "把玻璃罩、导管和抽气泵按规范连接好。",
+      "actionType": "place-object",
+      "targetObject": "jar",
+      "successCondition": "vacuum-jar-assembled",
+      "failureHints": [
+        "请先把真空罩装置连接完整。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "start-pumping",
+      "order": 3,
+      "title": "启动抽气过程",
+      "description": "先听常压下铃声，再继续抽气到低压。",
+      "actionType": "set-variable",
+      "targetObject": "pump",
+      "successCondition": "pumping-started",
+      "failureHints": [
+        "请先完成抽气，再比较铃声变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "compare-bell-sound",
+      "order": 4,
+      "title": "比较铃声变化",
+      "description": "比较空气减少前后铃声强弱变化。",
+      "actionType": "record-observation",
+      "targetObject": "bell",
+      "successCondition": "bell-sound-compared",
+      "failureHints": [
+        "请记录抽气前后铃声强弱差异。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-sound-medium",
+      "order": 5,
+      "title": "总结传声条件",
+      "description": "总结声音传播需要介质，真空不能传声。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "sound-medium-summary-submitted",
+      "failureHints": [
+        "请围绕空气减少和铃声变弱完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成声音传播需要介质实验，并能说明空气减少时铃声变弱，真空不能传声。",
+    "commonMistakes": [
+      "装置未连接完整就开始抽气",
+      "只记录铃声变小，没有结合压力变化解释",
+      "把声音减弱误认为电铃本身停止振动"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

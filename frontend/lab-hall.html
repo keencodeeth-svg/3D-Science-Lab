@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Science Lab - 实验大厅原型</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside class="sidebar">
+        <a class="brand brand-sidebar" href="./index.html">
+          <span class="brand-mark">3D</span>
+          <span>
+            <strong>Science Lab</strong>
+            <small>实验大厅</small>
+          </span>
+        </a>
+
+        <div class="sidebar-group">
+          <p class="sidebar-title">学段</p>
+          <div class="chip-group" data-filter-group="stage">
+            <button class="chip is-active" data-value="全部">全部</button>
+            <button class="chip" data-value="初中">初中</button>
+            <button class="chip" data-value="高中">高中</button>
+          </div>
+        </div>
+
+        <div class="sidebar-group">
+          <p class="sidebar-title">学科</p>
+          <div class="chip-group" data-filter-group="subject">
+            <button class="chip is-active" data-value="全部">全部</button>
+            <button class="chip" data-value="物理">物理</button>
+            <button class="chip" data-value="化学">化学</button>
+            <button class="chip" data-value="生物">生物</button>
+          </div>
+        </div>
+
+        <div class="sidebar-card card">
+          <h3>教师入口</h3>
+          <p>可布置实验到班级、设置考核模式、查看班级完成率。</p>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="workspace-header">
+          <div>
+            <span class="eyebrow">学生端原型</span>
+            <h1>实验大厅</h1>
+          </div>
+          <a class="button button-ghost" href="../docs/tech-architecture.md">查看技术架构</a>
+        </header>
+
+        <section class="dashboard-grid">
+          <article class="card dashboard-card">
+            <span class="metric-label">可用实验</span>
+            <strong class="metric-value" id="count-all">0</strong>
+            <p>覆盖初中与高中，按学科分层组织。</p>
+          </article>
+          <article class="card dashboard-card">
+            <span class="metric-label">今日练习</span>
+            <strong class="metric-value">3</strong>
+            <p>建议先完成 1 个物理实验和 1 个化学实验。</p>
+          </article>
+          <article class="card dashboard-card">
+            <span class="metric-label">推荐模式</span>
+            <strong class="metric-value">引导 + 练习</strong>
+            <p>先理解步骤，再进入自由操作模式。</p>
+          </article>
+        </section>
+
+        <section class="section-inline">
+          <div>
+            <span class="eyebrow">实验列表</span>
+            <h2>按学段与学科筛选</h2>
+          </div>
+          <p class="section-note">后续这里可以接入真实账号、实验配置和学习记录。</p>
+        </section>
+
+        <section class="experiment-grid" id="experiment-grid"></section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

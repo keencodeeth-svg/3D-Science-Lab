@@ -1,0 +1,172 @@
+{
+  "id": "chem-senior-blue-bottle-001",
+  "title": "蓝瓶子反应",
+  "stage": "高中",
+  "subject": "化学",
+  "grade": "选择性必修",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-blue-bottle-bench",
+    "cameraPreset": "flask-front",
+    "assets": [
+      "conical-flask.glb",
+      "glucose-solution.glb",
+      "alkali-solution.glb",
+      "methylene-blue.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "氧化还原与颜色变化",
+    "unit": "蓝瓶子反应",
+    "knowledgePoints": [
+      "循环变色",
+      "振荡与静置对比",
+      "氧化还原现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识蓝瓶子反应所需试剂和锥形瓶体系",
+    "观察摇动变蓝、静置褪色的循环变化",
+    "理解空气参与下的可逆颜色变化特点"
+  ],
+  "equipment": [
+    {
+      "id": "conical-flask",
+      "name": "锥形瓶",
+      "type": "container"
+    },
+    {
+      "id": "glucose-solution",
+      "name": "葡萄糖溶液",
+      "type": "solution"
+    },
+    {
+      "id": "alkali-solution",
+      "name": "碱液",
+      "type": "solution"
+    },
+    {
+      "id": "methylene-blue",
+      "name": "亚甲蓝指示剂",
+      "type": "solution"
+    },
+    {
+      "id": "stopper",
+      "name": "瓶塞",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-blue-bottle-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别锥形瓶、葡萄糖溶液、碱液、亚甲蓝指示剂和瓶塞。",
+      "actionType": "identify-object",
+      "targetObject": "blue-bottle-panel",
+      "successCondition": "blue-bottle-tools-identified",
+      "failureHints": [
+        "请先识别蓝瓶子反应的器材和试剂。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-colorless-system",
+      "order": 2,
+      "title": "配制无色反应液",
+      "description": "把各试剂加入锥形瓶，形成初始无色反应液。",
+      "actionType": "add-material",
+      "targetObject": "conical-flask",
+      "successCondition": "blue-bottle-solution-prepared",
+      "failureHints": [
+        "请先建立完整的无色反应体系。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "shake-turn-blue",
+      "order": 3,
+      "title": "摇动后变蓝",
+      "description": "盖好瓶塞并摇动，观察液体是否迅速变成蓝色。",
+      "actionType": "set-variable",
+      "targetObject": "conical-flask",
+      "successCondition": "blue-bottle-shaken",
+      "failureHints": [
+        "请通过摇动让空气参与体系，再观察颜色变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "record-fade-back",
+      "order": 4,
+      "title": "静置后褪色",
+      "description": "将锥形瓶静置，记录蓝色逐渐褪去的现象。",
+      "actionType": "record-observation",
+      "targetObject": "conical-flask",
+      "successCondition": "blue-bottle-fade-recorded",
+      "failureHints": [
+        "请记录从蓝色回到无色的完整过程。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-blue-bottle",
+      "order": 5,
+      "title": "总结循环变色",
+      "description": "总结摇动与静置对颜色循环变化的影响。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "blue-bottle-summary-submitted",
+      "failureHints": [
+        "请概括蓝瓶子反应可循环变色的条件和特点。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成蓝瓶子反应的关键操作，并能说明摇动变蓝、静置褪色的循环特征。",
+    "commonMistakes": [
+      "试剂未配齐就开始摇动",
+      "只观察变蓝，不记录静置后的褪色过程",
+      "忽略空气参与对颜色变化的影响"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

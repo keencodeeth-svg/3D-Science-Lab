@@ -1,0 +1,156 @@
+{
+  "id": "sci-primary-circuit-001",
+  "title": "让小灯泡亮起来",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "四年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "primary-electricity-table",
+    "cameraPreset": "desk-front",
+    "assets": [
+      "battery.glb",
+      "wire.glb",
+      "bulb.glb",
+      "switch.glb",
+      "holder.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "电路启蒙",
+    "unit": "简单电路",
+    "knowledgePoints": [
+      "闭合回路",
+      "电池正负极",
+      "导线连接"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识电池、导线和小灯泡",
+    "尝试搭建闭合回路",
+    "理解灯泡点亮所需条件"
+  ],
+  "equipment": [
+    {
+      "id": "battery",
+      "name": "电池",
+      "type": "power"
+    },
+    {
+      "id": "bulb",
+      "name": "小灯泡",
+      "type": "load"
+    },
+    {
+      "id": "wire",
+      "name": "导线",
+      "type": "connector"
+    },
+    {
+      "id": "holder",
+      "name": "灯座",
+      "type": "support",
+      "optional": true
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-parts",
+      "order": 1,
+      "title": "认识器材",
+      "description": "认识电池、导线和小灯泡。",
+      "actionType": "identify-object",
+      "targetObject": "equipment-panel",
+      "successCondition": "parts-identified",
+      "failureHints": [
+        "请先认识三个核心器材。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "build-circuit",
+      "order": 2,
+      "title": "连接回路",
+      "description": "连接电池、导线和小灯泡，让回路闭合。",
+      "actionType": "connect-wire",
+      "targetObject": "circuit-area",
+      "successCondition": "primary-circuit-closed",
+      "failureHints": [
+        "导线没有连到正确位置。",
+        "回路还没有闭合。"
+      ],
+      "scoringWeight": 35,
+      "requiredCapabilities": [
+        "wire-connect",
+        "circuit-closure-check"
+      ]
+    },
+    {
+      "id": "observe-light",
+      "order": 3,
+      "title": "观察现象",
+      "description": "观察灯泡亮灭，并记录原因。",
+      "actionType": "record-observation",
+      "targetObject": "bulb-state",
+      "successCondition": "observation-recorded",
+      "failureHints": [
+        "请先让灯泡亮起，再记录现象。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "complete-summary",
+      "order": 4,
+      "title": "总结条件",
+      "description": "总结让小灯泡亮起来的必要条件。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "summary-submitted",
+      "failureHints": [
+        "请完成电路条件总结。"
+      ],
+      "scoringWeight": 25,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 30,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已完成简单电路搭建，并理解闭合回路是灯泡点亮的关键。",
+    "commonMistakes": [
+      "正负极连接错误",
+      "导线没有形成闭合回路",
+      "只连接了一个接线点"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "wire-connect",
+    "circuit-closure-check",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

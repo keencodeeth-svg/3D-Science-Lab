@@ -1,0 +1,173 @@
+{
+  "id": "chem-junior-cabbage-indicator-001",
+  "title": "紫甘蓝指示剂变色",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-indicator-bench",
+    "cameraPreset": "cups-front",
+    "assets": [
+      "cups.glb",
+      "indicator.glb",
+      "acid.glb",
+      "alkali.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "酸和碱",
+    "unit": "紫甘蓝指示剂变色",
+    "knowledgePoints": [
+      "天然指示剂",
+      "酸性显红",
+      "碱性显绿"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识紫甘蓝指示剂、白醋和小苏打溶液等材料",
+    "观察同一种指示剂在酸性和碱性条件下的不同颜色变化",
+    "理解天然指示剂也能用于判断酸碱性"
+  ],
+  "equipment": [
+    {
+      "id": "cups",
+      "name": "三只透明烧杯",
+      "type": "container"
+    },
+    {
+      "id": "indicator",
+      "name": "紫甘蓝指示剂",
+      "type": "solution"
+    },
+    {
+      "id": "acid",
+      "name": "白醋",
+      "type": "solution"
+    },
+    {
+      "id": "alkali",
+      "name": "小苏打溶液",
+      "type": "solution"
+    },
+    {
+      "id": "stirrer",
+      "name": "玻璃棒",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-cabbage-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别三只透明烧杯、紫甘蓝指示剂、白醋、小苏打溶液和玻璃棒。",
+      "actionType": "identify-object",
+      "targetObject": "cabbage-indicator-panel",
+      "successCondition": "cabbage-tools-identified",
+      "failureHints": [
+        "请先识别紫甘蓝指示剂实验材料。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "pour-cabbage-indicator",
+      "order": 2,
+      "title": "倒入紫甘蓝汁",
+      "description": "向三只烧杯中倒入等量紫甘蓝指示剂。",
+      "actionType": "add-material",
+      "targetObject": "cups",
+      "successCondition": "cabbage-indicator-poured",
+      "failureHints": [
+        "请先让三只烧杯中都有等量指示剂。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "acid-cup-turns-red",
+      "order": 3,
+      "title": "酸性杯显红",
+      "description": "给左侧酸性杯滴加白醋，观察颜色向红色方向变化。",
+      "actionType": "add-material",
+      "targetObject": "acid-cup",
+      "successCondition": "acid-cup-red",
+      "failureHints": [
+        "请向酸性杯滴加白醋并观察颜色变化。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "alkali-cup-turns-green",
+      "order": 4,
+      "title": "碱性杯显绿",
+      "description": "给右侧碱性杯滴加小苏打溶液，并比较三杯颜色差异。",
+      "actionType": "add-material",
+      "targetObject": "alkali-cup",
+      "successCondition": "alkali-cup-green",
+      "failureHints": [
+        "请向碱性杯加入小苏打溶液并进行三杯比较。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-cabbage-indicator",
+      "order": 5,
+      "title": "总结多色变化",
+      "description": "总结紫甘蓝汁在酸、碱、近中性条件下会呈现不同颜色。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "cabbage-indicator-summary-submitted",
+      "failureHints": [
+        "请围绕酸、碱和近中性三种状态完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成紫甘蓝指示剂变色实验，并能说明天然指示剂在不同酸碱条件下会呈现不同颜色。",
+    "commonMistakes": [
+      "三只烧杯中的指示剂量不一致",
+      "只观察一杯颜色，没有比较三杯差异",
+      "没有把颜色变化和酸碱性判断联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

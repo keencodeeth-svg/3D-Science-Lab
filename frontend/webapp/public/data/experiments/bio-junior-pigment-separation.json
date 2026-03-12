@@ -1,0 +1,173 @@
+{
+  "id": "bio-junior-pigment-separation-001",
+  "title": "绿叶中色素的分离",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-chromatography-bench",
+    "cameraPreset": "jar-front",
+    "assets": [
+      "mortar.glb",
+      "filter-paper.glb",
+      "leaf-extract.glb",
+      "solvent.glb",
+      "chromatography-jar.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "绿色植物的生活",
+    "unit": "绿叶中色素的分离",
+    "knowledgePoints": [
+      "点样线",
+      "层析液液面",
+      "色素带分离"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识研钵、滤纸条、色素提取液、层析液和层析瓶等器材材料",
+    "掌握点样和放置滤纸条的关键操作要点",
+    "理解不同色素在层析液中移动速度不同会形成分离条带"
+  ],
+  "equipment": [
+    {
+      "id": "mortar",
+      "name": "研钵",
+      "type": "tool"
+    },
+    {
+      "id": "filter-paper",
+      "name": "滤纸条",
+      "type": "material"
+    },
+    {
+      "id": "leaf-extract",
+      "name": "色素提取液",
+      "type": "solution"
+    },
+    {
+      "id": "solvent",
+      "name": "层析液",
+      "type": "solution"
+    },
+    {
+      "id": "chromatography-jar",
+      "name": "层析瓶",
+      "type": "container"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-pigment-separation-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识研钵、滤纸条、色素提取液、层析液和层析瓶。",
+      "actionType": "identify-object",
+      "targetObject": "pigment-separation-panel",
+      "successCondition": "pigment-separation-tools-identified",
+      "failureHints": [
+        "请先识别绿叶色素分离实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "spot-leaf-extract",
+      "order": 2,
+      "title": "点样叶绿素提取液",
+      "description": "把色素提取液点在滤纸条起始线上。",
+      "actionType": "add-material",
+      "targetObject": "filter-paper",
+      "successCondition": "pigment-separation-spotted",
+      "failureHints": [
+        "请把样点控制在起始线位置。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "place-paper-into-solvent",
+      "order": 3,
+      "title": "将滤纸条放入层析液",
+      "description": "将滤纸条垂直放入层析液中，注意液面不能没过样点。",
+      "actionType": "place-object",
+      "targetObject": "chromatography-jar",
+      "successCondition": "pigment-separation-paper-placed",
+      "failureHints": [
+        "请确保液面低于样点，避免样点直接溶散。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "observe-pigment-bands",
+      "order": 4,
+      "title": "观察色素带分离",
+      "description": "观察色素随溶剂上升逐渐分离成不同颜色的条带。",
+      "actionType": "record-observation",
+      "targetObject": "chromatography-jar",
+      "successCondition": "pigment-separation-observation-recorded",
+      "failureHints": [
+        "请记录条带数量、颜色和相对位置。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-pigment-separation",
+      "order": 5,
+      "title": "总结分离现象",
+      "description": "总结不同色素在层析液中移动速度不同的原因和现象。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "pigment-separation-summary-submitted",
+      "failureHints": [
+        "请把色素分离现象和移动速度差异联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成绿叶色素分离实验，并能说明不同色素在层析液中的移动速度不同，因此会形成分离条带。",
+    "commonMistakes": [
+      "样点位置过低或过大，影响分离效果",
+      "液面没过样点，导致样品直接溶散",
+      "看到色素带后没有解释分离原因"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

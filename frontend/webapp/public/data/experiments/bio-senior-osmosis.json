@@ -1,0 +1,173 @@
+{
+  "id": "bio-senior-osmosis-001",
+  "title": "植物细胞吸水和失水",
+  "stage": "高中",
+  "subject": "生物",
+  "grade": "高一",
+  "durationMinutes": 14,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "biology-osmosis-bench",
+    "cameraPreset": "sample-close",
+    "assets": [
+      "potato-strips.glb",
+      "solution-cups.glb",
+      "microscope.glb",
+      "timer.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "细胞与水分",
+    "unit": "渗透作用",
+    "knowledgePoints": [
+      "吸水与失水",
+      "浓度差",
+      "实验对照"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "比较不同浓度溶液中植物细胞的变化",
+    "理解浓度差与水分移动方向",
+    "形成对照分析思维"
+  ],
+  "equipment": [
+    {
+      "id": "sample-a",
+      "name": "样本 A",
+      "type": "sample"
+    },
+    {
+      "id": "sample-b",
+      "name": "样本 B",
+      "type": "sample"
+    },
+    {
+      "id": "solution-low",
+      "name": "低浓度溶液",
+      "type": "solution"
+    },
+    {
+      "id": "solution-high",
+      "name": "高浓度溶液",
+      "type": "solution"
+    },
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-materials",
+      "order": 1,
+      "title": "识别材料",
+      "description": "认识样本、两种浓度溶液和显微镜。",
+      "actionType": "identify-object",
+      "targetObject": "materials-panel",
+      "successCondition": "osmosis-materials-identified",
+      "failureHints": [
+        "请先识别本次实验材料。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "set-control-group",
+      "order": 2,
+      "title": "设置实验组与对照组",
+      "description": "将样本分别置于不同浓度溶液中。",
+      "actionType": "place-object",
+      "targetObject": "solution-cups",
+      "successCondition": "osmosis-control-group-ready",
+      "failureHints": [
+        "请把样本放入正确的对照条件中。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "switch-view",
+      "order": 3,
+      "title": "切换观察视角",
+      "description": "切换到显微观察视角比较细胞变化。",
+      "actionType": "switch-view",
+      "targetObject": "microscope",
+      "successCondition": "osmosis-view-switched",
+      "failureHints": [
+        "请切换到观察视角再比较。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "record-cell-change",
+      "order": 4,
+      "title": "记录细胞变化",
+      "description": "记录细胞吸水或失水后的变化。",
+      "actionType": "record-observation",
+      "targetObject": "cell-panel",
+      "successCondition": "cell-change-recorded",
+      "failureHints": [
+        "请根据观察现象完成记录。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summarize-osmosis",
+      "order": 5,
+      "title": "总结渗透规律",
+      "description": "总结浓度差与细胞吸水、失水的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "osmosis-summary-submitted",
+      "failureHints": [
+        "请完整描述浓度差和水分移动方向。"
+      ],
+      "scoringWeight": 23,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 25,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已能结合实验现象理解植物细胞在不同浓度溶液中的吸水和失水规律。",
+    "commonMistakes": [
+      "没有建立对照关系",
+      "观察现象与结论脱节",
+      "混淆吸水和失水方向"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "view-switch",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "sci-primary-light-straight-001",
+  "title": "光是沿直线传播的",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "primary-light-lab",
+    "cameraPreset": "beam-front",
+    "assets": [
+      "candle.glb",
+      "hole-board-set.glb",
+      "screen.glb",
+      "matchbox.glb",
+      "target-line.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光与影",
+    "unit": "光的传播",
+    "knowledgePoints": [
+      "小孔对齐",
+      "光路观察",
+      "直线传播"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识蜡烛、带孔屏、观察屏和火柴等实验器材",
+    "通过调整三块带孔屏观察光线能否连续通过",
+    "理解光在同一种均匀介质中沿直线传播"
+  ],
+  "equipment": [
+    {
+      "id": "candle",
+      "name": "蜡烛",
+      "type": "light"
+    },
+    {
+      "id": "hole-board-set",
+      "name": "带孔屏组",
+      "type": "tool"
+    },
+    {
+      "id": "screen",
+      "name": "观察屏",
+      "type": "screen"
+    },
+    {
+      "id": "matchbox",
+      "name": "火柴",
+      "type": "tool"
+    },
+    {
+      "id": "target-line",
+      "name": "目标线",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-light-straight-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识蜡烛、带孔屏、观察屏、火柴和目标线。",
+      "actionType": "identify-object",
+      "targetObject": "light-straight-panel",
+      "successCondition": "light-straight-tools-identified",
+      "failureHints": [
+        "请先识别光沿直线传播实验所需器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "light-candle-source",
+      "order": 2,
+      "title": "点亮光源",
+      "description": "点亮蜡烛，建立稳定光源。",
+      "actionType": "set-variable",
+      "targetObject": "candle",
+      "successCondition": "light-straight-candle-lit",
+      "failureHints": [
+        "请先点亮蜡烛，再继续后续操作。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "align-hole-boards",
+      "order": 3,
+      "title": "调整小孔对齐",
+      "description": "调整三块带孔屏，让小孔尽量排成一条直线。",
+      "actionType": "set-variable",
+      "targetObject": "hole-board-set",
+      "successCondition": "light-straight-holes-aligned",
+      "failureHints": [
+        "如果小孔没有对齐，光线就不能连续通过。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "observe-light-path",
+      "order": 4,
+      "title": "观察光路",
+      "description": "观察光线是否穿过三块带孔屏并到达观察屏。",
+      "actionType": "record-observation",
+      "targetObject": "screen",
+      "successCondition": "light-straight-observation-recorded",
+      "failureHints": [
+        "请重点观察观察屏上是否出现清晰亮点。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "view-switch",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-light-straight",
+      "order": 5,
+      "title": "总结传播规律",
+      "description": "总结光在同一种均匀介质中的传播特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "light-straight-summary-submitted",
+      "failureHints": [
+        "请围绕小孔对齐现象总结光的传播规律。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成光沿直线传播实验，并能用小孔对齐现象说明光在均匀介质中沿直线传播。",
+    "commonMistakes": [
+      "没有先点亮稳定光源",
+      "带孔屏没有调整到同一直线",
+      "观察到现象后没有把结论和光的传播联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "variable-control",
+    "comparison-panel",
+    "view-switch",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

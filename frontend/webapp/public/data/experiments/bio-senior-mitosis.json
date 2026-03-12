@@ -1,0 +1,189 @@
+{
+  "id": "bio-senior-mitosis-001",
+  "title": "观察植物细胞有丝分裂",
+  "stage": "高中",
+  "subject": "生物",
+  "grade": "选择性必修",
+  "durationMinutes": 15,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-cell-bench",
+    "cameraPreset": "microscope-top",
+    "assets": [
+      "root-tip.glb",
+      "stain.glb",
+      "slide.glb",
+      "microscope.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "细胞生命历程",
+    "unit": "有丝分裂",
+    "knowledgePoints": [
+      "根尖制片",
+      "染色观察",
+      "分裂时期识别"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "了解植物细胞有丝分裂观察的基本流程",
+    "认识制片、染色和调焦的关键步骤",
+    "能根据显微图像识别典型分裂时期"
+  ],
+  "equipment": [
+    {
+      "id": "root-tip",
+      "name": "洋葱根尖",
+      "type": "sample"
+    },
+    {
+      "id": "stain",
+      "name": "染色液",
+      "type": "solution"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "tool"
+    },
+    {
+      "id": "cover-slip",
+      "name": "盖玻片",
+      "type": "tool"
+    },
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "instrument"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-cell-tools",
+      "order": 1,
+      "title": "识别材料",
+      "description": "先认识根尖、载玻片、染色液和显微镜。",
+      "actionType": "identify-object",
+      "targetObject": "cell-panel",
+      "successCondition": "cell-tools-identified",
+      "failureHints": [
+        "请先识别有丝分裂观察材料。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-stain",
+      "order": 2,
+      "title": "完成染色",
+      "description": "向样本滴加染色液，准备制片。",
+      "actionType": "add-material",
+      "targetObject": "slide",
+      "successCondition": "cell-stain-added",
+      "failureHints": [
+        "请先完成染色再进入观察步骤。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "prepare-slide",
+      "order": 3,
+      "title": "制作装片",
+      "description": "完成载玻片和盖玻片的装片操作。",
+      "actionType": "place-object",
+      "targetObject": "slide",
+      "successCondition": "mitosis-slide-ready",
+      "failureHints": [
+        "装片不规范会影响后续显微观察。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-microscope",
+      "order": 4,
+      "title": "调焦观察",
+      "description": "使用显微镜调焦获得清晰图像。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "microscope-focused",
+      "failureHints": [
+        "请通过细调获得清晰细胞图像。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "focus-adjust"
+      ]
+    },
+    {
+      "id": "record-mitosis-phase",
+      "order": 5,
+      "title": "记录分裂时期",
+      "description": "观察并记录典型有丝分裂时期。",
+      "actionType": "record-observation",
+      "targetObject": "microscope-view",
+      "successCondition": "mitosis-phase-recorded",
+      "failureHints": [
+        "请根据显微图像记录细胞分裂时期。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-mitosis",
+      "order": 6,
+      "title": "总结观察要点",
+      "description": "总结制片、调焦和识别时期的关键点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "mitosis-summary-submitted",
+      "failureHints": [
+        "请概括观察流程中的关键操作与识别依据。"
+      ],
+      "scoringWeight": 14,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 68,
+    "observationScorePercent": 22,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成植物细胞有丝分裂的观察流程，并能围绕制片、调焦与时期识别进行总结。",
+    "commonMistakes": [
+      "制片顺序混乱",
+      "图像未调清晰就记录",
+      "分裂时期识别依据不足"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "object-placement",
+    "focus-adjust",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

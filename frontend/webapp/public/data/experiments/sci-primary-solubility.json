@@ -1,0 +1,174 @@
+{
+  "id": "sci-primary-solubility-001",
+  "title": "物质在水中的溶解",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "四年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "primary-water-desk",
+    "cameraPreset": "desk-top",
+    "assets": [
+      "beaker.glb",
+      "water.glb",
+      "salt.glb",
+      "sand.glb",
+      "stirrer.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "物质变化",
+    "unit": "溶解现象",
+    "knowledgePoints": [
+      "溶解与不溶解",
+      "搅拌影响",
+      "比较实验记录"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "比较不同物质在水中的溶解情况",
+    "观察搅拌对溶解快慢的影响",
+    "形成规范记录习惯"
+  ],
+  "equipment": [
+    {
+      "id": "beaker-a",
+      "name": "烧杯 A",
+      "type": "container"
+    },
+    {
+      "id": "beaker-b",
+      "name": "烧杯 B",
+      "type": "container"
+    },
+    {
+      "id": "salt",
+      "name": "食盐",
+      "type": "material"
+    },
+    {
+      "id": "sand",
+      "name": "沙子",
+      "type": "material"
+    },
+    {
+      "id": "stirrer",
+      "name": "玻璃棒",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-materials",
+      "order": 1,
+      "title": "识别材料",
+      "description": "认识烧杯、食盐、沙子和玻璃棒。",
+      "actionType": "identify-object",
+      "targetObject": "materials-panel",
+      "successCondition": "solubility-materials-identified",
+      "failureHints": [
+        "请先认识实验材料。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-materials",
+      "order": 2,
+      "title": "加入待测物质",
+      "description": "分别向两个烧杯加入食盐和沙子。",
+      "actionType": "add-material",
+      "targetObject": "beakers",
+      "successCondition": "solubility-materials-added",
+      "failureHints": [
+        "加入对象不正确，无法形成对比。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "stir-and-compare",
+      "order": 3,
+      "title": "搅拌并比较",
+      "description": "搅拌后比较两种物质在水中的变化。",
+      "actionType": "set-variable",
+      "targetObject": "stirrer",
+      "successCondition": "solubility-compared",
+      "failureHints": [
+        "请搅拌并比较两种物质的不同结果。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "record-result",
+      "order": 4,
+      "title": "记录结果",
+      "description": "记录哪些物质能够溶解，哪些不能。",
+      "actionType": "record-observation",
+      "targetObject": "record-panel",
+      "successCondition": "solubility-recorded",
+      "failureHints": [
+        "请根据实验现象填写记录。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "complete-summary",
+      "order": 5,
+      "title": "总结溶解现象",
+      "description": "总结本次实验的比较结论。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "solubility-summary-submitted",
+      "failureHints": [
+        "请完成溶解现象总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 35,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已能比较物质在水中的溶解情况，并理解搅拌会影响溶解快慢。",
+    "commonMistakes": [
+      "没有形成对照组",
+      "记录时混淆“溶解”和“沉淀”",
+      "只观察不总结"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

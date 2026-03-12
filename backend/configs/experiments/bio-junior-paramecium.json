@@ -1,0 +1,177 @@
+{
+  "id": "bio-junior-paramecium-001",
+  "title": "观察草履虫",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-microscope-desk",
+    "cameraPreset": "microscope-front",
+    "assets": [
+      "microscope.glb",
+      "dropper.glb",
+      "slide.glb",
+      "cover-slip.glb",
+      "light-source.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "单细胞生物",
+    "unit": "观察草履虫",
+    "knowledgePoints": [
+      "临时装片",
+      "显微观察",
+      "运动特点"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识显微镜、滴管、载玻片、盖玻片和光源等器材",
+    "学会制作草履虫临时装片并调焦观察",
+    "了解草履虫作为单细胞生物的形态和运动特点"
+  ],
+  "equipment": [
+    {
+      "id": "microscope",
+      "name": "显微镜",
+      "type": "optical"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "slide",
+      "name": "载玻片",
+      "type": "sample"
+    },
+    {
+      "id": "cover-slip",
+      "name": "盖玻片",
+      "type": "sample"
+    },
+    {
+      "id": "light-source",
+      "name": "光源",
+      "type": "light"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-paramecium-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识显微镜、滴管、载玻片、盖玻片和光源。",
+      "actionType": "identify-object",
+      "targetObject": "paramecium-panel",
+      "successCondition": "paramecium-tools-identified",
+      "failureHints": [
+        "请先识别观察草履虫实验的器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "make-temp-slide",
+      "order": 2,
+      "title": "制作临时装片",
+      "description": "把样液滴在载玻片上，并规范盖上盖玻片。",
+      "actionType": "place-object",
+      "targetObject": "slide",
+      "successCondition": "paramecium-slide-prepared",
+      "failureHints": [
+        "请先完成临时装片制作，再放到显微镜下观察。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-paramecium-focus",
+      "order": 3,
+      "title": "调光调焦",
+      "description": "调节光线和焦距，让草履虫轮廓与运动清晰可见。",
+      "actionType": "adjust-focus",
+      "targetObject": "microscope",
+      "successCondition": "paramecium-focused",
+      "failureHints": [
+        "请继续调光和调焦，直到草履虫清晰可见。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "light-adjust",
+        "focus-adjust",
+        "view-zoom"
+      ]
+    },
+    {
+      "id": "observe-paramecium-motion",
+      "order": 4,
+      "title": "观察草履虫运动",
+      "description": "观察草履虫在水滴中的运动方式和状态。",
+      "actionType": "record-observation",
+      "targetObject": "slide",
+      "successCondition": "paramecium-observation-recorded",
+      "failureHints": [
+        "请记录草履虫的形态特征和运动现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-paramecium",
+      "order": 5,
+      "title": "总结草履虫特点",
+      "description": "总结草履虫的单细胞特征和运动特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "paramecium-summary-submitted",
+      "failureHints": [
+        "请把草履虫的形态和运动方式概括完整。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成草履虫观察实验，并能描述它作为单细胞生物的形态和运动特点。",
+    "commonMistakes": [
+      "没有先制作规范的临时装片",
+      "显微镜图像未调清楚就开始观察",
+      "只看到草履虫在运动，没有总结单细胞生物特点"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "light-adjust",
+    "focus-adjust",
+    "view-zoom",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

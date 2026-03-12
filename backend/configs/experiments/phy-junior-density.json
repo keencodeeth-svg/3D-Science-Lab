@@ -1,0 +1,171 @@
+{
+  "id": "phy-junior-density-001",
+  "title": "测量固体密度",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 14,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "physics-density-bench",
+    "cameraPreset": "scale-front",
+    "assets": [
+      "balance.glb",
+      "metal-block.glb",
+      "graduated-cylinder.glb",
+      "water.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "质量与密度",
+    "unit": "密度测量",
+    "knowledgePoints": [
+      "测量质量",
+      "排水法测体积",
+      "计算密度"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "掌握测量固体质量和体积的方法",
+    "学会用公式计算密度",
+    "形成规范实验记录"
+  ],
+  "equipment": [
+    {
+      "id": "balance",
+      "name": "托盘天平",
+      "type": "meter"
+    },
+    {
+      "id": "metal-block",
+      "name": "金属块",
+      "type": "sample"
+    },
+    {
+      "id": "graduated-cylinder",
+      "name": "量筒",
+      "type": "meter"
+    },
+    {
+      "id": "water",
+      "name": "水",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-equipment",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识天平、金属块和量筒。",
+      "actionType": "identify-object",
+      "targetObject": "equipment-panel",
+      "successCondition": "density-equipment-identified",
+      "failureHints": [
+        "请先识别本次实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "measure-mass",
+      "order": 2,
+      "title": "测量质量",
+      "description": "用天平测量金属块质量。",
+      "actionType": "record-observation",
+      "targetObject": "balance",
+      "successCondition": "mass-recorded",
+      "failureHints": [
+        "请先完成质量测量并记录。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "meter-readout",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "measure-volume",
+      "order": 3,
+      "title": "测量体积",
+      "description": "用排水法测量金属块体积。",
+      "actionType": "place-object",
+      "targetObject": "graduated-cylinder",
+      "successCondition": "volume-recorded",
+      "failureHints": [
+        "量筒读数或排水步骤不正确。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "object-placement",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "calculate-density",
+      "order": 4,
+      "title": "计算密度",
+      "description": "根据质量和体积计算金属块密度。",
+      "actionType": "set-variable",
+      "targetObject": "formula-panel",
+      "successCondition": "density-calculated",
+      "failureHints": [
+        "请使用正确公式完成计算。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "formula-panel"
+      ]
+    },
+    {
+      "id": "summarize-method",
+      "order": 5,
+      "title": "总结方法",
+      "description": "总结测量固体密度的步骤与注意事项。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "density-summary-submitted",
+      "failureHints": [
+        "请完整描述质量、体积和密度计算关系。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 20,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已掌握固体密度测量的关键步骤，并能根据实验数据完成计算。",
+    "commonMistakes": [
+      "天平读数不规范",
+      "量筒视线不平视",
+      "公式代入错误"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "meter-readout",
+    "object-placement",
+    "observation-panel",
+    "formula-panel",
+    "summary-panel"
+  ]
+}

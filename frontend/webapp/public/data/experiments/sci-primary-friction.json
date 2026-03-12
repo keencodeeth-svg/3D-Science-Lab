@@ -1,0 +1,173 @@
+{
+  "id": "sci-primary-friction-001",
+  "title": "摩擦力大小比较",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-motion-bench",
+    "cameraPreset": "ramp-front",
+    "assets": [
+      "cart.glb",
+      "ramp.glb",
+      "smooth-board.glb",
+      "rough-board.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "运动与力",
+    "unit": "摩擦力大小比较",
+    "knowledgePoints": [
+      "光滑面与粗糙面",
+      "滑行距离",
+      "摩擦力影响"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识小车、斜面、光滑板和粗糙板等器材",
+    "通过比较小车滑行距离判断不同表面的摩擦力大小",
+    "理解表面越粗糙，摩擦力通常越大"
+  ],
+  "equipment": [
+    {
+      "id": "cart",
+      "name": "小车",
+      "type": "sample"
+    },
+    {
+      "id": "ramp",
+      "name": "斜面",
+      "type": "tool"
+    },
+    {
+      "id": "smooth-board",
+      "name": "光滑板",
+      "type": "tool"
+    },
+    {
+      "id": "rough-board",
+      "name": "粗糙板",
+      "type": "tool"
+    },
+    {
+      "id": "ruler",
+      "name": "刻度尺",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-friction-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别小车、斜面、光滑板、粗糙板和刻度尺。",
+      "actionType": "identify-object",
+      "targetObject": "friction-panel",
+      "successCondition": "friction-tools-identified",
+      "failureHints": [
+        "请先识别摩擦力实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "test-smooth-surface",
+      "order": 2,
+      "title": "测试光滑面",
+      "description": "先让小车从光滑面滑下，记录更长的滑行距离。",
+      "actionType": "place-object",
+      "targetObject": "smooth-board",
+      "successCondition": "smooth-surface-tested",
+      "failureHints": [
+        "请先在光滑面上完成滑行实验。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "test-rough-surface",
+      "order": 3,
+      "title": "测试粗糙面",
+      "description": "再换成粗糙面，观察小车更快停下。",
+      "actionType": "place-object",
+      "targetObject": "rough-board",
+      "successCondition": "rough-surface-tested",
+      "failureHints": [
+        "请再用粗糙面完成同样实验。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "compare-sliding-distance",
+      "order": 4,
+      "title": "比较滑行距离",
+      "description": "根据两次滑行结果比较不同表面对摩擦力的影响。",
+      "actionType": "record-observation",
+      "targetObject": "ruler",
+      "successCondition": "sliding-distance-compared",
+      "failureHints": [
+        "请比较两种表面的滑行距离差异。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-friction",
+      "order": 5,
+      "title": "总结摩擦规律",
+      "description": "总结表面粗糙程度与摩擦力大小的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "friction-summary-submitted",
+      "failureHints": [
+        "请围绕表面粗糙程度和滑行距离完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成摩擦力实验，并能说明粗糙面会让小车更快停下，说明摩擦力更大。",
+    "commonMistakes": [
+      "两次实验的释放条件不一致",
+      "只看小车快慢，没有比较滑行距离",
+      "没有把表面粗糙程度和摩擦力大小联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

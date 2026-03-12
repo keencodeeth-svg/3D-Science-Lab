@@ -1,0 +1,174 @@
+{
+  "id": "sci-primary-surface-tension-001",
+  "title": "水的表面张力",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 9,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "science-water-bench",
+    "cameraPreset": "bowl-front",
+    "assets": [
+      "bowl.glb",
+      "clip.glb",
+      "dropper.glb",
+      "detergent.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "水与液体",
+    "unit": "水的表面张力",
+    "knowledgePoints": [
+      "轻放回形针",
+      "洗洁精影响",
+      "水面张力"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识水槽、回形针、滴管和洗洁精等材料",
+    "通过回形针停留和下沉比较水面状态变化",
+    "理解洗洁精会削弱表面张力"
+  ],
+  "equipment": [
+    {
+      "id": "bowl",
+      "name": "水槽",
+      "type": "container"
+    },
+    {
+      "id": "water",
+      "name": "清水",
+      "type": "material"
+    },
+    {
+      "id": "clip",
+      "name": "回形针",
+      "type": "sample"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "detergent",
+      "name": "洗洁精",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-surface-tension-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别水槽、清水、回形针、滴管和洗洁精。",
+      "actionType": "identify-object",
+      "targetObject": "surface-tension-panel",
+      "successCondition": "surface-tension-tools-identified",
+      "failureHints": [
+        "请先识别表面张力实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "place-clip-on-water",
+      "order": 2,
+      "title": "让回形针轻放在水面",
+      "description": "让回形针轻轻停留在水面，建立表面张力现象。",
+      "actionType": "place-object",
+      "targetObject": "clip",
+      "successCondition": "clip-on-water",
+      "failureHints": [
+        "请轻轻放置回形针，避免直接沉底。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "add-detergent",
+      "order": 3,
+      "title": "滴入洗洁精",
+      "description": "再滴入少量洗洁精，观察水面状态变化。",
+      "actionType": "add-material",
+      "targetObject": "bowl",
+      "successCondition": "detergent-added",
+      "failureHints": [
+        "请在回形针停留后再滴入洗洁精。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "observe-clip-change",
+      "order": 4,
+      "title": "观察回形针变化",
+      "description": "根据回形针是否下沉完成现象判断。",
+      "actionType": "record-observation",
+      "targetObject": "clip",
+      "successCondition": "clip-change-recorded",
+      "failureHints": [
+        "请记录洗洁精加入前后回形针状态变化。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-surface-tension",
+      "order": 5,
+      "title": "总结表面张力现象",
+      "description": "总结表面张力及洗洁精对它的影响。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "surface-tension-summary-submitted",
+      "failureHints": [
+        "请围绕回形针停留和下沉现象完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成表面张力实验，并能说明洗洁精会削弱水的表面张力。",
+    "commonMistakes": [
+      "回形针放得太重，导致一开始就下沉",
+      "没有先建立水面托住回形针的现象",
+      "只记录下沉结果，没有解释洗洁精的影响"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "material-add",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "id": "bio-junior-fermentation-001",
+  "title": "酵母发酵现象",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "八年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-fermentation-bench",
+    "cameraPreset": "flask-front",
+    "assets": [
+      "flask.glb",
+      "balloon.glb",
+      "yeast.glb",
+      "sugar-water.glb",
+      "warm-bath.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "细菌和真菌",
+    "unit": "酵母发酵",
+    "knowledgePoints": [
+      "酵母活动",
+      "温暖环境",
+      "产气现象"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识锥形瓶、气球、酵母、糖水和温水环境等器材材料",
+    "通过设置适宜条件观察酵母发酵产生气体的现象",
+    "理解酵母在适宜环境中会分解糖并释放气体"
+  ],
+  "equipment": [
+    {
+      "id": "flask",
+      "name": "锥形瓶",
+      "type": "container"
+    },
+    {
+      "id": "balloon",
+      "name": "气球",
+      "type": "tool"
+    },
+    {
+      "id": "yeast",
+      "name": "酵母",
+      "type": "sample"
+    },
+    {
+      "id": "sugar-water",
+      "name": "糖水",
+      "type": "solution"
+    },
+    {
+      "id": "warm-bath",
+      "name": "温水环境",
+      "type": "environment"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-fermentation-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识锥形瓶、气球、酵母、糖水和温水环境。",
+      "actionType": "identify-object",
+      "targetObject": "fermentation-panel",
+      "successCondition": "fermentation-tools-identified",
+      "failureHints": [
+        "请先识别酵母发酵实验器材和材料。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "add-yeast-sugar-water",
+      "order": 2,
+      "title": "加入酵母和糖水",
+      "description": "把酵母和糖水加入瓶中，并套好气球。",
+      "actionType": "add-material",
+      "targetObject": "flask",
+      "successCondition": "fermentation-materials-added",
+      "failureHints": [
+        "请先把酵母和糖水加入锥形瓶，并套好气球。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "set-warm-environment",
+      "order": 3,
+      "title": "放入温暖环境",
+      "description": "把装置放在适宜温暖环境中，促进酵母活动。",
+      "actionType": "set-variable",
+      "targetObject": "warm-bath",
+      "successCondition": "fermentation-warm-environment-set",
+      "failureHints": [
+        "请把装置放入适宜温暖环境后再观察。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-fermentation",
+      "order": 4,
+      "title": "观察发酵现象",
+      "description": "观察瓶内气泡和气球膨胀变化。",
+      "actionType": "record-observation",
+      "targetObject": "balloon",
+      "successCondition": "fermentation-observation-recorded",
+      "failureHints": [
+        "请记录瓶内气泡与气球鼓起的现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-fermentation",
+      "order": 5,
+      "title": "总结发酵特点",
+      "description": "总结酵母在适宜条件下发酵会产生气体的特点。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "fermentation-summary-submitted",
+      "failureHints": [
+        "请把适宜环境、气泡和气球膨胀之间的关系概括出来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成酵母发酵实验，并能说明酵母在适宜环境中分解糖会产生气体，使气球鼓起。",
+    "commonMistakes": [
+      "没有先加入酵母和糖水就开始观察",
+      "装置没有放在适宜温暖环境中",
+      "只看到气球鼓起，没有总结发酵产气特点"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

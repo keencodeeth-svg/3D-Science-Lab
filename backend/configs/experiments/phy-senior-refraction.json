@@ -1,0 +1,169 @@
+{
+  "id": "phy-senior-refraction-001",
+  "title": "光的折射规律",
+  "stage": "高中",
+  "subject": "物理",
+  "grade": "高一",
+  "durationMinutes": 15,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "physics-optics-bench",
+    "cameraPreset": "ray-top",
+    "assets": [
+      "laser.glb",
+      "semicircle-block.glb",
+      "protractor.glb",
+      "ray-screen.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光学规律",
+    "unit": "光的折射",
+    "knowledgePoints": [
+      "入射角与折射角",
+      "法线概念",
+      "规律归纳"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "观察光由一种介质进入另一种介质时的偏折现象",
+    "比较入射角与折射角的变化",
+    "归纳光的折射规律"
+  ],
+  "equipment": [
+    {
+      "id": "laser",
+      "name": "激光光源",
+      "type": "light"
+    },
+    {
+      "id": "semicircle-block",
+      "name": "半圆玻璃砖",
+      "type": "optics"
+    },
+    {
+      "id": "protractor",
+      "name": "量角器",
+      "type": "tool"
+    },
+    {
+      "id": "ray-screen",
+      "name": "光路板",
+      "type": "screen"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "认识激光光源、玻璃砖和量角器。",
+      "actionType": "identify-object",
+      "targetObject": "equipment-panel",
+      "successCondition": "refraction-tools-identified",
+      "failureHints": [
+        "请先识别本次光学实验器材。"
+      ],
+      "scoringWeight": 15,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "setup-optics",
+      "order": 2,
+      "title": "搭建光路",
+      "description": "摆放玻璃砖和光路板，形成规范实验装置。",
+      "actionType": "place-object",
+      "targetObject": "optics-stage",
+      "successCondition": "refraction-stage-ready",
+      "failureHints": [
+        "装置位置不正确，无法准确观察光路。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "adjust-angle",
+      "order": 3,
+      "title": "改变入射角",
+      "description": "改变入射角，观察折射角变化。",
+      "actionType": "set-variable",
+      "targetObject": "laser",
+      "successCondition": "angles-compared",
+      "failureHints": [
+        "请在改变入射角后再比较折射角。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "variable-control",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "record-rays",
+      "order": 4,
+      "title": "记录光路现象",
+      "description": "记录入射光线、法线和折射光线位置。",
+      "actionType": "record-observation",
+      "targetObject": "ray-screen",
+      "successCondition": "rays-recorded",
+      "failureHints": [
+        "请先明确法线，再记录光路。"
+      ],
+      "scoringWeight": 19,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summarize-law",
+      "order": 5,
+      "title": "总结折射规律",
+      "description": "归纳入射角与折射角的变化关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "refraction-summary-submitted",
+      "failureHints": [
+        "请完整总结折射规律。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 65,
+    "observationScorePercent": 20,
+    "resultScorePercent": 15
+  },
+  "feedback": {
+    "successSummary": "你已能通过实验现象归纳光的折射规律。",
+    "commonMistakes": [
+      "把法线方向判断错误",
+      "只看入射光不比较折射光",
+      "改变入射角后未记录对应折射角"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

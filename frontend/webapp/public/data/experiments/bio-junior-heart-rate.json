@@ -1,0 +1,174 @@
+{
+  "id": "bio-junior-heart-rate-001",
+  "title": "运动前后心率变化",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-health-bench",
+    "cameraPreset": "pulse-front",
+    "assets": [
+      "timer.glb",
+      "pulse-chart.glb",
+      "exercise-pad.glb",
+      "record-sheet.glb",
+      "heart-model.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "人体生命活动",
+    "unit": "运动与心率",
+    "knowledgePoints": [
+      "静息心率",
+      "运动后心率",
+      "供氧需求变化"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识计时器、脉搏图、运动垫和记录表等器材",
+    "比较静息状态与短时运动后的心率变化",
+    "理解运动后心率增快与机体供氧需求增加有关"
+  ],
+  "equipment": [
+    {
+      "id": "timer",
+      "name": "计时器",
+      "type": "meter"
+    },
+    {
+      "id": "pulse-chart",
+      "name": "脉搏图",
+      "type": "tool"
+    },
+    {
+      "id": "exercise-pad",
+      "name": "运动垫",
+      "type": "tool"
+    },
+    {
+      "id": "record-sheet",
+      "name": "记录表",
+      "type": "tool"
+    },
+    {
+      "id": "heart-model",
+      "name": "心脏模型",
+      "type": "sample"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-heart-rate-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识计时器、脉搏图、运动垫、记录表和心脏模型。",
+      "actionType": "identify-object",
+      "targetObject": "heart-rate-panel",
+      "successCondition": "heart-rate-tools-identified",
+      "failureHints": [
+        "请先识别心率实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "measure-resting-heart-rate",
+      "order": 2,
+      "title": "测静息心率",
+      "description": "在静息状态下测量脉搏并记录基础心率。",
+      "actionType": "record-observation",
+      "targetObject": "pulse-chart",
+      "successCondition": "resting-heart-rate-recorded",
+      "failureHints": [
+        "请先在安静状态下完成第一次心率测量。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "complete-short-exercise",
+      "order": 3,
+      "title": "完成短时运动",
+      "description": "进行短时运动，为第二次测量建立运动后状态。",
+      "actionType": "set-variable",
+      "targetObject": "exercise-pad",
+      "successCondition": "short-exercise-completed",
+      "failureHints": [
+        "请先完成短时运动，再比较前后心率。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "measure-active-heart-rate",
+      "order": 4,
+      "title": "测运动后心率",
+      "description": "记录运动后脉搏读数，并与静息心率做比较。",
+      "actionType": "record-observation",
+      "targetObject": "record-sheet",
+      "successCondition": "active-heart-rate-recorded",
+      "failureHints": [
+        "请记录运动后心率，并完成前后比较。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-heart-rate",
+      "order": 5,
+      "title": "总结变化原因",
+      "description": "总结运动前后心率变化及其生理意义。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "heart-rate-summary-submitted",
+      "failureHints": [
+        "请把心率变化和机体供氧需求联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成运动前后心率实验，并能说明运动后心率增快是为了满足更高的供氧和运输需求。",
+    "commonMistakes": [
+      "没有先测静息心率就直接开始运动",
+      "完成运动后没有及时记录第二次心率",
+      "只记住数值变化，没有解释原因"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "variable-control",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

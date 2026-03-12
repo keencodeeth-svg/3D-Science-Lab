@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-balance-forces-001",
+  "title": "二力平衡",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "八年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-force-track",
+    "cameraPreset": "cart-front",
+    "assets": [
+      "cart.glb",
+      "spring-scale.glb",
+      "track.glb",
+      "fix-stand.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "力与运动",
+    "unit": "二力平衡",
+    "knowledgePoints": [
+      "相等反向拉力",
+      "合力为零",
+      "静止状态分析"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识小车、轨道、固定支架和两侧测力计的装置组成",
+    "通过调整两侧拉力观察小车是否保持静止",
+    "理解二力平衡时大小相等、方向相反、作用在同一直线上"
+  ],
+  "equipment": [
+    {
+      "id": "cart",
+      "name": "小车",
+      "type": "sample"
+    },
+    {
+      "id": "left-scale",
+      "name": "左侧测力计",
+      "type": "meter"
+    },
+    {
+      "id": "right-scale",
+      "name": "右侧测力计",
+      "type": "meter"
+    },
+    {
+      "id": "track",
+      "name": "轨道",
+      "type": "tool"
+    },
+    {
+      "id": "fix-stand",
+      "name": "固定支架",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-balance-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别小车、左右弹簧测力计、轨道和固定支架。",
+      "actionType": "identify-object",
+      "targetObject": "balance-panel",
+      "successCondition": "balance-tools-identified",
+      "failureHints": [
+        "请先识别二力平衡实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "connect-cart-and-scales",
+      "order": 2,
+      "title": "连接小车与测力计",
+      "description": "把小车两端连接到测力计，建立对拉实验装置。",
+      "actionType": "place-object",
+      "targetObject": "cart",
+      "successCondition": "cart-scales-connected",
+      "failureHints": [
+        "请先建立小车两端对拉装置。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "set-equal-force",
+      "order": 3,
+      "title": "调成相等拉力",
+      "description": "把两侧拉力调成大小相等、方向相反。",
+      "actionType": "set-variable",
+      "targetObject": "force-panel",
+      "successCondition": "equal-force-set",
+      "failureHints": [
+        "请把两侧拉力调整为大小相等。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "variable-control"
+      ]
+    },
+    {
+      "id": "observe-cart-state",
+      "order": 4,
+      "title": "观察小车状态",
+      "description": "观察小车是否保持静止，分析合力情况。",
+      "actionType": "record-observation",
+      "targetObject": "cart",
+      "successCondition": "cart-state-recorded",
+      "failureHints": [
+        "请记录小车在相等拉力下的状态。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-balance-forces",
+      "order": 5,
+      "title": "总结二力平衡",
+      "description": "总结二力平衡时物体的受力和运动状态。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "balance-summary-submitted",
+      "failureHints": [
+        "请围绕合力为零和物体状态完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成二力平衡实验，并能说明相等反向拉力作用下小车保持静止的原因。",
+    "commonMistakes": [
+      "装置未连接完整就开始调节拉力",
+      "两侧拉力不相等却判断为平衡",
+      "没有把小车静止与合力为零联系起来"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "comparison-panel",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

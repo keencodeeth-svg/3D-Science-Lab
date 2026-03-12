@@ -1,0 +1,171 @@
+{
+  "id": "chem-junior-precipitation-001",
+  "title": "沉淀反应",
+  "stage": "初中",
+  "subject": "化学",
+  "grade": "九年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "chemistry-precipitation-bench",
+    "cameraPreset": "beaker-front",
+    "assets": [
+      "beaker.glb",
+      "solution-a.glb",
+      "solution-b.glb",
+      "glass-rod.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "复分解反应",
+    "unit": "沉淀反应",
+    "knowledgePoints": [
+      "混合前后现象",
+      "浑浊与沉淀",
+      "难溶物生成"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识烧杯、两种溶液、滴管和玻璃棒等实验器材",
+    "通过混合两种溶液观察沉淀生成现象",
+    "理解有些溶液混合后会生成难溶物"
+  ],
+  "equipment": [
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "solution-a",
+      "name": "硫酸铜溶液",
+      "type": "solution"
+    },
+    {
+      "id": "solution-b",
+      "name": "氢氧化钠溶液",
+      "type": "solution"
+    },
+    {
+      "id": "dropper",
+      "name": "滴管",
+      "type": "tool"
+    },
+    {
+      "id": "glass-rod",
+      "name": "玻璃棒",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-precipitation-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别烧杯、两种溶液、滴管和玻璃棒。",
+      "actionType": "identify-object",
+      "targetObject": "precipitation-panel",
+      "successCondition": "precipitation-tools-identified",
+      "failureHints": [
+        "请先识别沉淀反应实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-two-solutions",
+      "order": 2,
+      "title": "准备两种溶液",
+      "description": "先准备两种待反应溶液，建立反应前状态。",
+      "actionType": "add-material",
+      "targetObject": "beaker",
+      "successCondition": "two-solutions-ready",
+      "failureHints": [
+        "请先把两种待反应溶液准备好。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "mix-solutions",
+      "order": 3,
+      "title": "混合溶液",
+      "description": "再把两种溶液混合并观察反应杯中的变化。",
+      "actionType": "add-material",
+      "targetObject": "beaker",
+      "successCondition": "solutions-mixed",
+      "failureHints": [
+        "请把两种溶液混合后再观察现象。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "observe-precipitate",
+      "order": 4,
+      "title": "观察沉淀生成",
+      "description": "重点观察是否出现浑浊、絮状物或明显沉淀。",
+      "actionType": "record-observation",
+      "targetObject": "beaker",
+      "successCondition": "precipitate-recorded",
+      "failureHints": [
+        "请记录浑浊或沉淀形成的现象。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-precipitation",
+      "order": 5,
+      "title": "总结沉淀反应",
+      "description": "总结有些溶液混合后会生成难溶物而析出沉淀。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "precipitation-summary-submitted",
+      "failureHints": [
+        "请围绕沉淀生成原因完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成沉淀反应实验，并能说明某些溶液混合后会生成难溶物而析出沉淀。",
+    "commonMistakes": [
+      "没有先建立清晰的混合前状态",
+      "把颜色变化误判为沉淀生成",
+      "只看到浑浊现象，没有总结难溶物生成原因"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

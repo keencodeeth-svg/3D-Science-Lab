@@ -1,0 +1,169 @@
+{
+  "id": "sci-primary-shadow-001",
+  "title": "影子的方向与长度",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "primary-light-lab",
+    "cameraPreset": "desk-side",
+    "assets": [
+      "lamp.glb",
+      "screen.glb",
+      "stick.glb",
+      "measure-ruler.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "光与影",
+    "unit": "影子变化规律",
+    "knowledgePoints": [
+      "影子方向变化",
+      "影子长度变化",
+      "光源位置与影子关系"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识光源位置变化会影响影子方向和长度",
+    "学会用简单装置观察影子变化",
+    "总结影子与光源关系"
+  ],
+  "equipment": [
+    {
+      "id": "lamp",
+      "name": "光源灯",
+      "type": "light"
+    },
+    {
+      "id": "screen",
+      "name": "屏板",
+      "type": "screen"
+    },
+    {
+      "id": "stick",
+      "name": "立杆",
+      "type": "object"
+    },
+    {
+      "id": "ruler",
+      "name": "刻度尺",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-tools",
+      "order": 1,
+      "title": "识别观察装置",
+      "description": "先认识光源灯、立杆和屏板。",
+      "actionType": "identify-object",
+      "targetObject": "equipment-panel",
+      "successCondition": "shadow-tools-identified",
+      "failureHints": [
+        "请先识别本次实验器材。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "setup-shadow",
+      "order": 2,
+      "title": "搭建观察装置",
+      "description": "把光源灯、立杆和屏板摆成完整观察装置。",
+      "actionType": "place-object",
+      "targetObject": "shadow-stage",
+      "successCondition": "shadow-stage-ready",
+      "failureHints": [
+        "器材位置不正确，影子无法清晰呈现。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "change-light-angle",
+      "order": 3,
+      "title": "改变光源位置",
+      "description": "调节光源位置，比较影子方向和长度变化。",
+      "actionType": "set-variable",
+      "targetObject": "lamp",
+      "successCondition": "light-angle-compared",
+      "failureHints": [
+        "请比较不同光源位置带来的影子变化。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "view-switch",
+        "variable-control"
+      ]
+    },
+    {
+      "id": "record-shadow",
+      "order": 4,
+      "title": "记录观察现象",
+      "description": "记录影子的方向和长短变化。",
+      "actionType": "record-observation",
+      "targetObject": "screen",
+      "successCondition": "shadow-observation-recorded",
+      "failureHints": [
+        "请先完成比较，再记录影子变化。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-shadow",
+      "order": 5,
+      "title": "总结规律",
+      "description": "概括影子的方向和长度与光源位置的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "shadow-summary-submitted",
+      "failureHints": [
+        "请完整描述影子与光源位置的关系。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 70,
+    "observationScorePercent": 30,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已理解影子的方向和长度会随着光源位置变化而变化。",
+    "commonMistakes": [
+      "只记录影子长短，不比较方向",
+      "未改变光源位置就直接下结论",
+      "没有用完整语言总结规律"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "view-switch",
+    "variable-control",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

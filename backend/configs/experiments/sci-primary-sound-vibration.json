@@ -1,0 +1,168 @@
+{
+  "id": "sci-primary-sound-vibration-001",
+  "title": "声音的产生",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "四年级",
+  "durationMinutes": 11,
+  "modes": [
+    "引导",
+    "练习",
+    "考核"
+  ],
+  "scene": {
+    "environment": "primary-sound-bench",
+    "cameraPreset": "instrument-front",
+    "assets": [
+      "rubber-band-box.glb",
+      "tuning-fork.glb",
+      "drum.glb",
+      "paper-bits.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "声音",
+    "unit": "声音的产生",
+    "knowledgePoints": [
+      "振动现象",
+      "声音来源",
+      "观察与归纳"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "观察皮筋、音叉和鼓面发声时的振动现象",
+    "理解声音通常由物体振动产生",
+    "能把现象与结论对应起来"
+  ],
+  "equipment": [
+    {
+      "id": "rubber-band-box",
+      "name": "皮筋盒",
+      "type": "instrument"
+    },
+    {
+      "id": "tuning-fork",
+      "name": "音叉",
+      "type": "instrument"
+    },
+    {
+      "id": "drum",
+      "name": "小鼓",
+      "type": "instrument"
+    },
+    {
+      "id": "paper-bits",
+      "name": "纸屑",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-instruments",
+      "order": 1,
+      "title": "识别发声器材",
+      "description": "先认识皮筋盒、音叉、小鼓和纸屑。",
+      "actionType": "identify-object",
+      "targetObject": "instrument-panel",
+      "successCondition": "sound-materials-identified",
+      "failureHints": [
+        "请先认识发声观察所需器材。"
+      ],
+      "scoringWeight": 18,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "trigger-vibration",
+      "order": 2,
+      "title": "让器材发声",
+      "description": "拨动或敲击器材，准备观察振动。",
+      "actionType": "place-object",
+      "targetObject": "sound-bench",
+      "successCondition": "sound-triggered",
+      "failureHints": [
+        "请先让器材发声，再观察现象。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-placement"
+      ]
+    },
+    {
+      "id": "switch-close-view",
+      "order": 3,
+      "title": "切换近景视角",
+      "description": "切换到近景视角观察纸屑或器材表面的抖动。",
+      "actionType": "switch-view",
+      "targetObject": "close-view-panel",
+      "successCondition": "close-view-activated",
+      "failureHints": [
+        "近景视角更容易看清振动现象。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "view-switch"
+      ]
+    },
+    {
+      "id": "record-vibration",
+      "order": 4,
+      "title": "记录振动现象",
+      "description": "观察纸屑、皮筋或鼓面的振动并完成记录。",
+      "actionType": "record-observation",
+      "targetObject": "observation-panel",
+      "successCondition": "vibration-recorded",
+      "failureHints": [
+        "请根据振动现象完成记录。"
+      ],
+      "scoringWeight": 24,
+      "requiredCapabilities": [
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-sound",
+      "order": 5,
+      "title": "总结声音来源",
+      "description": "总结声音和物体振动之间的关系。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "sound-summary-submitted",
+      "failureHints": [
+        "请把看到的振动现象与声音来源联系起来。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 68,
+    "observationScorePercent": 22,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已观察到发声时的振动现象，并能用它解释声音的产生。",
+    "commonMistakes": [
+      "只听声音不看振动",
+      "近景观察不足",
+      "结论没有对应现象"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "object-placement",
+    "view-switch",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

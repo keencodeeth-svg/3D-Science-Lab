@@ -1,0 +1,11 @@
+{
+  "name": "3d-science-lab-backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch ./server.mjs",
+    "start": "node ./server.mjs",
+    "reset:data": "node ./scripts/reset-state.mjs"
+  }
+}

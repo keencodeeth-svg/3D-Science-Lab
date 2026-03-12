@@ -1,0 +1,185 @@
+{
+  "id": "bio-junior-breath-gas-001",
+  "title": "呼出气体与空气的差异",
+  "stage": "初中",
+  "subject": "生物",
+  "grade": "七年级",
+  "durationMinutes": 10,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "biology-gas-comparison-bench",
+    "cameraPreset": "tube-front",
+    "assets": [
+      "limewater.glb",
+      "test-tube-set.glb",
+      "straw.glb",
+      "air-bag.glb",
+      "mouthpiece.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "人体的呼吸",
+    "unit": "呼出气体成分变化",
+    "knowledgePoints": [
+      "石灰水检验",
+      "对比实验",
+      "二氧化碳含量差异"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识澄清石灰水、试管、导管、空气袋和吹气口等器材",
+    "通过对比空气与呼出气体通入石灰水后的现象差异完成判断",
+    "理解呼出气体中二氧化碳含量比吸入空气更多"
+  ],
+  "equipment": [
+    {
+      "id": "limewater-a",
+      "name": "澄清石灰水 A",
+      "type": "solution"
+    },
+    {
+      "id": "limewater-b",
+      "name": "澄清石灰水 B",
+      "type": "solution"
+    },
+    {
+      "id": "tube-a",
+      "name": "试管 A",
+      "type": "container"
+    },
+    {
+      "id": "tube-b",
+      "name": "试管 B",
+      "type": "container"
+    },
+    {
+      "id": "straw",
+      "name": "导管",
+      "type": "tool"
+    },
+    {
+      "id": "air-bag",
+      "name": "空气袋",
+      "type": "tool"
+    },
+    {
+      "id": "mouthpiece",
+      "name": "吹气口",
+      "type": "tool"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-breath-gas-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先认识澄清石灰水、试管、导管、空气袋和吹气口。",
+      "actionType": "identify-object",
+      "targetObject": "breath-gas-panel",
+      "successCondition": "breath-gas-tools-identified",
+      "failureHints": [
+        "请先识别比较呼出气体的实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "prepare-limewater-tubes",
+      "order": 2,
+      "title": "准备两支澄清石灰水",
+      "description": "保证两支试管中澄清石灰水体积相同。",
+      "actionType": "add-material",
+      "targetObject": "test-tube-set",
+      "successCondition": "breath-gas-limewater-ready",
+      "failureHints": [
+        "请保证两支试管中的石灰水条件一致。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "material-add"
+      ]
+    },
+    {
+      "id": "bubble-air-and-exhaled-gas",
+      "order": 3,
+      "title": "分别通入空气和呼出气体",
+      "description": "一支试管通入环境空气，另一支通入呼出气体。",
+      "actionType": "set-variable",
+      "targetObject": "gas-flow-panel",
+      "successCondition": "breath-gas-bubbled",
+      "failureHints": [
+        "请把空气和呼出气体分别通入不同试管。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "compare-turbidity",
+      "order": 4,
+      "title": "比较浑浊程度",
+      "description": "比较两支石灰水的浑浊程度变化。",
+      "actionType": "record-observation",
+      "targetObject": "test-tube-set",
+      "successCondition": "breath-gas-observation-recorded",
+      "failureHints": [
+        "请记录哪一支石灰水变浑浊更明显。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "comparison-panel",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "summary-breath-gas",
+      "order": 5,
+      "title": "总结气体差异",
+      "description": "总结呼出气体与吸入空气成分差异的实验结论。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "breath-gas-summary-submitted",
+      "failureHints": [
+        "请把石灰水浑浊现象和二氧化碳含量差异联系起来。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成呼出气体比较实验，并能说明呼出气体中二氧化碳含量更高。",
+    "commonMistakes": [
+      "两支试管中的石灰水条件不一致",
+      "没有分别通入空气和呼出气体",
+      "看到浑浊差异后没有联系气体成分变化"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "material-add",
+    "variable-control",
+    "comparison-panel",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

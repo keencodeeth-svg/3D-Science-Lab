@@ -1,0 +1,154 @@
+{
+  "id": "sci-primary-evaporation-001",
+  "title": "水的蒸发与凝结",
+  "stage": "小学",
+  "subject": "科学",
+  "grade": "五年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "primary-water-lab",
+    "cameraPreset": "table-top",
+    "assets": [
+      "beaker.glb",
+      "hot-water.glb",
+      "ice-lid.glb",
+      "droplets.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "水的变化",
+    "unit": "蒸发与凝结",
+    "knowledgePoints": [
+      "蒸发现象",
+      "凝结条件",
+      "生活中的水循环"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "观察水受热后蒸发",
+    "观察冷表面上的水珠凝结",
+    "理解蒸发与凝结的生活联系"
+  ],
+  "equipment": [
+    {
+      "id": "beaker",
+      "name": "烧杯",
+      "type": "container"
+    },
+    {
+      "id": "hot-water",
+      "name": "热水",
+      "type": "material"
+    },
+    {
+      "id": "ice-lid",
+      "name": "冷盖板",
+      "type": "tool"
+    },
+    {
+      "id": "timer",
+      "name": "计时器",
+      "type": "tool",
+      "optional": true
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-tools",
+      "order": 1,
+      "title": "认识实验用品",
+      "description": "认识烧杯、热水和冷盖板。",
+      "actionType": "identify-object",
+      "targetObject": "equipment-panel",
+      "successCondition": "water-tools-identified",
+      "failureHints": [
+        "请先识别本次实验用品。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "heat-observation",
+      "order": 2,
+      "title": "观察蒸发",
+      "description": "观察热水上方产生的水蒸气。",
+      "actionType": "heat-object",
+      "targetObject": "beaker",
+      "successCondition": "evaporation-observed",
+      "failureHints": [
+        "请先观察热水表面的变化。"
+      ],
+      "scoringWeight": 30,
+      "requiredCapabilities": [
+        "heating-state",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "cool-surface",
+      "order": 3,
+      "title": "观察凝结",
+      "description": "把冷盖板放到烧杯上方，观察小水珠形成。",
+      "actionType": "place-object",
+      "targetObject": "cool-lid-area",
+      "successCondition": "condensation-observed",
+      "failureHints": [
+        "请把冷盖板移动到正确位置。"
+      ],
+      "scoringWeight": 25,
+      "requiredCapabilities": [
+        "object-placement",
+        "observation-panel"
+      ]
+    },
+    {
+      "id": "complete-summary",
+      "order": 4,
+      "title": "联系生活",
+      "description": "把实验现象和生活中的水循环联系起来。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "water-cycle-summary-submitted",
+      "failureHints": [
+        "请完成蒸发与凝结的生活案例总结。"
+      ],
+      "scoringWeight": 25,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 60,
+    "observationScorePercent": 40,
+    "resultScorePercent": 0
+  },
+  "feedback": {
+    "successSummary": "你已理解蒸发与凝结是水循环中的两个重要过程。",
+    "commonMistakes": [
+      "把水蒸气误认为白雾",
+      "没有观察到冷表面上的水珠",
+      "无法联系生活场景"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "heating-state",
+    "object-placement",
+    "observation-panel",
+    "summary-panel"
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "id": "phy-junior-variable-resistor-001",
+  "title": "滑动变阻器",
+  "stage": "初中",
+  "subject": "物理",
+  "grade": "九年级",
+  "durationMinutes": 12,
+  "modes": [
+    "引导",
+    "练习"
+  ],
+  "scene": {
+    "environment": "physics-electric-bench",
+    "cameraPreset": "circuit-front",
+    "assets": [
+      "battery-pack.glb",
+      "bulb.glb",
+      "slider-resistor.glb",
+      "ammeter.glb"
+    ]
+  },
+  "curriculum": {
+    "theme": "电路与欧姆定律",
+    "unit": "滑动变阻器",
+    "knowledgePoints": [
+      "连接电路",
+      "移动滑片",
+      "电流与亮度变化"
+    ]
+  },
+  "productization": {
+    "status": "产品级",
+    "interactionMode": "全交互",
+    "assessmentReady": true,
+    "teacherReady": true,
+    "assetsReady": true
+  },
+  "objectives": [
+    "认识电池盒、小灯泡、滑动变阻器和电流表等器材",
+    "通过移动滑片观察电流和灯泡亮度的变化",
+    "理解滑动变阻器通过改变接入电阻来调节电路"
+  ],
+  "equipment": [
+    {
+      "id": "battery-pack",
+      "name": "电池盒",
+      "type": "power"
+    },
+    {
+      "id": "bulb",
+      "name": "小灯泡",
+      "type": "component"
+    },
+    {
+      "id": "slider-resistor",
+      "name": "滑动变阻器",
+      "type": "component"
+    },
+    {
+      "id": "ammeter",
+      "name": "电流表",
+      "type": "meter"
+    },
+    {
+      "id": "switch",
+      "name": "开关",
+      "type": "component"
+    }
+  ],
+  "steps": [
+    {
+      "id": "identify-variable-resistor-tools",
+      "order": 1,
+      "title": "识别器材",
+      "description": "先识别电池盒、小灯泡、滑动变阻器、电流表和开关。",
+      "actionType": "identify-object",
+      "targetObject": "variable-resistor-panel",
+      "successCondition": "variable-resistor-tools-identified",
+      "failureHints": [
+        "请先识别滑动变阻器实验器材。"
+      ],
+      "scoringWeight": 16,
+      "requiredCapabilities": [
+        "object-highlight"
+      ]
+    },
+    {
+      "id": "connect-circuit-with-resistor",
+      "order": 2,
+      "title": "连接电路",
+      "description": "先连接完整电路，保证灯泡和电流表都工作。",
+      "actionType": "connect-wire",
+      "targetObject": "circuit-stage",
+      "successCondition": "variable-resistor-circuit-connected",
+      "failureHints": [
+        "请先把灯泡、电流表和滑动变阻器接成完整电路。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "wire-connect"
+      ]
+    },
+    {
+      "id": "move-slider",
+      "order": 3,
+      "title": "移动滑片",
+      "description": "移动变阻器滑片，改变接入电阻大小。",
+      "actionType": "set-variable",
+      "targetObject": "slider-resistor",
+      "successCondition": "slider-position-changed",
+      "failureHints": [
+        "请通过移动滑片改变接入电阻。"
+      ],
+      "scoringWeight": 22,
+      "requiredCapabilities": [
+        "variable-control"
+      ]
+    },
+    {
+      "id": "compare-current-and-brightness",
+      "order": 4,
+      "title": "比较亮度和电流",
+      "description": "比较灯泡亮度和电流表读数的变化。",
+      "actionType": "record-observation",
+      "targetObject": "ammeter",
+      "successCondition": "current-brightness-compared",
+      "failureHints": [
+        "请结合电流表示数和灯泡亮度完成比较。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "observation-panel",
+        "comparison-panel"
+      ]
+    },
+    {
+      "id": "summary-variable-resistor",
+      "order": 5,
+      "title": "总结变阻作用",
+      "description": "总结滑动变阻器在电路中的作用。",
+      "actionType": "complete-summary",
+      "targetObject": "summary-panel",
+      "successCondition": "variable-resistor-summary-submitted",
+      "failureHints": [
+        "请围绕调节电流和亮度变化完成总结。"
+      ],
+      "scoringWeight": 20,
+      "requiredCapabilities": [
+        "summary-panel"
+      ]
+    }
+  ],
+  "scoring": {
+    "stepScorePercent": 66,
+    "observationScorePercent": 24,
+    "resultScorePercent": 10
+  },
+  "feedback": {
+    "successSummary": "你已完成滑动变阻器实验，并能说明移动滑片会改变电流大小和灯泡亮度。",
+    "commonMistakes": [
+      "电路没有先连接完整就开始调节滑片",
+      "只移动滑片，没有结合电流表和灯泡现象进行比较",
+      "没有总结滑动变阻器通过改变接入电阻调节电流"
+    ]
+  },
+  "capabilities": [
+    "object-highlight",
+    "wire-connect",
+    "variable-control",
+    "observation-panel",
+    "comparison-panel",
+    "summary-panel"
+  ]
+}
