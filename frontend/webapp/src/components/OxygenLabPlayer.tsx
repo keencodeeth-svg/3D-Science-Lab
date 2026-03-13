@@ -3,6 +3,7 @@ import { AmbientLight, BoxGeometry, CatmullRomCurve3, CircleGeometry, Color, Con
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { useLabTelemetryReporter } from '../hooks/useLabTelemetryReporter';
 import type { LabTelemetryInput } from '../lib/labTelemetry';
+import { createSimulationRuntimeSnapshot, type SimulationRuntimeSnapshot } from '../lib/simulationRuntime';
 import type { ExperimentConfig } from '../types/experiment';
 import { attachLabRealism, createLabCeramicMaterial, createLabCoatedMetalMaterial, createLabGlassMaterial, createLabLiquidMaterial, createLabLiquidSurfaceMaterial, createLabMetalMaterial, createLabPlasticMaterial, createLabRubberMaterial, createLabWoodMaterial } from '../lib/threeRealism';
 import { loadLabModelAssetFromManifest } from '../lib/labModelAsset';
@@ -18,6 +19,7 @@ type BubbleLane = 'water' | 'bottle';
 interface OxygenLabPlayerProps {
   experiment: ExperimentConfig;
   onTelemetry?: (event: LabTelemetryInput) => void;
+  onSimulationRuntimeChange?: (snapshot: SimulationRuntimeSnapshot | null) => void;
 }
 
 interface HitInfo {
@@ -88,6 +90,19 @@ const stepTitles: Record<StepId, string> = {
   6: '总结规范',
 };
 
+const cameraPresetLabels: Record<CameraPreset, string> = {
+  wide: '全景台面',
+  assembly: '装置近景',
+  collection: '集气近景',
+};
+
+const summaryChoiceLabels: Record<string, string> = {
+  '': '未选择',
+  'lamp-first': '先点酒精灯再说',
+  'stable-bubbles-then-collect': '气泡连续均匀后再收集',
+  'skip-seal': '可跳过气密性检查',
+};
+
 const oxygenStepOrder: StepId[] = [1, 2, 3, 4, 5, 6];
 
 const oxygenHoverCopy: Record<string, { title: string; detail: string }> = {
@@ -129,7 +144,7 @@ function applyGlow(object: Object3D | null, color: number, intensity: number) {
   });
 }
 
-export function OxygenLabPlayer({ experiment, onTelemetry }: OxygenLabPlayerProps) {
+export function OxygenLabPlayer({ experiment, onTelemetry, onSimulationRuntimeChange }: OxygenLabPlayerProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<WebGLRenderer | null>(null);
   const sceneRef = useRef<Scene | null>(null);
@@ -211,6 +226,178 @@ export function OxygenLabPlayer({ experiment, onTelemetry }: OxygenLabPlayerProp
     if (step === 6 && completed) return 'valid';
     return 'neutral';
   }, [canCollect, completed, promptTone, step]);
+  const hoveredPartCopy = hoveredPart ? oxygenHoverCopy[hoveredPart] : null;
+  const assemblyStatusLabel = assemblyReady ? '装置已搭建' : `装置 ${assembledParts.length}/${basePartOrder.length}`;
+  const materialStatusLabel = materialsReady ? '药品与棉花已就位' : `加药 ${addedMaterials.length}/${materialOrder.length}`;
+  const purgeProgress = heating ? Math.min(100, Math.round((gasLevel / 36) * 100)) : 0;
+  const bubbleVisualLabel = !heating
+    ? '未见气泡'
+    : gasLevel < 12
+      ? '零散大泡'
+      : gasLevel < 24
+        ? '断续上浮'
+        : gasLevel < 36
+          ? '逐渐连贯'
+          : '连续细密';
+  const purgePhaseLabel = !heating
+    ? '未开始排空气'
+    : gasStable
+      ? '排空气完成'
+      : gasLevel < 12
+        ? '试管预热'
+        : gasLevel < 24
+          ? '排空气初段'
+          : '排空气末段';
+  const gasReadoutLabel = !heating
+    ? '酒精灯未点燃，导管口暂时无稳定气泡。'
+    : gasLevel < 12
+      ? '试管刚进入预热，导管口只出现零散大泡，暂不能收集。'
+      : gasLevel < 24
+        ? '导管口仍在排出原有空气，气泡断续且偏大，继续观察。'
+        : gasLevel < 36
+          ? '气泡已开始变得连贯，但还没完全稳定，仍需等待。'
+          : gasLevel < 72
+            ? '导管口气泡已连续细密，已达到开始排水集气的时机。'
+            : '气流输出保持稳定，可以继续维持收集直到瓶内充满。';
+  const collectionPhaseLabel = !bottlePlaced
+    ? canCollect
+      ? '待放集气瓶'
+      : '未开始收集'
+    : collectionDone
+      ? '收集完成'
+      : collectionLevel < 35
+        ? '排水置换初段'
+        : collectionLevel < 75
+          ? '持续集气中'
+          : '接近收满';
+  const collectionReadoutLabel = !bottlePlaced
+    ? canCollect
+      ? '当前条件已满足，集气瓶可以入水开始排水集气。'
+      : '集气瓶尚未入水，应先把注意力放在导管口气泡是否连续均匀。'
+    : collectionDone
+      ? '瓶内氧气已基本收满，可转入结束规范和结论判断。'
+      : collectionLevel < 35
+        ? '瓶内正在以排水方式置换空气，液面变化刚开始明显。'
+        : collectionLevel < 75
+          ? '瓶内氧气体积分数持续提高，保持加热与装置稳定。'
+          : '集气瓶已接近收满，保持规范操作并准备结束流程。';
+  const operationDecisionLabel = completed
+    ? '流程闭环完成，记住结束时应先移导管再熄灭酒精灯。'
+    : step <= 3
+      ? '先补齐装置、药品和检漏，再进入加热观察。'
+      : step === 4
+        ? gasStable
+          ? '气泡已稳定，可以把集气瓶放入水槽开始收集。'
+          : '继续观察导管口，当前还不应过早收集。'
+        : step === 5
+          ? collectionDone
+            ? '收集已完成，下一步整理规范结论。'
+            : '保持加热并持续收集，收满前不要打断流程。'
+          : summaryChoice === 'stable-bubbles-then-collect'
+            ? '当前结论正确，可以提交。'
+            : '提交前要同时覆盖检漏、收集时机与结束顺序。';
+  const oxygenReadoutRows = [
+    {
+      label: '导管口判断',
+      detail: gasReadoutLabel,
+      badge: bubbleVisualLabel,
+      tone: gasStable ? 'ready' : heating ? 'watch' : 'idle',
+    },
+    {
+      label: '集气瓶状态',
+      detail: collectionReadoutLabel,
+      badge: collectionPhaseLabel,
+      tone: collectionDone ? 'ready' : bottlePlaced || canCollect ? 'watch' : 'idle',
+    },
+    {
+      label: '当前操作判定',
+      detail: operationDecisionLabel,
+      badge: completed ? '已闭环' : stepTitles[step],
+      tone: promptTone === 'error' ? 'error' : completed || collectionDone || canCollect ? 'ready' : 'watch',
+    },
+  ] as const;
+
+  const oxygenSimulationRuntime = useMemo(() => {
+    const phaseProgress = (() => {
+      if (step === 1) return (assembledParts.length / basePartOrder.length) * 0.16;
+      if (step === 2) return (addedMaterials.length / materialOrder.length) * 0.16;
+      if (step === 3) return sealChecked ? 0.16 : sealPulse ? 0.1 : 0;
+      if (step === 4) return (gasLevel / 100) * 0.16;
+      if (step === 5) return (bottlePlaced ? 0.05 : 0) + ((collectionLevel / 100) * 0.11);
+      if (!summaryChoice) return 0;
+      return summaryChoice === 'stable-bubbles-then-collect' ? 0.16 : 0.08;
+    })();
+
+    return createSimulationRuntimeSnapshot({
+      playerId: 'oxygen-lab-player',
+      phaseLabel: stepTitles[step],
+      phaseState: completed ? 'completed' : 'active',
+      progress: completed ? 1 : Math.min(0.97, ((step - 1) / 6) + phaseProgress),
+      focusTarget: hoveredPartCopy?.title ?? (cameraPreset === 'collection' ? (bottlePlaced ? '水槽中的集气瓶' : '导管出气端') : cameraPreset === 'assembly' ? '试管与导管连接处' : '制氧实验台'),
+      focusLens: cameraPreset === 'wide' ? 'macro' : 'meso',
+      stateSummary: `${assemblyStatusLabel} · ${purgePhaseLabel} · ${collectionPhaseLabel}`,
+      observables: [
+        { key: 'purge-progress', label: '排空气稳定度', value: purgeProgress, unit: '%', status: gasStable ? 'nominal' : heating ? 'warning' : 'critical' },
+        { key: 'gas-flow', label: '导管口气泡', value: bubbleVisualLabel, status: gasStable ? 'nominal' : heating ? 'warning' : 'critical' },
+        { key: 'collection-level', label: '收集进度', value: Math.round(collectionLevel), unit: '%', status: collectionDone ? 'nominal' : bottlePlaced ? 'warning' : 'critical' },
+        { key: 'collection-phase', label: '集气瓶状态', value: collectionPhaseLabel, status: collectionDone ? 'nominal' : bottlePlaced || canCollect ? 'warning' : 'critical' },
+        { key: 'seal-state', label: '气密性', value: sealChecked ? '通过' : step >= 3 ? '未检查' : '未开始', status: sealChecked ? 'nominal' : step >= 4 ? 'critical' : 'warning' },
+        { key: 'operation-judgement', label: '操作判定', value: canCollect ? '可收集' : step >= 4 ? '继续观察' : '先完成前置步骤', status: completed ? 'nominal' : promptTone === 'error' ? 'critical' : 'warning' },
+      ],
+      controls: [
+        { key: 'camera-preset', label: '镜头机位', value: cameraPresetLabels[cameraPreset], kind: 'discrete' },
+        { key: 'heating-toggle', label: '酒精灯', value: heating ? '已点燃' : '未点燃', kind: 'toggle' },
+        { key: 'bottle-placement', label: '集气瓶放置', value: bottlePlaced ? '已入水槽' : '未放置', kind: 'discrete' },
+        { key: 'material-stage', label: '加药状态', value: materialStatusLabel, kind: 'discrete' },
+        { key: 'summary-choice', label: '结论选择', value: summaryChoiceLabels[summaryChoice] ?? '未选择', kind: 'discrete' },
+      ],
+      phases: oxygenStepOrder.map((stepId) => ({
+        key: `step-${stepId}`,
+        label: stepTitles[stepId],
+        state: completed || step > stepId || (stepId === 6 && completed) ? 'completed' : step === stepId ? 'active' : 'pending',
+      })),
+      failureRisks: [
+        !assemblyReady ? '装置仍未搭完整，后续加药、检漏和导气都没有稳定基座。' : '',
+        heating && !sealChecked ? '未完成气密性检查就加热，会让导管读数失真并带来操作风险。' : '',
+        heating && !gasStable ? '当前仍处在排空气阶段，导管口只会给出零散或断续气泡，过早收集会混入空气。' : '',
+        step >= 5 && gasStable && !bottlePlaced ? '气体已稳定但尚未放入集气瓶，流程停在规范收集前。' : '',
+        bottlePlaced && !collectionDone ? '当前仍在排水集气过程中，过早结束会让瓶内氧气体积分数不稳定。' : '',
+        step === 6 && summaryChoice && summaryChoice !== 'stable-bubbles-then-collect' ? '当前结论没有覆盖先检漏、等气泡稳定再收集、结束时先移导管再熄灯的关键规范。' : '',
+      ],
+      trace: [
+        '铁架台 -> 试管 -> 导管 -> 药品/棉花 -> 气密性检查 -> 加热 -> 稳定排气 -> 排水集气',
+        sealChecked ? '气密性检查已通过' : '加热前必须先完成检漏',
+        heating ? (gasStable ? '导管口气泡已连续细密，可开始规范收集' : `当前处在${purgePhaseLabel}，继续观察气泡形态`) : '尚未开始加热',
+        bottlePlaced ? (collectionDone ? '集气瓶已完成氧气收集' : `集气瓶已入水，当前处在${collectionPhaseLabel}`) : '集气瓶尚未放入水槽',
+        completed ? '结束判断已闭环：先检漏，等气泡稳定后收集，先移导管再熄灯' : operationDecisionLabel,
+      ],
+    });
+  }, [
+    addedMaterials.length,
+    assembledParts.length,
+    assemblyStatusLabel,
+    assemblyReady,
+    bottlePlaced,
+    bubbleVisualLabel,
+    cameraPreset,
+    collectionDone,
+    collectionLevel,
+    collectionPhaseLabel,
+    completed,
+    gasLevel,
+    gasStable,
+    heating,
+    hoveredPartCopy?.title,
+    materialStatusLabel,
+    operationDecisionLabel,
+    promptTone,
+    purgePhaseLabel,
+    purgeProgress,
+    sealChecked,
+    sealPulse,
+    step,
+    summaryChoice,
+  ]);
 
   useEffect(() => {
     stepRef.current = step;
@@ -220,6 +407,14 @@ export function OxygenLabPlayer({ experiment, onTelemetry }: OxygenLabPlayerProp
     gasLevelRef.current = gasLevel;
     collectionLevelRef.current = collectionLevel;
   }, [bottlePlaced, collectionLevel, gasLevel, heating, sealPulse, step]);
+
+  useEffect(() => {
+    onSimulationRuntimeChange?.(oxygenSimulationRuntime);
+  }, [onSimulationRuntimeChange, oxygenSimulationRuntime]);
+
+  useEffect(() => () => {
+    onSimulationRuntimeChange?.(null);
+  }, [onSimulationRuntimeChange]);
 
   const applyCameraPreset = (preset: CameraPreset) => {
     const camera = cameraRef.current;
@@ -345,6 +540,7 @@ export function OxygenLabPlayer({ experiment, onTelemetry }: OxygenLabPlayerProp
     setBottlePlaced(false);
     setCollectionLevel(0);
     setSummaryChoice('');
+    setErrors(0);
     setCompleted(false);
     setPrompt(stepCopy[1]);
     setPromptTone('info');
@@ -1193,7 +1389,6 @@ export function OxygenLabPlayer({ experiment, onTelemetry }: OxygenLabPlayerProp
     }
   }, [addedMaterials, assembledParts, bottlePlaced, collectionLevel, heating, hoveredPart, sealChecked, sealPulse, step]);
 
-  const hoveredPartCopy = hoveredPart ? oxygenHoverCopy[hoveredPart] : null;
   const oxygenSceneHint = step <= 3
     ? '先按规范完成装置、加药和气密性检查；气密性不过关时不能直接加热。'
     : step === 4
@@ -1393,10 +1588,43 @@ export function OxygenLabPlayer({ experiment, onTelemetry }: OxygenLabPlayerProp
                 <span className="eyebrow">Observation</span>
                 <h3>实验观察面板</h3>
                 <div className="chem-observation-grid oxygen-observation-grid">
-                  <div className={gasStable ? 'observation-pill ready' : 'observation-pill'}>导管口气泡：{gasStable ? '连续均匀' : '尚不稳定'}</div>
+                  <div className={gasStable ? 'observation-pill ready' : 'observation-pill'}>导管口气泡：{bubbleVisualLabel}</div>
                   <div className={heating ? 'observation-pill ready' : 'observation-pill'}>加热状态：{heating ? '进行中' : '未开始'}</div>
-                  <div className={bottlePlaced ? 'observation-pill ready' : 'observation-pill'}>集气瓶：{bottlePlaced ? '已放入' : '未放入'}</div>
-                  <div className={collectionDone ? 'observation-pill ready' : 'observation-pill'}>氧气收集：{collectionDone ? '完成' : '进行中'}</div>
+                  <div className={gasStable ? 'observation-pill ready' : 'observation-pill'}>排空气：{purgePhaseLabel}</div>
+                  <div className={collectionDone ? 'observation-pill ready' : 'observation-pill'}>集气瓶：{collectionPhaseLabel}</div>
+                </div>
+                <div className="oxygen-meter-grid">
+                  <div className="oxygen-meter-card">
+                    <div className="oxygen-meter-head">
+                      <strong>排空气稳定度</strong>
+                      <span>{purgeProgress}%</span>
+                    </div>
+                    <div className="oxygen-meter-track" aria-hidden="true">
+                      <span className="oxygen-meter-fill" style={{ width: `${purgeProgress}%` }} />
+                    </div>
+                    <p>{gasReadoutLabel}</p>
+                  </div>
+                  <div className="oxygen-meter-card">
+                    <div className="oxygen-meter-head">
+                      <strong>收集完成度</strong>
+                      <span>{Math.round(collectionLevel)}%</span>
+                    </div>
+                    <div className="oxygen-meter-track" aria-hidden="true">
+                      <span className="oxygen-meter-fill oxygen-meter-fill-success" style={{ width: `${Math.round(collectionLevel)}%` }} />
+                    </div>
+                    <p>{collectionReadoutLabel}</p>
+                  </div>
+                </div>
+                <div className="oxygen-readout-list">
+                  {oxygenReadoutRows.map((row) => (
+                    <div className="oxygen-readout-row" data-tone={row.tone} key={row.label}>
+                      <div className="oxygen-readout-copy">
+                        <strong>{row.label}</strong>
+                        <small>{row.detail}</small>
+                      </div>
+                      <span className={row.tone === 'ready' ? 'status-pill ready' : 'status-pill'}>{row.badge}</span>
+                    </div>
+                  ))}
                 </div>
                 <div className="detail-list">
                   <div className="detail-row">
@@ -1461,8 +1689,9 @@ export function OxygenLabPlayer({ experiment, onTelemetry }: OxygenLabPlayerProp
             <ul className="bullet-list compact-list">
               <li>当前目标：{stepTitles[step]}</li>
               <li>装置进度：{assembledParts.length}/3 / 材料进度：{addedMaterials.length}/2</li>
-              <li>气密性：{sealChecked ? '已检查' : '待检查'} / 加热：{heating ? '进行中' : '未开始'}</li>
-              <li>收集进度：{Math.round(collectionLevel)}% / 风险：{step < 5 ? '勿过早收集' : '注意结束顺序'}</li>
+              <li>排空气：{purgePhaseLabel} / 导管口：{bubbleVisualLabel}</li>
+              <li>集气瓶：{collectionPhaseLabel} / 收集 {Math.round(collectionLevel)}%</li>
+              <li>当前判定：{step <= 3 ? '先完成前置步骤' : canCollect ? '可以开始收集' : step === 4 ? '继续观察气泡' : step === 5 ? '保持稳定收集' : '核对最终规范'}</li>
             </ul>
           </section>
 

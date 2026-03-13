@@ -3,6 +3,7 @@ import { AmbientLight, BoxGeometry, CircleGeometry, Color, CylinderGeometry, Dir
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { useLabTelemetryReporter } from '../hooks/useLabTelemetryReporter';
 import type { LabTelemetryInput } from '../lib/labTelemetry';
+import { createSimulationRuntimeSnapshot, type SimulationRuntimeSnapshot } from '../lib/simulationRuntime';
 import type { ExperimentConfig } from '../types/experiment';
 import { attachLabRealism, createLabCeramicMaterial, createLabCoatedMetalMaterial, createLabGlassMaterial, createLabLiquidMaterial, createLabLiquidSurfaceMaterial, createLabPlasticMaterial, createLabWoodMaterial } from '../lib/threeRealism';
 
@@ -16,6 +17,7 @@ type ReagentId = 'substrate' | 'enzyme';
 interface EnzymeLabPlayerProps {
   experiment: ExperimentConfig;
   onTelemetry?: (event: LabTelemetryInput) => void;
+  onSimulationRuntimeChange?: (snapshot: SimulationRuntimeSnapshot | null) => void;
 }
 
 interface HitInfo {
@@ -58,6 +60,25 @@ const reagentLabels: Record<ReagentId, string> = {
   enzyme: '酶液',
 };
 
+const variableChoiceLabels: Record<VariableChoice, string> = {
+  temperature: '温度',
+  ph: 'pH',
+};
+
+const cameraPresetLabels: Record<CameraPreset, string> = {
+  wide: '台面全景',
+  top: '俯视分组',
+  focus: '聚焦试管',
+};
+
+const summaryChoiceLabels: Record<string, string> = {
+  '': '未选择',
+  'multiple-variables': '同时改变多个变量',
+  'optimum-condition': '适宜条件活性最高',
+  'always-increase': '条件越极端活性越高',
+};
+
+const enzymeStepOrder: StepId[] = [1, 2, 3, 4, 5];
 const slotOrder: RackSlotId[] = ['control', 'experiment_low', 'experiment_high'];
 const reagentOrder: ReagentId[] = ['substrate', 'enzyme'];
 
@@ -91,7 +112,7 @@ function applyGlow(object: Object3D | null, color: number, intensity: number) {
   });
 }
 
-export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProps) {
+export function EnzymeLabPlayer({ experiment, onTelemetry, onSimulationRuntimeChange }: EnzymeLabPlayerProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<WebGLRenderer | null>(null);
   const sceneRef = useRef<Scene | null>(null);
@@ -186,6 +207,85 @@ export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProp
     stepLabels: stepTitles,
     onTelemetry,
   });
+  const hoveredPartCopy = hoveredPart ? enzymeHoverCopy[hoveredPart] : null;
+  const variableLabel = variableChoice ? variableChoiceLabels[variableChoice] : '未选择';
+  const groupingStatusLabel = rackReady ? '分组完成' : `分组 ${placedSlots.length}/${slotOrder.length}`;
+  const reagentStatusLabel = reagentsReady ? '加样完成' : `加样 ${addedReagents.length}/${reagentOrder.length}`;
+  const reactionStatusLabel = reactionFinished ? '结果已稳定' : timerRunning ? '反应进行中' : step >= 4 ? '待启动计时' : '未开始反应';
+
+  const enzymeSimulationRuntime = useMemo(() => {
+    const phaseProgress = (() => {
+      if (step === 1) return variableChoice ? 0.18 : 0;
+      if (step === 2) return (placedSlots.length / slotOrder.length) * 0.18;
+      if (step === 3) return (addedReagents.length / reagentOrder.length) * 0.18;
+      if (step === 4) return reactionProgress * 0.18;
+      if (!summaryChoice) return 0;
+      return summaryChoice === 'optimum-condition' ? 0.18 : 0.09;
+    })();
+    const highestActivitySlot = slotOrder.reduce<RackSlotId>((best, slotId) => (reactionResults[slotId] > reactionResults[best] ? slotId : best), 'control');
+
+    return createSimulationRuntimeSnapshot({
+      playerId: 'enzyme-lab-player',
+      phaseLabel: stepTitles[step],
+      phaseState: completed ? 'completed' : 'active',
+      progress: completed ? 1 : Math.min(0.97, ((step - 1) / 5) + phaseProgress),
+      focusTarget: hoveredPartCopy?.title ?? (cameraPreset === 'top' ? '三组试管架布局' : cameraPreset === 'focus' ? '三组试管泡沫对比' : '酶活性实验台'),
+      focusLens: cameraPreset === 'wide' ? 'macro' : 'meso',
+      stateSummary: `${variableLabel}变量 · ${groupingStatusLabel} · ${reactionStatusLabel}`,
+      observables: [
+        { key: 'selected-variable', label: '单一变量', value: variableLabel, status: variableChoice ? 'nominal' : 'critical' },
+        { key: 'reaction-progress', label: '反应进度', value: Math.round(reactionProgress * 100), unit: '%', status: reactionFinished ? 'nominal' : timerRunning ? 'warning' : 'critical' },
+        { key: 'control-foam', label: `${slotLabels.control}泡沫`, value: Math.round(reactionResults.control * reactionProgress * 100), unit: '%', status: reactionFinished ? 'nominal' : timerRunning ? 'warning' : 'critical' },
+        { key: 'experiment-low-foam', label: `${slotLabels.experiment_low}泡沫`, value: Math.round(reactionResults.experiment_low * reactionProgress * 100), unit: '%', status: reactionFinished ? 'nominal' : timerRunning ? 'warning' : 'critical' },
+        { key: 'experiment-high-foam', label: `${slotLabels.experiment_high}泡沫`, value: Math.round(reactionResults.experiment_high * reactionProgress * 100), unit: '%', status: reactionFinished ? 'nominal' : timerRunning ? 'warning' : 'critical' },
+        { key: 'timer-state', label: '计时器', value: reactionStatusLabel, status: reactionFinished ? 'nominal' : timerRunning ? 'warning' : 'critical' },
+      ],
+      controls: [
+        { key: 'variable-selection', label: '变量选择', value: variableLabel, kind: 'discrete' },
+        { key: 'grouping-state', label: '分组状态', value: groupingStatusLabel, kind: 'discrete' },
+        { key: 'reagent-state', label: '加样状态', value: reagentStatusLabel, kind: 'discrete' },
+        { key: 'timer-toggle', label: '计时器', value: timerRunning ? '运行中' : reactionFinished ? '已完成' : '待启动', kind: 'toggle' },
+        { key: 'camera-preset', label: '镜头机位', value: cameraPresetLabels[cameraPreset], kind: 'discrete' },
+        { key: 'summary-choice', label: '结论选择', value: summaryChoiceLabels[summaryChoice] ?? '未选择', kind: 'discrete' },
+      ],
+      phases: enzymeStepOrder.map((stepId) => ({
+        key: `step-${stepId}`,
+        label: stepTitles[stepId],
+        state: completed || step > stepId || (stepId === 5 && completed) ? 'completed' : step === stepId ? 'active' : 'pending',
+      })),
+      failureRisks: [
+        !variableChoice ? '尚未锁定单一变量，后续结果无法被解释为有效对照。' : '',
+        step >= 2 && !rackReady ? '对照组和实验组尚未完整摆放，变量控制还不成立。' : '',
+        step >= 3 && !reagentsReady ? '各组尚未同步加入底物与酶液，反应不能公平比较。' : '',
+        timerRunning && !reactionFinished ? '计时尚未结束，当前泡沫高度还不是最终读数。' : '',
+        step === 5 && summaryChoice && summaryChoice !== 'optimum-condition' ? '当前结论与实验结果不一致，适宜条件组才是最高活性。' : '',
+      ],
+      trace: [
+        '选择单一变量 -> 建立对照组/实验组 -> 同步加底物和酶液 -> 统一计时 -> 比较泡沫高度',
+        variableChoice ? `当前研究变量：${variableLabel}` : '尚未锁定单一变量',
+        reactionFinished ? `最高泡沫出现在${slotLabels[highestActivitySlot]}（${conditionLabels[highestActivitySlot]}）` : timerRunning ? '反应进行中，三组泡沫高度仍在变化' : '尚未开始统一计时',
+        completed ? '结论已提交：适宜条件下酶活性最高' : summaryChoice ? `当前结论选择：${summaryChoiceLabels[summaryChoice]}` : '等待选择实验结论',
+      ],
+    });
+  }, [
+    addedReagents.length,
+    cameraPreset,
+    completed,
+    conditionLabels,
+    groupingStatusLabel,
+    hoveredPartCopy?.title,
+    placedSlots.length,
+    reactionFinished,
+    reactionProgress,
+    reactionResults,
+    reactionStatusLabel,
+    reagentStatusLabel,
+    summaryChoice,
+    step,
+    timerRunning,
+    variableChoice,
+    variableLabel,
+  ]);
 
   useEffect(() => {
     stepRef.current = step;
@@ -195,6 +295,14 @@ export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProp
     addedReagentsRef.current = addedReagents;
     reactionFinishedRef.current = reactionFinished;
   }, [addedReagents, placedSlots, reactionFinished, step, timerRunning, variableChoice]);
+
+  useEffect(() => {
+    onSimulationRuntimeChange?.(enzymeSimulationRuntime);
+  }, [enzymeSimulationRuntime, onSimulationRuntimeChange]);
+
+  useEffect(() => () => {
+    onSimulationRuntimeChange?.(null);
+  }, [onSimulationRuntimeChange]);
 
   const applyCameraPreset = (preset: CameraPreset) => {
     const camera = cameraRef.current;
@@ -678,6 +786,20 @@ export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProp
   }, []);
 
   useEffect(() => {
+    if (!rackReady || step !== 2) return;
+    setStep(3);
+    setPrompt(stepCopy[3]);
+    setPromptTone('success');
+  }, [rackReady, step]);
+
+  useEffect(() => {
+    if (!reagentsReady || step !== 3) return;
+    setStep(4);
+    setPrompt(stepCopy[4]);
+    setPromptTone('success');
+  }, [reagentsReady, step]);
+
+  useEffect(() => {
     if (timerRunning && reactionFinished) {
       setTimerRunning(false);
       if (step === 4) {
@@ -745,26 +867,69 @@ export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProp
   }, [addedReagents, cameraPreset, hoveredPart, placedSlots, reactionFinished, reactionProgress, reactionResults, reagentsReady, step, timerRunning, variableChoice]);
 
   const sceneNoteTone = promptTone === 'error' ? 'invalid' : reactionFinished || completed ? 'valid' : 'neutral';
+  const highestResultSlot = slotOrder.reduce<RackSlotId>((best, slotId) => (reactionResults[slotId] > reactionResults[best] ? slotId : best), 'control');
+  const enzymeSceneHint = step <= 2
+    ? '先锁定单一变量，再完整建立对照组和实验组。'
+    : step === 3
+      ? '加样阶段要保证三组都加入同样的底物和酶液，只改变目标变量。'
+      : step === 4
+        ? '统一计时后再比较三组泡沫高度，避免提前下结论。'
+        : '根据最终泡沫差异总结：适宜条件下酶活性最高。';
+  const enzymeWorkbenchStatus = completed
+    ? '变量控制、分组、加样、计时观察与结论总结都已完成。'
+    : step === 1
+      ? '先从温度或 pH 中选定一个单一变量。'
+      : step === 2
+        ? '先把对照组和两组实验组放齐，再进入加样。'
+        : step === 3
+          ? '底物和酶液都要同步加入，才能形成公平比较。'
+          : step === 4
+            ? '启动统一计时，盯三组泡沫高度的分化过程。'
+            : '结果已稳定，进入记录和结论总结。';
+  const enzymeCompletionCopy = completed
+    ? '实验已完成，当前版本支持单一变量控制、三组对照、连续泡沫变化和结论归纳。'
+    : '完成全部 5 个步骤后，这里会输出本次酶活性实验的完整总结。';
+  const enzymeRecoveryList = errors === 0
+    ? [
+        '每次只研究一个变量，先确定温度或 pH 其中之一。',
+        '三组都要加入相同底物和酶液，再启动统一计时。',
+        '最终要比较适宜条件与偏高、偏低条件下的泡沫差异。',
+      ]
+    : [
+        step <= 2 ? '先完成单一变量选择和三组摆放，再继续推进实验。' : step === 3 ? '不要漏加任一种反应液，三组必须同步加样。' : step === 4 ? '计时结束前不要提前下结论。' : '重新核对哪一组在适宜条件下泡沫最高。',
+        experiment.feedback.commonMistakes[Math.min(errors - 1, experiment.feedback.commonMistakes.length - 1)] ?? '请按变量控制原则重新检查实验流程。',
+        '舞台支持直接点击试管位、试剂瓶和计时器，也可使用下方工作台按钮。',
+      ];
+  const getConditionLabel = (slotId: RackSlotId) => (variableChoice ? conditionLabels[slotId] : '待选择变量');
+  const getFoamPercent = (slotId: RackSlotId) => Math.round(reactionResults[slotId] * reactionProgress * 100);
+  const bestConditionCopy = reactionFinished
+    ? `${slotLabels[highestResultSlot]}在${getConditionLabel(highestResultSlot)}时泡沫最高，说明更接近酶的适宜条件。`
+    : timerRunning
+      ? '反应仍在进行，继续比较三组泡沫高度变化。'
+      : '等待启动计时反应后，再比较三组泡沫差异。';
 
   return (
-    <section className="playground-panel panel">
+    <section className="playground-panel panel enzyme-stage-first-panel enzyme-lab-player">
       <div className="panel-head">
         <div>
-          <span className="eyebrow">3D Demo</span>
-          <h2>{experiment.title} · 本地 3D 实验 Demo</h2>
+          <span className="eyebrow">Dedicated Lab</span>
+          <h2>{experiment.title} · 专属酶活性实验页</h2>
+          <p>把变量控制、三组对照和泡沫结果对比集中到中央舞台与下方工作台，减少信息分散和长页切换。</p>
         </div>
         <div className="badge-row compact">
+          <span className="badge badge-demo">真实可操作 3D</span>
           <span className="badge">步骤 {step}/5</span>
-          <span className="badge">变量 {variableChoice === 'temperature' ? '温度' : variableChoice === 'ph' ? 'pH' : '未选'}</span>
+          <span className="badge">变量 {variableLabel}</span>
           <span className="badge">反应 {Math.round(reactionProgress * 100)}%</span>
           <span className="badge">得分 {score}</span>
         </div>
       </div>
 
-      <div className="playground-grid enzyme-grid">
-        <aside className="playground-side">
-          <div className="info-card">
-            <strong>变量选择</strong>
+      <div className="playground-grid chemistry-grid enzyme-grid">
+        <aside className="playground-side enzyme-side-rail enzyme-side-rail-left">
+          <section className="info-card enzyme-rail-card">
+            <span className="eyebrow">Variable</span>
+            <h3>变量选择</h3>
             <div className="camera-actions split-actions">
               <button className={variableChoice === 'temperature' ? 'scene-action active' : 'scene-action'} onClick={() => handleChooseVariable('temperature')} type="button" disabled={step !== 1}>
                 温度变量
@@ -773,31 +938,28 @@ export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProp
                 pH 变量
               </button>
             </div>
-          </div>
+          </section>
 
-          <div className="info-card">
-            <strong>实验步骤</strong>
-            <ol className="step-list compact-list">
-              <li className={step === 1 ? 'active' : step > 1 ? 'done' : ''}>选择实验变量</li>
-              <li className={step === 2 ? 'active' : step > 2 ? 'done' : ''}>设置对照组</li>
-              <li className={step === 3 ? 'active' : step > 3 ? 'done' : ''}>加入反应液</li>
-              <li className={step === 4 ? 'active' : step > 4 ? 'done' : ''}>观察反应变化</li>
-              <li className={step === 5 ? 'active' : completed ? 'done' : ''}>记录并总结</li>
-            </ol>
-          </div>
-
-          <div className={`info-card prompt-card ${promptTone}`}>
-            <strong>当前提示</strong>
-            <p>{prompt}</p>
-          </div>
+          <section className="info-card enzyme-rail-card">
+            <span className="eyebrow">Groups</span>
+            <h3>三组条件</h3>
+            <div className="enzyme-tube-list">
+              {slotOrder.map((slotId) => (
+                <div className="enzyme-row" key={slotId}>
+                  <strong>{slotLabels[slotId]}</strong>
+                  <small>{placedSlots.includes(slotId) ? getConditionLabel(slotId) : variableChoice ? '待放置' : '先选变量'}</small>
+                </div>
+              ))}
+            </div>
+          </section>
         </aside>
 
-        <div className="scene-panel">
-          <div className="scene-toolbar">
-            <div className="badge-row compact">
-              <span className="badge badge-demo">真实可操作 3D</span>
-              <span className="badge">变量控制 + 结果对比</span>
-              <span className="badge">滚轮缩放 / 拖拽旋转</span>
+        <section className="scene-panel enzyme-workbench-stage">
+          <div className="scene-toolbar enzyme-workbench-toolbar">
+            <div className="enzyme-toolbar-head">
+              <div className="enzyme-toolbar-kicker">酶活性工作台</div>
+              <strong>{experiment.title}</strong>
+              <p className="enzyme-toolbar-copy">中央舞台聚焦分组、加样和泡沫变化，步骤、结论和复盘统一下沉到底部工作台。</p>
             </div>
             <div className="camera-actions">
               <button className={cameraPreset === 'wide' ? 'scene-action active' : 'scene-action'} onClick={() => setCameraPreset('wide')} type="button">
@@ -811,6 +973,23 @@ export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProp
               </button>
             </div>
           </div>
+
+          <div className="scene-meta-strip enzyme-stage-meta">
+            <div className={`enzyme-stage-card tone-${promptTone}`}>
+              <span>当前任务</span>
+              <strong>步骤 {step} · {stepTitles[step]}</strong>
+              <p>{prompt}</p>
+            </div>
+            <div className="enzyme-step-pills" aria-label="实验步骤概览">
+              {enzymeStepOrder.map((stepId) => (
+                <span className={step === stepId ? 'enzyme-step-pill active' : step > stepId || (stepId === 5 && completed) ? 'enzyme-step-pill done' : 'enzyme-step-pill'} key={stepId}>
+                  <small>步骤 {stepId}</small>
+                  <strong>{stepTitles[stepId]}</strong>
+                </span>
+              ))}
+            </div>
+          </div>
+
           <div className="scene-canvas enzyme-scene-canvas">
             <div className="three-stage-overlay enzyme-three-overlay">
               <div className="three-stage-chip-row">
@@ -823,85 +1002,215 @@ export function EnzymeLabPlayer({ experiment, onTelemetry }: EnzymeLabPlayerProp
             <div className="three-stage-mount enzyme-three-mount" ref={mountRef} />
             {hoveredPart ? (
               <div className="enzyme-three-hovercard">
-                <strong>{enzymeHoverCopy[hoveredPart]?.title ?? '实验部件'}</strong>
-                <p>{enzymeHoverCopy[hoveredPart]?.detail ?? '悬停可查看当前部件在变量控制实验中的意义。'}</p>
+                <strong>{hoveredPartCopy?.title ?? '实验部件'}</strong>
+                <p>{hoveredPartCopy?.detail ?? '悬停可查看当前部件在变量控制实验中的意义。'}</p>
               </div>
             ) : null}
           </div>
-          <div className={`scene-note ${sceneNoteTone}`}>
-            {step <= 2
-              ? '每次只研究一个变量；先建立对照组，再设置实验组。'
-              : step === 3
-                ? '反应开始前，要保证各组加入相同底物和酶液，只改变目标变量。'
-                : '泡沫越高通常表示反应越快，说明该条件下酶活性更强。'}
-          </div>
-        </div>
 
-        <aside className="playground-side">
-          <div className="info-card control-block">
-            <strong>分组与加样</strong>
-            <div className="status-pill-row">
-              <span className={rackReady ? 'status-pill ready' : 'status-pill'}>分组 {rackReady ? '完成' : '未完成'}</span>
-              <span className={reagentsReady ? 'status-pill ready' : 'status-pill'}>加样 {reagentsReady ? '完成' : '未完成'}</span>
-              <span className={reactionFinished ? 'status-pill ready' : 'status-pill'}>观察 {reactionFinished ? '完成' : '进行中'}</span>
+          <div className="workbench-inline-dock enzyme-workbench-dock">
+            <div className="enzyme-workbench-status-grid">
+              <div className={`info-card enzyme-status-card tone-${promptTone}`}>
+                <span>当前进度</span>
+                <strong>步骤 {step} · {stepTitles[step]}</strong>
+                <p>{enzymeWorkbenchStatus}</p>
+              </div>
+              <div className={`info-card enzyme-status-card ${variableChoice && rackReady ? 'tone-success' : ''}`.trim()}>
+                <span>变量与分组</span>
+                <strong>{variableChoice ? `${variableLabel}变量已锁定` : '待锁定变量'} / {rackReady ? '三组已就位' : '待补齐分组'}</strong>
+                <p>对照组与实验组 {placedSlots.length}/3 · 当前主变量 {variableLabel}</p>
+              </div>
+              <div className={`info-card enzyme-status-card ${reactionFinished ? 'tone-success' : sceneNoteTone === 'invalid' ? 'tone-error' : ''}`.trim()}>
+                <span>反应与结果</span>
+                <strong>{reactionFinished ? '结果已稳定' : timerRunning ? '反应进行中' : '待启动计时'} / {reagentsReady ? '加样完成' : '待补加样'}</strong>
+                <p>计时 {timerRunning ? '运行中' : reactionFinished ? '已完成' : '未开始'} · 最优趋势 {reactionFinished ? slotLabels[highestResultSlot] : '待观察'}</p>
+              </div>
+              <div className={`info-card enzyme-status-card ${hoveredPartCopy ? 'tone-success' : ''}`.trim()}>
+                <span>舞台提示</span>
+                <strong>{hoveredPartCopy?.title ?? '点击舞台推进实验'}</strong>
+                <p>{hoveredPartCopy?.detail ?? enzymeSceneHint}</p>
+              </div>
             </div>
-            <div className="enzyme-tube-list">
-              {slotOrder.map((slotId) => (
-                <div className="enzyme-row" key={slotId}>
-                  <strong>{slotLabels[slotId]}</strong>
-                  <small>{placedSlots.includes(slotId) ? conditionLabels[slotId] : '待放置'}</small>
+
+            <div className="enzyme-inline-workbench">
+              <section className="info-card enzyme-inline-panel">
+                <span className="eyebrow">Actions</span>
+                <h3>舞台操作与控制</h3>
+                <div className="summary-stack generic-choice-stack">
+                  {step === 1 ? (
+                    <>
+                      <button className={variableChoice === 'temperature' ? 'summary-choice generic-choice primary active' : 'summary-choice generic-choice primary'} onClick={() => handleChooseVariable('temperature')} type="button">
+                        <strong>选择温度变量</strong>
+                        <span>只改变温度，比较适宜与偏高、偏低条件下的泡沫差异。</span>
+                      </button>
+                      <button className={variableChoice === 'ph' ? 'summary-choice generic-choice secondary active' : 'summary-choice generic-choice secondary'} onClick={() => handleChooseVariable('ph')} type="button">
+                        <strong>选择 pH 变量</strong>
+                        <span>只改变酸碱度，其他条件保持一致。</span>
+                      </button>
+                    </>
+                  ) : null}
+
+                  {step === 2 ? (
+                    <>
+                      {slotOrder.map((slotId) => (
+                        <button className={placedSlots.includes(slotId) ? 'summary-choice generic-choice primary active' : 'summary-choice generic-choice primary'} key={slotId} onClick={() => handlePlaceSlot(slotId)} type="button">
+                          <strong>放置{slotLabels[slotId]}</strong>
+                          <span>{placedSlots.includes(slotId) ? `已设置为 ${getConditionLabel(slotId)}` : '也可直接点击舞台试管位完成'}</span>
+                        </button>
+                      ))}
+                      <button className={cameraPreset === 'top' ? 'summary-choice generic-choice secondary active' : 'summary-choice generic-choice secondary'} onClick={() => setCameraPreset('top')} type="button">
+                        <strong>切到俯视分组</strong>
+                        <span>从上方核对三组摆放是否完整。</span>
+                      </button>
+                    </>
+                  ) : null}
+
+                  {step === 3 ? (
+                    <>
+                      <button className={addedReagents.includes('substrate') ? 'summary-choice generic-choice primary active' : 'summary-choice generic-choice primary'} onClick={() => handleAddReagent('substrate')} type="button">
+                        <strong>加入底物</strong>
+                        <span>{addedReagents.includes('substrate') ? '三组底物已同步加入' : '三组都要保持相同底物量'}</span>
+                      </button>
+                      <button className={addedReagents.includes('enzyme') ? 'summary-choice generic-choice secondary active' : 'summary-choice generic-choice secondary'} onClick={() => handleAddReagent('enzyme')} type="button">
+                        <strong>加入酶液</strong>
+                        <span>{addedReagents.includes('enzyme') ? '三组酶液已同步加入' : '加入后才能进入统一计时'}</span>
+                      </button>
+                      <button className={cameraPreset === 'focus' ? 'summary-choice generic-choice secondary active' : 'summary-choice generic-choice secondary'} onClick={() => setCameraPreset('focus')} type="button">
+                        <strong>切到试管近景</strong>
+                        <span>方便确认液面和后续泡沫变化。</span>
+                      </button>
+                    </>
+                  ) : null}
+
+                  {step === 4 ? (
+                    <>
+                      <button className={timerRunning ? 'summary-choice generic-choice primary active' : 'summary-choice generic-choice primary'} onClick={handleStartReaction} type="button">
+                        <strong>启动统一计时</strong>
+                        <span>{timerRunning ? '正在同步比较三组反应' : '开始后再比较泡沫高低'}</span>
+                      </button>
+                      <button className={cameraPreset === 'focus' ? 'summary-choice generic-choice secondary active' : 'summary-choice generic-choice secondary'} onClick={() => setCameraPreset('focus')} type="button">
+                        <strong>盯泡沫高度</strong>
+                        <span>聚焦试管，观察哪组泡沫上升更快、更高。</span>
+                      </button>
+                    </>
+                  ) : null}
                 </div>
-              ))}
-            </div>
-            <div className="button-stack">
-              <button className="action-button ghost" onClick={() => handleAddReagent('substrate')} type="button" disabled={step !== 3 || addedReagents.includes('substrate')}>
-                加入底物
-              </button>
-              <button className="action-button ghost" onClick={() => handleAddReagent('enzyme')} type="button" disabled={step !== 3 || addedReagents.includes('enzyme')}>
-                加入酶液
-              </button>
-              <button className="action-button ghost" onClick={handleStartReaction} type="button" disabled={step !== 4 || timerRunning || reactionFinished}>
-                启动计时反应
-              </button>
-              <button className="action-button ghost" onClick={handleResetLab} type="button">
-                重置酶实验
-              </button>
-            </div>
-          </div>
+              </section>
 
-          <div className="info-card control-block">
-            <strong>结果记录</strong>
-            <div className="result-stack">
-              {slotOrder.map((slotId) => (
-                <div className="result-row" key={slotId}>
-                  <div>
-                    <strong>{slotLabels[slotId]}</strong>
-                    <small>{conditionLabels[slotId]}</small>
+              <section className="info-card enzyme-inline-panel enzyme-observation-panel">
+                <span className="eyebrow">Observation</span>
+                <h3>实验观察面板</h3>
+                <div className="chem-observation-grid enzyme-observation-grid">
+                  <div className={variableChoice ? 'observation-pill ready' : 'observation-pill'}>单一变量：{variableLabel}</div>
+                  <div className={rackReady ? 'observation-pill ready' : 'observation-pill'}>三组分组：{rackReady ? '完成' : '未完成'}</div>
+                  <div className={reagentsReady ? 'observation-pill ready' : 'observation-pill'}>反应液：{reagentsReady ? '全部加入' : '待补齐'}</div>
+                  <div className={reactionFinished ? 'observation-pill ready' : 'observation-pill'}>计时结果：{reactionFinished ? '已稳定' : timerRunning ? '进行中' : '未开始'}</div>
+                </div>
+                <div className="result-stack">
+                  {slotOrder.map((slotId) => (
+                    <div className="result-row" key={slotId}>
+                      <div>
+                        <strong>{slotLabels[slotId]}</strong>
+                        <small>{getConditionLabel(slotId)}</small>
+                      </div>
+                      <div className="result-bar"><i style={{ width: `${getFoamPercent(slotId)}%` }} /></div>
+                    </div>
+                  ))}
+                </div>
+                <div className="detail-list">
+                  <div className="detail-row">
+                    <div className="detail-copy">
+                      <strong>当前提示</strong>
+                      <small>{enzymeSceneHint}</small>
+                    </div>
+                    <span className={reactionFinished ? 'status-pill ready' : 'status-pill'}>{reactionFinished ? '可总结' : '继续观察'}</span>
                   </div>
-                  <div className="result-bar"><i style={{ width: `${Math.round(reactionResults[slotId] * reactionProgress * 100)}%` }} /></div>
+                  <div className="detail-row">
+                    <div className="detail-copy">
+                      <strong>结果判断</strong>
+                      <small>{bestConditionCopy}</small>
+                    </div>
+                    <span className={reactionFinished ? 'status-pill ready' : 'status-pill'}>{reactionFinished ? slotLabels[highestResultSlot] : '待完成'}</span>
+                  </div>
+                  <div className="detail-row">
+                    <div className="detail-copy">
+                      <strong>悬停部件</strong>
+                      <small>{hoveredPartCopy?.detail ?? '把鼠标移到试管位、试剂瓶或计时器上，可查看它们在变量控制实验中的作用。'}</small>
+                    </div>
+                    <span className={hoveredPartCopy ? 'status-pill ready' : 'status-pill'}>{hoveredPartCopy?.title ?? '无'}</span>
+                  </div>
                 </div>
-              ))}
+              </section>
             </div>
-            <small>对照组和实验组的泡沫高度差异可用于比较酶活性强弱。</small>
-          </div>
 
-          <div className="info-card control-block">
-            <strong>结论选择</strong>
-            <div className="summary-stack">
-              <button className={summaryChoice === 'multiple-variables' ? 'summary-choice active' : 'summary-choice'} onClick={() => setSummaryChoice('multiple-variables')} type="button">
-                同时改变多个变量，才能更快比较酶活性差异
-              </button>
-              <button className={summaryChoice === 'optimum-condition' ? 'summary-choice active' : 'summary-choice'} onClick={() => setSummaryChoice('optimum-condition')} type="button">
-                酶活性在适宜条件最高，温度或 pH 过高过低都会使反应减弱
-              </button>
-              <button className={summaryChoice === 'always-increase' ? 'summary-choice active' : 'summary-choice'} onClick={() => setSummaryChoice('always-increase')} type="button">
-                条件越极端，酶活性越高，泡沫总会更多
-              </button>
-            </div>
-            <button className="action-button" onClick={handleSubmitSummary} type="button" disabled={step !== 5}>
-              提交实验结论
-            </button>
+            {step === 5 ? (
+              <section className="enzyme-summary-dock">
+                <div className="enzyme-summary-head">
+                  <div>
+                    <span>Summary</span>
+                    <strong>选择正确实验结论</strong>
+                  </div>
+                  <span className="badge">舞台下提交结论</span>
+                </div>
+                <div className="enzyme-choice-row">
+                  <button className={summaryChoice === 'multiple-variables' ? 'summary-choice generic-choice secondary active' : 'summary-choice generic-choice secondary'} onClick={() => setSummaryChoice('multiple-variables')} type="button">
+                    <strong>同时改变多个变量，才能更快比较酶活性差异</strong>
+                    <span>错误演示：失去单一变量控制，实验无法解释。</span>
+                  </button>
+                  <button className={summaryChoice === 'optimum-condition' ? 'summary-choice generic-choice primary active' : 'summary-choice generic-choice primary'} onClick={() => setSummaryChoice('optimum-condition')} type="button">
+                    <strong>酶活性在适宜条件最高，温度或 pH 过高过低都会使反应减弱</strong>
+                    <span>与三组泡沫高度差异一致的正确结论。</span>
+                  </button>
+                  <button className={summaryChoice === 'always-increase' ? 'summary-choice generic-choice danger active' : 'summary-choice generic-choice danger'} onClick={() => setSummaryChoice('always-increase')} type="button">
+                    <strong>条件越极端，酶活性越高，泡沫总会更多</strong>
+                    <span>错误演示：忽略适宜条件与失活抑制现象。</span>
+                  </button>
+                </div>
+                <button className="action-button enzyme-submit-button" onClick={handleSubmitSummary} type="button" disabled={step !== 5}>
+                  提交实验结论
+                </button>
+              </section>
+            ) : null}
           </div>
+        </section>
+
+        <aside className="playground-side enzyme-side-rail enzyme-side-rail-right">
+          <section className="info-card enzyme-rail-card enzyme-rail-prompt">
+            <span className="eyebrow">Hover</span>
+            <h3>器材说明</h3>
+            <p>{hoveredPartCopy?.detail ?? '当前无悬停器材。把鼠标移到试管位、试剂瓶或计时器上，可查看其在变量控制实验中的作用。'}</p>
+          </section>
+
+          <section className="info-card enzyme-rail-card">
+            <span className="eyebrow">Checklist</span>
+            <h3>当前步骤要求</h3>
+            <ul className="bullet-list compact-list">
+              <li>当前目标：{stepTitles[step]}</li>
+              <li>主变量：{variableLabel} / 分组进度：{placedSlots.length}/3</li>
+              <li>加样进度：{addedReagents.length}/2 / 计时：{timerRunning ? '运行中' : reactionFinished ? '已完成' : '未开始'}</li>
+              <li>最优趋势：{reactionFinished ? `${slotLabels[highestResultSlot]} · ${getConditionLabel(highestResultSlot)}` : '等待结果稳定'}</li>
+            </ul>
+          </section>
+
+          <section className="info-card enzyme-rail-card enzyme-rail-prompt">
+            <span className="eyebrow">Recovery</span>
+            <h3>{errors > 0 ? '纠错建议' : '操作提示'}</h3>
+            <ul className="bullet-list compact-list recovery-list">
+              {enzymeRecoveryList.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className={`info-card enzyme-rail-card enzyme-rail-prompt ${completed ? 'tone-success' : promptTone === 'error' ? 'tone-error' : ''}`.trim()}>
+            <span className="eyebrow">Control</span>
+            <h3>实验控制</h3>
+            <p>{enzymeCompletionCopy}</p>
+            <div className="button-stack">
+              <button className="action-button ghost" onClick={handleResetLab} type="button">重置酶实验</button>
+            </div>
+            <small>{enzymeSceneHint}</small>
+          </section>
         </aside>
       </div>
     </section>

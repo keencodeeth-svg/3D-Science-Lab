@@ -13,7 +13,7 @@ import type { LabAttemptRecord, LabTelemetryInput } from './lib/labTelemetry';
 import { getStudentById, type DemoClassroom, type DemoStudent, type SchoolSummary } from './lib/schoolRoster';
 import type { SimulationRuntimeSnapshot } from './lib/simulationRuntime';
 import type { TeacherAssignmentDraft, TeacherAssignmentRecord } from './lib/teacherAssignments';
-import type { ExperimentConfig, ExperimentIndexItem, MultiscaleLens } from './types/experiment';
+import type { ExperimentConfig, ExperimentIndexItem, ExperimentStep, MultiscaleLens } from './types/experiment';
 
 const DEFAULT_EXPERIMENT_ID = 'phy-junior-circuit-001';
 const LAB_WORKBENCH_LAYOUT_STORAGE_KEY = '3d-science-lab:workbench-layout';
@@ -150,6 +150,40 @@ function getPreferredExperimentId(index: ExperimentIndexItem[]) {
 
 function isEditableTarget(target: EventTarget | null) {
   return target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName));
+}
+
+function formatWorkbenchObjectLabel(value: string | null | undefined) {
+  const normalized = (value ?? '').trim().replace(/[_-]+/g, ' ');
+  return normalized || '当前器材';
+}
+
+function describeWorkbenchNextAction(step: ExperimentStep | null | undefined, targetLabel: string) {
+  if (!step) return '先查看当前步骤提示';
+
+  switch (step.actionType) {
+    case 'identify-object':
+      return `先找到并识别 ${targetLabel}`;
+    case 'place-object':
+      return `先把 ${targetLabel} 放到正确位置`;
+    case 'connect-wire':
+      return `先连接 ${targetLabel}`;
+    case 'add-material':
+      return `先向 ${targetLabel} 加入对应材料`;
+    case 'heat-object':
+      return `先启动 ${targetLabel} 的加热`;
+    case 'adjust-focus':
+      return `先把 ${targetLabel} 调到清晰状态`;
+    case 'switch-view':
+      return `先切到 ${targetLabel} 对应视角`;
+    case 'record-observation':
+      return `先观察并记录 ${targetLabel} 的变化`;
+    case 'set-variable':
+      return `先设置 ${targetLabel} 这一步的变量`;
+    case 'complete-summary':
+      return `先完成 ${targetLabel} 的结果判断`;
+    default:
+      return `先处理 ${targetLabel}`;
+  }
 }
 
 function ShellLoadingPanel({
@@ -1142,6 +1176,24 @@ function App() {
         ]
       : []),
   ];
+  const currentWorkbenchGuideStep = currentWorkbenchStepConfig ?? selectedExperiment?.steps[0] ?? null;
+  const currentWorkbenchGuideStepId = currentWorkbenchGuideStep?.id ?? '';
+  const currentWorkbenchGuideOrder = currentWorkbenchGuideStep?.order ?? 1;
+  const currentWorkbenchGuideTitle = currentWorkbenchGuideStep?.title ?? activeWorkbenchAttempt?.currentStepLabel ?? selectedExperiment?.steps[0]?.title ?? '待开始';
+  const currentWorkbenchGuideTarget = formatWorkbenchObjectLabel(selectedExperimentRuntimeSnapshot?.focusTarget ?? currentWorkbenchGuideStep?.targetObject ?? selectedExperiment?.equipment[0]?.name ?? '');
+  const currentWorkbenchGuideAction = describeWorkbenchNextAction(currentWorkbenchGuideStep, currentWorkbenchGuideTarget);
+  const currentWorkbenchGuidePrompt = selectedExperimentRuntimeSnapshot?.stateSummary ?? workbenchLatestPrompt;
+  const currentWorkbenchGuideSuccess = currentWorkbenchGuideStep?.successCondition ?? '进入实验后，这里会显示当前步骤的完成标准。';
+  const currentWorkbenchGuideRisk = selectedExperimentRuntimeSnapshot?.failureRisks[0] ?? currentWorkbenchGuideStep?.failureHints[0] ?? '先按当前步骤推进，系统会在这里提示最容易出错的地方。';
+  const currentWorkbenchGuideHint = selectedExperiment && hasDedicatedExperimentPlayer(selectedExperiment.id)
+    ? `优先直接点击实验台上的 ${currentWorkbenchGuideTarget}；如果暂时没找到入口，再使用下方工作台按钮推进。`
+    : '当前实验仍在通用入口中，先按当前目标和下方步骤卡推进。';
+  const currentWorkbenchGuideRuntimeLine = selectedExperimentRuntimeSnapshot
+    ? `${selectedExperimentRuntimeSnapshot.phaseLabel} · ${selectedExperimentRuntimeSnapshot.trace[0] ?? selectedExperimentRuntimeSnapshot.stateSummary}`
+    : currentWorkbenchGuideHint;
+  const currentWorkbenchCueSummary = workbenchErrors > 0
+    ? `易错点：${currentWorkbenchGuideRisk}`
+    : `完成后标准：${currentWorkbenchGuideSuccess}`;
 
   const shouldShowLeftRailPeek = false;
   const shouldShowRightRailPeek = false;
@@ -1162,6 +1214,25 @@ function App() {
       return currentWorkbenchStepConfig?.id ?? selectedExperiment.steps[0]?.id ?? '';
     });
   }, [currentWorkbenchStepConfig?.id, selectedExperiment]);
+
+  const handleFocusCurrentWorkbenchStep = useCallback(() => {
+    if (!currentWorkbenchGuideStepId) return;
+    handleFocusWorkbenchStep(currentWorkbenchGuideStepId);
+  }, [currentWorkbenchGuideStepId, handleFocusWorkbenchStep]);
+
+  const handleOpenCurrentWorkbenchGuide = useCallback(() => {
+    if (currentWorkbenchGuideStepId) {
+      handleFocusWorkbenchStep(currentWorkbenchGuideStepId);
+    }
+
+    if (isLabWorkbenchFullscreen) {
+      handleSelectFullscreenUtility('steps');
+      return;
+    }
+
+    setLabWorkbenchPreset('custom');
+    setIsLabStepDockCollapsed(false);
+  }, [currentWorkbenchGuideStepId, handleFocusWorkbenchStep, handleSelectFullscreenUtility, isLabWorkbenchFullscreen]);
 
   useEffect(() => {
     setSelectedExperimentRuntimeSnapshot(null);
@@ -1607,7 +1678,72 @@ function App() {
                 </div>
               ) : null}
 
+              {selectedExperiment ? (
+                <article className="panel wide-panel lab-stage-guide-panel" aria-label="实验起步引导">
+                  <div className="lab-stage-guide-main">
+                    <div className="lab-stage-guide-head">
+                      <span className="eyebrow">Start Here</span>
+                      <span className="lab-stage-guide-step-pill">Step {String(Math.min(currentWorkbenchGuideOrder, Math.max(workbenchTotalSteps, 1))).padStart(2, '0')} / {Math.max(workbenchTotalSteps, 1)}</span>
+                    </div>
+                    <strong>{currentWorkbenchGuideAction}</strong>
+                    <p>{currentWorkbenchGuidePrompt}</p>
+                    <small>{currentWorkbenchGuideRuntimeLine}</small>
+                  </div>
+                  <div className="lab-stage-guide-note tone-success">
+                    <span>完成标准</span>
+                    <strong>{currentWorkbenchGuideSuccess}</strong>
+                  </div>
+                  <div className="lab-stage-guide-note tone-warning">
+                    <span>风险提醒</span>
+                    <strong>{currentWorkbenchGuideRisk}</strong>
+                  </div>
+                  <div className="lab-stage-guide-note">
+                    <span>操作方式</span>
+                    <strong>{currentWorkbenchGuideHint}</strong>
+                  </div>
+                  <div className="lab-stage-guide-actions">
+                    <button className="scene-action active" onClick={handleFocusCurrentWorkbenchStep} type="button">
+                      锁定当前步骤
+                    </button>
+                    <button className="scene-action" onClick={handleOpenCurrentWorkbenchGuide} type="button">
+                      {isLabWorkbenchFullscreen ? '打开步骤助手' : isLabStepDockCollapsed ? '展开步骤栏' : '查看步骤栏'}
+                    </button>
+                    <div className="lab-stage-guide-metrics">
+                      <span className="status-pill ready">进度 {workbenchProgressPercent}%</span>
+                      <span className={workbenchErrors > 0 ? 'status-pill' : 'status-pill ready'}>错误 {workbenchErrors}</span>
+                    </div>
+                  </div>
+                </article>
+              ) : null}
+
               <div className="lab-mode-shell" data-lab-mode={labStudioMode}>
+                {selectedExperiment ? (
+                  <aside className="lab-stage-cue" aria-label="舞台当前操作提示" data-mode={labStudioMode}>
+                    <div className="lab-stage-cue-head">
+                      <span className="lab-stage-cue-orb" aria-hidden="true" />
+                      <div className="lab-stage-cue-copy">
+                        <span className="eyebrow">On Stage</span>
+                        <strong>{currentWorkbenchGuideAction}</strong>
+                        <p>{currentWorkbenchGuideTitle} · 优先关注 {currentWorkbenchGuideTarget}</p>
+                        <small>{currentWorkbenchCueSummary}</small>
+                      </div>
+                    </div>
+                    <div className="lab-stage-cue-pills" aria-hidden="true">
+                      <span className="lab-stage-cue-pill target">{currentWorkbenchGuideTarget}</span>
+                      <span className={workbenchErrors > 0 ? 'lab-stage-cue-pill warning' : 'lab-stage-cue-pill'}>{workbenchErrors > 0 ? '先避开风险' : '完成后自动推进'}</span>
+                    </div>
+                    <div className="lab-stage-cue-actions">
+                      <button className="scene-action active" onClick={handleFocusCurrentWorkbenchStep} type="button">
+                        定位当前步骤
+                      </button>
+                      <button className="scene-action" onClick={handleOpenCurrentWorkbenchGuide} type="button">
+                        {isLabWorkbenchFullscreen ? '打开步骤助手' : isLabStepDockCollapsed ? '展开步骤栏' : '查看步骤栏'}
+                      </button>
+                    </div>
+                    <small className="lab-stage-cue-runtime">{currentWorkbenchGuideRuntimeLine}</small>
+                  </aside>
+                ) : null}
+
                 {isSelectedExperimentLoading && isDisplayedExperimentStale ? (
                   <div className="lab-loading-scrim" aria-live="polite" role="status">
                     <div className="lab-loading-scrim-card">
@@ -1856,7 +1992,6 @@ function App() {
                                       key={step.id}
                                       onClick={() => {
                                         handleFocusWorkbenchStep(step.id);
-                                        handleCloseFullscreenUtility();
                                       }}
                                       role="listitem"
                                       type="button"
