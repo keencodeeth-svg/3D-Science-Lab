@@ -212,6 +212,7 @@ function App() {
     initialLabWorkbenchLayout.studioMode === 'guide' ? 'copilot' : 'steps',
   );
   const selectedExperimentRequestRef = useRef(0);
+  const studentSelectionRequestRef = useRef(0);
 
   const bootstrapAppShell = useCallback(async () => {
     try {
@@ -417,15 +418,26 @@ function App() {
   }, []);
 
   const handleSelectStudent = useCallback((studentId: string) => {
+    if (!studentId || studentId === currentStudentId) return;
+
+    const previousStudentId = currentStudentId;
+    const requestId = studentSelectionRequestRef.current + 1;
+    studentSelectionRequestRef.current = requestId;
     setCurrentStudentId(studentId);
+
     void updateCurrentStudentSelection(studentId)
       .then(() => {
-        setPlatformIssue('');
+        if (studentSelectionRequestRef.current === requestId) {
+          setPlatformIssue('');
+        }
       })
       .catch((error) => {
-        setPlatformIssue(error instanceof Error ? error.message : '切换学生身份失败');
+        if (studentSelectionRequestRef.current === requestId) {
+          setCurrentStudentId((current) => (current === studentId ? previousStudentId : current));
+          setPlatformIssue(error instanceof Error ? error.message : '切换学生身份失败');
+        }
       });
-  }, []);
+  }, [currentStudentId]);
 
   const handleChangeView = useCallback((view: 'student' | 'teacher') => {
     if (view === 'teacher') {
